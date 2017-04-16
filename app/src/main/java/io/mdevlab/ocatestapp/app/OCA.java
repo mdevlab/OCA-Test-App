@@ -17,7 +17,10 @@ public class OCA extends Application {
 
         // Realm initialization and configuration
         Realm.init(this);
-        RealmConfiguration realmConfiguration = new RealmConfiguration.Builder().build();
+        RealmConfiguration realmConfiguration = new RealmConfiguration.Builder()
+                .name("oca.realm")
+                .schemaVersion(1)
+                .build();
         Realm.setDefaultConfiguration(realmConfiguration);
     }
 }
