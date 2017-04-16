@@ -1,6 +1,7 @@
 package io.mdevlab.ocatestapp.model.question;
 
 import io.mdevlab.ocatestapp.model.answer.Answer;
+import io.mdevlab.ocatestapp.util.Constants;
 import io.realm.RealmList;
 import io.realm.RealmObject;
 
@@ -58,5 +59,14 @@ public class Question extends RealmObject {
 
     public void setAnswers(RealmList<Answer> answers) {
         this.answers = answers;
+    }
+
+    @Override
+    public String toString() {
+        return "Question -> " + id + ", " + getTypeName() + ", " + explanation + ", isFavorite: " + isFavorite + ", answer size: " + answers.size();
+    }
+
+    private String getTypeName() {
+        return (type == Constants.SINGLE_ANSWER_QUESTION) ? "single answer question" : "multiple answer question";
     }
 }
