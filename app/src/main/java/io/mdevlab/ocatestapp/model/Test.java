@@ -10,13 +10,16 @@ import io.realm.RealmObject;
 
 public class Test extends RealmObject {
 
+    public static final int FINAL_TEST = 1;
+    public static final int CUSTOMIZED_TEST = 2;
+
     private int id;
     private long duration;
     private int numberOfCompletedQuestions;
     private int totalNumberOfQuestions;
     /*
     Either final test or customized test
-    Both are constants and are defined in the util.Constants class
+    Both are constants and are defined in this class
      */
     private int type;
     private RealmList<TestQuestion> questions;
