@@ -1,11 +1,10 @@
 package io.mdevlab.ocatestapp.dao;
 
 import android.content.Context;
-import android.widget.Toast;
 
 import java.util.Random;
 
-import io.mdevlab.ocatestapp.model.question.TestQuestion;
+import io.mdevlab.ocatestapp.model.TestQuestion;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
@@ -13,38 +12,26 @@ import io.realm.RealmResults;
  * Created by husaynhakeem on 4/16/17.
  */
 
-public class RealmTestQuestionsManager {
+public class TestQuestionManager {
 
-    private static RealmTestQuestionsManager instance;
+    private static TestQuestionManager instance;
     private static Context context;
 
-    public static RealmTestQuestionsManager with(Context context) {
+    public static TestQuestionManager with(Context context) {
         if (instance == null)
-            instance = new RealmTestQuestionsManager(context);
+            instance = new TestQuestionManager(context);
         return instance;
     }
 
-    private RealmTestQuestionsManager(Context context) {
-        RealmTestQuestionsManager.context = context;
+    private TestQuestionManager(Context context) {
+        TestQuestionManager.context = context;
     }
 
     public static void createTestQuestion(final TestQuestion question) {
-        Realm.getDefaultInstance().executeTransactionAsync(new Realm.Transaction() {
+        Realm.getDefaultInstance().executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
                 realm.insert(question);
-            }
-        }, new Realm.Transaction.OnSuccess() {
-
-            @Override
-            public void onSuccess() {
-                Toast.makeText(context, "test question created !", Toast.LENGTH_SHORT).show();
-            }
-        }, new Realm.Transaction.OnError() {
-
-            @Override
-            public void onError(Throwable error) {
-                Toast.makeText(context, "Error while creating test question !", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -84,5 +71,24 @@ public class RealmTestQuestionsManager {
 
         if (questionToUpdate != null)
             questionToUpdate.setFlagged(isFlagged);
+    }
+
+    public static int getNextIndex() {
+        Number currentIdNum = Realm.getDefaultInstance()
+                .where(TestQuestion.class)
+                .max(TestQuestion.ID_COLUMN);
+        if (currentIdNum == null)
+            return 1;
+        else
+            return currentIdNum.intValue() + 1;
+    }
+
+    public static void deleteTestQuestions() {
+        Realm.getDefaultInstance().executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                Realm.getDefaultInstance().delete(TestQuestion.class);
+            }
+        });
     }
 }

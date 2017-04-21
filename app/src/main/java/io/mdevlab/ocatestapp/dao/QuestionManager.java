@@ -1,11 +1,10 @@
 package io.mdevlab.ocatestapp.dao;
 
-import android.content.Context;
-import android.widget.Toast;
+import android.util.Log;
 
 import java.util.Random;
 
-import io.mdevlab.ocatestapp.model.question.Question;
+import io.mdevlab.ocatestapp.model.Question;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
@@ -13,20 +12,9 @@ import io.realm.RealmResults;
  * Created by husaynhakeem on 4/16/17.
  */
 
-public class RealmQuestionsManager {
+public class QuestionManager {
 
-    private static RealmQuestionsManager instance;
-    private static Context context;
-
-    public static RealmQuestionsManager with(Context context) {
-        if (instance == null)
-            instance = new RealmQuestionsManager(context);
-        return instance;
-    }
-
-    private RealmQuestionsManager(Context context) {
-        RealmQuestionsManager.context = context;
-    }
+    private static final String TAG = QuestionManager.class.getSimpleName();
 
     public static void createQuestion(final Question question) {
         Realm.getDefaultInstance().executeTransactionAsync(new Realm.Transaction() {
@@ -38,13 +26,13 @@ public class RealmQuestionsManager {
 
             @Override
             public void onSuccess() {
-                Toast.makeText(context, "question created !", Toast.LENGTH_SHORT).show();
+                Log.e(TAG, "question created!");
             }
         }, new Realm.Transaction.OnError() {
 
             @Override
             public void onError(Throwable error) {
-                Toast.makeText(context, "Error while creating question !", Toast.LENGTH_SHORT).show();
+                Log.e(TAG, "question not created!");
             }
         });
     }
@@ -52,7 +40,7 @@ public class RealmQuestionsManager {
     public static Question getQuestionById(int questionId) {
         return Realm.getDefaultInstance()
                 .where(Question.class)
-                .equalTo("id", questionId)
+                .equalTo(Question.ID_COLUMN, questionId)
                 .findFirst();
     }
 
@@ -62,6 +50,7 @@ public class RealmQuestionsManager {
                 .findAll();
     }
 
+    // Todo : Optimize random selection of an element, no need to charge all questions
     public static Question getRandomQuestion() {
         RealmResults<Question> questions = getAllQuestions();
         return (questions.size() > 0) ? questions.get(getRandomQuestionIndex(questions)) : null;
@@ -77,5 +66,25 @@ public class RealmQuestionsManager {
 
         if (questionToUpdate != null)
             questionToUpdate.setFavorite(isFavorite);
+    }
+
+    public static int getNextIndex() {
+        Number currentIdNum = Realm.getDefaultInstance()
+                .where(Question.class)
+                .max(Question.ID_COLUMN);
+        if (currentIdNum == null)
+            return 1;
+        else
+            return currentIdNum.intValue() + 1;
+    }
+
+    public static void deleteQuestions() {
+        Realm.getDefaultInstance()
+                .executeTransaction(new Realm.Transaction() {
+                    @Override
+                    public void execute(Realm realm) {
+                        realm.delete(Question.class);
+                    }
+                });
     }
 }

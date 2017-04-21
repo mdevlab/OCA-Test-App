@@ -1,4 +1,4 @@
-package io.mdevlab.ocatestapp.model.answer;
+package io.mdevlab.ocatestapp.model;
 
 import io.realm.RealmObject;
 
@@ -6,12 +6,13 @@ import io.realm.RealmObject;
  * Created by husaynhakeem on 4/16/17.
  */
 
-public class TestAnswer extends RealmObject {
+public class Answer extends RealmObject {
+
+    public static final String ID_COLUMN = "id";
 
     private int id;
     private String answer;
     private boolean isCorrect;
-    private boolean isSelected;
 
     public int getId() {
         return id;
@@ -37,11 +38,12 @@ public class TestAnswer extends RealmObject {
         isCorrect = correct;
     }
 
-    public boolean isSelected() {
-        return isSelected;
-    }
-
-    public void setSelected(boolean selected) {
-        isSelected = selected;
+    @Override
+    public String toString() {
+        return "Answer{" +
+                "id=" + id +
+                ", answer='" + answer + '\'' +
+                ", isCorrect=" + isCorrect +
+                '}';
     }
 }

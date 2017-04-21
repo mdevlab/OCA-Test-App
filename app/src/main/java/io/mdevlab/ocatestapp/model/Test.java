@@ -1,6 +1,5 @@
 package io.mdevlab.ocatestapp.model;
 
-import io.mdevlab.ocatestapp.model.question.TestQuestion;
 import io.realm.RealmList;
 import io.realm.RealmObject;
 
@@ -10,8 +9,7 @@ import io.realm.RealmObject;
 
 public class Test extends RealmObject {
 
-    public static final int FINAL_TEST = 1;
-    public static final int CUSTOMIZED_TEST = 2;
+    public static final String ID_COLUMN = "id";
 
     private int id;
     private long duration;
@@ -70,5 +68,16 @@ public class Test extends RealmObject {
 
     public void setQuestions(RealmList<TestQuestion> questions) {
         this.questions = questions;
+    }
+
+    @Override
+    public String toString() {
+        return "Test{" +
+                "id=" + id +
+                ", duration=" + duration +
+                ", progress=" + numberOfCompletedQuestions + "/" + totalNumberOfQuestions +
+                ", type=" + type +
+                ", questions=" + questions.size() +
+                '}';
     }
 }

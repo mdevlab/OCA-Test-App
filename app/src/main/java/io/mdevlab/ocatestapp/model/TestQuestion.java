@@ -1,7 +1,5 @@
-package io.mdevlab.ocatestapp.model.question;
+package io.mdevlab.ocatestapp.model;
 
-import io.mdevlab.ocatestapp.model.answer.Answer;
-import io.mdevlab.ocatestapp.util.Constants;
 import io.realm.RealmList;
 import io.realm.RealmObject;
 
@@ -9,7 +7,9 @@ import io.realm.RealmObject;
  * Created by husaynhakeem on 4/16/17.
  */
 
-public class Question extends RealmObject {
+public class TestQuestion extends RealmObject {
+
+    public static final String ID_COLUMN = "id";
 
     private int id;
     /*
@@ -19,7 +19,8 @@ public class Question extends RealmObject {
     private int type;
     private String explanation;
     private boolean isFavorite;
-    private RealmList<Answer> answers;
+    private RealmList<TestAnswer> answers;
+    private boolean isFlagged;
 
     public int getId() {
         return id;
@@ -53,20 +54,31 @@ public class Question extends RealmObject {
         isFavorite = favorite;
     }
 
-    public RealmList<Answer> getAnswers() {
+    public RealmList<TestAnswer> getAnswers() {
         return answers;
     }
 
-    public void setAnswers(RealmList<Answer> answers) {
+    public void setAnswers(RealmList<TestAnswer> answers) {
         this.answers = answers;
+    }
+
+    public boolean isFlagged() {
+        return isFlagged;
+    }
+
+    public void setFlagged(boolean flagged) {
+        isFlagged = flagged;
     }
 
     @Override
     public String toString() {
-        return "Question -> " + id + ", " + getTypeName() + ", " + explanation + ", isFavorite: " + isFavorite + ", answer size: " + answers.size();
-    }
-
-    private String getTypeName() {
-        return (type == Constants.SINGLE_ANSWER_QUESTION) ? "single answer question" : "multiple answer question";
+        return "TestQuestion{" +
+                "id=" + id +
+                ", type=" + type +
+                ", explanation='" + explanation + '\'' +
+                ", isFavorite=" + isFavorite +
+                ", answers=" + answers.size() +
+                ", isFlagged=" + isFlagged +
+                '}';
     }
 }

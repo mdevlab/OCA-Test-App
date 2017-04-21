@@ -1,6 +1,6 @@
-package io.mdevlab.ocatestapp.model.question;
+package io.mdevlab.ocatestapp.model;
 
-import io.mdevlab.ocatestapp.model.answer.TestAnswer;
+import io.mdevlab.ocatestapp.util.Constants;
 import io.realm.RealmList;
 import io.realm.RealmObject;
 
@@ -8,7 +8,9 @@ import io.realm.RealmObject;
  * Created by husaynhakeem on 4/16/17.
  */
 
-public class TestQuestion extends RealmObject {
+public class Question extends RealmObject {
+
+    public static final String ID_COLUMN = "id";
 
     private int id;
     /*
@@ -18,8 +20,7 @@ public class TestQuestion extends RealmObject {
     private int type;
     private String explanation;
     private boolean isFavorite;
-    private RealmList<TestAnswer> answers;
-    private boolean isFlagged;
+    private RealmList<Answer> answers;
 
     public int getId() {
         return id;
@@ -53,19 +54,26 @@ public class TestQuestion extends RealmObject {
         isFavorite = favorite;
     }
 
-    public RealmList<TestAnswer> getAnswers() {
+    public RealmList<Answer> getAnswers() {
         return answers;
     }
 
-    public void setAnswers(RealmList<TestAnswer> answers) {
+    public void setAnswers(RealmList<Answer> answers) {
         this.answers = answers;
     }
 
-    public boolean isFlagged() {
-        return isFlagged;
+    @Override
+    public String toString() {
+        return "Question{" +
+                "id=" + id +
+                ", type=" + type +
+                ", explanation='" + explanation + '\'' +
+                ", isFavorite=" + isFavorite +
+                ", answers=" + answers.size() +
+                '}';
     }
 
-    public void setFlagged(boolean flagged) {
-        isFlagged = flagged;
+    private String getTypeName() {
+        return (type == Constants.SINGLE_ANSWER_QUESTION) ? "single answer question" : "multiple answer question";
     }
 }

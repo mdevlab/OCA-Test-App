@@ -1,6 +1,5 @@
 package io.mdevlab.ocatestapp.model;
 
-import io.mdevlab.ocatestapp.model.question.Question;
 import io.realm.RealmList;
 import io.realm.RealmObject;
 
@@ -9,6 +8,8 @@ import io.realm.RealmObject;
  */
 
 public class Chapter extends RealmObject {
+
+    public static final String ID_COLUMN = "id";
 
     private int id;
     private String name;
@@ -45,5 +46,15 @@ public class Chapter extends RealmObject {
 
     public void setQuestions(RealmList<Question> questions) {
         this.questions = questions;
+    }
+
+    @Override
+    public String toString() {
+        return "Chapter{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", summary='" + summary + '\'' +
+                ", questions=" + questions.size() +
+                '}';
     }
 }
