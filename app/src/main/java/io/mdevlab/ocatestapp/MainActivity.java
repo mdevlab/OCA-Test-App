@@ -10,8 +10,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import io.mdevlab.ocatestapp.model.Question;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private final String TAG = MainActivity.class.getSimpleName();
+    Question question;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
