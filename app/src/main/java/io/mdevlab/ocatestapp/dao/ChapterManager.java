@@ -1,7 +1,10 @@
 package io.mdevlab.ocatestapp.dao;
 
 import io.mdevlab.ocatestapp.model.Chapter;
+import io.mdevlab.ocatestapp.model.Question;
+import io.mdevlab.ocatestapp.model.TestQuestion;
 import io.realm.Realm;
+import io.realm.RealmList;
 import io.realm.RealmResults;
 
 /**
@@ -52,5 +55,19 @@ public class ChapterManager {
                 realm.delete(Chapter.class);
             }
         });
+    }
+
+    public static RealmList<TestQuestion> getQuestionsForChapter(int chapterId) {
+        Chapter chapter = getChapterById(chapterId);
+
+        if (chapter != null) {
+            RealmList<TestQuestion> testQuestions = new RealmList<>();
+            for (Question question : chapter.getQuestions()) {
+                testQuestions.add(new TestQuestion(question));
+            }
+            return testQuestions;
+        }
+
+        return null;
     }
 }

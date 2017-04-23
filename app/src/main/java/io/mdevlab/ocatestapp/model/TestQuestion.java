@@ -17,10 +17,31 @@ public class TestQuestion extends RealmObject {
     Both are constants and are defined in this class
      */
     private int type;
+    private String statement;
     private String explanation;
     private boolean isFavorite;
     private RealmList<TestAnswer> answers;
     private boolean isFlagged;
+
+    public TestQuestion() {}
+
+    public TestQuestion(Question question) {
+        this.id = question.getId();
+        this.type = question.getType();
+        this.explanation = question.getExplanation();
+        this.isFavorite = question.isFavorite();
+        this.statement = question.getStatement();
+        this.answers = answersToTestAnswers(question.getAnswers());
+        this.isFlagged = false;
+    }
+
+    private RealmList<TestAnswer> answersToTestAnswers(RealmList<Answer> answers) {
+        RealmList<TestAnswer> testAnswers = new RealmList<>();
+        for (Answer answer: answers) {
+            testAnswers.add(new TestAnswer(answer));
+        }
+        return testAnswers;
+    }
 
     public int getId() {
         return id;
@@ -80,5 +101,21 @@ public class TestQuestion extends RealmObject {
                 ", answers=" + answers.size() +
                 ", isFlagged=" + isFlagged +
                 '}';
+    }
+
+    /**
+     * Method that checks whether a question has been answered correctly by the user
+     * It loops through the answers of the user until it either finds one that's been answered
+     * incorrectly, or until all the answers have been answered correctly.
+     *
+     * @return whether the question has been answered correctly by the user
+     */
+    public boolean hasBeenAnsweredCorrectly() {
+        for (TestAnswer userAnswer : answers) {
+            if (!userAnswer.isCorrect())
+                return false;
+        }
+
+        return true;
     }
 }

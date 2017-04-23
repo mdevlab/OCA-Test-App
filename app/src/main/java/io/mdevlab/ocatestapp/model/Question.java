@@ -1,6 +1,5 @@
 package io.mdevlab.ocatestapp.model;
 
-import io.mdevlab.ocatestapp.util.Constants;
 import io.realm.RealmList;
 import io.realm.RealmObject;
 
@@ -18,6 +17,7 @@ public class Question extends RealmObject {
     Both are constants and are defined in this class
      */
     private int type;
+    private String statement;
     private String explanation;
     private boolean isFavorite;
     private RealmList<Answer> answers;
@@ -62,6 +62,14 @@ public class Question extends RealmObject {
         this.answers = answers;
     }
 
+    public String getStatement() {
+        return statement;
+    }
+
+    public void setStatement(String statement) {
+        this.statement = statement;
+    }
+
     @Override
     public String toString() {
         return "Question{" +
@@ -71,9 +79,5 @@ public class Question extends RealmObject {
                 ", isFavorite=" + isFavorite +
                 ", answers=" + answers.size() +
                 '}';
-    }
-
-    private String getTypeName() {
-        return (type == Constants.SINGLE_ANSWER_QUESTION) ? "single answer question" : "multiple answer question";
     }
 }

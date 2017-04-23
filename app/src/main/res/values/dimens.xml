@@ -5,4 +5,10 @@
     <dimen name="nav_header_vertical_spacing">16dp</dimen>
     <dimen name="nav_header_height">160dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+
+    <!--Results screen-->
+    <dimen name="results_horizontal_margin_bottom">6dp</dimen>
+    <dimen name="score_duration_space">20dp</dimen>
+    <dimen name="bookmark_icon_dimensions">24dp</dimen>
+    <dimen name="question_item_dimension">72dp</dimen>
 </resources>

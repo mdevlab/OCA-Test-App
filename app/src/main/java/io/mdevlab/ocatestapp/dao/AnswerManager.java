@@ -33,6 +33,13 @@ public class AnswerManager {
         });
     }
 
+    public static Answer getAnswerById(int id) {
+        return Realm.getDefaultInstance()
+                .where(Answer.class)
+                .equalTo(Answer.ID_COLUMN, id)
+                .findFirst();
+    }
+
     public static RealmResults<Answer> getAllAnswers() {
         return Realm.getDefaultInstance()
                 .where(Answer.class)
