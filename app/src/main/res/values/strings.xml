@@ -6,4 +6,12 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <!--All chapters-->
+    <string name="final_test">Final test</string>
+    <string name="final_test_sub">Full length certification-like exam, 77 questions</string>
+    <string name="random_test">Random test</string>
+    <string name="random_test_sub">1 question/answer set exam</string>
+    <string name="customized_test">Customized test</string>
+    <string name="customized_test_sub">5 Questions/answers sets exams</string>
 </resources>

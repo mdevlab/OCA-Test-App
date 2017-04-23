@@ -8,4 +8,13 @@
     tools:context="io.mdevlab.ocatestapp.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
+    <TextView
+        android:id="@+id/all_chapters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="All chapters"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
 </RelativeLayout>
