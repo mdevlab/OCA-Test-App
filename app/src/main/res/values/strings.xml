@@ -1,9 +1,32 @@
 <resources>
     <string name="app_name">OCA Test App</string>
+    <string name="question_response">Response</string>
     <string name="title_activity_main">MainActivity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="dummy_explanation">A. Line 4 instantiates an Order. Java runs the declarations and instance initializers first
+in the order they appear. This sets value to tacf. Line 5 creates another Order and
+initializes value to tacb. The object on line 5 is stored in the same variable line 4 used.
+This makes the object created on line 4 unreachable. When value is printed, it is the
+instance variable in the object created on line 5.</string>
+
+    <string name="dummy_question">What is the output of the following program? \n \n
+1: public class FeedingSchedule { \n
+2: public static void main(String[] args) { \n
+3: boolean keepGoing = true; \n
+4: int count = 0; \n
+5: int x = 3; \n
+6: while(count++ &lt; 3) { \n
+7: int y = (1 + 2 * count) % 3; \n
+8: switch(y) { \n
+9: default: \n
+10: case 0: x -= 1; break; \n
+11: case 1: x += 5; \n
+12: } \n
+13: } \n
+14: System.out.println(x); \n
+15: } }</string>
 </resources>
