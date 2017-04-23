@@ -1,4 +1,4 @@
-package io.mdevlab.ocatestapp;
+package io.mdevlab.ocatestapp.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import io.mdevlab.ocatestapp.R;
 import io.mdevlab.ocatestapp.model.Question;
 
 public class MainActivity extends AppCompatActivity
