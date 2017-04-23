@@ -84,14 +84,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="@dimen/spacing_double">
-
+            <!--radioGroup for single answer-->
             <RadioGroup
                 android:id="@+id/answers_radio_group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:visibility="invisible" />
-
-
         </LinearLayout>
 
     </LinearLayout>
