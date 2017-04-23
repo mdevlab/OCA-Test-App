@@ -18,9 +18,18 @@ public class Question extends RealmObject {
     Both are constants and are defined in this class
      */
     private int type;
+    private String statement;
     private String explanation;
     private boolean isFavorite;
     private RealmList<Answer> answers;
+
+    public String getStatement() {
+        return statement;
+    }
+
+    public void setStatement(String statement) {
+        this.statement = statement;
+    }
 
     public int getId() {
         return id;

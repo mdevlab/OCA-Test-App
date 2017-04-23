@@ -1,23 +1,34 @@
 package io.mdevlab.ocatestapp.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.mdevlab.ocatestapp.R;
-import io.mdevlab.ocatestapp.model.Question;
+import io.mdevlab.ocatestapp.activitie.ResponseActivity;
+import io.mdevlab.ocatestapp.adapter.ChapterAdapter;
+import io.mdevlab.ocatestapp.model.Chapter;
+import io.mdevlab.ocatestapp.test.ChapterTest;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private final String TAG = MainActivity.class.getSimpleName();
-    Question question;
+    private RecyclerView mchapterRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +37,23 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+        mchapterRecyclerView = (RecyclerView) findViewById(R.id.chapter_recycler_view);
+
+        List<Chapter> chapterList = new ArrayList<>();
+        chapterList.add(ChapterTest.createChapter(0));
+        chapterList.add(ChapterTest.createChapter(1));
+        chapterList.add(ChapterTest.createChapter(2));
+        chapterList.add(ChapterTest.createChapter(3));
+        chapterList.add(ChapterTest.createChapter(4));
+        chapterList.add(ChapterTest.createChapter(5));
+
+        ChapterAdapter chapterAdapter = new ChapterAdapter(this,chapterList);
+        mchapterRecyclerView.setAdapter(chapterAdapter);
+        mchapterRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mchapterRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        //Drawer
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -61,7 +89,9 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            //Todo Delete This Call
+            Intent intent = new Intent(this, ResponseActivity.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);

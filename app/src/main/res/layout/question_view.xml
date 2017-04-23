@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--Response title-->
+        <TextView
+            android:id="@+id/response_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/question_response"
+            android:textSize="@dimen/text_size_big_title"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <!--explanation-->
+        <TextView
+            android:id="@+id/answer_explanation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_double"
+            android:background="@drawable/explanation_bg"
+            android:padding="@dimen/spacing_double"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:text="@string/dummy_explanation" />
+
+
+        <!--Question statement-->
+        <TextView
+            android:id="@+id/question_statement"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_double"
+            android:background="@drawable/question_bg"
+            android:padding="@dimen/spacing_double"
+            tools:text="@string/dummy_question" />
+
+        <!--Save and flag question-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_normal"
+            android:orientation="horizontal">
+
+            <!--Save question-->
+            <ToggleButton
+                android:id="@+id/save_question"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_save_toggle"
+                android:textOff=""
+                android:textOn="" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!--flag question-->
+            <ToggleButton
+                android:id="@+id/flag_question"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_flag_toggle"
+                android:textOff=""
+                android:textOn="" />
+
+        </LinearLayout>
+
+        <!--Answers container-->
+        <LinearLayout
+            android:id="@+id/answers_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_double">
+
+            <RadioGroup
+                android:id="@+id/answers_radio_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

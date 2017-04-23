@@ -18,9 +18,18 @@ public class TestQuestion extends RealmObject {
      */
     private int type;
     private String explanation;
+    private String statement;
     private boolean isFavorite;
     private RealmList<TestAnswer> answers;
     private boolean isFlagged;
+
+    public String getStatement() {
+        return statement;
+    }
+
+    public void setStatement(String statement) {
+        this.statement = statement;
+    }
 
     public int getId() {
         return id;
