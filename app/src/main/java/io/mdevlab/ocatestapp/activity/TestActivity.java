@@ -1,4 +1,4 @@
-package io.mdevlab.ocatestapp.activitie;
+package io.mdevlab.ocatestapp.activity;
 
 
 import android.os.Bundle;

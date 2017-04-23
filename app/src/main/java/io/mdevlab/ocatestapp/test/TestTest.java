@@ -60,7 +60,6 @@ public class TestTest {
         TestAnswer randomAnswer = new TestAnswer();
         randomAnswer.setId(TestAnswerManager.getNextIndex());
         randomAnswer.setAnswer("Answer " + index);
-        randomAnswer.setCorrect(true);
         randomAnswer.setSelected(false);
         return randomAnswer;
     }

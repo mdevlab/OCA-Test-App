@@ -100,7 +100,6 @@ public class ChapterTest {
         TestAnswer randomAnswer = new TestAnswer();
         randomAnswer.setId(AnswerManager.getNextIndex());
         randomAnswer.setAnswer("Answer " + index);
-        randomAnswer.setCorrect(true);
         return randomAnswer;
     }
 

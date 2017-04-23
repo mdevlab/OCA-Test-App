@@ -19,4 +19,7 @@ public class Constants {
     public static final int ALL_CHAPTERS_FINAL_TEST = 1;
     public static final int ALL_CHAPTERS_CUSTOM_TEST = 2;
     public static final int ALL_CHAPTERS_RANDOM_TEST = 3;
+
+    // Results screen
+    public static final String QUESTION_ID = "question id";
 }
