@@ -1,6 +1,6 @@
 package io.mdevlab.ocatestapp.model;
 
-import io.mdevlab.ocatestapp.dao.AnswerManager;
+import io.mdevlab.ocatestapp.modelManager.AnswerManager;
 import io.realm.RealmObject;
 
 /**

@@ -1,6 +1,4 @@
-package io.mdevlab.ocatestapp.dao;
-
-import android.util.Log;
+package io.mdevlab.ocatestapp.modelManager;
 
 import io.mdevlab.ocatestapp.model.Answer;
 import io.realm.Realm;
@@ -12,27 +10,10 @@ import io.realm.RealmResults;
 
 public class AnswerManager {
 
-    private static final String TAG = AnswerManager.class.getSimpleName();
-
-    public static void createAnswer(final Answer answer) {
-        Realm.getDefaultInstance().executeTransactionAsync(new Realm.Transaction() {
-            @Override
-            public void execute(Realm realm) {
-                realm.insert(answer);
-            }
-        }, new Realm.Transaction.OnSuccess() {
-            @Override
-            public void onSuccess() {
-                Log.e(TAG, "Answer created !");
-            }
-        }, new Realm.Transaction.OnError() {
-            @Override
-            public void onError(Throwable error) {
-                Log.e(TAG, "Answer not created !");
-            }
-        });
-    }
-
+    /**
+     * @param id
+     * @return Answer object with the given id
+     */
     public static Answer getAnswerById(int id) {
         return Realm.getDefaultInstance()
                 .where(Answer.class)
@@ -40,12 +21,18 @@ public class AnswerManager {
                 .findFirst();
     }
 
+    /**
+     * @return List of all answers
+     */
     public static RealmResults<Answer> getAllAnswers() {
         return Realm.getDefaultInstance()
                 .where(Answer.class)
                 .findAll();
     }
 
+    /**
+     * @return Highest index in the answers table + 1
+     */
     public static int getNextIndex() {
         Number currentIdNum = Realm.getDefaultInstance()
                 .where(Answer.class)
@@ -56,6 +43,9 @@ public class AnswerManager {
             return currentIdNum.intValue() + 1;
     }
 
+    /**
+     * Delete all the answers
+     */
     public static void deleteAnswers() {
         Realm.getDefaultInstance().executeTransaction(new Realm.Transaction() {
             @Override
