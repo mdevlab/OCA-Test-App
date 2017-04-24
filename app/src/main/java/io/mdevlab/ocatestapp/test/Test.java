@@ -3,8 +3,8 @@ package io.mdevlab.ocatestapp.test;
 import android.content.Context;
 import android.util.Log;
 
-import io.mdevlab.ocatestapp.dao.ChapterManager;
-import io.mdevlab.ocatestapp.dao.TestManager;
+import io.mdevlab.ocatestapp.modelManager.ChapterManager;
+import io.mdevlab.ocatestapp.modelManager.TestManager;
 import io.mdevlab.ocatestapp.model.Chapter;
 import io.mdevlab.ocatestapp.util.Constants;
 import io.mdevlab.ocatestapp.util.Mapper;

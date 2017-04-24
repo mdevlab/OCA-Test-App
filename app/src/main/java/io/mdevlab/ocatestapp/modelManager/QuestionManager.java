@@ -1,6 +1,4 @@
-package io.mdevlab.ocatestapp.dao;
-
-import android.util.Log;
+package io.mdevlab.ocatestapp.modelManager;
 
 import java.util.Random;
 
@@ -8,66 +6,43 @@ import io.mdevlab.ocatestapp.model.Question;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
+// Todo : Optimize random selection of an element, no need to charge all questions
+
 /**
  * Created by husaynhakeem on 4/16/17.
  */
 
 public class QuestionManager {
 
-    private static final String TAG = QuestionManager.class.getSimpleName();
-
-    public static void createQuestion(final Question question) {
-        Realm.getDefaultInstance().executeTransactionAsync(new Realm.Transaction() {
-            @Override
-            public void execute(Realm realm) {
-                realm.insert(question);
-            }
-        }, new Realm.Transaction.OnSuccess() {
-
-            @Override
-            public void onSuccess() {
-                Log.e(TAG, "question created!");
-            }
-        }, new Realm.Transaction.OnError() {
-
-            @Override
-            public void onError(Throwable error) {
-                Log.e(TAG, "question not created!");
-            }
-        });
-    }
-
-    public static Question getQuestionById(int questionId) {
-        return Realm.getDefaultInstance()
-                .where(Question.class)
-                .equalTo(Question.ID_COLUMN, questionId)
-                .findFirst();
-    }
-
+    /**
+     * @return List of all questions
+     */
     public static RealmResults<Question> getAllQuestions() {
         return Realm.getDefaultInstance()
                 .where(Question.class)
                 .findAll();
     }
 
-    // Todo : Optimize random selection of an element, no need to charge all questions
+    /**
+     * @return Question object chosen randomly
+     */
     public static Question getRandomQuestion() {
         RealmResults<Question> questions = getAllQuestions();
         return (questions.size() > 0) ? questions.get(getRandomQuestionIndex(questions)) : null;
     }
 
+    /**
+     * @param questions: List of all questions
+     * @return Random index of an existing question
+     */
     private static int getRandomQuestionIndex(RealmResults<Question> questions) {
         Random random = new Random();
         return random.nextInt(questions.size());
     }
 
-    public static void setQuestionAsFavorite(int questionId, boolean isFavorite) {
-        Question questionToUpdate = getQuestionById(questionId);
-
-        if (questionToUpdate != null)
-            questionToUpdate.setFavorite(isFavorite);
-    }
-
+    /**
+     * @return Highest index in the questions table + 1
+     */
     public static int getNextIndex() {
         Number currentIdNum = Realm.getDefaultInstance()
                 .where(Question.class)
@@ -78,6 +53,9 @@ public class QuestionManager {
             return currentIdNum.intValue() + 1;
     }
 
+    /**
+     * Delete all questions
+     */
     public static void deleteQuestions() {
         Realm.getDefaultInstance()
                 .executeTransaction(new Realm.Transaction() {
