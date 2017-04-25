@@ -13,15 +13,25 @@ public class Test extends RealmObject {
 
     public static final String ID_COLUMN = "id";
 
+    // Test id
     private int id;
+
+    // Test duration in seconds
     private long duration;
+
+    // Number of completed questions in the test
     private int numberOfCompletedQuestions;
+
+    // Total number of questions in the test
     private int totalNumberOfQuestions;
-    /*
-    Either final test or customized test
-    Both are constants and are defined in this class
+
+    /**
+     * Either final test or customized test
+     * Both are constants and are defined in the Constants class
      */
     private int type;
+
+    // List of questions in the test
     private RealmList<TestQuestion> questions;
 
     public int getId() {

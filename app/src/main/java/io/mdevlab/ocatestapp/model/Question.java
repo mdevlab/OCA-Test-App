@@ -11,15 +11,25 @@ public class Question extends RealmObject {
 
     public static final String ID_COLUMN = "id";
 
+    // Question id
     private int id;
-    /*
-    Either single answer question or multi answer question
-    Both are constants and are defined in this class
+
+    /**
+     * Either single answer question or multi answer question
+     * Both are constants and are defined in the Constants class
      */
     private int type;
+
+    // Question statement (concrete question)
     private String statement;
+
+    // Question answer explanation
     private String explanation;
+
+    // Whether the question has been saved or not
     private boolean isFavorite;
+
+    // List of given answers for this question
     private RealmList<Answer> answers;
 
     public int getId() {
