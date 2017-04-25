@@ -3,7 +3,29 @@
     <color name="colorPrimary">#3982c6</color>
     <color name="colorPrimaryDark">#1873c9</color>
     <color name="colorAccent">#8bea0e</color>
+
     <color name="backgroundColor">#132852</color>
     <color name="blackColor">#000000</color>
+
+
+
+
+
+    <!--All chapter color -->
+
+    <color name="item_color_all_chapter">#f4cd55</color>
+    <!--Item Color-->
+    <color name="item_color_1">#8643a5</color>
+    <color name="item_color_2">#593aaa</color>
+    <color name="item_color_3">#3d4aa5</color>
+    <color name="item_color_4">#4486de</color>
+    <color name="item_color_5">#64abbe</color>
+    <color name="item_color_6">#51887b</color>
+
+
+
+
+
+
 
 </resources>
