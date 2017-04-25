@@ -18,7 +18,6 @@ public class TestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
-
         TestQuestion question = ChapterTest.createRandomTestQuestion(0,TestActivity.this);
 
         FragmentManager fm = getSupportFragmentManager();
@@ -26,8 +25,5 @@ public class TestActivity extends AppCompatActivity {
         ft.add(R.id.question_container, QuestionFragment.newInstance(question,false));
 
         ft.commit();
-
     }
-
-
 }

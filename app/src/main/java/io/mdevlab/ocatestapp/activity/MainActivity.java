@@ -27,7 +27,9 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private final String TAG = MainActivity.class.getSimpleName();
-    private RecyclerView mchapterRecyclerView;
+
+    private RecyclerView mChapterRecyclerView;
+    private DrawerLayout mDrawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +38,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-        mchapterRecyclerView = (RecyclerView) findViewById(R.id.chapter_recycler_view);
+        mChapterRecyclerView = (RecyclerView) findViewById(R.id.chapter_recycler_view);
 
         List<Chapter> chapterList = new ArrayList<>();
         chapterList.add(ChapterTest.createChapter(0));
@@ -47,17 +48,17 @@ public class MainActivity extends AppCompatActivity
         chapterList.add(ChapterTest.createChapter(4));
         chapterList.add(ChapterTest.createChapter(5));
 
-        ChapterAdapter chapterAdapter = new ChapterAdapter(this,chapterList);
-        mchapterRecyclerView.setAdapter(chapterAdapter);
-        mchapterRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mchapterRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        ChapterAdapter chapterAdapter = new ChapterAdapter(this, chapterList);
+        mChapterRecyclerView.setAdapter(chapterAdapter);
+        mChapterRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mChapterRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         //Drawer
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, mDrawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
-        drawer.addDrawerListener(toggle);
+        mDrawer.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -66,9 +67,10 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
+        if (mDrawer == null)
+            mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (mDrawer.isDrawerOpen(GravityCompat.START)) {
+            mDrawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
         }
@@ -83,31 +85,33 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (item.getItemId() == R.id.action_settings) {
             //Todo Delete This Call
             Intent intent = new Intent(this, ResponseActivity.class);
             startActivity(intent);
         }
-
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Method that handles on click events on the drawer items
+     *
+     * @param item: Clicked on item
+     * @return
+     */
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
+        int itemId = item.getItemId();
 
-        if (id == R.id.nav_favorite) {
-            // Handle the favorite click
+        switch (itemId) {
+            case R.id.nav_favorite:
+                break;
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+        if (mDrawer == null)
+            mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawer.closeDrawer(GravityCompat.START);
         return true;
     }
 }
