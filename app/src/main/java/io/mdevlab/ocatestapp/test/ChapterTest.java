@@ -4,9 +4,9 @@ import android.content.Context;
 import android.util.Log;
 
 import io.mdevlab.ocatestapp.R;
-import io.mdevlab.ocatestapp.dao.AnswerManager;
-import io.mdevlab.ocatestapp.dao.ChapterManager;
-import io.mdevlab.ocatestapp.dao.QuestionManager;
+import io.mdevlab.ocatestapp.modelManager.AnswerManager;
+import io.mdevlab.ocatestapp.modelManager.ChapterManager;
+import io.mdevlab.ocatestapp.modelManager.QuestionManager;
 import io.mdevlab.ocatestapp.model.Answer;
 import io.mdevlab.ocatestapp.model.Chapter;
 import io.mdevlab.ocatestapp.model.Question;
@@ -100,7 +100,6 @@ public class ChapterTest {
         TestAnswer randomAnswer = new TestAnswer();
         randomAnswer.setId(AnswerManager.getNextIndex());
         randomAnswer.setAnswer("Answer " + index);
-        randomAnswer.setCorrect(true);
         return randomAnswer;
     }
 

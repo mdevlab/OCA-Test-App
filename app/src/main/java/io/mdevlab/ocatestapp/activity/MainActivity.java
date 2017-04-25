@@ -17,7 +17,6 @@ import android.view.MenuItem;
 import java.util.List;
 
 import io.mdevlab.ocatestapp.R;
-import io.mdevlab.ocatestapp.activitie.ResponseActivity;
 import io.mdevlab.ocatestapp.adapter.ChapterAdapter;
 import io.mdevlab.ocatestapp.model.Chapter;
 import io.mdevlab.ocatestapp.test.ChaptersTest;

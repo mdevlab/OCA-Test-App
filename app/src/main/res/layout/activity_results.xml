@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="io.mdevlab.ocatestapp.activity.ResultsActivity">
+
+    <!--Score and time-->
+    <LinearLayout
+        android:id="@+id/score_and_duration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:padding="@dimen/results_horizontal_margin_bottom">
+
+        <!--Score title-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/test_score"
+            android:textStyle="bold" />
+
+        <!--Score value-->
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/score_duration_space"
+            android:layout_marginRight="@dimen/score_duration_space"
+            android:text="75/100" />
+
+        <!--Duration title-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/test_duration"
+            android:textStyle="bold" />
+
+        <!--Duration value-->
+        <TextView
+            android:id="@+id/duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="90 minutes" />
+
+    </LinearLayout>
+
+    <!--Questions-->
+    <GridView
+        android:id="@+id/questions_grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/results_screen_action_buttons"
+        android:layout_below="@+id/score_and_duration"
+        android:numColumns="4"
+        tools:listitem="@layout/item_result" />
+
+    <!--Action buttons-->
+    <LinearLayout
+        android:id="@+id/results_screen_action_buttons"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/results_horizontal_margin_bottom"
+        android:paddingRight="@dimen/results_horizontal_margin_bottom">
+
+        <Button
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="backToMainScreen"
+            android:text="@string/back_to_main_screen" />
+
+        <Button
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="takeAnotherTest"
+            android:text="@string/take_another_test" />
+
+        <Button
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="upgrade"
+            android:text="@string/upgrade" />
+
+    </LinearLayout>
+</RelativeLayout>

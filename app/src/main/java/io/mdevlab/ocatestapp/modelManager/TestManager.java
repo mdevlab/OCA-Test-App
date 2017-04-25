@@ -1,4 +1,4 @@
-package io.mdevlab.ocatestapp.dao;
+package io.mdevlab.ocatestapp.modelManager;
 
 import io.mdevlab.ocatestapp.model.Test;
 import io.realm.Realm;
@@ -10,8 +10,9 @@ import io.realm.RealmResults;
 
 public class TestManager {
 
-    private static final String TAG = TestManager.class.getSimpleName();
-
+    /**
+     * @param test Test object to be inserted
+     */
     public static void createTest(final Test test) {
         Realm.getDefaultInstance()
                 .executeTransaction(new Realm.Transaction() {
@@ -22,19 +23,18 @@ public class TestManager {
                 });
     }
 
-    public static Test getTestById(int testId) {
-        return Realm.getDefaultInstance()
-                .where(Test.class)
-                .equalTo(Test.ID_COLUMN, testId)
-                .findFirst();
-    }
-
+    /**
+     * @return List of all tests
+     */
     public static RealmResults<Test> getAllTests() {
         return Realm.getDefaultInstance()
                 .where(Test.class)
                 .findAll();
     }
 
+    /**
+     * @return Highest index in the test table + 1
+     */
     public static int getNextIndex() {
         Number currentIdNum = Realm.getDefaultInstance()
                 .where(Test.class)
@@ -45,6 +45,9 @@ public class TestManager {
             return currentIdNum.intValue() + 1;
     }
 
+    /**
+     * Delete all tests
+     */
     public static void deleteAllTests() {
         Realm.getDefaultInstance()
                 .executeTransaction(new Realm.Transaction() {

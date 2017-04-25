@@ -14,6 +14,7 @@
     <dimen name="spacing_double">16dp</dimen>
     <dimen name="spacing_huge">72dp</dimen>
 
+
     <!--card property-->
     <dimen name="card_margin">5dp</dimen>
     <dimen name="card_album_radius">5dp</dimen>
@@ -23,12 +24,15 @@
     <!--next previous dimens-->
     <dimen name="height_button">52dp</dimen>
 
-
     <!--Icons Height Width-->
     <dimen name="icons_width_height">36dp</dimen>
-
 
     <!--Text Sizes -->
     <dimen name="text_size_big_title">32sp</dimen>
 
+    <!--Results screen-->
+    <dimen name="results_horizontal_margin_bottom">6dp</dimen>
+    <dimen name="score_duration_space">20dp</dimen>
+    <dimen name="bookmark_icon_dimensions">24dp</dimen>
+    <dimen name="question_item_dimension">72dp</dimen>
 </resources>

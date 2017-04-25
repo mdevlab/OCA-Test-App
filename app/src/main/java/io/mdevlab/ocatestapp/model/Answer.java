@@ -10,8 +10,13 @@ public class Answer extends RealmObject {
 
     public static final String ID_COLUMN = "id";
 
+    // Answer id
     private int id;
+
+    // Answer statement (concrete answer)
     private String answer;
+
+    // Whether the answer is correct or false
     private boolean isCorrect;
 
     public int getId() {

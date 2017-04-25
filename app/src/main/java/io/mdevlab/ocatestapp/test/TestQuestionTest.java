@@ -2,7 +2,7 @@ package io.mdevlab.ocatestapp.test;
 
 import android.util.Log;
 
-import io.mdevlab.ocatestapp.dao.TestQuestionManager;
+import io.mdevlab.ocatestapp.modelManager.TestQuestionManager;
 import io.mdevlab.ocatestapp.model.TestQuestion;
 import io.realm.RealmResults;
 

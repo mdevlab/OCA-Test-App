@@ -1,5 +1,6 @@
 package io.mdevlab.ocatestapp.model;
 
+import io.mdevlab.ocatestapp.modelManager.AnswerManager;
 import io.realm.RealmObject;
 
 /**
@@ -10,10 +11,23 @@ public class TestAnswer extends RealmObject {
 
     public static final String ID_COLUMN = "id";
 
+    // Test answer id
     private int id;
+
+    // Test answer statement
     private String answer;
-    private boolean isCorrect;
+
+    // Whether this answer has been selected or not
     private boolean isSelected;
+
+    public TestAnswer() {
+    }
+
+    public TestAnswer(Answer answer) {
+        this.id = answer.getId();
+        this.answer = answer.getAnswer();
+        this.isSelected = false;
+    }
 
     public int getId() {
         return id;
@@ -31,14 +45,6 @@ public class TestAnswer extends RealmObject {
         this.answer = answer;
     }
 
-    public boolean isCorrect() {
-        return isCorrect;
-    }
-
-    public void setCorrect(boolean correct) {
-        isCorrect = correct;
-    }
-
     public boolean isSelected() {
         return isSelected;
     }
@@ -52,8 +58,27 @@ public class TestAnswer extends RealmObject {
         return "TestAnswer{" +
                 "id=" + id +
                 ", answer='" + answer + '\'' +
-                ", isCorrect=" + isCorrect +
                 ", isSelected=" + isSelected +
                 '}';
+    }
+
+    /**
+     * Method that checks whether the current answer object has been answered correctly by the user
+     * It compares the user's answer with the original answer.
+     *
+     * @return whether the current answer object has been answered correctly by the user
+     */
+    public boolean isCorrect() {
+        Answer originalAnswer = AnswerManager.getAnswerById(id);
+
+        if (originalAnswer == null)
+            return true;
+
+        /**
+         * If the answer is correct and the user selected it -> Correct
+         * If the answer is incorrect and the user didn't select it -> Correct
+         * otherwise -> Incorrect
+         */
+        return isSelected == originalAnswer.isCorrect();
     }
 }

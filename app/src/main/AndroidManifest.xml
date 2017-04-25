@@ -16,15 +16,13 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".activity.AllChaptersActivity"></activity>
-
-        <activity android:name=".activitie.TestActivity" />
-        <activity android:name=".activitie.ResponseActivity"></activity>
+        <activity android:name=".activity.AllChaptersActivity" />
+        <activity android:name=".activity.ResultsActivity" />
+        <activity android:name=".activity.TestActivity" />
+        <activity android:name=".activity.ResponseActivity" />
     </application>
 
 </manifest>

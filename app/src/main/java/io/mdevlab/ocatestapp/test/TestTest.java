@@ -2,9 +2,9 @@ package io.mdevlab.ocatestapp.test;
 
 import android.util.Log;
 
-import io.mdevlab.ocatestapp.dao.TestAnswerManager;
-import io.mdevlab.ocatestapp.dao.TestManager;
-import io.mdevlab.ocatestapp.dao.TestQuestionManager;
+import io.mdevlab.ocatestapp.modelManager.TestAnswerManager;
+import io.mdevlab.ocatestapp.modelManager.TestManager;
+import io.mdevlab.ocatestapp.modelManager.TestQuestionManager;
 import io.mdevlab.ocatestapp.model.Test;
 import io.mdevlab.ocatestapp.model.TestAnswer;
 import io.mdevlab.ocatestapp.model.TestQuestion;
@@ -60,7 +60,6 @@ public class TestTest {
         TestAnswer randomAnswer = new TestAnswer();
         randomAnswer.setId(TestAnswerManager.getNextIndex());
         randomAnswer.setAnswer("Answer " + index);
-        randomAnswer.setCorrect(true);
         randomAnswer.setSelected(false);
         return randomAnswer;
     }
