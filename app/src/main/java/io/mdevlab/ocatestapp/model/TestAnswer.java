@@ -11,11 +11,17 @@ public class TestAnswer extends RealmObject {
 
     public static final String ID_COLUMN = "id";
 
+    // Test answer id
     private int id;
+
+    // Test answer statement
     private String answer;
+
+    // Whether this answer has been selected or not
     private boolean isSelected;
 
-    public TestAnswer() {}
+    public TestAnswer() {
+    }
 
     public TestAnswer(Answer answer) {
         this.id = answer.getId();

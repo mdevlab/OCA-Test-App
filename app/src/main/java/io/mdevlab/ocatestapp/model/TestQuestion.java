@@ -11,17 +11,32 @@ public class TestQuestion extends RealmObject {
 
     public static final String ID_COLUMN = "id";
 
+    // Test question id
     private int id;
-    /*
-    Either single answer question or multi answer question
-    Both are constants and are defined in this class
+
+    /**
+     * Either single answer question or multi answer question
+     * Both are constants and are defined in the Constants class
      */
     private int type;
+
+    // Test question explanation
     private String explanation;
+
+    // Test question statement
     private String statement;
+
+    // Whether the current question is saved or not
     private boolean isFavorite;
-    private RealmList<TestAnswer> answers;
+
+    /**
+     * Whether the current test question is flagged
+     * Flagged = Bookmarked to be saved and reviewed at the end of the test
+     */
     private boolean isFlagged;
+
+    // List of answers to the test question
+    private RealmList<TestAnswer> answers;
 
     public TestQuestion() {
     }
@@ -34,14 +49,6 @@ public class TestQuestion extends RealmObject {
         this.statement = question.getStatement();
         this.answers = answersToTestAnswers(question.getAnswers());
         this.isFlagged = false;
-    }
-
-    private RealmList<TestAnswer> answersToTestAnswers(RealmList<Answer> answers) {
-        RealmList<TestAnswer> testAnswers = new RealmList<>();
-        for (Answer answer : answers) {
-            testAnswers.add(new TestAnswer(answer));
-        }
-        return testAnswers;
     }
 
     public int getId() {
@@ -110,6 +117,18 @@ public class TestQuestion extends RealmObject {
                 ", answers=" + answers.size() +
                 ", isFlagged=" + isFlagged +
                 '}';
+    }
+
+    /**
+     * @param answers List of answer objects to be converted
+     * @return Converted list of Answer objects to list of Test Answer objects
+     */
+    private RealmList<TestAnswer> answersToTestAnswers(RealmList<Answer> answers) {
+        RealmList<TestAnswer> testAnswers = new RealmList<>();
+        for (Answer answer : answers) {
+            testAnswers.add(new TestAnswer(answer));
+        }
+        return testAnswers;
     }
 
     /**
