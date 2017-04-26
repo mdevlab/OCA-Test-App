@@ -18,11 +18,11 @@ public class ResponseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_response);
 
-        TestQuestion question = ChapterTest.createRandomTestQuestion(0,ResponseActivity.this);
+        TestQuestion question = ChapterTest.createRandomTestQuestion(0, ResponseActivity.this);
 
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        ft.add(R.id.question_container, QuestionFragment.newInstance(question,true));
+        ft.add(R.id.question_container, QuestionFragment.newInstance(question, true));
 
         ft.commit();
 

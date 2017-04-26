@@ -17,19 +17,32 @@ public class AllChaptersActivity extends AppCompatActivity
         setContentView(R.layout.activity_all_chapters);
     }
 
+    /**
+     * The UI contains 3 main clickable sections:
+     * - Final test
+     * - Custom test
+     * - Random test
+     * Depending on which on is clicked, a specific value is passed on to
+     * the Test handler class.
+     *
+     * @param view: Clicked view
+     */
     @Override
     public void onClick(View view) {
-        int testMode = Constants.ALL_CHAPTERS_FINAL_TEST;
+        int testMode = Constants.FINAL_TEST_MODE;
         switch (view.getId()) {
             case R.id.final_test:
-                testMode = Constants.ALL_CHAPTERS_FINAL_TEST;
+                testMode = Constants.FINAL_TEST_MODE;
+                break;
             case R.id.custom_test:
-                testMode = Constants.ALL_CHAPTERS_CUSTOM_TEST;
+                testMode = Constants.CUSTOM_TEST_MODE;
+                break;
             case R.id.random_test:
-                testMode = Constants.ALL_CHAPTERS_RANDOM_TEST;
+                testMode = Constants.RANDOM_TEST_MODE;
+                break;
         }
         Intent beginTest = new Intent(AllChaptersActivity.this, null);
-        beginTest.putExtra(Constants.ALL_CHAPTERS_TEST_MODE, testMode);
+        beginTest.putExtra(Constants.TEST_MODE, testMode);
         startActivity(beginTest);
     }
 }

@@ -15,10 +15,10 @@ public class Constants {
     public static final int CUSTOMIZED_TEST = 2;
 
     // All chapters test modes
-    public static final String ALL_CHAPTERS_TEST_MODE = "test mode";
-    public static final int ALL_CHAPTERS_FINAL_TEST = 1;
-    public static final int ALL_CHAPTERS_CUSTOM_TEST = 2;
-    public static final int ALL_CHAPTERS_RANDOM_TEST = 3;
+    public static final String TEST_MODE = "test mode";
+    public static final int FINAL_TEST_MODE = 1;
+    public static final int CUSTOM_TEST_MODE = 2;
+    public static final int RANDOM_TEST_MODE = 3;
 
     // Results screen
     public static final String QUESTION_ID = "question id";
