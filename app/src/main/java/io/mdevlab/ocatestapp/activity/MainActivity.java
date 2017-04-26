@@ -8,19 +8,18 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import io.mdevlab.ocatestapp.R;
 import io.mdevlab.ocatestapp.adapter.ChapterAdapter;
 import io.mdevlab.ocatestapp.model.Chapter;
-import io.mdevlab.ocatestapp.test.ChapterTest;
+import io.mdevlab.ocatestapp.test.ChaptersTest;
 
 
 public class MainActivity extends AppCompatActivity
@@ -40,18 +39,12 @@ public class MainActivity extends AppCompatActivity
 
         mChapterRecyclerView = (RecyclerView) findViewById(R.id.chapter_recycler_view);
 
-        List<Chapter> chapterList = new ArrayList<>();
-        chapterList.add(ChapterTest.createChapter(0));
-        chapterList.add(ChapterTest.createChapter(1));
-        chapterList.add(ChapterTest.createChapter(2));
-        chapterList.add(ChapterTest.createChapter(3));
-        chapterList.add(ChapterTest.createChapter(4));
-        chapterList.add(ChapterTest.createChapter(5));
+        List<Chapter> chapterList = ChaptersTest.prepareChapters();
 
         ChapterAdapter chapterAdapter = new ChapterAdapter(this, chapterList);
-        mChapterRecyclerView.setAdapter(chapterAdapter);
-        mChapterRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mChapterRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mchapterRecyclerView.setAdapter(chapterAdapter);
+        mchapterRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mchapterRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
 
         //Drawer
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);

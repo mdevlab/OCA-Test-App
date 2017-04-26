@@ -61,7 +61,7 @@ public class ChapterTest {
         return randomQuestion;
     }
 
-    public static TestQuestion createRandomTestQuestion(int index,Context context) {
+    public static TestQuestion createRandomTestQuestion(int index, Context context) {
         TestQuestion randomQuestion = new TestQuestion();
         randomQuestion.setId(QuestionManager.getNextIndex());
         randomQuestion.setType(Constants.MULTIPLE_ANSWER_QUESTION);
