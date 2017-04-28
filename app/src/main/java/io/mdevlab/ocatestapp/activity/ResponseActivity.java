@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import io.mdevlab.ocatestapp.QuestionFragment;
 import io.mdevlab.ocatestapp.R;
 import io.mdevlab.ocatestapp.model.TestQuestion;
-import io.mdevlab.ocatestapp.test.ChapterTest;
+import io.mdevlab.ocatestapp.test.TestQuestionTest;
 import io.mdevlab.ocatestapp.util.Constants;
 
 public class ResponseActivity extends AppCompatActivity {
@@ -18,7 +18,7 @@ public class ResponseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_response);
 
-        TestQuestion question = ChapterTest.createRandomTestQuestion(0, ResponseActivity.this);
+        TestQuestion question = TestQuestionTest.createRandomTestQuestion(0, ResponseActivity.this);
 
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();

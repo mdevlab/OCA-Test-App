@@ -19,7 +19,7 @@ import java.util.List;
 import io.mdevlab.ocatestapp.R;
 import io.mdevlab.ocatestapp.adapter.ChapterAdapter;
 import io.mdevlab.ocatestapp.model.Chapter;
-import io.mdevlab.ocatestapp.test.ChaptersTest;
+import io.mdevlab.ocatestapp.test.ChapterTest;
 
 
 public class MainActivity extends AppCompatActivity
@@ -39,12 +39,12 @@ public class MainActivity extends AppCompatActivity
 
         mChapterRecyclerView = (RecyclerView) findViewById(R.id.chapter_recycler_view);
 
-        List<Chapter> chapterList = ChaptersTest.prepareChapters();
+        List<Chapter> chapterList = ChapterTest.prepareChapters();
 
         ChapterAdapter chapterAdapter = new ChapterAdapter(this, chapterList);
-        mchapterRecyclerView.setAdapter(chapterAdapter);
-        mchapterRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mchapterRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        mChapterRecyclerView.setAdapter(chapterAdapter);
+        mChapterRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mChapterRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
 
         //Drawer
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -3,15 +3,18 @@ package io.mdevlab.ocatestapp.test;
 import android.content.Context;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.mdevlab.ocatestapp.R;
-import io.mdevlab.ocatestapp.modelManager.AnswerManager;
-import io.mdevlab.ocatestapp.modelManager.ChapterManager;
-import io.mdevlab.ocatestapp.modelManager.QuestionManager;
 import io.mdevlab.ocatestapp.model.Answer;
 import io.mdevlab.ocatestapp.model.Chapter;
 import io.mdevlab.ocatestapp.model.Question;
 import io.mdevlab.ocatestapp.model.TestAnswer;
 import io.mdevlab.ocatestapp.model.TestQuestion;
+import io.mdevlab.ocatestapp.modelManager.AnswerManager;
+import io.mdevlab.ocatestapp.modelManager.ChapterManager;
+import io.mdevlab.ocatestapp.modelManager.QuestionManager;
 import io.mdevlab.ocatestapp.util.Constants;
 import io.realm.RealmList;
 import io.realm.RealmResults;
@@ -39,7 +42,7 @@ public class ChapterTest {
         randomChapter.setId(ChapterManager.getNextIndex());
         randomChapter.setName("Chapter " + index);
         randomChapter.setSummary("Summary " + index);
-        randomChapter.setQuestions(createRandomQuestions(index));
+        randomChapter.setQuestions(QuestionTest.createRandomQuestions(index));
         return randomChapter;
     }
 
@@ -111,5 +114,21 @@ public class ChapterTest {
         deleteChapters();
         generateChapter();
         readChapters();
+    }
+
+    /**
+     * Dummy Chapters 1,2,3,4,5,6
+     *
+     * @return
+     */
+    public static List<Chapter> prepareChapters() {
+        List<Chapter> chapterList = new ArrayList<>();
+        chapterList.add(ChapterTest.createChapter(0));
+        chapterList.add(ChapterTest.createChapter(1));
+        chapterList.add(ChapterTest.createChapter(2));
+        chapterList.add(ChapterTest.createChapter(3));
+        chapterList.add(ChapterTest.createChapter(4));
+        chapterList.add(ChapterTest.createChapter(5));
+        return chapterList;
     }
 }

@@ -9,7 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import io.mdevlab.ocatestapp.QuestionFragment;
 import io.mdevlab.ocatestapp.R;
 import io.mdevlab.ocatestapp.model.TestQuestion;
-import io.mdevlab.ocatestapp.test.ChapterTest;
+
+import static io.mdevlab.ocatestapp.test.TestQuestionTest.createRandomTestQuestion;
 
 public class TestActivity extends AppCompatActivity {
 
@@ -18,7 +19,7 @@ public class TestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
-        TestQuestion question = ChapterTest.createRandomTestQuestion(0,TestActivity.this);
+        TestQuestion question = createRandomTestQuestion(0,TestActivity.this);
 
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();

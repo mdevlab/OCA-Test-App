@@ -60,8 +60,6 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterV
         return chapterList.size();
     }
 
-    class ChapterViewHolder extends RecyclerView.ViewHolder {
-
     public class ChapterViewHolder extends RecyclerView.ViewHolder {
         public TextView mchapternumber;
         public TextView mchaptername;
