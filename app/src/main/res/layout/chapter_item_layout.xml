@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <android.support.v7.widget.CardView
         android:id="@+id/Chapter_card_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="250dp"
         android:layout_gravity="center"
-        app:cardBackgroundColor="#e0db88">
+        android:layout_margin="@dimen/card_margin"
+        android:elevation="3dp"
+        app:cardBackgroundColor="#e0db88"
+        card_view:cardCornerRadius="@dimen/card_album_radius">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -22,9 +26,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="Chapter 1"
+                android:layout_centerVertical="true"
+                android:text="1"
                 android:textColor="@android:color/white"
-                android:textSize="48sp"
+                android:textSize="56sp"
                 android:textStyle="bold" />
 
             <!--Chapter name-->
@@ -43,6 +48,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:src="@drawable/ic_arrow_go" />
