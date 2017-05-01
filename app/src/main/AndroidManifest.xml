@@ -16,6 +16,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -23,6 +24,7 @@
         <activity android:name=".activity.ResultsActivity" />
         <activity android:name=".activity.TestActivity" />
         <activity android:name=".activity.ResponseActivity" />
+        <activity android:name=".activity.FavoriteQuestionsActivity"></activity>
     </application>
 
 </manifest>

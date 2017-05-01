@@ -35,13 +35,18 @@ public class QuestionTest {
         return questions;
     }
 
-    public static Question createRandomQuestion(int index) {
+    public static Question createRandomQuestion(int index, String question) {
         Question randomQuestion = new Question();
         randomQuestion.setId(QuestionManager.getNextIndex());
         randomQuestion.setType(Constants.SINGLE_ANSWER_QUESTION);
+        randomQuestion.setStatement(question);
         randomQuestion.setExplanation("Explanation " + index);
         randomQuestion.setFavorite(true);
         randomQuestion.setAnswers(createRandomAnswers(index));
         return randomQuestion;
+    }
+
+    public static Question createRandomQuestion(int index) {
+        return createRandomQuestion(index, "What is life ?");
     }
 }

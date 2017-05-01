@@ -2,6 +2,7 @@ package io.mdevlab.ocatestapp.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -94,11 +95,20 @@ public class MainActivity extends AppCompatActivity
      */
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
-
         switch (itemId) {
-            case R.id.nav_favorite:
+            case R.id.nav_upgrade:
+                break;
+            case R.id.nav_settings:
+                break;
+            case R.id.nav_favorite_questions:
+                Intent intent = new Intent(MainActivity.this, FavoriteQuestionsActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_share:
+                break;
+            case R.id.nav_about:
                 break;
         }
 

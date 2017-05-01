@@ -48,4 +48,12 @@ instance variable in the object created on line 5.</string>
     <string name="back_to_main_screen">Main screen</string>
     <string name="upgrade">Upgrade</string>
     <string name="bookmarked_question">Bookmarked question</string>
+
+    <!--Drawer menu-->
+    <string name="drawer_upgrade">Upgrade</string>
+    <string name="drawer_settings">Settings</string>
+    <string name="drawer_favorite_questions">Favorite questions</string>
+    <string name="drawer_communicate">Communicate</string>
+    <string name="drawer_share">Share</string>
+    <string name="drawer_about">About the app</string>
 </resources>
