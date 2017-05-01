@@ -5,27 +5,27 @@
         <item
             android:id="@+id/nav_upgrade"
             android:icon="@drawable/ic_menu_upgrade"
-            android:title="upgrade" />
+            android:title="@string/drawer_upgrade" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_settings"
             android:icon="@drawable/ic_menu_setting"
-            android:title="Settings" />
+            android:title="@string/drawer_settings" />
         <item
-            android:id="@+id/nav_favorite"
+            android:id="@+id/nav_favorite_questions"
             android:icon="@drawable/ic_save_no"
-            android:title="Favorite Questions" />
+            android:title="@string/drawer_favorite_questions" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="@string/drawer_communicate">
         <menu>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:title="@string/drawer_share" />
             <item
                 android:id="@+id/nav_about"
                 android:icon="@drawable/ic_menu_about"
-                android:title="About The app " />
+                android:title="@string/drawer_about" />
         </menu>
     </item>
 

@@ -35,4 +35,8 @@
     <dimen name="score_duration_space">20dp</dimen>
     <dimen name="bookmark_icon_dimensions">24dp</dimen>
     <dimen name="question_item_dimension">72dp</dimen>
+
+    <!--Favorite question item-->
+    <dimen name="chapter_circle_dimension">50dp</dimen>
+    <dimen name="chapter_circle_margin_right">16dp</dimen>
 </resources>

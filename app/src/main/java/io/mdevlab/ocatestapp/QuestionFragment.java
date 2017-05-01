@@ -49,7 +49,7 @@ public class QuestionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.question_view, container, false);
+        View v = inflater.inflate(R.layout.item_question, container, false);
         //Get the views objects
         mAnswersContainer = (LinearLayout) v.findViewById(R.id.answers_container);
         mAnswersRadioGroup = (RadioGroup) v.findViewById(R.id.answers_radio_group);

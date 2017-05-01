@@ -42,7 +42,7 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterV
     @Override
     public ChapterViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.chapter_item_layout, parent, false);
+                .inflate(R.layout.item_chapter, parent, false);
         return new ChapterViewHolder(itemView);
     }
 
@@ -64,7 +64,6 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterV
         public TextView mchapternumber;
         public TextView mchaptername;
         public CardView cardView;
-
 
         public ChapterViewHolder(View itemView) {
             super(itemView);
