@@ -1,4 +1,4 @@
-package io.mdevlab.ocatestapp;
+package io.mdevlab.ocatestapp.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,6 +13,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+import io.mdevlab.ocatestapp.R;
 import io.mdevlab.ocatestapp.model.TestQuestion;
 import io.mdevlab.ocatestapp.util.Constants;
 

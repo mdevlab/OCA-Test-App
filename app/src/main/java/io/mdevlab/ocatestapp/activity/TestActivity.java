@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
-import io.mdevlab.ocatestapp.QuestionFragment;
+import io.mdevlab.ocatestapp.fragment.QuestionFragment;
 import io.mdevlab.ocatestapp.R;
 import io.mdevlab.ocatestapp.model.TestQuestion;
 
