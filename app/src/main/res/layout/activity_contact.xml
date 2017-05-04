@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="io.mdevlab.ocatestapp.activity.ContactActivity">
+    tools:context="io.mdevlab.ocatraining.activity.ContactActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,6 +19,7 @@
             android:layout_marginBottom="@dimen/form_margin"
             android:layout_marginLeft="@dimen/form_margin"
             android:layout_marginRight="@dimen/form_margin"
+            android:layout_marginTop="@dimen/upper_margin"
             android:orientation="vertical">
 
             <!--Name-->
@@ -47,7 +48,7 @@
                     style="@style/TextInputEditText"
                     android:gravity="top|start"
                     android:hint="@string/contact_message"
-                    android:lines="6" />
+                    android:lines="8" />
 
             </android.support.design.widget.TextInputLayout>
 
