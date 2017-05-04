@@ -20,11 +20,29 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.AllChaptersActivity" />
+
+        <activity
+            android:name=".activity.AllChaptersActivity"
+            android:label="@string/title_activity_all_chapters"
+            android:parentActivityName=".activity.MainActivity" />
+
         <activity android:name=".activity.ResultsActivity" />
         <activity android:name=".activity.TestActivity" />
         <activity android:name=".activity.ResponseActivity" />
-        <activity android:name=".activity.FavoriteQuestionsActivity"></activity>
+
+        <activity
+            android:name=".activity.FavoriteQuestionsActivity"
+            android:label="@string/title_activity_favorite_questions"
+            android:parentActivityName=".activity.MainActivity" />
+
+        <activity
+            android:name=".activity.AboutActivity"
+            android:parentActivityName=".activity.MainActivity" />
+
+        <activity
+            android:name=".activity.ContactActivity"
+            android:label="@string/title_activity_contact"
+            android:parentActivityName=".activity.AboutActivity" />
     </application>
 
 </manifest>
