@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">OCA Test App</string>
     <string name="question_response">Response</string>
-    <string name="title_activity_main">MainActivity</string>
+
+    <!--Activity labels-->
+    <string name="title_activity_main">Main</string>
+    <string name="title_activity_all_chapters">All chapters</string>
+    <string name="title_activity_favorite_questions">Favorite questions</string>
+    <string name="title_activity_contact">Contact us</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -56,4 +61,18 @@ instance variable in the object created on line 5.</string>
     <string name="drawer_communicate">Communicate</string>
     <string name="drawer_share">Share</string>
     <string name="drawer_about">About the app</string>
+
+    <!--About screen-->
+    <string name="about_app_end">\u00a9 2017 mDevLab . All rights reserved</string>
+    <string name="send_email">Send email</string>
+    <string name="no_email_client_error">There is no email clients installed.</string>
+    <string name="about_body">Did you like this app? Check out others things we\'ve made.\nHave a question? Get in touch with us:</string>
+
+    <!--Contact-->
+    <string name="send_button">Send</string>
+    <string name="contact_name_empty">Please enter your name</string>
+    <string name="contact_message_empty">Please enter your message</string>
+    <string name="contact_name">Name</string>
+    <string name="contact_message">Message</string>
+
 </resources>

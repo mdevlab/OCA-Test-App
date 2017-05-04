@@ -19,8 +19,6 @@
     <dimen name="card_margin">5dp</dimen>
     <dimen name="card_album_radius">5dp</dimen>
 
-    <!--Buttons-->
-
     <!--next previous dimens-->
     <dimen name="height_button">52dp</dimen>
 
@@ -39,4 +37,13 @@
     <!--Favorite question item-->
     <dimen name="chapter_circle_dimension">50dp</dimen>
     <dimen name="chapter_circle_margin_right">16dp</dimen>
+
+    <!--About screen-->
+    <dimen name="about_screen_side_margin">16dp</dimen>
+    <dimen name="about_body_margin_top">50dp</dimen>
+    <dimen name="about_body_text_width">220dp</dimen>
+
+    <!--Contact Screen-->
+    <dimen name="form_margin">20dp</dimen>
+    <dimen name="button_height">32dp</dimen>
 </resources>
