@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">OCA Test App</string>
+    <string name="app_name">OCA Training</string>
     <string name="question_response">Response</string>
 
     <!--Activity labels-->
@@ -8,8 +8,13 @@
     <string name="title_activity_favorite_questions">Favorite questions</string>
     <string name="title_activity_contact">Contact us</string>
 
+    <!--Main Screen-->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="share">Share via</string>
+    <string name="share_subject">OCA training app</string>
+    <string name="share_text">Checkout this app\n</string>
+    <string name="application_play_store_url">https://play.google.com/store/apps/details?id=io.mdevlab.ocatraining</string>
 
     <string name="action_settings">Settings</string>
     app/src/main/AndroidManifest.xml
