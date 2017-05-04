@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private final String TAG = MainActivity.class.getSimpleName();
+    private final String SHARE_TYPE = "text/plain";
 
     private RecyclerView mChapterRecyclerView;
     private DrawerLayout mDrawer;
@@ -108,6 +109,7 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intent);
                 break;
             case R.id.nav_share:
+                shareApp();
                 break;
             case R.id.nav_about:
                 intent = new Intent(MainActivity.this, AboutActivity.class);
@@ -119,5 +121,18 @@ public class MainActivity extends AppCompatActivity
             mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    /**
+     * Method used for sharing the app.
+     * It shares via a messaging/email/social application the link to this app
+     * on the play store
+     */
+    private void shareApp() {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType(SHARE_TYPE);
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share_subject));
+        intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_text) + getString(R.string.application_play_store_url));
+        startActivity(Intent.createChooser(intent, getString(R.string.share)));
     }
 }
