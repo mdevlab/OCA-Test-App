@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:padding="@dimen/about_screen_side_margin"
-    tools:context="io.mdevlab.ocatestapp.activity.AboutActivity">
+    tools:context="io.mdevlab.ocatraining.activity.AboutActivity">
 
     <!--Header-->
     <TextView

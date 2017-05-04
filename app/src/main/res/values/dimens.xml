@@ -46,4 +46,5 @@
     <!--Contact Screen-->
     <dimen name="form_margin">20dp</dimen>
     <dimen name="button_height">32dp</dimen>
+    <dimen name="upper_margin">30dp</dimen>
 </resources>
