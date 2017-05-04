@@ -20,7 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.AllChaptersActivity" />
+        <activity android:name=".activity.AllChaptersActivity" android:theme="@style/AppTheme.Details"/>
         <activity android:name=".activity.ResultsActivity" />
         <activity android:name=".activity.TestActivity" />
         <activity android:name=".activity.ResponseActivity" />

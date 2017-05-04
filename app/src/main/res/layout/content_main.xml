@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_margin="@dimen/card_margin"
-        app:cardBackgroundColor="@color/item_color_all_chapter">
+        app:cardBackgroundColor="@color/item_color_all_chapter"
+        >
 
         <RelativeLayout
             android:layout_width="match_parent"

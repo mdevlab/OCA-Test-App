@@ -61,8 +61,8 @@
         android:progressTint="?android:colorAccent"
         tools:ignore="UnusedAttribute" />
 
-    <FrameLayout
-        android:id="@+id/question_container"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/test_questions_viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/navigation_container"

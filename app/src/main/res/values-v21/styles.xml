@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme.Details">
+        <item name="android:windowEnterTransition">@transition/slide_right</item>
+    </style>
+    <style name="AppTheme.NoActionBar">
+        <item name="android:windowExitTransition">@transition/chapters_exit</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+</resources>
