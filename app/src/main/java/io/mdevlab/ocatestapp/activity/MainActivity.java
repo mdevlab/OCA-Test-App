@@ -45,10 +45,14 @@ public class MainActivity extends AppCompatActivity
         mAllChaptersCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,AllChaptersActivity.class);
-                startActivity(intent,
-                        ActivityOptions.makeSceneTransitionAnimation(MainActivity.this
-                        ).toBundle());
+
+                Intent intent = new Intent(MainActivity.this,TestActivity.class);
+
+                startActivity(intent);
+//                Intent intent = new Intent(MainActivity.this,AllChaptersActivity.class);
+//                startActivity(intent,
+//                        ActivityOptions.makeSceneTransitionAnimation(MainActivity.this
+//                        ).toBundle());
             }
         });
         mChapterRecyclerView = (RecyclerView) findViewById(R.id.chapter_recycler_view);

@@ -8,7 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import java.util.List;
 
 import io.mdevlab.ocatestapp.R;
+import io.mdevlab.ocatestapp.adapter.TestQuestionAdapter;
 import io.mdevlab.ocatestapp.model.TestQuestion;
+import io.mdevlab.ocatestapp.test.ChapterTest;
 
 public class TestActivity extends AppCompatActivity {
 
@@ -22,7 +24,9 @@ public class TestActivity extends AppCompatActivity {
 
         mTestQuestionViewPager = (ViewPager) findViewById(R.id.test_questions_viewpager);
 
-        List<TestQuestion> listQuestion =
+        List<TestQuestion> listQuestion = ChapterTest.createListTestQuestion(this);
+        TestQuestionAdapter testQuestionAdapter = new TestQuestionAdapter(getSupportFragmentManager(),listQuestion);
+        mTestQuestionViewPager.setAdapter(testQuestionAdapter);
 
 
     }

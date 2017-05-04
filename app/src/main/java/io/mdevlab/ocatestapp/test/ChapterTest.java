@@ -77,6 +77,16 @@ public class ChapterTest {
         return randomQuestion;
     }
 
+
+    public static List<TestQuestion> createListTestQuestion(Context mcontext) {
+        List<TestQuestion> testQuestions = new ArrayList<>();
+        for (int i = 0; i <= 70; i++) {
+            testQuestions.add(createRandomTestQuestion(i, mcontext));
+        }
+        return testQuestions;
+    }
+
+
     public static RealmList<Answer> createRandomAnswers(int index) {
         RealmList<Answer> answers = new RealmList<>();
         answers.add(createRandomAnswer(index));
