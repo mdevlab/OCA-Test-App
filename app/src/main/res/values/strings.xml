@@ -61,9 +61,10 @@ instance variable in the object created on line 5.</string>
 
     <!--Drawer menu-->
     <string name="drawer_upgrade">Upgrade</string>
+    <string name="drawer_certification_info">OCA certification</string>
     <string name="drawer_settings">Settings</string>
     <string name="drawer_favorite_questions">Favorite questions</string>
-    <string name="drawer_communicate">Communicate</string>
+    <string name="drawer_other">Other</string>
     <string name="drawer_share">Share</string>
     <string name="drawer_about">About the app</string>
 

@@ -4,27 +4,31 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_upgrade"
-            android:icon="@drawable/ic_menu_upgrade"
+            android:icon="@drawable/ic_upgrade"
             android:title="@string/drawer_upgrade" />
-        <item
-            android:id="@+id/nav_settings"
-            android:icon="@drawable/ic_menu_setting"
-            android:title="@string/drawer_settings" />
         <item
             android:id="@+id/nav_favorite_questions"
             android:icon="@drawable/ic_save_no"
             android:title="@string/drawer_favorite_questions" />
+        <item
+            android:id="@+id/nav_certification_info"
+            android:icon="@drawable/ic_certification_info"
+            android:title="@string/drawer_certification_info" />
     </group>
 
-    <item android:title="@string/drawer_communicate">
+    <item android:title="@string/drawer_other">
         <menu>
             <item
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/ic_settings"
+                android:title="@string/drawer_settings" />
+            <item
                 android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/ic_share"
                 android:title="@string/drawer_share" />
             <item
                 android:id="@+id/nav_about"
-                android:icon="@drawable/ic_menu_about"
+                android:icon="@drawable/ic_about"
                 android:title="@string/drawer_about" />
         </menu>
     </item>
