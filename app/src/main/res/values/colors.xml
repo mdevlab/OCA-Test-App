@@ -22,6 +22,9 @@
     <color name="item_color_5">#64abbe</color>
     <color name="item_color_6">#51887b</color>
 
+    <!--page indicator -->
+
+    <color name="unselected_indicator">#bfc4c3</color>
 
 
 

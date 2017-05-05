@@ -57,4 +57,13 @@ instance variable in the object created on line 5.</string>
     <string name="drawer_communicate">Communicate</string>
     <string name="drawer_share">Share</string>
     <string name="drawer_about">About the app</string>
+
+
+    <!--TestActivity-->
+    <string name="last_question">Last</string>
+    <string name="test_result">Results</string>
+    <string name="first_question">First</string>
+    <string name="next_question">Next </string>
+    <string name="previous_question">Previous </string>
+
 </resources>

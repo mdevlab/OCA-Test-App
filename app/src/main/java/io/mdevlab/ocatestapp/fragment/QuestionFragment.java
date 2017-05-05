@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -59,9 +60,9 @@ public class QuestionFragment extends Fragment {
         mAnswerTitle = (TextView) v.findViewById(R.id.response_title);
         isFlagged = (ToggleButton) v.findViewById(R.id.flag_question);
         isFavorite = (ToggleButton) v.findViewById(R.id.save_question);
-
-
         bindViewFromQuestion();
+        setFavoriteFlaggedListeners();
+
 
         //check if this view is for the response
         if (isResponse) {
@@ -82,6 +83,35 @@ public class QuestionFragment extends Fragment {
         return v;
     }
 
+
+    private void setFavoriteFlaggedListeners() {
+        isFlagged.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    //Todo save state in realmDB
+                    mQuestion.setFlagged(true);
+                } else {
+                    mQuestion.setFlagged(false);
+                }
+
+            }
+        });
+
+        isFavorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    //Todo save state in realmDB
+                    mQuestion.setFavorite(true);
+                } else {
+                    mQuestion.setFavorite(false);
+                }
+
+            }
+        });
+    }
+
     /**
      * This function adjust response view
      */
@@ -93,7 +123,6 @@ public class QuestionFragment extends Fragment {
     }
 
     /**
-     *
      * Set data from the question object
      */
     private void setResponseData() {
@@ -128,6 +157,13 @@ public class QuestionFragment extends Fragment {
             CheckBox checkBox = new CheckBox(getActivity());
             checkBox.setId(i + CHECKBOX_ID_COMPLEMENTARY);
             checkBox.setText(" " + mQuestion.getAnswers().get(i).getAnswer());
+            final int index = i;
+            checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    mQuestion.getAnswers().get(index).setSelected(isChecked);
+                }
+            });
             checkBox.setLayoutParams(lparams);
             mAnswersContainer.addView(checkBox);
         }
@@ -150,6 +186,13 @@ public class QuestionFragment extends Fragment {
             RadioButton radioButton = new RadioButton(getActivity());
             radioButton.setId(i + RADIOBUTTON_ID_COMPLEMENTARY);
             radioButton.setText(" " + mQuestion.getAnswers().get(i).getAnswer());
+            final int index = i;
+            radioButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    mQuestion.getAnswers().get(index).setSelected(isChecked);
+                }
+            });
             radioButton.setLayoutParams(lparams);
             mAnswersRadioGroup.addView(radioButton);
         }

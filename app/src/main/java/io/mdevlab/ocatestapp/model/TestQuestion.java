@@ -146,4 +146,15 @@ public class TestQuestion extends RealmObject {
 
         return true;
     }
+
+    /**
+     * This function is for setting all current answers to false
+     *
+     */
+    public void clearAnswers() {
+        for (TestAnswer answer : answers) {
+            answer.setSelected(false);
+        }
+
+    }
 }
