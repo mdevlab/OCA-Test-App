@@ -24,7 +24,10 @@
         <activity android:name=".activity.ResultsActivity" />
         <activity android:name=".activity.TestActivity" />
         <activity android:name=".activity.ResponseActivity" />
-        <activity android:name=".activity.FavoriteQuestionsActivity"></activity>
+        <activity android:name=".activity.FavoriteQuestionsActivity" />
+        <activity
+            android:name=".activity.SettingsActivity"
+            android:label="@string/title_activity_settings" />
     </application>
 
 </manifest>

@@ -97,13 +97,16 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
+        Intent intent;
         switch (itemId) {
             case R.id.nav_upgrade:
                 break;
             case R.id.nav_settings:
+                intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
                 break;
             case R.id.nav_favorite_questions:
-                Intent intent = new Intent(MainActivity.this, FavoriteQuestionsActivity.class);
+                intent = new Intent(MainActivity.this, FavoriteQuestionsActivity.class);
                 startActivity(intent);
                 break;
             case R.id.nav_share:
