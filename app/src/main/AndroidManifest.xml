@@ -43,6 +43,11 @@
             android:name="io.mdevlab.ocatraining.activity.ContactActivity"
             android:label="@string/title_activity_contact"
             android:parentActivityName="io.mdevlab.ocatraining.activity.AboutActivity" />
+
+        <activity
+            android:name="io.mdevlab.ocatraining.activity.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName="io.mdevlab.ocatraining.activity.MainActivity" />
     </application>
 
 </manifest>

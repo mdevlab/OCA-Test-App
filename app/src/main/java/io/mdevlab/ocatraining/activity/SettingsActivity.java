@@ -1,9 +1,10 @@
-package io.mdevlab.ocatestapp.activity;
+package io.mdevlab.ocatraining.activity;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 
-import io.mdevlab.ocatestapp.R;
+import io.mdevlab.ocatraining.R;
+
 
 public class SettingsActivity extends PreferenceActivity {
 
