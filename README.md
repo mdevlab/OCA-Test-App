@@ -1,2 +1,2 @@
 # OCA-Test-App
-This app is dedicated to people who want to practice and succeed the java OCA  Test
+Android application that offers preparation and training in order to take the java OCA certification exam

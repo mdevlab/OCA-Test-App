@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="io.mdevlab.ocatestapp">
+    package="io.mdevlab.ocatraining">
 
     <application
-        android:name=".app.OCA"
+        android:name="io.mdevlab.ocatraining.app.OCA"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.MainActivity"
+            android:name="io.mdevlab.ocatraining.activity.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -20,14 +20,29 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.AllChaptersActivity" />
-        <activity android:name=".activity.ResultsActivity" />
-        <activity android:name=".activity.TestActivity" />
-        <activity android:name=".activity.ResponseActivity" />
-        <activity android:name=".activity.FavoriteQuestionsActivity" />
+
         <activity
-            android:name=".activity.SettingsActivity"
-            android:label="@string/title_activity_settings" />
+            android:name="io.mdevlab.ocatraining.activity.AllChaptersActivity"
+            android:label="@string/title_activity_all_chapters"
+            android:parentActivityName="io.mdevlab.ocatraining.activity.MainActivity" />
+
+        <activity android:name="io.mdevlab.ocatraining.activity.ResultsActivity" />
+        <activity android:name="io.mdevlab.ocatraining.activity.TestActivity" />
+        <activity android:name="io.mdevlab.ocatraining.activity.ResponseActivity" />
+
+        <activity
+            android:name="io.mdevlab.ocatraining.activity.FavoriteQuestionsActivity"
+            android:label="@string/title_activity_favorite_questions"
+            android:parentActivityName="io.mdevlab.ocatraining.activity.MainActivity" />
+
+        <activity
+            android:name="io.mdevlab.ocatraining.activity.AboutActivity"
+            android:parentActivityName="io.mdevlab.ocatraining.activity.MainActivity" />
+
+        <activity
+            android:name="io.mdevlab.ocatraining.activity.ContactActivity"
+            android:label="@string/title_activity_contact"
+            android:parentActivityName="io.mdevlab.ocatraining.activity.AboutActivity" />
     </application>
 
 </manifest>

@@ -27,4 +27,20 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <style name="TextInputLayout">
+        <item name="android:textColorHint">@color/color_control_normal</item>
+        <item name="android:textColor">@color/edit_field</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="TextInputEditText">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/content_color</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
 </resources>
