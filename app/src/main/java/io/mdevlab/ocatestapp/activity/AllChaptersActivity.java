@@ -11,10 +11,15 @@ import io.mdevlab.ocatestapp.util.Constants;
 public class AllChaptersActivity extends AppCompatActivity
         implements View.OnClickListener {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_chapters);
+
+
+
     }
 
     /**
@@ -41,6 +46,8 @@ public class AllChaptersActivity extends AppCompatActivity
                 testMode = Constants.RANDOM_TEST_MODE;
                 break;
         }
+
+
         Intent beginTest = new Intent(AllChaptersActivity.this, null);
         beginTest.putExtra(Constants.TEST_MODE, testMode);
         startActivity(beginTest);

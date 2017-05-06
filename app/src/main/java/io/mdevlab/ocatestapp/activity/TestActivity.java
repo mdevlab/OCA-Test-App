@@ -1,15 +1,20 @@
 package io.mdevlab.ocatestapp.activity;
 
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import java.util.List;
 
@@ -30,11 +35,19 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
     private Button mButtonResult;
     private ImageButton mButtonNext;
     private ImageButton mButtonPrevious;
+    private Button mButtonResumeTest;
+    private ImageButton mButtonStopTest;
+    private RelativeLayout mHiddenLayoutTodisableTest;
+    private ToggleButton mTogglePauseResumeTest;
     private TextView mTextQuestionspercent;
+    private TextView mTextTimer;
     private Button mButtonFirst;
     private List<TestQuestion> mListQuestions;
     private ProgressBar mProgressBarTest;
     private Test mTest;
+    private int minute;
+    private int second;
+    private Thread mtimerThread;
 
 
 
@@ -49,19 +62,52 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
         mButtonFirst = (Button) findViewById(R.id.button_first_question);
 //        Next Previous
         mButtonNext = (ImageButton) findViewById(R.id.button_next_question);
-
-
         mButtonPrevious = (ImageButton) findViewById(R.id.button_previous_question);
 
-
-        setNextPreviousListener();
 
 //        Results
         mButtonResult = (Button) findViewById(R.id.button_results);
 
+        //Progress Init
         mTextQuestionspercent = (TextView) findViewById(R.id.text_questions_percent);
+        mTextTimer = (TextView) findViewById(R.id.text_test_timer);
         mProgressBarTest = (ProgressBar) findViewById(R.id.progress_test);
 
+        mTogglePauseResumeTest = (ToggleButton) findViewById(R.id.toggle_pause_resume_test);
+
+        mButtonResumeTest = (Button) findViewById(R.id.button_resume_test);
+        mHiddenLayoutTodisableTest = (RelativeLayout) findViewById(R.id.hidden_layout_to_disable_test);
+        mButtonStopTest = (ImageButton) findViewById(R.id.image_button_stop_test);
+        mButtonStopTest.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                buildStopDialog();
+            }
+        });
+
+
+        mButtonResumeTest.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                enableTest();
+                runTestTimer();
+            }
+        });
+
+
+        mTogglePauseResumeTest.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mtimerThread.interrupt();
+                    disableTest();
+                }
+
+
+            }
+        });
+
+
+        setNextPreviousListener();
         prepareQuestions();
 
         NUM_ITEMS = mListQuestions.size();
@@ -73,13 +119,106 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
             updateUi();
         }
 
+        runTestTimer();
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        buildStopDialog();
+    }
+
+    private void buildStopDialog() {
+
+        //get the builder
+        AlertDialog.Builder builder = new AlertDialog.Builder(TestActivity.this);
+        builder.setPositiveButton(R.string.quit_and_save, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                //TODO save Data in DB
+            }
+        });
+
+
+        builder.setNegativeButton(R.string.dialog_cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.dismiss();
+            }
+        });
+
+        //set message and title
+        builder.setMessage(getString(R.string.confirm_exit_message))
+                .setTitle(getString(R.string.confirm_exit_title));
+
+        //Build the dialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    private void disableTest() {
+        mHiddenLayoutTodisableTest.setVisibility(View.VISIBLE);
+
+    }
+
+    private void enableTest() {
+        mHiddenLayoutTodisableTest.setVisibility(View.INVISIBLE);
+        mTogglePauseResumeTest.setChecked(false);
+    }
+
+    private void runTestTimer() {
+
+        mtimerThread = new Thread() {
+
+            @Override
+            public void run() {
+                try {
+                    while (!isInterrupted()) {
+                        Thread.sleep(1000);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                incrementTimer();
+                                updateTimerUi();
+                            }
+                        });
+                    }
+                } catch (InterruptedException e) {
+                }
+            }
+        };
+
+        mtimerThread.start();
+
+    }
+
+    private void updateTimerUi() {
+        StringBuilder Timer = new StringBuilder();
+        if (minute < 10) {
+            Timer.append(Constants.ZERO);
+        }
+        Timer.append(minute);
+        Timer.append(" : ");
+        if (second < 10) {
+            Timer.append(Constants.ZERO);
+        }
+        Timer.append(second);
+        mTextTimer.setText(Timer.toString());
+
+    }
+
+    private void incrementTimer() {
+        if (second == 59) {
+            second = 0;
+            minute++;
+        } else {
+            second++;
+        }
+
 
     }
 
     public void prepareQuestions() {
         mListQuestions = ChapterTest.createListTestQuestion(this);
     }
-
 
 
     private void setNextPreviousListener() {
@@ -110,14 +249,14 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
     private void initFirstLastButtons() {
         mButtonFirst.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                mTestQuestionViewPager.setCurrentItem(FIRST_ITEM,true);
+                mTestQuestionViewPager.setCurrentItem(FIRST_ITEM, true);
                 CURRENT_INDEX = FIRST_ITEM;
             }
         });
 
         mButtonLast.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                mTestQuestionViewPager.setCurrentItem(NUM_ITEMS,true);
+                mTestQuestionViewPager.setCurrentItem(NUM_ITEMS, true);
                 CURRENT_INDEX = NUM_ITEMS - 1;
             }
         });
@@ -131,7 +270,6 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
         percentStringBuilder.append(String.valueOf(NUM_ITEMS));
         mTextQuestionspercent.setText(percentStringBuilder.toString());
         mProgressBarTest.setProgress(CURRENT_INDEX + 1);
-
 
     }
 

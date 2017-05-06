@@ -27,5 +27,6 @@ public class Constants {
 
     //Test Question Activity
     public static final int EMPTY_LIST = 0;
+    public static final int ZERO = 0;
 
 }
