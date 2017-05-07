@@ -26,7 +26,12 @@
     <!--page indicator -->
 
     <color name="unselected_indicator">#bfc4c3</color>
+    
+    <!--test Colors -->
 
+    <color name="color_final_test">#43a58b</color>
+    <color name="color_custom_test">#5aa543</color>
+    <color name="color_random_test">#90a543</color>
 
 
 

@@ -102,6 +102,14 @@ public class ChapterTest {
         return testQuestions;
     }
 
+    public static List<TestQuestion> createRandomTestQuestion(Context mcontext, int numrOfQuestions) {
+        List<TestQuestion> testQuestions = new ArrayList<>();
+        for (int i = 0; i < numrOfQuestions; i++) {
+            testQuestions.add(createRandomSingleTestQuestion((i), mcontext));
+        }
+        return testQuestions;
+    }
+
 
     public static RealmList<Answer> createRandomAnswers(int index) {
         RealmList<Answer> answers = new RealmList<>();

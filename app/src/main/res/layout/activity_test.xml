@@ -134,24 +134,24 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
+    <FrameLayout
         android:id="@+id/hidden_layout_to_disable_test"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#e5000000"
-        android:visibility="gone">
+        android:visibility="gone"
+        android:clickable="true">
 
         <Button
             android:id="@+id/button_resume_test"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:layout_gravity="center"
             android:background="@android:color/transparent"
             android:text="Resume"
             android:textColor="@android:color/white"
             android:textSize="50dp" />
 
 
-    </RelativeLayout>
+    </FrameLayout>
 </RelativeLayout>

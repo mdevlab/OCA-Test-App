@@ -2,6 +2,8 @@
     <string name="app_name">OCA Test App</string>
     <string name="question_response">Response</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_all_chapters">Choose Your Test</string>
+    <string name="title_test">Test</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -11,11 +13,11 @@
 
 
     <!--All chapters screen-->
-    <string name="final_test">Final test</string>
+    <string name="final_test">Final test \n (Twice A week)</string>
     <string name="final_test_sub">Full length certification-like exam, 77 questions</string>
     <string name="random_test">Random test</string>
     <string name="random_test_sub">1 question/answer set exam</string>
-    <string name="customized_test">Customized test</string>
+    <string name="customized_test">Customized test \n (Each day one)</string>
     <string name="customized_test_sub">5 Questions/answers sets exams</string>
 
     <!--Test question screen-->

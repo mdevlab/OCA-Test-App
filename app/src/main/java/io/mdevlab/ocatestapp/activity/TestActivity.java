@@ -2,17 +2,19 @@ package io.mdevlab.ocatestapp.activity;
 
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -37,7 +39,7 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
     private ImageButton mButtonPrevious;
     private Button mButtonResumeTest;
     private ImageButton mButtonStopTest;
-    private RelativeLayout mHiddenLayoutTodisableTest;
+    private FrameLayout mHiddenLayoutTodisableTest;
     private ToggleButton mTogglePauseResumeTest;
     private TextView mTextQuestionspercent;
     private TextView mTextTimer;
@@ -48,13 +50,17 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
     private int minute;
     private int second;
     private Thread mtimerThread;
-
+    private int testMode;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        Intent sentIntent = getIntent();
+        testMode = sentIntent.getIntExtra(Constants.TEST_MODE, 1);
 
         mTestQuestionViewPager = (ViewPager) findViewById(R.id.pager_test_questions);
 //        First Last
@@ -76,7 +82,7 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
         mTogglePauseResumeTest = (ToggleButton) findViewById(R.id.toggle_pause_resume_test);
 
         mButtonResumeTest = (Button) findViewById(R.id.button_resume_test);
-        mHiddenLayoutTodisableTest = (RelativeLayout) findViewById(R.id.hidden_layout_to_disable_test);
+        mHiddenLayoutTodisableTest = (FrameLayout) findViewById(R.id.hidden_layout_to_disable_test);
         mButtonStopTest = (ImageButton) findViewById(R.id.image_button_stop_test);
         mButtonStopTest.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -135,6 +141,7 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
         builder.setPositiveButton(R.string.quit_and_save, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 //TODO save Data in DB
+                finish();
             }
         });
 
@@ -217,7 +224,17 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
     }
 
     public void prepareQuestions() {
-        mListQuestions = ChapterTest.createListTestQuestion(this);
+
+        switch (testMode) {
+            case Constants.FINAL_TEST_MODE:
+                mListQuestions = ChapterTest.createListTestQuestion(this);
+                break;
+            case Constants.CUSTOM_TEST_MODE:
+                mListQuestions = ChapterTest.createRandomTestQuestion(this, 5);
+                break;
+        }
+
+
     }
 
 

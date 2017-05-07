@@ -41,18 +41,15 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        mAllChaptersCardView = (CardView)findViewById(R.id.all_chapters_container);
+        mAllChaptersCardView = (CardView) findViewById(R.id.all_chapters_container);
         mAllChaptersCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this,TestActivity.class);
-
-                startActivity(intent);
-//                Intent intent = new Intent(MainActivity.this,AllChaptersActivity.class);
-//                startActivity(intent,
-//                        ActivityOptions.makeSceneTransitionAnimation(MainActivity.this
-//                        ).toBundle());
+                Intent intent = new Intent(MainActivity.this, AllChaptersActivity.class);
+                startActivity(intent,
+                        ActivityOptions.makeSceneTransitionAnimation(MainActivity.this
+                        ).toBundle());
             }
         });
         mChapterRecyclerView = (RecyclerView) findViewById(R.id.chapter_recycler_view);

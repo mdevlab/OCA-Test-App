@@ -20,9 +20,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.AllChaptersActivity" android:theme="@style/AppTheme.Details"/>
+        <activity
+            android:name=".activity.AllChaptersActivity"
+            android:label="@string/title_all_chapters"
+            android:theme="@style/AppTheme.Details" />
         <activity android:name=".activity.ResultsActivity" />
-        <activity android:name=".activity.TestActivity" />
+        <activity
+            android:name=".activity.TestActivity"
+            android:label="@string/title_test" />
         <activity android:name=".activity.ResponseActivity" />
         <activity android:name=".activity.FavoriteQuestionsActivity"></activity>
     </application>

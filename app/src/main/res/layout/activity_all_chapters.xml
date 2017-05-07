@@ -16,12 +16,14 @@
         android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="8dp">
+        android:padding="8dp"
+        android:background="@color/color_final_test">
 
         <TextView
             style="@style/all_chapters_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAlignment="center"
             android:text="@string/final_test" />
 
         <TextView
@@ -39,12 +41,14 @@
         android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="8dp">
+        android:padding="8dp"
+        android:background="@color/color_custom_test">
 
         <TextView
             style="@style/all_chapters_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAlignment="center"
             android:text="@string/customized_test" />
 
         <TextView
@@ -62,7 +66,8 @@
         android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="8dp">
+        android:padding="8dp"
+        android:background="@color/color_random_test">
 
         <TextView
             style="@style/all_chapters_text"
