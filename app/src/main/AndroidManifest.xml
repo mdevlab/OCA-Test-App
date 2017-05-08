@@ -29,7 +29,8 @@
             android:name=".activity.TestActivity"
             android:label="@string/title_test" />
         <activity android:name=".activity.ResponseActivity" />
-        <activity android:name=".activity.FavoriteQuestionsActivity"></activity>
+        <activity android:name=".activity.FavoriteQuestionsActivity" />
+        <activity android:name=".activity.RandomTestActivity"></activity>
     </application>
 
 </manifest>
