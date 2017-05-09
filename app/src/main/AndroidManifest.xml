@@ -3,7 +3,7 @@
     package="io.mdevlab.ocatraining">
 
     <application
-        android:name="io.mdevlab.ocatraining.app.OCA"
+        android:name="io.mdevlab.ocatraining.OCA"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
