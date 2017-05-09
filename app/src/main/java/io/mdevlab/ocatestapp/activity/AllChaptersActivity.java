@@ -60,7 +60,7 @@ public class AllChaptersActivity extends AppCompatActivity
                 break;
             case R.id.random_test:
                 testMode = Constants.RANDOM_TEST_MODE;
-                testActivityClass = null;
+                testActivityClass = RandomTestActivity.class;
                 break;
         }
         if (testActivityClass != null) {

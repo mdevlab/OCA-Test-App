@@ -29,7 +29,7 @@ public class TestQuestionAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return QuestionFragment.newInstance(mTestQuestionList.get(position),false);
+        return QuestionFragment.newInstance(mTestQuestionList.get(position), false, false);
     }
 }
 

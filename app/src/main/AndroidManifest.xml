@@ -30,7 +30,9 @@
             android:label="@string/title_test" />
         <activity android:name=".activity.ResponseActivity" />
         <activity android:name=".activity.FavoriteQuestionsActivity" />
-        <activity android:name=".activity.RandomTestActivity"></activity>
+        <activity
+            android:name=".activity.RandomTestActivity"
+            android:label="@string/title_random_question"></activity>
     </application>
 
 </manifest>
