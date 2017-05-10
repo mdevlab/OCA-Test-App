@@ -15,8 +15,6 @@ import io.mdevlab.ocatraining.notification.NotificationsManager;
 
 public class SettingsActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
-    final String TAG = SettingsActivity.class.getSimpleName();
-
     final boolean DEFAULT_NOTIFICATIONS_STATUS = true;
     final int DEFAULT_NOTIFICATIONS_FREQUENCY = 2;
     final Set<String> DEFAULT_NOTIFICATIONS_CHAPTERS = new HashSet<>(Arrays.asList(new String[]{"0"}));
