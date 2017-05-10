@@ -7,21 +7,21 @@
 
     <include layout="@layout/toolbar" />
 
+    <!--Container for random question-->
     <FrameLayout
         android:id="@+id/question_answer_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/button_next_answer"
-        android:layout_below="@+id/toolbar"
-        />
+        android:layout_below="@+id/toolbar" />
 
+    <!--Next Show Answer Button-->
     <Button
         android:id="@+id/button_next_answer"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="@string/question_answer"
         android:layout_alignParentBottom="true"
-        />
+        android:text="@string/question_answer" />
 
 
 </RelativeLayout>

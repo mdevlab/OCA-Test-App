@@ -32,7 +32,8 @@
         <activity android:name=".activity.FavoriteQuestionsActivity" />
         <activity
             android:name=".activity.RandomTestActivity"
-            android:label="@string/title_random_question"></activity>
+            android:label="@string/title_random_question" />
+        <activity android:name=".activity.ChapterTestActivity"></activity>
     </application>
 
 </manifest>
