@@ -39,7 +39,7 @@ public class UtilSharedPreferences {
     }
 
 
-    public static boolean notificationsAreEnabled() {
+    public boolean notificationsAreEnabled() {
         return preferences.getBoolean(
                 context.getString(R.string.notifications_toggle_key),
                 DEFAULT_NOTIFICATIONS_STATUS
@@ -47,7 +47,7 @@ public class UtilSharedPreferences {
     }
 
 
-    public static int getNotificationsFrequency() {
+    public int getNotificationsFrequency() {
         try {
             return Integer.parseInt(preferences.getString(
                     context.getString(R.string.notifications_frequency_key),
@@ -59,7 +59,7 @@ public class UtilSharedPreferences {
     }
 
 
-    public static Set<String> getNotificationsChapters() {
+    public Set<String> getNotificationsChapters() {
         return preferences.getStringSet(
                 context.getString(R.string.notifications_chapters_key),
                 DEFAULT_NOTIFICATIONS_CHAPTERS

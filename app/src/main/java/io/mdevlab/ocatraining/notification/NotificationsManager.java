@@ -1,5 +1,7 @@
 package io.mdevlab.ocatraining.notification;
 
+import android.content.Context;
+
 import io.mdevlab.ocatraining.util.Helper;
 import io.mdevlab.ocatraining.util.UtilSharedPreferences;
 
@@ -13,8 +15,8 @@ public class NotificationsManager {
     /**
      * Method that handles turning on/off notifications
      */
-    public static void handleNotifications() {
-        if (!UtilSharedPreferences.notificationsAreEnabled()) {
+    public static void handleNotifications(Context context) {
+        if (!UtilSharedPreferences.with(context).notificationsAreEnabled()) {
             turnOffNotifications();
             return;
         }
@@ -43,8 +45,8 @@ public class NotificationsManager {
     }
 
 
-    public static void schedulePeriodicNotifications() {
-        JobScheduler.scheduleJob(Helper.frequencyInMillis(UtilSharedPreferences.getNotificationsFrequency()),
+    public static void schedulePeriodicNotifications(Context context) {
+        JobScheduler.scheduleJob(Helper.frequencyInMillis(UtilSharedPreferences.with(context).getNotificationsFrequency()),
                 true,
                 JobScheduler.PERIODIC_NOTIFICATION_TAG
         );

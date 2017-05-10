@@ -54,7 +54,7 @@ public class Helper {
 
 
     public static long timeUntilFirstNotification() {
-
+        return MINUTE * SECOND;
     }
 
 

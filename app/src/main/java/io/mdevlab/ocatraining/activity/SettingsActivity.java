@@ -48,6 +48,6 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
      * depending on the status chosen by the user
      */
     private void updateNotificationsStatus() {
-        NotificationsManager.handleNotifications();
+        NotificationsManager.handleNotifications(SettingsActivity.this);
     }
 }

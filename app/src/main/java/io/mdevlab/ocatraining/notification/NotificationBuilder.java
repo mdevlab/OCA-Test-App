@@ -43,6 +43,7 @@ public class NotificationBuilder {
                 .setContentTitle("Reviewing time !")
                 .setContentText("Come review for your OCA certification test")
                 .setContentIntent(intentOpenedByNotification(context))
+                .setAutoCancel(true)
                 .build();
     }
 

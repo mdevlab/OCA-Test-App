@@ -40,6 +40,6 @@ public class NotificationsJob extends Job {
 
 
     private void schedulePeriodicNotifications() {
-        NotificationsManager.schedulePeriodicNotifications();
+        NotificationsManager.schedulePeriodicNotifications(getContext());
     }
 }
