@@ -23,6 +23,7 @@ public class NotificationsJob extends Job {
                 showNotification();
                 break;
             case JobScheduler.PERIODIC_NOTIFICATIONS_SCHEDULER_TAG:
+                schedulePeriodicNotifications();
                 break;
             case JobScheduler.PERIODIC_NOTIFICATION_TAG:
                 showNotification();
@@ -39,6 +40,6 @@ public class NotificationsJob extends Job {
 
 
     private void schedulePeriodicNotifications() {
-        NotificationsManager.
+        NotificationsManager.schedulePeriodicNotifications();
     }
 }

@@ -1,8 +1,7 @@
 package io.mdevlab.ocatraining.notification;
 
-import java.util.Set;
-
 import io.mdevlab.ocatraining.util.Helper;
+import io.mdevlab.ocatraining.util.UtilSharedPreferences;
 
 /**
  * Created by husaynhakeem on 5/5/17.
@@ -11,41 +10,30 @@ import io.mdevlab.ocatraining.util.Helper;
 public class NotificationsManager {
 
 
-    private static boolean notificationEnabled = true;
-
-
     /**
      * Method that handles turning on/off notifications
-     *
-     * @param notificationsAreEnabled Whether the user turned on/off notifications
-     * @param frequency               Frequency of the notifications
-     * @param chapters                Chapters to choose questions from in the notifications
      */
-    public static void handleNotifications(boolean notificationsAreEnabled, int frequency, Set<String> chapters) {
-        if (!notificationsAreEnabled) {
+    public static void handleNotifications() {
+        if (!UtilSharedPreferences.notificationsAreEnabled()) {
             turnOffNotifications();
             return;
         }
-        turnOnNotifications(frequency, chapters);
+        turnOnNotifications();
     }
 
 
     private static void turnOffNotifications() {
-        notificationEnabled = false;
         JobScheduler.cancelScheduledJobs();
     }
 
 
-    public static void turnOnNotifications(int frequency, Set<String> chapters) {
-        notificationEnabled = true;
-
-        scheduleFirstNotification(chapters);
+    public static void turnOnNotifications() {
+        scheduleFirstNotification();
         schedulePeriodicJobsScheduler();
-        schedulePeriodicNotifications(frequency, chapters);
     }
 
 
-    private static void scheduleFirstNotification(Set<String> chapters) {
+    private static void scheduleFirstNotification() {
         JobScheduler.scheduleJob(Helper.timeUntilFirstNotification(), false, JobScheduler.FIRST_NOTIFICATION_TAG);
     }
 
@@ -55,17 +43,10 @@ public class NotificationsManager {
     }
 
 
-    public static void schedulePeriodicNotifications(int frequency, Set<String> chapters) {
-        JobScheduler.scheduleJob(Helper.frequencyInMillis(frequency), true, JobScheduler.PERIODIC_NOTIFICATION_TAG);
-    }
-
-
-    public boolean isNotificationEnabled() {
-        return notificationEnabled;
-    }
-
-
-    public void setNotificationEnabled(boolean notificationEnabled) {
-        this.notificationEnabled = notificationEnabled;
+    public static void schedulePeriodicNotifications() {
+        JobScheduler.scheduleJob(Helper.frequencyInMillis(UtilSharedPreferences.getNotificationsFrequency()),
+                true,
+                JobScheduler.PERIODIC_NOTIFICATION_TAG
+        );
     }
 }
