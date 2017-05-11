@@ -18,15 +18,17 @@ import io.mdevlab.ocatraining.activity.MainActivity;
 public class NotificationBuilder {
 
     private final int NOTIFICATION_ID = 001;
+    private final String NOTIFICATION_TITLE = "Reviewing time !";
 
 
     /**
      * @param context
+     * @param notificationBody
      */
-    public void sendNotification(@Nullable Context context) {
+    public void sendNotification(@Nullable Context context, String notificationBody) {
         try {
             NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-            manager.notify(NOTIFICATION_ID, builtNotification(context));
+            manager.notify(NOTIFICATION_ID, builtNotification(context, notificationBody));
         } catch (NullPointerException e) {
 
         }
@@ -35,13 +37,14 @@ public class NotificationBuilder {
 
     /**
      * @param context
+     * @param notificationBody
      * @return Build notification object
      */
-    private Notification builtNotification(Context context) {
+    private Notification builtNotification(Context context, String notificationBody) {
         return new NotificationCompat.Builder(context)
                 .setSmallIcon(R.drawable.ic_about)
-                .setContentTitle("Reviewing time !")
-                .setContentText("Come review for your OCA certification test")
+                .setContentTitle(NOTIFICATION_TITLE)
+                .setContentText(notificationBody)
                 .setContentIntent(intentOpenedByNotification(context))
                 .setAutoCancel(true)
                 .build();

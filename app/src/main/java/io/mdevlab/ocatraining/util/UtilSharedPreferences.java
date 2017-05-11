@@ -16,6 +16,7 @@ import io.mdevlab.ocatraining.R;
 
 public class UtilSharedPreferences {
 
+    private final static boolean DEFAULT_IS_APP_FIRST_LAUNCH = true;
     private final static boolean DEFAULT_NOTIFICATIONS_STATUS = true;
     private final static int DEFAULT_NOTIFICATIONS_FREQUENCY = 2;
     private final static Set<String> DEFAULT_NOTIFICATIONS_CHAPTERS = new HashSet<>(Arrays.asList(new String[]{"0"}));
@@ -36,6 +37,19 @@ public class UtilSharedPreferences {
         if (instance == null)
             instance = new UtilSharedPreferences();
         return instance;
+    }
+
+
+    public static boolean isFirstAppLaunch() {
+        return preferences.getBoolean(
+                context.getString(R.string.is_app_first_launch),
+                DEFAULT_IS_APP_FIRST_LAUNCH
+        );
+    }
+
+
+    public static void setAppHasBeenLaunched() {
+        setSharedPreferenceValue(context.getString(R.string.is_app_first_launch), false);
     }
 
 
@@ -64,5 +78,11 @@ public class UtilSharedPreferences {
                 context.getString(R.string.notifications_chapters_key),
                 DEFAULT_NOTIFICATIONS_CHAPTERS
         );
+    }
+
+
+    private static void setSharedPreferenceValue(String key, Object value) {
+        if (value instanceof Boolean)
+            preferences.edit().putBoolean(key, (boolean) value).apply();
     }
 }
