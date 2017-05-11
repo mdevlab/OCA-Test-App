@@ -64,7 +64,7 @@ public class ChapterTest {
         return randomQuestion;
     }
 
-    public static TestQuestion createRandomTestQuestion(int index, Context context) {
+    public static TestQuestion createRandomMultipleTestQuestion(int index, Context context) {
         TestQuestion randomQuestion = new TestQuestion();
         randomQuestion.setId(QuestionManager.getNextIndex());
         randomQuestion.setType(Constants.MULTIPLE_ANSWER_QUESTION);
@@ -76,6 +76,40 @@ public class ChapterTest {
         randomQuestion.setAnswers(createRandomTestAnswers(index));
         return randomQuestion;
     }
+
+    public static TestQuestion createRandomSingleTestQuestion(int index, Context context) {
+        TestQuestion randomQuestion = new TestQuestion();
+        randomQuestion.setId(QuestionManager.getNextIndex());
+        randomQuestion.setType(Constants.SINGLE_ANSWER_QUESTION);
+        randomQuestion.setExplanation("Explanation " + index);
+        randomQuestion.setFavorite(true);
+        randomQuestion.setFlagged(false);
+        randomQuestion.setStatement(context.getString(R.string.dummy_question));
+        randomQuestion.setExplanation(context.getString(R.string.dummy_explanation));
+        randomQuestion.setAnswers(createRandomTestAnswers(index));
+        return randomQuestion;
+    }
+
+
+    public static List<TestQuestion> createListTestQuestion(Context mcontext) {
+        List<TestQuestion> testQuestions = new ArrayList<>();
+        for (int i = 0; i < 35; i++) {
+            testQuestions.add(createRandomMultipleTestQuestion(i, mcontext));
+        }
+        for (int i = 35; i < 70; i++) {
+            testQuestions.add(createRandomSingleTestQuestion((i), mcontext));
+        }
+        return testQuestions;
+    }
+
+    public static List<TestQuestion> createRandomTestQuestion(Context mcontext, int numrOfQuestions) {
+        List<TestQuestion> testQuestions = new ArrayList<>();
+        for (int i = 0; i < numrOfQuestions; i++) {
+            testQuestions.add(createRandomSingleTestQuestion((i), mcontext));
+        }
+        return testQuestions;
+    }
+
 
     public static RealmList<Answer> createRandomAnswers(int index) {
         RealmList<Answer> answers = new RealmList<>();

@@ -20,13 +20,18 @@ public class TestAnswer extends RealmObject {
     // Whether this answer has been selected or not
     private boolean isSelected;
 
+    // Whether this answer has been selected or not
+    private boolean isCorrect;
+
     public TestAnswer() {
     }
 
     public TestAnswer(Answer answer) {
         this.id = answer.getId();
         this.answer = answer.getAnswer();
+        this.isCorrect = answer.isCorrect();
         this.isSelected = false;
+
     }
 
     public int getId() {
@@ -53,32 +58,25 @@ public class TestAnswer extends RealmObject {
         isSelected = selected;
     }
 
+    public void setCorrect(boolean correct) {
+        isCorrect = correct;
+    }
+
+
     @Override
     public String toString() {
         return "TestAnswer{" +
                 "id=" + id +
                 ", answer='" + answer + '\'' +
                 ", isSelected=" + isSelected +
+                ", isCorrect=" + isCorrect +
                 '}';
     }
 
-    /**
-     * Method that checks whether the current answer object has been answered correctly by the user
-     * It compares the user's answer with the original answer.
-     *
-     * @return whether the current answer object has been answered correctly by the user
-     */
     public boolean isCorrect() {
-        Answer originalAnswer = AnswerManager.getAnswerById(id);
-
-        if (originalAnswer == null)
-            return true;
-
-        /**
-         * If the answer is correct and the user selected it -> Correct
-         * If the answer is incorrect and the user didn't select it -> Correct
-         * otherwise -> Incorrect
-         */
-        return isSelected == originalAnswer.isCorrect();
+        return isCorrect;
+    }
+    public boolean isAnswerCorrect() {
+        return isCorrect == isSelected;
     }
 }

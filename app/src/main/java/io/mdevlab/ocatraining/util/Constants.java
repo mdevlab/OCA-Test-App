@@ -22,4 +22,11 @@ public class Constants {
 
     // Results screen
     public static final String QUESTION_ID = "question id";
+
+
+
+    //Test Question Activity
+    public static final int EMPTY_LIST = 0;
+    public static final int ZERO = 0;
+
 }

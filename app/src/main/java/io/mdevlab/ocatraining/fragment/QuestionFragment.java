@@ -1,5 +1,6 @@
 package io.mdevlab.ocatraining.fragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -7,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -26,9 +28,9 @@ import io.mdevlab.ocatraining.util.Constants;
 
 public class QuestionFragment extends Fragment {
 
+    private static Boolean isRandomQuestion;
     private TestQuestion mQuestion;
-    public static final int CHECKBOX_ID_COMPLEMENTARY = 1000;
-    public static final int RADIOBUTTON_ID_COMPLEMENTARY = 2000;
+    public static final int ID_COMPLEMENTARY = 1000;
     private LinearLayout mAnswersContainer;
     private RadioGroup mAnswersRadioGroup;
     private TextView mQuestionStatement;
@@ -37,11 +39,19 @@ public class QuestionFragment extends Fragment {
     private ToggleButton isFlagged;
     private ToggleButton isFavorite;
     private Boolean isResponse;
+    private int questionType;
 
-    public static final QuestionFragment newInstance(TestQuestion question, Boolean isReponse) {
+
+    /**
+     * @param question   The question to render within this fragement
+     * @param isResponse is the response is true prepare the fragment to render a response other ways the question.
+     * @return
+     */
+    public static final QuestionFragment newInstance(TestQuestion question, Boolean isResponse, Boolean isRandomQuestion) {
+        QuestionFragment.isRandomQuestion = isRandomQuestion;
         QuestionFragment questionFragment = new QuestionFragment();
         questionFragment.mQuestion = question;
-        questionFragment.isResponse = isReponse;
+        questionFragment.isResponse = isResponse;
         return questionFragment;
 
     }
@@ -59,27 +69,64 @@ public class QuestionFragment extends Fragment {
         mAnswerTitle = (TextView) v.findViewById(R.id.response_title);
         isFlagged = (ToggleButton) v.findViewById(R.id.flag_question);
         isFavorite = (ToggleButton) v.findViewById(R.id.save_question);
-
-
         bindViewFromQuestion();
+        setFavoriteFlaggedListeners();
+
+        if (isRandomQuestion) {
+            setRandomQuestionUI();
+        }
 
         //check if this view is for the response
         if (isResponse) {
             setTheViewResponse();
-            setResponseData();
         }
 
         //Type of allowed Question
         if (mQuestion != null) {
             if (mQuestion.getType() == Constants.SINGLE_ANSWER_QUESTION) {
                 createSingleAnswerContainer();
+                questionType = Constants.SINGLE_ANSWER_QUESTION;
 
             } else if (mQuestion.getType() == Constants.MULTIPLE_ANSWER_QUESTION) {
                 createMultipleAnswerContainer();
+                questionType = Constants.MULTIPLE_ANSWER_QUESTION;
             }
         }
 
         return v;
+    }
+
+    private void setRandomQuestionUI() {
+        isFlagged.setVisibility(View.INVISIBLE);
+    }
+
+
+    private void setFavoriteFlaggedListeners() {
+        isFlagged.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    //Todo save state in realmDB
+                    mQuestion.setFlagged(true);
+                } else {
+                    mQuestion.setFlagged(false);
+                }
+
+            }
+        });
+
+        isFavorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    //Todo save state in realmDB
+                    mQuestion.setFavorite(true);
+                } else {
+                    mQuestion.setFavorite(false);
+                }
+
+            }
+        });
     }
 
     /**
@@ -89,14 +136,13 @@ public class QuestionFragment extends Fragment {
         isFlagged.setVisibility(View.INVISIBLE);
         mAnswerExplanation.setVisibility(View.VISIBLE);
         mAnswerTitle.setVisibility(View.VISIBLE);
-
+        setAnswerData();
     }
 
     /**
-     *
      * Set data from the question object
      */
-    private void setResponseData() {
+    private void setAnswerData() {
 
         mAnswerExplanation.setText(mQuestion.getExplanation());
 
@@ -126,8 +172,15 @@ public class QuestionFragment extends Fragment {
 
         for (int i = 0; i < checkboxCount; i++) {
             CheckBox checkBox = new CheckBox(getActivity());
-            checkBox.setId(i + CHECKBOX_ID_COMPLEMENTARY);
+            checkBox.setId(i + ID_COMPLEMENTARY);
             checkBox.setText(" " + mQuestion.getAnswers().get(i).getAnswer());
+            final int index = i;
+            checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    mQuestion.getAnswers().get(index).setSelected(isChecked);
+                }
+            });
             checkBox.setLayoutParams(lparams);
             mAnswersContainer.addView(checkBox);
         }
@@ -148,12 +201,36 @@ public class QuestionFragment extends Fragment {
 
         for (int i = 0; i < radioButtonCount; i++) {
             RadioButton radioButton = new RadioButton(getActivity());
-            radioButton.setId(i + RADIOBUTTON_ID_COMPLEMENTARY);
+            radioButton.setId(i + ID_COMPLEMENTARY);
             radioButton.setText(" " + mQuestion.getAnswers().get(i).getAnswer());
+            final int index = i;
+            radioButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    mQuestion.getAnswers().get(index).setSelected(isChecked);
+                }
+            });
             radioButton.setLayoutParams(lparams);
             mAnswersRadioGroup.addView(radioButton);
         }
 
 
+    }
+
+
+    public void verifyQuestionAnswer() {
+
+        for (int i = 0; i < mQuestion.getAnswers().size(); i++) {
+            CompoundButton compoundButton = (CompoundButton) mAnswersContainer.findViewById(i + ID_COMPLEMENTARY);
+            if (mQuestion.getAnswers().get(i).isAnswerCorrect()) {
+                compoundButton.setTextColor(Color.GREEN);
+            } else if (!mQuestion.getAnswers().get(i).isAnswerCorrect()) {
+                if (mQuestion.getAnswers().get(i).isSelected()) {
+                    compoundButton.setTextColor(Color.RED);
+                }
+            }
+        }
+
+        setTheViewResponse();
     }
 }

@@ -1,5 +1,6 @@
 package io.mdevlab.ocatraining.activity;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,12 +9,14 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import java.util.List;
 
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity
 
     private RecyclerView mChapterRecyclerView;
     private DrawerLayout mDrawer;
+    private CardView mAllChaptersCardView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +42,17 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        mAllChaptersCardView = (CardView) findViewById(R.id.all_chapters_container);
+        mAllChaptersCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                Intent intent = new Intent(MainActivity.this, AllChaptersActivity.class);
+                startActivity(intent,
+                        ActivityOptions.makeSceneTransitionAnimation(MainActivity.this
+                        ).toBundle());
+            }
+        });
         mChapterRecyclerView = (RecyclerView) findViewById(R.id.chapter_recycler_view);
 
         List<Chapter> chapterList = ChapterTest.prepareChapters();

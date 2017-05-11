@@ -21,14 +21,16 @@
             </intent-filter>
         </activity>
 
+
         <activity
-            android:name="io.mdevlab.ocatraining.activity.AllChaptersActivity"
-            android:label="@string/title_activity_all_chapters"
-            android:parentActivityName="io.mdevlab.ocatraining.activity.MainActivity" />
+            android:name=".activity.AllChaptersActivity"
+            android:label="@string/title_all_chapters"
+            android:theme="@style/AppTheme.Details" />
 
         <activity android:name="io.mdevlab.ocatraining.activity.ResultsActivity" />
-        <activity android:name="io.mdevlab.ocatraining.activity.TestActivity" />
-        <activity android:name="io.mdevlab.ocatraining.activity.ResponseActivity" />
+        <activity
+            android:name=".activity.TestActivity"
+            android:label="@string/title_test" />
 
         <activity
             android:name="io.mdevlab.ocatraining.activity.FavoriteQuestionsActivity"
@@ -48,6 +50,13 @@
             android:name="io.mdevlab.ocatraining.activity.SettingsActivity"
             android:label="@string/title_activity_settings"
             android:parentActivityName="io.mdevlab.ocatraining.activity.MainActivity" />
+
+        <activity
+            android:name=".activity.RandomTestActivity"
+            android:label="@string/title_random_question" />
+        <activity android:name=".activity.ResponseActivity" />
+        <activity android:name=".activity.ChapterTestActivity"></activity>
+
     </application>
 
 </manifest>

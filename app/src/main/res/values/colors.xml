@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--Theme colors -->
     <color name="colorPrimary">#3982c6</color>
     <color name="colorPrimaryDark">#1873c9</color>
     <color name="colorAccent">#8bea0e</color>
-
     <color name="backgroundColor">#132852</color>
     <color name="blackColor">#000000</color>
 
@@ -23,5 +23,11 @@
     <color name="color_control_normal">#bdbdbd</color>
     <color name="content_color">#434a54</color>
     <color name="green_buttons_color">#1db954</color>
+
+    <!--test Colors -->
+    <color name="color_final_test">#43a58b</color>
+    <color name="color_custom_test">#5aa543</color>
+    <color name="color_random_test">#90a543</color>
+
 
 </resources>

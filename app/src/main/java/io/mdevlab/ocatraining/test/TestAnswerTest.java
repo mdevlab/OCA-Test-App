@@ -2,6 +2,8 @@ package io.mdevlab.ocatraining.test;
 
 import android.util.Log;
 
+
+import io.mdevlab.ocatraining.model.Answer;
 import io.mdevlab.ocatraining.model.TestAnswer;
 import io.mdevlab.ocatraining.modelManager.TestAnswerManager;
 import io.realm.RealmList;
@@ -28,16 +30,19 @@ public class TestAnswerTest {
 
     public static RealmList<TestAnswer> createRandomTestAnswers(int index) {
         RealmList<TestAnswer> answers = new RealmList<>();
-        answers.add(createRandomTestAnswer(index));
-        answers.add(createRandomTestAnswer(index));
+        answers.add(createRandomTestAnswer(index,false));
+        answers.add(createRandomTestAnswer(index,true));
+        answers.add(createRandomTestAnswer(index,false));
+        answers.add(createRandomTestAnswer(index,true));
+        answers.add(createRandomTestAnswer(index,false));
         return answers;
     }
 
-    private static TestAnswer createRandomTestAnswer(int index) {
-        TestAnswer randomAnswer = new TestAnswer();
+    private static TestAnswer createRandomTestAnswer(int index,boolean iscorrect) {
+        Answer randomAnswer = new Answer();
         randomAnswer.setId(TestAnswerManager.getNextIndex());
         randomAnswer.setAnswer("Answer " + index);
-        randomAnswer.setSelected(false);
-        return randomAnswer;
+        randomAnswer.setCorrect(iscorrect);
+        return new TestAnswer(randomAnswer);
     }
 }
