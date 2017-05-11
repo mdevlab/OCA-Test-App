@@ -2,6 +2,7 @@ package io.mdevlab.ocatraining.util;
 
 import android.util.Log;
 
+import java.util.Calendar;
 import java.util.Set;
 
 /**
@@ -10,7 +11,9 @@ import java.util.Set;
 
 public class Helper {
 
-    private static final int FIRST_NOTIFICATION_TIME = 5;
+    private static final int FIRST_NOTIFICATION_HOUR = 17;
+    private static final int FIRST_NOTIFICATION_MINUTE = 0;
+    private static final int FIRST_NOTIFICATION_SECOND = 0;
     private static final int DAY = 24;
     private static final int HOUR = 60;
     private static final int MINUTE = 60;
@@ -39,6 +42,7 @@ public class Helper {
         }
     }
 
+
     /**
      * @param days Number of days to be converted to milliseconds
      * @return Number of days converted to milliseconds
@@ -48,17 +52,35 @@ public class Helper {
     }
 
 
+    /**
+     * @param frequency Value of notifications frequency in days
+     * @return Converted value of the frequency in milliseconds
+     */
     public static long frequencyInMillis(int frequency) {
         return frequency * DAY * HOUR * MINUTE * SECOND;
     }
 
 
+    /**
+     * @return Number of milliseconds until the time the first notification
+     * is supposed to be sent to the user
+     */
     public static long timeUntilFirstNotification() {
-        return MINUTE * SECOND;
+        long oneDayInMillis = DAY * HOUR * MINUTE * SECOND;
+        long notificationTime = getNotificationTime();
+        return oneDayInMillis + notificationTime;
     }
 
 
-    private static boolean currentTimeHasPassedFirstNotificationTime() {
-        return false;
+    /**
+     * @return Number of milliseconds until the hour of the first notification
+     * (Value may be negative or positive depending on the current hour of the day)
+     */
+    private static long getNotificationTime() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, FIRST_NOTIFICATION_HOUR);
+        calendar.set(Calendar.MINUTE, FIRST_NOTIFICATION_MINUTE);
+        calendar.set(Calendar.SECOND, FIRST_NOTIFICATION_SECOND);
+        return calendar.getTimeInMillis() - System.currentTimeMillis();
     }
 }
