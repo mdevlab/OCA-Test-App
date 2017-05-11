@@ -6,14 +6,63 @@
     tools:context=".activity.RandomTestActivity">
 
     <include layout="@layout/toolbar" />
+    <!--correct score-->
+    <TextView
+        android:id="@+id/incorrect_label"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/toolbar"
+        android:gravity="center"
+        android:text="@string/incorrect"
+        android:textColor="@color/incorrect_color_label"
+        android:textSize="@dimen/text_size_normal"
+        android:textStyle="bold" />
+    <!--incorrect score-->
+    <TextView
+        android:id="@+id/incorrect_score"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/incorrect_label"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="@color/incorrect_color_score"
+        android:textSize="@dimen/text_size_normal"
+        android:textStyle="bold" />
+
+    <!--correct label-->
+    <TextView
+        android:id="@+id/correct_label"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:gravity="center"
+        android:text="@string/correct"
+        android:textColor="@color/correct_color_label"
+        android:textSize="@dimen/text_size_normal"
+        android:textStyle="bold" />
+    <!--correct score-->
+    <TextView
+        android:id="@+id/correct_score"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/correct_label"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="@color/correct_color_score"
+        android:textSize="@dimen/text_size_normal"
+        android:textStyle="bold" />
 
     <!--Container for random question-->
     <FrameLayout
+
         android:id="@+id/question_answer_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/button_next_answer"
-        android:layout_below="@+id/toolbar" />
+        android:layout_below="@+id/incorrect_score" />
+
 
     <!--Next Show Answer Button-->
     <Button
@@ -21,6 +70,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
+
         android:text="@string/question_answer" />
 
 

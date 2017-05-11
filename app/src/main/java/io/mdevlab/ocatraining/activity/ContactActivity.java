@@ -19,13 +19,13 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
     private final String EMAIL_TYPE = "message/rfc822";
     private final String EMAIL_SUBJECT = "OCA TEST app message from ";
 
-    EditText name;
-    EditText message;
+    private EditText name;
+    private EditText message;
 
-    TextInputLayout nameLayout;
-    TextInputLayout messageLayout;
+    private TextInputLayout nameLayout;
+    private TextInputLayout messageLayout;
 
-    Button send;
+    private Button send;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

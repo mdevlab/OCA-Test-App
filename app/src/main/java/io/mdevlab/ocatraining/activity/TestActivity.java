@@ -54,7 +54,6 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
     private int testMode;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,7 +79,6 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
         mTextQuestionspercent = (TextView) findViewById(R.id.text_questions_percent);
         mTextTimer = (TextView) findViewById(R.id.text_test_timer);
         mProgressBarTest = (ProgressBar) findViewById(R.id.progress_test);
-
         mTogglePauseResumeTest = (ToggleButton) findViewById(R.id.toggle_pause_resume_test);
 
         mButtonResumeTest = (Button) findViewById(R.id.button_resume_test);
@@ -101,7 +99,6 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
             }
         });
 
-
         mTogglePauseResumeTest.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -113,7 +110,6 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
 
             }
         });
-
 
         setNextPreviousListener();
         prepareQuestions();

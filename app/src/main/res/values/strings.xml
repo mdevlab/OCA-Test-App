@@ -137,16 +137,21 @@ instance variable in the object created on line 5.</string>
     <string name="contact_message_empty">Please enter your message</string>
     <string name="contact_name">Name</string>
     <string name="contact_message">Message</string>
-    <!--TestActivity-->
+
+    <!--Test Screens -->
     <string name="last_question">Last</string>
     <string name="test_result">Results</string>
     <string name="first_question">First</string>
     <string name="next_question">Next</string>
     <string name="previous_question">Previous </string>
     <string name="question_answer">Answer</string>
+    <string name="question">Question</string>
     <string name="confirm_exit_message">Are you sure you want to leave, other ways you can save it for later</string>
     <string name="confirm_exit_title">Quit the Test</string>
     <string name="quit_and_save">Quit and Save</string>
     <string name="dialog_cancel">Cancel</string>
+    <string name="correct">Correct</string>
+    <string name="incorrect">Incorrect</string>
+
 
 </resources>

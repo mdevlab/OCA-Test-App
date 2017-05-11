@@ -49,7 +49,7 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterV
     @Override
     public void onBindViewHolder(ChapterViewHolder holder, int position) {
         Chapter chapter = chapterList.get(position);
-      
+
         holder.mchapternumber.setText(String.valueOf(position));
         holder.mchaptername.setText(chapter.getName());
         holder.cardView.setCardBackgroundColor(ContextCompat.getColor(mContext, colors[position % colors.length]));
@@ -69,7 +69,7 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterV
             super(itemView);
             mchapternumber = (TextView) itemView.findViewById(R.id.chapter_number);
             mchaptername = (TextView) itemView.findViewById(R.id.chapter_name);
-            cardView =  (CardView) itemView.findViewById(R.id.Chapter_card_view);
+            cardView = (CardView) itemView.findViewById(R.id.Chapter_card_view);
         }
     }
 }

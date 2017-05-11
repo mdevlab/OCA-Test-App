@@ -30,4 +30,10 @@
     <color name="color_random_test">#90a543</color>
 
 
+    <!--random Test-->
+    <color name="correct_color_label">#427931</color>
+    <color name="correct_color_score">#5aa543</color>
+    <color name="incorrect_color_label">#8b2f2f</color>
+    <color name="incorrect_color_score">#f22141</color>
+
 </resources>

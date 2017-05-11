@@ -72,6 +72,7 @@ public class QuestionFragment extends Fragment {
         bindViewFromQuestion();
         setFavoriteFlaggedListeners();
 
+        //If the request of creating the fragment is coming from the random section
         if (isRandomQuestion) {
             setRandomQuestionUI();
         }
@@ -96,11 +97,19 @@ public class QuestionFragment extends Fragment {
         return v;
     }
 
+    /**
+     * Set and prepare the ui for the random question
+     * hide/show appropriate Ui component
+     */
     private void setRandomQuestionUI() {
         isFlagged.setVisibility(View.INVISIBLE);
     }
 
-
+    /**
+     * The favorite and flag
+     * favorite: to save the question as a favorite
+     * flag : to flag the current question (used to let the user see the flagged questions if he doubt about the given answer )
+     */
     private void setFavoriteFlaggedListeners() {
         isFlagged.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -135,7 +144,7 @@ public class QuestionFragment extends Fragment {
     private void setTheViewResponse() {
         isFlagged.setVisibility(View.INVISIBLE);
         mAnswerExplanation.setVisibility(View.VISIBLE);
-        mAnswerTitle.setVisibility(View.VISIBLE);
+        mAnswerTitle.setText(R.string.question_answer);
         setAnswerData();
     }
 
@@ -217,8 +226,16 @@ public class QuestionFragment extends Fragment {
 
     }
 
-
-    public void verifyQuestionAnswer() {
+    /**
+     * This function is for verifying the answers
+     * and setting the appropriate UI
+     * <p>
+     * true  all answers are correct
+     * false one or more answers are false or maybe all answers are false
+     *
+     * @return
+     */
+    public Boolean verifyQuestionAnswer() {
 
         for (int i = 0; i < mQuestion.getAnswers().size(); i++) {
             CompoundButton compoundButton = (CompoundButton) mAnswersContainer.findViewById(i + ID_COMPLEMENTARY);
@@ -232,5 +249,6 @@ public class QuestionFragment extends Fragment {
         }
 
         setTheViewResponse();
+        return true;
     }
 }
