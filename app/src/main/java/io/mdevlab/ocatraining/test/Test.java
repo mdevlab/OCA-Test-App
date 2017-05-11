@@ -43,7 +43,7 @@ public class Test {
      *
      * @param context: Context of calling class
      */
-    public static void runChapterJsonToRealmTest(Context context) {
+    public static void populateDataBase(Context context) {
         Log.e(TAG, "Started deleting..");
         AnswerTest.deleteAnswers();
         QuestionTest.deleteQuestions();

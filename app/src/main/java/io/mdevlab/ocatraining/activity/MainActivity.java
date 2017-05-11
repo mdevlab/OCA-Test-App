@@ -24,6 +24,7 @@ import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.adapter.ChapterAdapter;
 import io.mdevlab.ocatraining.model.Chapter;
 import io.mdevlab.ocatraining.test.ChapterTest;
+import io.mdevlab.ocatraining.test.Test;
 
 
 public class MainActivity extends AppCompatActivity
@@ -40,6 +41,10 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Dummy data
+        Test.populateDataBase(this);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         mAllChaptersCardView = (CardView) findViewById(R.id.all_chapters_container);

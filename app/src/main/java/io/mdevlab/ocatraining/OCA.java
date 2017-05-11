@@ -5,6 +5,8 @@ import android.app.Application;
 import com.evernote.android.job.JobManager;
 
 import io.mdevlab.ocatraining.notification.NotificationsJobCreator;
+import io.mdevlab.ocatraining.notification.NotificationsManager;
+import io.mdevlab.ocatraining.util.UtilSharedPreferences;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
@@ -18,15 +20,29 @@ public class OCA extends Application {
     public void onCreate() {
         super.onCreate();
 
-        // Job scheduler singleton initializer
-        JobManager.create(this).addJobCreator(new NotificationsJobCreator());
+        setUpJobManager();
+        setUpRealm();
+        setUpNotifications();
+    }
 
-        // Realm initialization and configuration
+    private void setUpJobManager() {
+        JobManager.create(this).addJobCreator(new NotificationsJobCreator());
+    }
+
+    private void setUpRealm() {
         Realm.init(this);
         RealmConfiguration realmConfiguration = new RealmConfiguration.Builder()
                 .name("oca.realm")
                 .schemaVersion(1)
+                .deleteRealmIfMigrationNeeded()
                 .build();
         Realm.setDefaultConfiguration(realmConfiguration);
+    }
+
+    private void setUpNotifications() {
+        if (UtilSharedPreferences.with(getApplicationContext()).isFirstAppLaunch()) {
+            NotificationsManager.handleNotifications(getApplicationContext());
+            UtilSharedPreferences.with(getApplicationContext()).setAppHasBeenLaunched();
+        }
     }
 }

@@ -31,7 +31,7 @@ public class ResultsActivity extends AppCompatActivity {
         questions = (GridView) findViewById(R.id.questions_grid);
 
         // For testing
-//        io.mdevlab.ocatestapp.test.Test.runChapterJsonToRealmTest(ResultsActivity.this);
+//        io.mdevlab.ocatestapp.test.Test.populateDataBase(ResultsActivity.this);
 //        test = io.mdevlab.ocatestapp.test.Test.createTest();
 
         if (test != null) {
