@@ -40,9 +40,9 @@ public class OCA extends Application {
     }
 
     private void setUpNotifications() {
-        if (UtilSharedPreferences.isFirstAppLaunch()) {
+        if (UtilSharedPreferences.with(getApplicationContext()).isFirstAppLaunch()) {
             NotificationsManager.handleNotifications(getApplicationContext());
-            UtilSharedPreferences.setAppHasBeenLaunched();
+            UtilSharedPreferences.with(getApplicationContext()).setAppHasBeenLaunched();
         }
     }
 }

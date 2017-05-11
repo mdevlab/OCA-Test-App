@@ -34,11 +34,11 @@
 
         <activity
             android:name="io.mdevlab.ocatraining.activity.FavoriteQuestionsActivity"
-            android:label="@string/title_activity_favorite_questions"
-            android:parentActivityName="io.mdevlab.ocatraining.activity.MainActivity" />
+            android:label="@string/title_activity_favorite_questions"/>
 
         <activity
             android:name="io.mdevlab.ocatraining.activity.AboutActivity"
+            android:label="@string/title_activity_about"
             android:parentActivityName="io.mdevlab.ocatraining.activity.MainActivity" />
 
         <activity

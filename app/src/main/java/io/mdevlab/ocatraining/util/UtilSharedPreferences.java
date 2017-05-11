@@ -40,7 +40,7 @@ public class UtilSharedPreferences {
     }
 
 
-    public static boolean isFirstAppLaunch() {
+    public boolean isFirstAppLaunch() {
         return preferences.getBoolean(
                 context.getString(R.string.is_app_first_launch),
                 DEFAULT_IS_APP_FIRST_LAUNCH
@@ -48,7 +48,7 @@ public class UtilSharedPreferences {
     }
 
 
-    public static void setAppHasBeenLaunched() {
+    public void setAppHasBeenLaunched() {
         setSharedPreferenceValue(context.getString(R.string.is_app_first_launch), false);
     }
 
@@ -81,7 +81,7 @@ public class UtilSharedPreferences {
     }
 
 
-    private static void setSharedPreferenceValue(String key, Object value) {
+    private void setSharedPreferenceValue(String key, Object value) {
         if (value instanceof Boolean)
             preferences.edit().putBoolean(key, (boolean) value).apply();
     }
