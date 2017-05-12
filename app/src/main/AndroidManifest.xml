@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="io.mdevlab.ocatraining">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".OCA"
         android:allowBackup="true"
@@ -52,6 +54,10 @@
         <activity
             android:name=".activity.ActivityChapter"
             android:label="@string/title_activity_chapter"
+            android:parentActivityName=".activity.MainActivity" />
+        <activity
+            android:name=".activity.ActivityCertificationInfo"
+            android:label="@string/title_activity_certification_info"
             android:parentActivityName=".activity.MainActivity" />
     </application>
 
