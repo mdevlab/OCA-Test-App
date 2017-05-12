@@ -47,4 +47,8 @@
     <dimen name="form_margin">20dp</dimen>
     <dimen name="button_height">32dp</dimen>
     <dimen name="upper_margin">30dp</dimen>
+
+    <!--Chapter-->
+    <dimen name="chapter_side_padding">16dp</dimen>
+    <dimen name="chapter_up_down_padding">8dp</dimen>
 </resources>

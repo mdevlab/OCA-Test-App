@@ -23,7 +23,7 @@ import java.util.List;
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.adapter.ChapterAdapter;
 import io.mdevlab.ocatraining.model.Chapter;
-import io.mdevlab.ocatraining.test.ChapterTest;
+import io.mdevlab.ocatraining.modelManager.ChapterManager;
 import io.mdevlab.ocatraining.test.Test;
 
 
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity
         });
         mChapterRecyclerView = (RecyclerView) findViewById(R.id.chapter_recycler_view);
 
-        List<Chapter> chapterList = ChapterTest.prepareChapters();
+        List<Chapter> chapterList = ChapterManager.getAllChapters();
 
         ChapterAdapter chapterAdapter = new ChapterAdapter(this, chapterList);
         mChapterRecyclerView.setAdapter(chapterAdapter);
