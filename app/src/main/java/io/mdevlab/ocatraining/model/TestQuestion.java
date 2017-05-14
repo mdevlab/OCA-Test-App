@@ -140,7 +140,7 @@ public class TestQuestion extends RealmObject {
      */
     public boolean hasBeenAnsweredCorrectly() {
         for (TestAnswer userAnswer : answers) {
-            if (!userAnswer.isCorrect())
+            if (!userAnswer.isAnswerCorrect())
                 return false;
         }
 

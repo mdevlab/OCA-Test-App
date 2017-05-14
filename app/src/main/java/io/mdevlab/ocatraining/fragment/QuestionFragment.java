@@ -145,7 +145,19 @@ public class QuestionFragment extends Fragment {
         isFlagged.setVisibility(View.INVISIBLE);
         mAnswerExplanation.setVisibility(View.VISIBLE);
         mAnswerTitle.setText(R.string.question_answer);
+        disableCompoundButtons();
         setAnswerData();
+    }
+
+    /**
+     * Disable all Checkbox/RadioButton that hold answers
+     * to prevent the user from playing and check/uncheck the Compound Button
+     */
+    private void disableCompoundButtons() {
+        for (int i = 0; i < mQuestion.getAnswers().size(); i++) {
+            CompoundButton compoundButton = (CompoundButton) mAnswersContainer.findViewById(i + ID_COMPLEMENTARY);
+            compoundButton.setEnabled(false);
+        }
     }
 
     /**
@@ -238,17 +250,23 @@ public class QuestionFragment extends Fragment {
     public Boolean verifyQuestionAnswer() {
 
         for (int i = 0; i < mQuestion.getAnswers().size(); i++) {
+
             CompoundButton compoundButton = (CompoundButton) mAnswersContainer.findViewById(i + ID_COMPLEMENTARY);
             if (mQuestion.getAnswers().get(i).isAnswerCorrect()) {
-                compoundButton.setTextColor(Color.GREEN);
+                if (mQuestion.getAnswers().get(i).isCorrect() == true) {
+                    compoundButton.setTextColor(Color.GREEN);
+                }
             } else if (!mQuestion.getAnswers().get(i).isAnswerCorrect()) {
-                if (mQuestion.getAnswers().get(i).isSelected()) {
+                if (mQuestion.getAnswers().get(i).isSelected() == true) {
                     compoundButton.setTextColor(Color.RED);
+                }
+                if (mQuestion.getAnswers().get(i).isCorrect() == true) {
+                    compoundButton.setTextColor(Color.GREEN);
                 }
             }
         }
 
         setTheViewResponse();
-        return true;
+        return mQuestion.hasBeenAnsweredCorrectly();
     }
 }

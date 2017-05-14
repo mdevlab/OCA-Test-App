@@ -150,7 +150,10 @@ instance variable in the object created on line 5.</string>
     <string name="question">Question</string>
     <string name="confirm_exit_message">Are you sure you want to leave, other ways you can save it for later</string>
     <string name="confirm_exit_title">Quit the Test</string>
+    <string name="confirm_exit_random_question_message">Are you sure you want to leave.</string>
+    <string name="confirm_exit_random_question_title">Quit Random Questions</string>
     <string name="quit_and_save">Quit and Save</string>
+    <string name="quit">Quit</string>
     <string name="dialog_cancel">Cancel</string>
     <string name="correct">Correct</string>
     <string name="incorrect">Incorrect</string>

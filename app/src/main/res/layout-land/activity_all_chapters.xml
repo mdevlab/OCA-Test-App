@@ -18,20 +18,22 @@
         android:layout_weight="1"
         android:background="@color/color_final_test"
         android:gravity="center"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:padding="8dp">
 
         <TextView
             style="@style/all_chapters_text"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/final_test"
             android:textAlignment="center" />
 
         <TextView
             style="@style/all_chapters_sub_text"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/final_test_sub" />
     </LinearLayout>
 
@@ -44,20 +46,22 @@
         android:layout_weight="1"
         android:background="@color/color_custom_test"
         android:gravity="center"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:padding="8dp">
 
         <TextView
             style="@style/all_chapters_text"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/customized_test"
             android:textAlignment="center" />
 
         <TextView
             style="@style/all_chapters_sub_text"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/customized_test_sub" />
     </LinearLayout>
 
@@ -70,19 +74,23 @@
         android:layout_weight="1"
         android:background="@color/color_random_test"
         android:gravity="center"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:padding="8dp">
 
         <TextView
             style="@style/all_chapters_text"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/random_test" />
+            android:layout_weight="1"
+            android:text="@string/random_test"
+            android:textAlignment="center" />
 
         <TextView
             style="@style/all_chapters_sub_text"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/random_test_sub" />
+            android:layout_weight="1"
+            android:text="@string/random_test_sub"
+            android:textAlignment="center" />
     </LinearLayout>
 </LinearLayout>

@@ -1,6 +1,5 @@
 package io.mdevlab.ocatraining.model;
 
-import io.mdevlab.ocatraining.modelManager.AnswerManager;
 import io.realm.RealmObject;
 
 /**
@@ -73,9 +72,25 @@ public class TestAnswer extends RealmObject {
                 '}';
     }
 
+
+    /**
+     * Return if the current answers is correct
+     * @return  true = correct / false = incorrect
+     */
     public boolean isCorrect() {
         return isCorrect;
     }
+
+
+    /**
+     * Check if the user answer is correct
+     * means if the user select the answers and iscorrect is true the answer is correct
+     * Example :
+     * isCorrect = true  isSelected = true   the return is true  correct
+     * isCorrect = true  isSelected = false   the return is false  incorrect
+     *
+     * @return true false
+     */
     public boolean isAnswerCorrect() {
         return isCorrect == isSelected;
     }

@@ -25,6 +25,8 @@ public class AllChaptersActivity extends AppCompatActivity
         setContentView(R.layout.activity_all_chapters);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         mFinalTest = (LinearLayout) findViewById(R.id.final_test);
         mFinalTest.setOnClickListener(this);
         mCustomTest = (LinearLayout) findViewById(R.id.custom_test);
@@ -70,5 +72,11 @@ public class AllChaptersActivity extends AppCompatActivity
         }
 
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }
