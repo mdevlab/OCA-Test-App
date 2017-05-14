@@ -14,6 +14,7 @@ import java.util.List;
 
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.activity.ActivityChapter;
+import io.mdevlab.ocatraining.activity.AllChaptersActivity;
 import io.mdevlab.ocatraining.model.Chapter;
 import io.mdevlab.ocatraining.util.Constants;
 
@@ -22,10 +23,15 @@ import io.mdevlab.ocatraining.util.Constants;
  */
 
 
-public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterViewHolder> {
+public class ChapterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Context mContext;
     private List<Chapter> chapterList;
+
+    private final int VIEW_TYPE_HEADER = 1;
+    private final int VIEW_TYPE_CHAPTER = 2;
+
+    private final int HEADER_POSITION = 0;
 
 
     private int[] colors = {
@@ -44,31 +50,78 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterV
     }
 
 
-    @Override
-    public ChapterViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_chapter, parent, false);
-        return new ChapterViewHolder(itemView);
+    public boolean isHeader(int position) {
+        return position == 0;
     }
 
+    @Override
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+        RecyclerView.ViewHolder holder = null;
+        View itemView;
+
+        switch (viewType) {
+            case VIEW_TYPE_HEADER:
+                itemView = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.item_all_chapters, parent, false);
+
+                holder = new HeaderViewHolder(itemView);
+                break;
+            case VIEW_TYPE_CHAPTER:
+                itemView = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.item_chapter, parent, false);
+
+                holder = new ChapterViewHolder(itemView);
+                break;
+        }
+
+
+        return holder;
+    }
 
     @Override
-    public void onBindViewHolder(ChapterViewHolder holder, int position) {
-        Chapter chapter = chapterList.get(position);
+    public int getItemViewType(int position) {
 
-        holder.chapterId = chapter.getId();
-        holder.mChapterNumber.setText(String.valueOf(position));
-        holder.mChapterName.setText(chapter.getName());
-        holder.chapterView.setCardBackgroundColor(ContextCompat.getColor(mContext, colors[position % colors.length]));
+        if (position == HEADER_POSITION)
+            return VIEW_TYPE_HEADER;
+        else
+            return VIEW_TYPE_CHAPTER;
+
+    }
+
+    @Override
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int pos) {
+        int position = holder.getAdapterPosition();
+
+        switch (holder.getItemViewType()) {
+            case VIEW_TYPE_HEADER:
+                //Here we can customize our all chapters  header
+                break;
+            case VIEW_TYPE_CHAPTER:
+                Chapter chapter = chapterList.get(position - 1);
+                final ChapterViewHolder chapterViewHolder = (ChapterViewHolder) holder;
+
+                chapterViewHolder.chapterId = chapter.getId();
+                chapterViewHolder.mChapterNumber.setText(String.valueOf(position));
+                chapterViewHolder.mChapterName.setText(chapter.getName());
+                chapterViewHolder.chapterView.setCardBackgroundColor(ContextCompat.getColor(mContext, colors[position % colors.length]));
+                break;
+
+        }
+
+
     }
 
 
     @Override
     public int getItemCount() {
-        return chapterList.size();
+        return chapterList.size() + 1;
     }
 
 
+    /**
+     * Holder for each chapter
+     */
     class ChapterViewHolder extends RecyclerView.ViewHolder {
 
         int chapterId;
@@ -83,7 +136,7 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterV
 
             mChapterNumber = (TextView) itemView.findViewById(R.id.chapter_number);
             mChapterName = (TextView) itemView.findViewById(R.id.chapter_name);
-            chapterView =  (CardView) itemView.findViewById(R.id.Chapter_card_view);
+            chapterView = (CardView) itemView.findViewById(R.id.Chapter_card_view);
 
             chapterView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -101,6 +154,33 @@ public class ChapterAdapter extends RecyclerView.Adapter<ChapterAdapter.ChapterV
             Intent openChapter = new Intent(mContext, ActivityChapter.class);
             openChapter.putExtra(Constants.CHAPTER_ID, chapterId);
             mContext.startActivity(openChapter);
+        }
+    }
+
+
+    /**
+     * Header view Holder  this holder is for displaying all chapter header view
+     */
+    class HeaderViewHolder extends RecyclerView.ViewHolder {
+        CardView headerView;
+
+        public HeaderViewHolder(View itemView) {
+            super(itemView);
+
+            headerView = (CardView) itemView.findViewById(R.id.all_chapters_container);
+            headerView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mContext, AllChaptersActivity.class);
+                    mContext.startActivity(intent);
+
+//TODO set Animation
+//                            ,
+//                            ActivityOptions.makeSceneTransitionAnimation(MainActivity.this
+//                            ).toBundle());
+                }
+            });
+
         }
     }
 }

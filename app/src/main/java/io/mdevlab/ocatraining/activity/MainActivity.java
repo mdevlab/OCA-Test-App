@@ -1,6 +1,5 @@
 package io.mdevlab.ocatraining.activity;
 
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,14 +8,12 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import java.util.List;
 
@@ -35,7 +32,6 @@ public class MainActivity extends AppCompatActivity
 
     private RecyclerView mChapterRecyclerView;
     private DrawerLayout mDrawer;
-    private CardView mAllChaptersCardView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,25 +43,8 @@ public class MainActivity extends AppCompatActivity
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        mAllChaptersCardView = (CardView) findViewById(R.id.all_chapters_container);
-        mAllChaptersCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this, AllChaptersActivity.class);
-                startActivity(intent,
-                        ActivityOptions.makeSceneTransitionAnimation(MainActivity.this
-                        ).toBundle());
-            }
-        });
-        mChapterRecyclerView = (RecyclerView) findViewById(R.id.chapter_recycler_view);
-
-        List<Chapter> chapterList = ChapterManager.getAllChapters();
-
-        ChapterAdapter chapterAdapter = new ChapterAdapter(this, chapterList);
-        mChapterRecyclerView.setAdapter(chapterAdapter);
-        mChapterRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mChapterRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        initChapterTestList();
 
         //Drawer
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -77,6 +56,38 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+
+    /**
+     * Init the chapter test List
+     * containing all chapter as a header and other chapters as sub elements
+     */
+    private void initChapterTestList() {
+
+        mChapterRecyclerView = (RecyclerView) findViewById(R.id.chapter_recycler_view);
+
+        //chapter List
+        List<Chapter> chapterList = ChapterManager.getAllChapters();
+
+        //Adapter
+        final ChapterAdapter chapterAdapter = new ChapterAdapter(this, chapterList);
+        mChapterRecyclerView.setAdapter(chapterAdapter);
+        mChapterRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        //LayoutManager
+        final GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+
+        //Set number of spans 2 for header and 1 for other elements > 0
+        gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                return chapterAdapter.isHeader(position) ? gridLayoutManager.getSpanCount() : 1;
+            }
+        });
+
+        mChapterRecyclerView.setLayoutManager(gridLayoutManager);
+
     }
 
     @Override
@@ -100,9 +111,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_settings) {
-            //Todo Delete This Call
-            Intent intent = new Intent(this, ResponseActivity.class);
-            startActivity(intent);
+
         }
         return super.onOptionsItemSelected(item);
     }
