@@ -23,7 +23,8 @@ public class Constants {
     // Results screen
     public static final String QUESTION_ID = "question id";
 
-
+    // Chapters screen
+    public static final String CHAPTER_ID = "chapter id";
 
     //Test Question Activity
     public static final int EMPTY_LIST = 0;

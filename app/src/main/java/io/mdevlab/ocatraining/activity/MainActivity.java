@@ -23,7 +23,7 @@ import java.util.List;
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.adapter.ChapterAdapter;
 import io.mdevlab.ocatraining.model.Chapter;
-import io.mdevlab.ocatraining.test.ChapterTest;
+import io.mdevlab.ocatraining.modelManager.ChapterManager;
 import io.mdevlab.ocatraining.test.Test;
 
 
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity
         });
         mChapterRecyclerView = (RecyclerView) findViewById(R.id.chapter_recycler_view);
 
-        List<Chapter> chapterList = ChapterTest.prepareChapters();
+        List<Chapter> chapterList = ChapterManager.getAllChapters();
 
         ChapterAdapter chapterAdapter = new ChapterAdapter(this, chapterList);
         mChapterRecyclerView.setAdapter(chapterAdapter);
@@ -121,12 +121,16 @@ public class MainActivity extends AppCompatActivity
         switch (itemId) {
             case R.id.nav_upgrade:
                 break;
-            case R.id.nav_settings:
-                intent = new Intent(MainActivity.this, SettingsActivity.class);
-                startActivity(intent);
-                break;
             case R.id.nav_favorite_questions:
                 intent = new Intent(MainActivity.this, FavoriteQuestionsActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_certification_info:
+                intent = new Intent(MainActivity.this, ActivityCertificationInfo.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_settings:
+                intent = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(intent);
                 break;
             case R.id.nav_share:
