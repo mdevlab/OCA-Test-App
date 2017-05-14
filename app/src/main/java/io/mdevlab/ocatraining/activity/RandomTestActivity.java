@@ -1,8 +1,10 @@
 package io.mdevlab.ocatraining.activity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -27,7 +29,7 @@ public class RandomTestActivity extends AppCompatActivity {
     private TextView mCorrectScoreTxt;
     private TextView mIncorrectScoreTxt;
     private int mCorrectAnswers;
-    private int mInorrectAnswers;
+    private int mInCorrectAnswers;
     private int mQuestionNumber;
 
 
@@ -37,6 +39,8 @@ public class RandomTestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_random_test);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         fm = getSupportFragmentManager();
         mCorrectScoreTxt = (TextView) findViewById(R.id.correct_score);
         mIncorrectScoreTxt = (TextView) findViewById(R.id.incorrect_score);
@@ -66,16 +70,18 @@ public class RandomTestActivity extends AppCompatActivity {
      * and initialize the fragment
      */
     private void initActivity() {
+        //Increment the counter of Questions
         mQuestionNumber++;
+        setQuestionUi();
         //TODO get the random Question from db
-        currentQuestion = TestQuestionTest.createRandomTestQuestion(0, RandomTestActivity.this);
+        currentQuestion = TestQuestionTest.createRandomSingleAnswerTestQuestion(0, RandomTestActivity.this);
 
         FragmentTransaction ft = fm.beginTransaction();
         mCurrentFragment = QuestionFragment.newInstance(currentQuestion, false, true);
         ft.add(R.id.question_answer_container, mCurrentFragment);
-        ft.addToBackStack(null);
         ft.commit();
     }
+
 
     /**
      * This function get a new random question
@@ -83,6 +89,8 @@ public class RandomTestActivity extends AppCompatActivity {
      */
     public void showNextQuestion() {
 
+        //Increment the counter of Questions
+        mQuestionNumber++;
         setQuestionUi();
 
         //TODO get the random Question from db
@@ -94,18 +102,29 @@ public class RandomTestActivity extends AppCompatActivity {
         FragmentTransaction ft = fm.beginTransaction();
         mCurrentFragment = QuestionFragment.newInstance(currentQuestion, false, true);
         ft.replace(R.id.question_answer_container, mCurrentFragment);
-        ft.addToBackStack(null);
         ft.commit();
 
 
     }
 
+
     /**
      * set the question UI
      */
     private void setQuestionUi() {
+
+
         mNextAnswerButton.setText(R.string.question_answer);
+        getSupportActionBar().setTitle("Question : " + mQuestionNumber);
+
     }
+
+
+    private void setAnswerUi() {
+        mNextAnswerButton.setText(R.string.next_question);
+        getSupportActionBar().setTitle("Answer For Question : " + mQuestionNumber);
+    }
+
 
     /**
      * This function is for rendering the answer of the current question
@@ -117,6 +136,7 @@ public class RandomTestActivity extends AppCompatActivity {
         updateScore(isCorrect);
 
     }
+
 
     /**
      * update the score if true it means the user's answer was correct other ways false
@@ -130,19 +150,49 @@ public class RandomTestActivity extends AppCompatActivity {
             mCorrectAnswers++;
             mCorrectScoreTxt.setText(String.valueOf(mCorrectAnswers));
         } else {
-            mInorrectAnswers++;
-            mIncorrectScoreTxt.setText(String.valueOf(mInorrectAnswers));
+            mInCorrectAnswers++;
+            mIncorrectScoreTxt.setText(String.valueOf(mInCorrectAnswers));
         }
     }
 
-    private void setAnswerUi() {
-        mNextAnswerButton.setText(R.string.next_question);
-    }
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        //super.onBackPressed();
+        buildStopDialog();
+
+    }
 
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+
+    private void buildStopDialog() {
+
+        //Get the builder
+        AlertDialog.Builder builder = new AlertDialog.Builder(RandomTestActivity.this);
+        builder.setPositiveButton(R.string.quit, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                finish();
+            }
+        });
+
+        builder.setNegativeButton(R.string.dialog_cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.dismiss();
+            }
+        });
+
+        //set message and title
+        builder.setMessage(getString(R.string.confirm_exit_random_question_message))
+                .setTitle(getString(R.string.confirm_exit_random_question_title));
+
+        //Build the dialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }

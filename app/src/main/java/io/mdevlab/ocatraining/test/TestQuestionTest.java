@@ -11,6 +11,7 @@ import io.mdevlab.ocatraining.util.Constants;
 import io.realm.RealmList;
 import io.realm.RealmResults;
 
+import static io.mdevlab.ocatraining.test.TestAnswerTest.createRandomSingleAnswerTestAnswers;
 import static io.mdevlab.ocatraining.test.TestAnswerTest.createRandomTestAnswers;
 
 /**
@@ -42,6 +43,19 @@ public class TestQuestionTest {
         randomQuestion.setStatement(context.getString(R.string.dummy_question));
         randomQuestion.setExplanation(context.getString(R.string.dummy_explanation));
         randomQuestion.setAnswers(createRandomTestAnswers(index));
+        return randomQuestion;
+    }
+
+    public static TestQuestion createRandomSingleAnswerTestQuestion(int index,Context context) {
+        TestQuestion randomQuestion = new TestQuestion();
+        randomQuestion.setId(QuestionManager.getNextIndex());
+        randomQuestion.setType(Constants.SINGLE_ANSWER_QUESTION);
+        randomQuestion.setExplanation("Explanation " + index);
+        randomQuestion.setFavorite(true);
+        randomQuestion.setFlagged(false);
+        randomQuestion.setStatement(context.getString(R.string.dummy_question));
+        randomQuestion.setExplanation(context.getString(R.string.dummy_explanation));
+        randomQuestion.setAnswers(createRandomSingleAnswerTestAnswers(index));
         return randomQuestion;
     }
 

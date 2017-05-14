@@ -38,6 +38,17 @@ public class TestAnswerTest {
         return answers;
     }
 
+
+    public static RealmList<TestAnswer> createRandomSingleAnswerTestAnswers(int index) {
+        RealmList<TestAnswer> answers = new RealmList<>();
+        answers.add(createRandomTestAnswer(index,true));
+        answers.add(createRandomTestAnswer(index,false));
+        answers.add(createRandomTestAnswer(index,false));
+        answers.add(createRandomTestAnswer(index,false));
+        answers.add(createRandomTestAnswer(index,false));
+        return answers;
+    }
+
     private static TestAnswer createRandomTestAnswer(int index,boolean iscorrect) {
         Answer randomAnswer = new Answer();
         randomAnswer.setId(TestAnswerManager.getNextIndex());

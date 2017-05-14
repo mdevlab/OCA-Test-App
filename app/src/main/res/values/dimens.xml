@@ -17,6 +17,8 @@
 
     <!--card property-->
     <dimen name="card_margin">5dp</dimen>
+    <dimen name="card_margin_nano">2dp</dimen>
+
     <dimen name="card_album_radius">5dp</dimen>
 
     <!--next previous dimens-->
