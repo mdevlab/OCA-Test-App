@@ -49,7 +49,7 @@ public class ResultsAdapter extends ArrayAdapter<TestQuestion> {
         questionNumber.setTextColor(question.hasBeenAnsweredCorrectly() ? context.getColor(R.color.correct_color_score) : context.getColor(R.color.incorrect_color_score));
         ImageView bookmark = (ImageView) convertView.findViewById(R.id.bookmark);
 
-        questionNumber.setText(String.valueOf(position));
+        questionNumber.setText(String.valueOf(position + 1));
         bookmark.setImageDrawable((question.isFlagged()) ? ContextCompat.getDrawable(context, R.drawable.ic_bookmark_full) :
                 ContextCompat.getDrawable(context, R.drawable.ic_bookmark_empty));
 

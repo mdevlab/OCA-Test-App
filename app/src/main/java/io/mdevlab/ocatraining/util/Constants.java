@@ -30,4 +30,8 @@ public class Constants {
     public static final int EMPTY_LIST = 0;
     public static final int ZERO = 0;
 
+    //Test Results
+    public static final String CURRENT_ANSWER = "current_answer";
+    public static final String ANSWER_NUMBER = "answer_number";
+
 }

@@ -16,15 +16,14 @@ import io.mdevlab.ocatraining.adapter.ResultsAdapter;
 import io.mdevlab.ocatraining.model.Test;
 import io.mdevlab.ocatraining.util.Constants;
 
-import static io.mdevlab.ocatraining.R.string.test_score;
-
 public class ResultsActivity extends AppCompatActivity {
 
-    TextView score;
-    TextView duration;
-    GridView questions;
-    ResultsAdapter adapter;
-    Test test;
+    private TextView mScore;
+    private TextView mDuration;
+    private GridView mQuestions;
+    private ResultsAdapter mAdapter;
+    private Test test;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +32,9 @@ public class ResultsActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        score = (TextView) findViewById(R.id.score);
-        duration = (TextView) findViewById(R.id.duration);
-        questions = (GridView) findViewById(R.id.questions_grid);
+        mScore = (TextView) findViewById(R.id.score);
+        mDuration = (TextView) findViewById(R.id.duration);
+        mQuestions = (GridView) findViewById(R.id.questions_grid);
 
         // For testing
 //        io.mdevlab.ocatraining.test.Test.populateDataBase(ResultsActivity.this);
@@ -46,21 +45,22 @@ public class ResultsActivity extends AppCompatActivity {
             test = (Test) intent.getParcelableExtra(TestActivity.CURRENT_TEST);
 
         if (test != null) {
-            score.setText(getString(R.string.test_score)+test.getScore());
-            duration.setText(getString(R.string.test_duration)+test.getDurationToDisplay());
+            mScore.setText(getString(R.string.test_score) + test.getScore());
+            mDuration.setText(getString(R.string.test_duration) + test.getDurationToDisplay());
 
             // Questions grid adapter
-            adapter = new ResultsAdapter(ResultsActivity.this,
+            mAdapter = new ResultsAdapter(ResultsActivity.this,
                     R.layout.item_result,
                     test.getQuestionsAsArrayList());
-            questions.setAdapter(adapter);
+            mQuestions.setAdapter(mAdapter);
 
             // Onclick event handling for questions grid
-            questions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            mQuestions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Intent response = new Intent(ResultsActivity.this, ResponseActivity.class);
-                    response.putExtra(Constants.QUESTION_ID, (adapter.getItem(position) != null) ? adapter.getItem(position).getId() : -1);
+                    response.putExtra(Constants.CURRENT_ANSWER, mAdapter.getItem(position));
+                    response.putExtra(Constants.ANSWER_NUMBER, String.valueOf(position + 1));
                     startActivity(response);
                 }
             });
