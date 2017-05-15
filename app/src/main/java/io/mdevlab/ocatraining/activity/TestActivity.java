@@ -18,18 +18,19 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-import java.util.List;
-
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.adapter.TestQuestionAdapter;
 import io.mdevlab.ocatraining.model.Test;
 import io.mdevlab.ocatraining.model.TestQuestion;
 import io.mdevlab.ocatraining.test.ChapterTest;
 import io.mdevlab.ocatraining.util.Constants;
+import io.realm.RealmList;
 
 
 public class TestActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener {
     static String TAG = TestActivity.class.getName();
+    private final int MINUTE_TO_SECOND = 60;
+    public static String CURRENT_TEST = "test_object";
     private int NUM_ITEMS = Constants.EMPTY_LIST;
     private final int FIRST_ITEM = Constants.EMPTY_LIST;
     private int CURRENT_INDEX = Constants.EMPTY_LIST;
@@ -45,12 +46,12 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
     private TextView mTextQuestionspercent;
     private TextView mTextTimer;
     private Button mButtonFirst;
-    private List<TestQuestion> mListQuestions;
+    private RealmList<TestQuestion> mListQuestions;
     private ProgressBar mProgressBarTest;
     private Test mTest;
     private int minute;
     private int second;
-    private Thread mtimerThread;
+    private Thread mTimerThread;
     private int testMode;
 
 
@@ -74,6 +75,15 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
 
 //        Results
         mButtonResult = (Button) findViewById(R.id.button_results);
+        mButtonResult.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO add No comeback to test Activity
+                updateCurrentTest();
+                buildStopDialog(true, R.string.open_results, R.string.dialog_cancel, R.string.result_enter_message, R.string.result_enter_title);
+
+            }
+        });
 
         //Progress Init
         mTextQuestionspercent = (TextView) findViewById(R.id.text_questions_percent);
@@ -87,7 +97,7 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
         mButtonStopTest.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                buildStopDialog();
+                buildStopDialog(false, R.string.quit_and_save, R.string.dialog_cancel, R.string.confirm_exit_message, R.string.confirm_exit_title);
             }
         });
 
@@ -103,11 +113,9 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    mtimerThread.interrupt();
+                    mTimerThread.interrupt();
                     disableTest();
                 }
-
-
             }
         });
 
@@ -118,7 +126,7 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
 
         if (NUM_ITEMS > Constants.EMPTY_LIST) {
             mProgressBarTest.setMax(NUM_ITEMS);
-            initpager();
+            initPager();
             initFirstLastButtons();
             updateUi();
         }
@@ -127,32 +135,67 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     }
 
-    @Override
-    public void onBackPressed() {
-        buildStopDialog();
+    /**
+     * This function is for updating the current test before saving it into the db or
+     * sending it to the result activity
+     */
+    private void updateCurrentTest() {
+        long timeInSeconds = minute * MINUTE_TO_SECOND + second;
+        mTest.setDuration(timeInSeconds);
+
     }
 
-    private void buildStopDialog() {
+    /**
+     * Prepare the list of question
+     * -Get questions from DB
+     * -Init Test object depending on the test types:
+     * + FINAL_TEST_MODE
+     * + CUSTOM_TEST_MODE
+     */
+    public void prepareQuestions() {
+
+        //TODO get Questions from DB
+        switch (testMode) {
+            case Constants.FINAL_TEST_MODE:
+                mListQuestions = ChapterTest.createListTestQuestion(this);
+                mTest = new Test(mListQuestions.size(), Constants.FINAL_TEST_MODE, mListQuestions);
+                break;
+            case Constants.CUSTOM_TEST_MODE:
+                mListQuestions = ChapterTest.createRandomTestQuestion(this, 5);
+                mTest = new Test(mListQuestions.size(), Constants.CUSTOM_TEST_MODE, mListQuestions);
+                break;
+        }
+
+
+    }
+
+    private void buildStopDialog(final Boolean isResult, int positiveButton, int negativeButton, int message, int title) {
 
         //get the builder
         AlertDialog.Builder builder = new AlertDialog.Builder(TestActivity.this);
-        builder.setPositiveButton(R.string.quit_and_save, new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(positiveButton, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                //TODO save Data in DB
+                if (isResult) {
+                    Intent intent = new Intent(TestActivity.this, ResultsActivity.class);
+                    intent.putExtra(CURRENT_TEST, mTest);
+                    startActivity(intent);
+                } else {
+                    //TODO save Data in DB
+                }
                 finish();
             }
         });
 
 
-        builder.setNegativeButton(R.string.dialog_cancel, new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(negativeButton, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 dialog.dismiss();
             }
         });
 
         //set message and title
-        builder.setMessage(getString(R.string.confirm_exit_message))
-                .setTitle(getString(R.string.confirm_exit_title));
+        builder.setMessage(getString(message))
+                .setTitle(getString(title));
 
         //Build the dialog
         AlertDialog dialog = builder.create();
@@ -171,7 +214,7 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     private void runTestTimer() {
 
-        mtimerThread = new Thread() {
+        mTimerThread = new Thread() {
 
             @Override
             public void run() {
@@ -191,7 +234,7 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
             }
         };
 
-        mtimerThread.start();
+        mTimerThread.start();
 
     }
 
@@ -221,21 +264,6 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     }
 
-    public void prepareQuestions() {
-
-        switch (testMode) {
-            case Constants.FINAL_TEST_MODE:
-                mListQuestions = ChapterTest.createListTestQuestion(this);
-                break;
-            case Constants.CUSTOM_TEST_MODE:
-                mListQuestions = ChapterTest.createRandomTestQuestion(this, 5);
-                break;
-        }
-
-
-    }
-
-
     private void setNextPreviousListener() {
 
         mButtonNext.setOnClickListener(new View.OnClickListener() {
@@ -255,10 +283,18 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     }
 
-    private void initpager() {
+    private void initPager() {
         TestQuestionAdapter testQuestionAdapter = new TestQuestionAdapter(getSupportFragmentManager(), mListQuestions);
         mTestQuestionViewPager.setAdapter(testQuestionAdapter);
         mTestQuestionViewPager.addOnPageChangeListener(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        if (mTimerThread != null)
+            mTimerThread.interrupt();
     }
 
     private void initFirstLastButtons() {
@@ -278,7 +314,6 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     }
 
-
     private void updateUi() {
         StringBuilder percentStringBuilder = new StringBuilder(String.valueOf(CURRENT_INDEX + 1));
         percentStringBuilder.append("/");
@@ -288,11 +323,11 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     }
 
-
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
     }
+
 
     @Override
     public void onPageSelected(int position) {
@@ -328,7 +363,11 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
     private void prepareForResults() {
         mButtonLast.setVisibility(View.INVISIBLE);
         mButtonResult.setVisibility(View.VISIBLE);
+    }
 
+    @Override
+    public void onBackPressed() {
+        buildStopDialog(false, R.string.quit_and_save, R.string.dialog_cancel, R.string.confirm_exit_message, R.string.confirm_exit_title);
     }
 
 

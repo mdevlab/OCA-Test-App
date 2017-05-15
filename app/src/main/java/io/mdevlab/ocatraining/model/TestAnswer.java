@@ -1,12 +1,15 @@
 package io.mdevlab.ocatraining.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import io.realm.RealmObject;
 
 /**
  * Created by husaynhakeem on 4/16/17.
  */
 
-public class TestAnswer extends RealmObject {
+public class TestAnswer extends RealmObject implements Parcelable {
 
     public static final String ID_COLUMN = "id";
 
@@ -25,12 +28,20 @@ public class TestAnswer extends RealmObject {
     public TestAnswer() {
     }
 
+
     public TestAnswer(Answer answer) {
         this.id = answer.getId();
         this.answer = answer.getAnswer();
         this.isCorrect = answer.isCorrect();
         this.isSelected = false;
 
+    }
+
+    protected TestAnswer(Parcel in) {
+        id = in.readInt();
+        answer = in.readString();
+        isSelected = in.readByte() != 0;
+        isCorrect = in.readByte() != 0;
     }
 
     public int getId() {
@@ -60,7 +71,6 @@ public class TestAnswer extends RealmObject {
     public void setCorrect(boolean correct) {
         isCorrect = correct;
     }
-
 
     @Override
     public String toString() {
@@ -93,5 +103,31 @@ public class TestAnswer extends RealmObject {
      */
     public boolean isAnswerCorrect() {
         return isCorrect == isSelected;
+    }
+
+
+    public static final Creator<TestAnswer> CREATOR = new Creator<TestAnswer>() {
+        @Override
+        public TestAnswer createFromParcel(Parcel in) {
+            return new TestAnswer(in);
+        }
+
+        @Override
+        public TestAnswer[] newArray(int size) {
+            return new TestAnswer[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(answer);
+        dest.writeByte((byte) (isSelected ? 1 : 0));
+        dest.writeByte((byte) (isCorrect ? 1 : 0));
     }
 }
