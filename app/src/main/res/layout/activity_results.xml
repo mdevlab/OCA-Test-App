@@ -5,45 +5,108 @@
     android:layout_height="match_parent"
     tools:context="io.mdevlab.ocatraining.activity.ResultsActivity">
 
+    <include layout="@layout/toolbar" />
+
     <!--Score and time-->
     <LinearLayout
         android:id="@+id/score_and_duration"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/toolbar"
         android:padding="@dimen/results_horizontal_margin_bottom">
-
-        <!--Score title-->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/test_score"
-            android:textStyle="bold" />
 
         <!--Score value-->
         <TextView
             android:id="@+id/score"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/score_duration_space"
-            android:layout_marginRight="@dimen/score_duration_space"
-            android:text="75/100" />
-
-        <!--Duration title-->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/test_duration"
+            android:layout_margin="@dimen/spacing_normal"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/test_score"
+            android:textSize="@dimen/text_size_big"
             android:textStyle="bold" />
 
         <!--Duration value-->
         <TextView
             android:id="@+id/duration"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="90 minutes" />
+            android:layout_margin="@dimen/spacing_normal"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:text="90 minutes"
+            android:textSize="@dimen/text_size_micro"
+            android:textStyle="bold" />
 
     </LinearLayout>
+
+    <View
+        android:id="@+id/separator_above_correct_incorrect"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/score_and_duration"
+        android:background="@color/blackColor" />
+
+    <LinearLayout
+        android:id="@+id/correct_incorrect_labels"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/separator_above_correct_incorrect"
+        android:orientation="horizontal"
+        android:padding="@dimen/results_horizontal_margin_bottom">
+
+        <!--Correct indication-->
+        <View
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="@dimen/spacing_normal"
+            android:background="@color/correct_color_score"
+            android:padding="@dimen/spacing_double" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/spacing_normal"
+            android:gravity="center"
+            android:text="@string/correct"
+            android:textColor="@color/correct_color_label"
+            android:textStyle="bold" />
+
+        <!--Separator-->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center" />
+
+        <!--InCorrect indication-->
+        <View
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="@dimen/spacing_normal"
+            android:background="@color/incorrect_color_score"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/spacing_normal"
+            android:gravity="center"
+            android:text="@string/incorrect"
+            android:textColor="@color/incorrect_color_label"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/separator_above_results"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/correct_incorrect_labels"
+        android:background="@color/blackColor" />
 
     <!--Questions-->
     <GridView
@@ -51,9 +114,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/results_screen_action_buttons"
-        android:layout_below="@+id/score_and_duration"
+        android:layout_below="@+id/separator_above_results"
         android:numColumns="4"
         tools:listitem="@layout/item_result" />
+
+    <View
+        android:id="@+id/separator_below_results"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/questions_grid"
+        android:background="@color/blackColor" />
+
 
     <!--Action buttons-->
     <LinearLayout

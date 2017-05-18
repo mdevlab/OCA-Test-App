@@ -91,8 +91,8 @@ public class ChapterTest {
     }
 
 
-    public static List<TestQuestion> createListTestQuestion(Context mcontext) {
-        List<TestQuestion> testQuestions = new ArrayList<>();
+    public static RealmList<TestQuestion> createListTestQuestion(Context mcontext) {
+        RealmList<TestQuestion> testQuestions = new RealmList<>();
         for (int i = 0; i < 35; i++) {
             testQuestions.add(createRandomMultipleTestQuestion(i, mcontext));
         }
@@ -102,8 +102,8 @@ public class ChapterTest {
         return testQuestions;
     }
 
-    public static List<TestQuestion> createRandomTestQuestion(Context mcontext, int numrOfQuestions) {
-        List<TestQuestion> testQuestions = new ArrayList<>();
+    public static RealmList<TestQuestion> createRandomTestQuestion(Context mcontext, int numrOfQuestions) {
+        RealmList<TestQuestion> testQuestions = new RealmList<>();
         for (int i = 0; i < numrOfQuestions; i++) {
             testQuestions.add(createRandomSingleTestQuestion((i), mcontext));
         }

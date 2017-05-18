@@ -1,6 +1,10 @@
 package io.mdevlab.ocatraining.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;
@@ -9,7 +13,7 @@ import io.realm.RealmObject;
  * Created by husaynhakeem on 4/16/17.
  */
 
-public class Test extends RealmObject {
+public class Test extends RealmObject implements Parcelable {
 
     public static final String ID_COLUMN = "id";
 
@@ -33,6 +37,47 @@ public class Test extends RealmObject {
 
     // List of questions in the test
     private RealmList<TestQuestion> questions;
+
+    public Test() {
+    }
+
+    public Test(int totalNumberOfQuestions, int type, RealmList<TestQuestion> questions) {
+        this.numberOfCompletedQuestions = totalNumberOfQuestions;
+        this.totalNumberOfQuestions = totalNumberOfQuestions;
+        this.type = type;
+        this.questions = questions;
+    }
+
+    protected Test(Parcel in) {
+        id = in.readInt();
+        duration = in.readLong();
+        numberOfCompletedQuestions = in.readInt();
+        totalNumberOfQuestions = in.readInt();
+        type = in.readInt();
+        Parcelable[] parcelableArray =
+                in.readParcelableArray(TestQuestion.class.getClassLoader());
+        TestQuestion[] resultArray = null;
+
+        if (parcelableArray != null) {
+            resultArray = Arrays.copyOf(parcelableArray, parcelableArray.length, TestQuestion[].class);
+            questions = new RealmList<>();
+            for (TestQuestion testQuestion : resultArray) {
+                questions.add(testQuestion);
+            }
+        }
+    }
+
+    public static final Creator<Test> CREATOR = new Creator<Test>() {
+        @Override
+        public Test createFromParcel(Parcel in) {
+            return new Test(in);
+        }
+
+        @Override
+        public Test[] newArray(int size) {
+            return new Test[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -127,10 +172,31 @@ public class Test extends RealmObject {
      */
     public String getDurationToDisplay() {
         int hours = (int) (duration / 3600);
-        int minutes = (int) ((duration / 3600) % 60);
+        int minutes = (int) ((duration % 3600) / 60);
 
         if (hours == 0)
             return minutes + " minutes";
         return hours + " hours, " + minutes + " minutes";
+    }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeLong(duration);
+        dest.writeInt(numberOfCompletedQuestions);
+        dest.writeInt(totalNumberOfQuestions);
+        dest.writeInt(type);
+        Parcelable[] pQuestions = new Parcelable[questions.size()];
+        for (int i = 0; i < questions.size(); i++) {
+            pQuestions[i] = questions.get(i);
+        }
+        dest.writeParcelableArray(pQuestions, flags);
+
     }
 }

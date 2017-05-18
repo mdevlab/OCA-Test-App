@@ -54,6 +54,7 @@
     <dimen name="text_size_nano">8sp</dimen>
     <dimen name="text_size_micro">14sp</dimen>
     <dimen name="text_size_normal">20sp</dimen>
+    <dimen name="text_size_big">26sp</dimen>
     <dimen name="text_size_double">32sp</dimen>
     <dimen name="text_size_huge">48sp</dimen>
 
