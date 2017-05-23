@@ -34,4 +34,5 @@ public class Constants {
     public static final String CURRENT_ANSWER = "current_answer";
     public static final String ANSWER_NUMBER = "answer_number";
 
+    public static final int TEST_LIMIT_QUESTIONS = 70;
 }

@@ -17,6 +17,7 @@ import android.widget.ToggleButton;
 
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.model.TestQuestion;
+import io.mdevlab.ocatraining.modelManager.QuestionManager;
 import io.mdevlab.ocatraining.util.Constants;
 
 /**
@@ -116,12 +117,9 @@ public class QuestionFragment extends Fragment {
         isFlagged.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
                     //Todo save state in realmDB
-                    mQuestion.setFlagged(true);
-                } else {
-                    mQuestion.setFlagged(false);
-                }
+                    mQuestion.setFlagged(isChecked);
+
 
             }
         });
@@ -129,13 +127,8 @@ public class QuestionFragment extends Fragment {
         isFavorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    //Todo save state in realmDB
-                    mQuestion.setFavorite(true);
-                } else {
-                    mQuestion.setFavorite(false);
-                }
-
+                mQuestion.setFavorite(isChecked);
+                QuestionManager.updateQuestionFavoriteById(mQuestion.getId(),isChecked);
             }
         });
     }
