@@ -176,4 +176,9 @@ instance variable in the object created on line 5.</string>
     <string name="result_enter_message">Are you sure you want to see your results</string>
     <string name="result_enter_title">See Results</string>
 
+
+    <!--Layout no internet-->
+    <string name="no_internet_message">No internet connection available !\nPlease connect and retry</string>
+    <string name="retry">Retry</string>
+
 </resources>

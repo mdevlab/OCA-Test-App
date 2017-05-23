@@ -12,10 +12,15 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 
 import io.mdevlab.ocatraining.R;
+import io.mdevlab.ocatraining.util.UtilConnection;
 
 
 public class ActivityCertificationInfo extends AppCompatActivity {
 
+    final String TAG = ActivityCertificationInfo.class.getSimpleName();
+
+    View noInternetLayout;
+    View internetAvailableLayout;
     WebView certificationInfo;
     ProgressBar loadingProgressBar;
     Button subscribeToCertification;
@@ -26,9 +31,19 @@ public class ActivityCertificationInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_certification_info);
 
+        setUpViews();
         setUpToolbar();
-        setUpCertificationInfoView();
+        setUpCertificationInfoScreenContent();
         setupSubscriptionToCertification();
+    }
+
+
+    private void setUpViews() {
+        noInternetLayout = findViewById(R.id.layout_no_internet);
+        internetAvailableLayout = findViewById(R.id.layout_internet_available);
+        loadingProgressBar = (ProgressBar) findViewById(R.id.loading_progress_bar);
+        certificationInfo = (WebView) findViewById(R.id.certification_info);
+        subscribeToCertification = (Button) findViewById(R.id.subscribe_to_certification);
     }
 
 
@@ -41,12 +56,19 @@ public class ActivityCertificationInfo extends AppCompatActivity {
     }
 
 
-    private void setUpCertificationInfoView() {
-        loadingProgressBar = (ProgressBar) findViewById(R.id.loading_progress_bar);
+    private void setUpCertificationInfoScreenContent() {
+        if (UtilConnection.with(this).internetIsAvailable()) {
+            setUpCertificationInfoView();
+        } else {
+            displayNoInternetScreen();
+        }
+    }
 
-        certificationInfo = (WebView) findViewById(R.id.certification_info);
+
+    private void setUpCertificationInfoView() {
         certificationInfo.loadUrl(getString(R.string.certification_info_url));
         certificationInfo.setWebViewClient(new WebViewClient() {
+
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
@@ -56,8 +78,13 @@ public class ActivityCertificationInfo extends AppCompatActivity {
     }
 
 
+    private void displayNoInternetScreen() {
+        noInternetLayout.setVisibility(View.VISIBLE);
+        internetAvailableLayout.setVisibility(View.GONE);
+    }
+
+
     private void setupSubscriptionToCertification() {
-        subscribeToCertification = (Button) findViewById(R.id.subscribe_to_certification);
         subscribeToCertification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,5 +98,17 @@ public class ActivityCertificationInfo extends AppCompatActivity {
         Uri subscriptionUri = Uri.parse(getString(R.string.certification_subscription_url));
         Intent subscriptionIntent = new Intent(Intent.ACTION_VIEW, subscriptionUri);
         startActivity(subscriptionIntent);
+    }
+
+
+    public void retryConnecting(View view) {
+        restartActivity();
+    }
+
+
+    private void restartActivity() {
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
     }
 }

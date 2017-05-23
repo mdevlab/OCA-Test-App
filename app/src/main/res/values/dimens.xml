@@ -61,4 +61,9 @@
     <!--Chapter-->
     <dimen name="chapter_side_padding">16dp</dimen>
     <dimen name="chapter_up_down_padding">8dp</dimen>
+
+    <!--No internet layout-->
+    <dimen name="no_internet_text_size">24sp</dimen>
+    <dimen name="no_internet_margin_text_icon">24dp</dimen>
+    <dimen name="no_internet_icon_dimen">90dp</dimen>
 </resources>
