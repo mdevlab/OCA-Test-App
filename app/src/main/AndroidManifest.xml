@@ -42,7 +42,7 @@
             android:parentActivityName=".activity.MainActivity" />
         <activity
             android:name=".activity.ContactActivity"
-            android:label=  "@string/title_activity_contact"
+            android:label="@string/title_activity_contact"
             android:parentActivityName=".activity.AboutActivity" />
         <activity
             android:name=".activity.SettingsActivity"
@@ -61,6 +61,10 @@
             android:name=".activity.ActivityCertificationInfo"
             android:label="@string/title_activity_certification_info"
             android:parentActivityName=".activity.MainActivity" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="bd217b68092180e3a8e1e91d85216c91a406ad22" />
     </application>
 
 </manifest>

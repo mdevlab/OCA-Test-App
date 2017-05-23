@@ -2,8 +2,10 @@ package io.mdevlab.ocatraining;
 
 import android.app.Application;
 
+import com.crashlytics.android.Crashlytics;
 import com.evernote.android.job.JobManager;
 
+import io.fabric.sdk.android.Fabric;
 import io.mdevlab.ocatraining.notification.NotificationsJobCreator;
 import io.mdevlab.ocatraining.notification.NotificationsManager;
 import io.mdevlab.ocatraining.util.UtilSharedPreferences;
@@ -16,6 +18,7 @@ import io.realm.RealmConfiguration;
 
 public class OCA extends Application {
 
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -23,11 +26,14 @@ public class OCA extends Application {
         setUpJobManager();
         setUpRealm();
         setUpNotifications();
+        setUpCrashlytics();
     }
+
 
     private void setUpJobManager() {
         JobManager.create(this).addJobCreator(new NotificationsJobCreator());
     }
+
 
     private void setUpRealm() {
         Realm.init(this);
@@ -39,10 +45,16 @@ public class OCA extends Application {
         Realm.setDefaultConfiguration(realmConfiguration);
     }
 
+
     private void setUpNotifications() {
         if (UtilSharedPreferences.with(getApplicationContext()).isFirstAppLaunch()) {
             NotificationsManager.handleNotifications(getApplicationContext());
             UtilSharedPreferences.with(getApplicationContext()).setAppHasBeenLaunched();
         }
+    }
+
+
+    private void setUpCrashlytics() {
+        Fabric.with(this, new Crashlytics());
     }
 }
