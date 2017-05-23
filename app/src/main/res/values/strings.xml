@@ -4,6 +4,7 @@
     <string name="app_name">OCA Test App</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_all_chapters">Choose Your Test</string>
+    <string name="title_result">Your Test Score</string>
     <string name="title_test">Test</string>
     <string name="title_random_question">Random Questions</string>
     <string name="title_activity_all_chapters">All chapters</string>
@@ -58,13 +59,7 @@ instance variable in the object created on line 5.</string>
 14: System.out.println(x); \n
 15: } }</string>
 
-    <!--Results screen-->
-    <string name="test_score">Your score:\t</string>
-    <string name="test_duration">Duration:\t</string>
-    <string name="take_another_test">Another test</string>
-    <string name="back_to_main_screen">Main screen</string>
-    <string name="upgrade">Upgrade</string>
-    <string name="bookmarked_question">Bookmarked question</string>
+
 
     <!--Drawer menu-->
     <string name="drawer_upgrade">Upgrade</string>
@@ -161,11 +156,24 @@ instance variable in the object created on line 5.</string>
     <string name="correct">Correct</string>
     <string name="incorrect">Incorrect</string>
 
+    <!--Results screen-->
+    <string name="test_score">Your score:\t</string>
+    <string name="test_duration">Duration:\t</string>
+    <string name="take_another_test">Another test</string>
+    <string name="back_to_main_screen">Main screen</string>
+    <string name="upgrade">Upgrade</string>
+    <string name="bookmarked_question">Bookmarked question</string>
+    <string name="result_exit_message">Are you sure you want to leave your results</string>
+    <string name="result_exit_title">Quit the Results</string>
+
     <!--Certification info screen-->
     <string name="subscribe_to_certification">Subscribe to test</string>
     <string name="certification_info_url">http://www.google.com</string>
     <string name="certification_subscription_url">http://www.google.com</string>
 
     <string name="is_app_first_launch">is_app_first_launch</string>
+    <string name="open_results">Go to Results</string>
+    <string name="result_enter_message">Are you sure you want to see your results</string>
+    <string name="result_enter_title">See Results</string>
 
 </resources>

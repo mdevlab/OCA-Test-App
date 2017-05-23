@@ -77,10 +77,7 @@ public class QuestionFragment extends Fragment {
             setRandomQuestionUI();
         }
 
-        //check if this view is for the response
-        if (isResponse) {
-            setTheViewResponse();
-        }
+
 
         //Type of allowed Question
         if (mQuestion != null) {
@@ -92,6 +89,11 @@ public class QuestionFragment extends Fragment {
                 createMultipleAnswerContainer();
                 questionType = Constants.MULTIPLE_ANSWER_QUESTION;
             }
+        }
+
+        //check if this view is for the response
+        if (isResponse) {
+            setTheViewResponse();
         }
 
         return v;

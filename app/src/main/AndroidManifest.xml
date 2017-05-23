@@ -26,7 +26,9 @@
             android:name=".activity.AllChaptersActivity"
             android:label="@string/title_all_chapters"
             android:theme="@style/AppTheme.Details" />
-        <activity android:name=".activity.ResultsActivity" />
+        <activity
+            android:name=".activity.ResultsActivity"
+            android:label="@string/title_result" />
         <activity
             android:name=".activity.TestActivity"
             android:label="@string/title_test" />
@@ -40,7 +42,7 @@
             android:parentActivityName=".activity.MainActivity" />
         <activity
             android:name=".activity.ContactActivity"
-            android:label="@string/title_activity_contact"
+            android:label=  "@string/title_activity_contact"
             android:parentActivityName=".activity.AboutActivity" />
         <activity
             android:name=".activity.SettingsActivity"

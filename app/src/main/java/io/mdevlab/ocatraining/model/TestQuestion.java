@@ -1,5 +1,10 @@
 package io.mdevlab.ocatraining.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.util.Arrays;
+
 import io.realm.RealmList;
 import io.realm.RealmObject;
 
@@ -7,7 +12,7 @@ import io.realm.RealmObject;
  * Created by husaynhakeem on 4/16/17.
  */
 
-public class TestQuestion extends RealmObject {
+public class TestQuestion extends RealmObject implements Parcelable {
 
     public static final String ID_COLUMN = "id";
 
@@ -49,6 +54,26 @@ public class TestQuestion extends RealmObject {
         this.statement = question.getStatement();
         this.answers = answersToTestAnswers(question.getAnswers());
         this.isFlagged = false;
+    }
+
+    protected TestQuestion(Parcel in) {
+        id = in.readInt();
+        type = in.readInt();
+        explanation = in.readString();
+        statement = in.readString();
+        isFavorite = in.readByte() != 0;
+        isFlagged = in.readByte() != 0;
+        Parcelable[] parcelableArray =
+                in.readParcelableArray(TestAnswer.class.getClassLoader());
+        TestAnswer[] resultArray = null;
+        if (parcelableArray != null) {
+            resultArray = Arrays.copyOf(parcelableArray, parcelableArray.length, TestAnswer[].class);
+            answers = new RealmList<>();
+            for (TestAnswer answer : resultArray) {
+                answers.add(answer);
+            }
+        }
+
     }
 
     public int getId() {
@@ -149,12 +174,44 @@ public class TestQuestion extends RealmObject {
 
     /**
      * This function is for setting all current answers to false
-     *
      */
     public void clearAnswers() {
         for (TestAnswer answer : answers) {
             answer.setSelected(false);
         }
+
+    }
+
+    public static final Creator<TestQuestion> CREATOR = new Creator<TestQuestion>() {
+        @Override
+        public TestQuestion createFromParcel(Parcel in) {
+            return new TestQuestion(in);
+        }
+
+        @Override
+        public TestQuestion[] newArray(int size) {
+            return new TestQuestion[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeInt(type);
+        dest.writeString(explanation);
+        dest.writeString(statement);
+        dest.writeByte((byte) (isFavorite ? 1 : 0));
+        dest.writeByte((byte) (isFlagged ? 1 : 0));
+        Parcelable[] pAnswers = new Parcelable[answers.size()];
+        for (int i = 0; i < answers.size(); i++) {
+            pAnswers[i] = answers.get(i);
+        }
+        dest.writeParcelableArray(pAnswers, flags);
 
     }
 }
