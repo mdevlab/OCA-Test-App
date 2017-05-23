@@ -10,6 +10,7 @@ import io.realm.RealmObject;
 public class Question extends RealmObject {
 
     public static final String ID_COLUMN = "id";
+    public static final String IS_FAVORITE_COLUMN = "isFavorite";
 
     // Question id
     private int id;

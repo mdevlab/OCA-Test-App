@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.adapter.FavoriteQuestionsAdapter;
 import io.mdevlab.ocatraining.model.Question;
-import io.mdevlab.ocatraining.test.QuestionTest;
+import io.mdevlab.ocatraining.modelManager.QuestionManager;
 
 public class FavoriteQuestionsActivity extends AppCompatActivity {
 
@@ -24,11 +24,7 @@ public class FavoriteQuestionsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_favorite_questions);
 
         setUpToolbar();
-
-        RecyclerView favoriteQuestionsRecyclerView = (RecyclerView) findViewById(R.id.favorite_questions);
-        favoriteQuestionsRecyclerView.setAdapter(new FavoriteQuestionsAdapter(FavoriteQuestionsActivity.this, generateDummyFavoriteQuestions()));
-        favoriteQuestionsRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        favoriteQuestionsRecyclerView.setLayoutManager(new LinearLayoutManager(FavoriteQuestionsActivity.this));
+        setUpFavoriteQuestions();
     }
 
 
@@ -41,11 +37,15 @@ public class FavoriteQuestionsActivity extends AppCompatActivity {
     }
 
 
-    private ArrayList<Question> generateDummyFavoriteQuestions() {
-        ArrayList<Question> questions = new ArrayList<>();
-        String dummyQuestion = getString(R.string.dummy_question);
-        for (int i = 0; i < 20; i++)
-            questions.add(QuestionTest.createRandomQuestion(1, dummyQuestion));
-        return questions;
+    private void setUpFavoriteQuestions() {
+        RecyclerView favoriteQuestionsRecyclerView = (RecyclerView) findViewById(R.id.favorite_questions);
+        favoriteQuestionsRecyclerView.setAdapter(new FavoriteQuestionsAdapter(FavoriteQuestionsActivity.this, getFavoriteQuestions()));
+        favoriteQuestionsRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        favoriteQuestionsRecyclerView.setLayoutManager(new LinearLayoutManager(FavoriteQuestionsActivity.this));
+    }
+
+
+    private ArrayList<Question> getFavoriteQuestions() {
+        return QuestionManager.getFavoriteQuestions();
     }
 }

@@ -1,11 +1,14 @@
 package io.mdevlab.ocatraining.modelManager;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import io.mdevlab.ocatraining.model.Answer;
 import io.mdevlab.ocatraining.model.Question;
 import io.realm.Realm;
 import io.realm.RealmResults;
+
+import static io.realm.Realm.getDefaultInstance;
 
 // Todo : Optimize random selection of an element, no need to charge all questions
 
@@ -22,7 +25,7 @@ public class QuestionManager {
      * @return List of all questions
      */
     public static RealmResults<Question> getAllQuestions() {
-        return Realm.getDefaultInstance()
+        return getDefaultInstance()
                 .where(Question.class)
                 .findAll();
     }
@@ -84,7 +87,7 @@ public class QuestionManager {
      * @return Highest index in the questions table + 1
      */
     public static int getNextIndex() {
-        Number currentIdNum = Realm.getDefaultInstance()
+        Number currentIdNum = getDefaultInstance()
                 .where(Question.class)
                 .max(Question.ID_COLUMN);
         if (currentIdNum == null)
@@ -98,12 +101,26 @@ public class QuestionManager {
      * Delete all questions
      */
     public static void deleteQuestions() {
-        Realm.getDefaultInstance()
+        getDefaultInstance()
                 .executeTransaction(new Realm.Transaction() {
                     @Override
                     public void execute(Realm realm) {
                         realm.delete(Question.class);
                     }
                 });
+    }
+
+
+    public static ArrayList<Question> getFavoriteQuestions() {
+        RealmResults<Question> favoriteQuestions = Realm.getDefaultInstance()
+                .where(Question.class)
+                .equalTo(Question.IS_FAVORITE_COLUMN, true)
+                .findAll();
+
+        if (favoriteQuestions == null) {
+            return null;
+        }
+
+        return new ArrayList<>(favoriteQuestions);
     }
 }
