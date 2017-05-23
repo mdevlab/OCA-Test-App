@@ -22,6 +22,7 @@ import io.mdevlab.ocatraining.adapter.ChapterAdapter;
 import io.mdevlab.ocatraining.model.Chapter;
 import io.mdevlab.ocatraining.modelManager.ChapterManager;
 import io.mdevlab.ocatraining.test.Test;
+import io.mdevlab.ocatraining.util.UtilActions;
 
 
 public class MainActivity extends AppCompatActivity
@@ -131,6 +132,7 @@ public class MainActivity extends AppCompatActivity
         Intent intent;
         switch (itemId) {
             case R.id.nav_upgrade:
+                UtilActions.displayUpgradeDialog(MainActivity.this);
                 break;
             case R.id.nav_favorite_questions:
                 intent = new Intent(MainActivity.this, FavoriteQuestionsActivity.class);

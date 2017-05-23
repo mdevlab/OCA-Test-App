@@ -36,4 +36,7 @@
     <color name="incorrect_color_label">#8b2f2f</color>
     <color name="incorrect_color_score">#f22141</color>
 
+    <!--Icons gray color-->
+    <color name="material_gray">#757575</color>
+
 </resources>
