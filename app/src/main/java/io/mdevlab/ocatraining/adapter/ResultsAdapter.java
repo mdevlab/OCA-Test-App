@@ -46,7 +46,7 @@ public class ResultsAdapter extends ArrayAdapter<TestQuestion> {
 
 
         TextView questionNumber = (TextView) convertView.findViewById(R.id.question_number);
-        questionNumber.setTextColor(question.hasBeenAnsweredCorrectly() ? context.getColor(R.color.correct_color_score) : context.getColor(R.color.incorrect_color_score));
+        questionNumber.setTextColor(question.hasBeenAnsweredCorrectly() ? ContextCompat.getColor(context,R.color.correct_color_score) : ContextCompat.getColor(context,R.color.incorrect_color_score));
         ImageView bookmark = (ImageView) convertView.findViewById(R.id.bookmark);
 
         questionNumber.setText(String.valueOf(position + 1));

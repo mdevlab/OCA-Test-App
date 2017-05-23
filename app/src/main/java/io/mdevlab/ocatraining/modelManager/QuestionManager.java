@@ -64,7 +64,7 @@ public class QuestionManager {
     /**
      * @return Question object chosen randomly
      */
-    private static Question getRandomQuestion() {
+    public static Question getRandomQuestion() {
         RealmResults<Question> questions = getAllQuestions();
         return (questions.size() > 0) ? questions.get(getRandomQuestionIndex(questions)) : null;
     }
@@ -106,4 +106,14 @@ public class QuestionManager {
                     }
                 });
     }
+
+
+    public static void updateQuestionFavoriteById(int questionId, Boolean isFavorite) {
+        Realm realm = Realm.getDefaultInstance();
+        realm.beginTransaction();
+        Question question = realm.where(Question.class).equalTo("id", questionId).findFirst();
+        question.setFavorite(isFavorite);
+        realm.commitTransaction();
+    }
+
 }
