@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.notification.NotificationsManager;
@@ -11,6 +12,7 @@ import io.mdevlab.ocatraining.notification.NotificationsManager;
 
 public class SettingsActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
+    Toolbar toolbar;
     SharedPreferences preferences;
 
 
@@ -19,7 +21,18 @@ public class SettingsActivity extends AppCompatActivity implements SharedPrefere
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        setUpToolbar();
+
         preferences = PreferenceManager.getDefaultSharedPreferences(SettingsActivity.this);
+    }
+
+
+    private void setUpToolbar() {
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(getString(R.string.title_activity_settings));
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null)
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 
