@@ -127,6 +127,7 @@ instance variable in the object created on line 5.</string>
         <item>5</item>
         <item>6</item>
     </string-array>
+    <string name="notification_build_error">Method sendNotification in NotificationBuilder class: Error while building a notification</string>
 
     <!--About screen-->
     <string name="about_app_end">\u00a9 2017 mDevLab . All rights reserved</string>

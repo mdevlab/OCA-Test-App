@@ -17,6 +17,7 @@ public class JobScheduler {
     /**
      * @param when       When the job should run
      * @param isPeriodic Whether the job should repeat itself periodically
+     * @param tag        Tag of the job
      */
     public static void scheduleJob(long when, boolean isPeriodic, String tag) {
         if (isPeriodic)

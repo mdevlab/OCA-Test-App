@@ -17,9 +17,6 @@ public class NotificationsJob extends Job {
     @Override
     protected Result onRunJob(Params params) {
 
-        if (params == null)
-            return null;
-
         switch (params.getTag()) {
             case JobScheduler.FIRST_NOTIFICATION_TAG:
                 showNotification();

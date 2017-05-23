@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.activity.MainActivity;
@@ -17,6 +18,7 @@ import io.mdevlab.ocatraining.activity.MainActivity;
 
 public class NotificationBuilder {
 
+    final String TAG = NotificationBuilder.class.getSimpleName();
     private final int NOTIFICATION_ID = 001;
     private final String NOTIFICATION_TITLE = "Reviewing time !";
 
@@ -30,7 +32,7 @@ public class NotificationBuilder {
             NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
             manager.notify(NOTIFICATION_ID, builtNotification(context, notificationBody));
         } catch (NullPointerException e) {
-
+            Log.e(TAG, (e.getMessage() != null) ? e.getMessage() : context.getString(R.string.notification_build_error));
         }
     }
 
