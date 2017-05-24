@@ -188,4 +188,11 @@ instance variable in the object created on line 5.</string>
     <string name="upgrade_message">Tired of repeating the same questions?\n\nUpgrade and get access to an unlimited number of questions and more challenging tests!</string>
     <string name="upgrade_url">http://www.google.com</string>
 
+
+    <!--Take another test-->
+    <string name="new_test_icon_content_description">Take another test</string>
+    <string name="new_test_messsage">Want to be able to take tests with new and challenging questions each time?\n\nUpgrade and benefit from an unlimited number of questions and more challenging tests!</string>
+    <string name="take_another_test_positive_button">Upgrade</string>
+    <string name="take_another_test_neutral_button">Retake test</string>
+    <string name="take_another_test_negative_button">Cancel</string>
 </resources>

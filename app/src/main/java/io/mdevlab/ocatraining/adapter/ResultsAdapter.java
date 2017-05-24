@@ -1,7 +1,6 @@
 package io.mdevlab.ocatraining.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -27,8 +26,6 @@ public class ResultsAdapter extends ArrayAdapter<TestQuestion> {
     private Context context;
     private List<TestQuestion> questions;
 
-    private final int failColor = Color.RED;
-
 
     public ResultsAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<TestQuestion> questions) {
         super(context, resource, questions);
@@ -46,7 +43,7 @@ public class ResultsAdapter extends ArrayAdapter<TestQuestion> {
 
 
         TextView questionNumber = (TextView) convertView.findViewById(R.id.question_number);
-        questionNumber.setTextColor(question.hasBeenAnsweredCorrectly() ? context.getColor(R.color.correct_color_score) : context.getColor(R.color.incorrect_color_score));
+        questionNumber.setTextColor(question.hasBeenAnsweredCorrectly() ? ContextCompat.getColor(context, R.color.correct_color_score) : ContextCompat.getColor(context, R.color.incorrect_color_score));
         ImageView bookmark = (ImageView) convertView.findViewById(R.id.bookmark);
 
         questionNumber.setText(String.valueOf(position + 1));

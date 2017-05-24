@@ -3,6 +3,7 @@ package io.mdevlab.ocatraining.activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -13,10 +14,14 @@ import android.widget.TextView;
 
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.adapter.ResultsAdapter;
+import io.mdevlab.ocatraining.dialog.DialogNewTest;
 import io.mdevlab.ocatraining.model.Test;
 import io.mdevlab.ocatraining.util.Constants;
+import io.mdevlab.ocatraining.util.UtilActions;
 
 public class ResultsActivity extends AppCompatActivity {
+
+    private static final String DIALOG_NEW_TEST_TAG = "new test dialog";
 
     private TextView mScore;
     private TextView mDuration;
@@ -67,23 +72,11 @@ public class ResultsActivity extends AppCompatActivity {
         }
     }
 
+
     public void backToMainScreen(View view) {
         buildLeaveDialog();
     }
 
-    public void takeAnotherTest(View view) {
-        // Take another test
-    }
-
-    public void upgrade(View view) {
-        // Upgrade
-    }
-
-    @Override
-    public void onBackPressed() {
-        buildLeaveDialog();
-
-    }
 
     private void buildLeaveDialog() {
 
@@ -110,5 +103,35 @@ public class ResultsActivity extends AppCompatActivity {
         //Build the dialog
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+
+    public void takeAnotherTest(View view) {
+        int testMode = getCurrentTestMode();
+        DialogFragment newTestDialog = DialogNewTest.newInstance(testMode);
+        newTestDialog.show(getSupportFragmentManager(), DIALOG_NEW_TEST_TAG);
+    }
+
+
+    private int getCurrentTestMode() {
+        if (getIntent() != null &&
+                getIntent().getExtras() != null &&
+                getIntent().getExtras().containsKey(Constants.TEST_MODE))
+            return getIntent().getExtras().getInt(Constants.TEST_MODE);
+
+        // Default value
+        return Constants.FINAL_TEST_MODE;
+    }
+
+
+    public void upgrade(View view) {
+        UtilActions.displayUpgradeDialog(ResultsActivity.this);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        buildLeaveDialog();
+
     }
 }

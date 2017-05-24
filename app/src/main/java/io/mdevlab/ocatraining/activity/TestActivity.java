@@ -178,6 +178,7 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
                 if (isResult) {
                     Intent intent = new Intent(TestActivity.this, ResultsActivity.class);
                     intent.putExtra(CURRENT_TEST, mTest);
+                    intent.putExtra(Constants.TEST_MODE, testMode);
                     startActivity(intent);
                 } else {
                     //TODO save Data in DB
