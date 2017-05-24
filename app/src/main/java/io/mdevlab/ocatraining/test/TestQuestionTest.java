@@ -27,7 +27,7 @@ public class TestQuestionTest {
     }
 
     public static void readTestQuestions() {
-        RealmResults<TestQuestion> testQuestions = TestQuestionManager.getAllTestQuestions();
+        RealmList<TestQuestion> testQuestions = TestQuestionManager.getTestQuestions(Constants.TEST_LIMIT_QUESTIONS);
 
         for (TestQuestion testQuestion : testQuestions)
             Log.e(TAG, testQuestion.toString());

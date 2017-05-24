@@ -22,7 +22,7 @@ import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.adapter.TestQuestionAdapter;
 import io.mdevlab.ocatraining.model.Test;
 import io.mdevlab.ocatraining.model.TestQuestion;
-import io.mdevlab.ocatraining.test.ChapterTest;
+import io.mdevlab.ocatraining.modelManager.TestQuestionManager;
 import io.mdevlab.ocatraining.util.Constants;
 import io.realm.RealmList;
 
@@ -157,11 +157,13 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
         //TODO get Questions from DB
         switch (testMode) {
             case Constants.FINAL_TEST_MODE:
-                mListQuestions = ChapterTest.createListTestQuestion(this);
+
+                mListQuestions = TestQuestionManager.getTestQuestions(Constants.TEST_LIMIT_QUESTIONS);
                 mTest = new Test(mListQuestions.size(), Constants.FINAL_TEST_MODE, mListQuestions);
                 break;
             case Constants.CUSTOM_TEST_MODE:
-                mListQuestions = ChapterTest.createRandomTestQuestion(this, 5);
+
+                mListQuestions = TestQuestionManager.getTestQuestions(5);
                 mTest = new Test(mListQuestions.size(), Constants.CUSTOM_TEST_MODE, mListQuestions);
                 break;
         }

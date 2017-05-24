@@ -14,7 +14,7 @@ import android.widget.TextView;
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.fragment.QuestionFragment;
 import io.mdevlab.ocatraining.model.TestQuestion;
-import io.mdevlab.ocatraining.test.TestQuestionTest;
+import io.mdevlab.ocatraining.modelManager.TestQuestionManager;
 
 
 public class RandomTestActivity extends AppCompatActivity {
@@ -73,8 +73,7 @@ public class RandomTestActivity extends AppCompatActivity {
         //Increment the counter of Questions
         mQuestionNumber++;
         setQuestionUi();
-        //TODO get the random Question from db
-        currentQuestion = TestQuestionTest.createRandomSingleAnswerTestQuestion(0, RandomTestActivity.this);
+        currentQuestion = TestQuestionManager.getRandomQuestion();
 
         FragmentTransaction ft = fm.beginTransaction();
         mCurrentFragment = QuestionFragment.newInstance(currentQuestion, false, true);
@@ -93,8 +92,8 @@ public class RandomTestActivity extends AppCompatActivity {
         mQuestionNumber++;
         setQuestionUi();
 
-        //TODO get the random Question from db
-        currentQuestion = TestQuestionTest.createRandomTestQuestion(0, RandomTestActivity.this);
+        //TODO  make sure to get a random question from the DB each time
+        currentQuestion = TestQuestionManager.getRandomQuestion();
 
         //TODO set the fragement Transition
         // TODO down => up new question
@@ -113,7 +112,6 @@ public class RandomTestActivity extends AppCompatActivity {
      */
     private void setQuestionUi() {
 
-
         mNextAnswerButton.setText(R.string.question_answer);
         getSupportActionBar().setTitle("Question : " + mQuestionNumber);
 
@@ -121,6 +119,7 @@ public class RandomTestActivity extends AppCompatActivity {
 
 
     private void setAnswerUi() {
+
         mNextAnswerButton.setText(R.string.next_question);
         getSupportActionBar().setTitle("Answer For Question : " + mQuestionNumber);
     }
