@@ -12,7 +12,7 @@
         android:layout_height="@dimen/chapter_circle_dimension"
         android:layout_marginEnd="@dimen/chapter_circle_margin_right"
         android:layout_marginRight="@dimen/chapter_circle_margin_right"
-        android:background="@drawable/circle" />
+        android:background="@drawable/circle_white" />
 
     <TextView
         android:id="@+id/favorite_question_text"
