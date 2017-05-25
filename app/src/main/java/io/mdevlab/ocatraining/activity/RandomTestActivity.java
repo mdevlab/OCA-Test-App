@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -17,17 +15,19 @@ import io.mdevlab.ocatraining.model.TestQuestion;
 import io.mdevlab.ocatraining.modelManager.TestQuestionManager;
 
 
-public class RandomTestActivity extends AppCompatActivity {
+public class RandomTestActivity extends ActivityBase {
 
+    private TestQuestion currentQuestion;
 
+    private QuestionFragment mCurrentFragment;
+    private FragmentManager mFragmentManager;
+
+    private TextView mCorrectScore;
+    private TextView mIncorrectScore;
     private Button mNextAnswerButton;
 
     private boolean isShowNext = false;
-    private TestQuestion currentQuestion;
-    private QuestionFragment mCurrentFragment;
-    private FragmentManager fm;
-    private TextView mCorrectScoreTxt;
-    private TextView mIncorrectScoreTxt;
+
     private int mCorrectAnswers;
     private int mInCorrectAnswers;
     private int mQuestionNumber;
@@ -37,13 +37,15 @@ public class RandomTestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random_test);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        fm = getSupportFragmentManager();
-        mCorrectScoreTxt = (TextView) findViewById(R.id.correct_score);
-        mIncorrectScoreTxt = (TextView) findViewById(R.id.incorrect_score);
+        setUpToolbar(getString(R.string.random_test));
+        setUpViews();
+        setUpActivity();
+    }
+
+
+    private void setUpViews() {
+        mCorrectScore = (TextView) findViewById(R.id.correct_score);
+        mIncorrectScore = (TextView) findViewById(R.id.incorrect_score);
 
         mNextAnswerButton = (Button) findViewById(R.id.button_next_answer);
         mNextAnswerButton.setOnClickListener(new View.OnClickListener() {
@@ -59,9 +61,6 @@ public class RandomTestActivity extends AppCompatActivity {
 
             }
         });
-
-        initActivity();
-
     }
 
 
@@ -69,16 +68,25 @@ public class RandomTestActivity extends AppCompatActivity {
      * initial the random activity Question with a random question
      * and initialize the fragment
      */
-    private void initActivity() {
-        //Increment the counter of Questions
+    private void setUpActivity() {
+        generateRandomQuestion();
+        setUpRandomQuestionFragment();
+    }
+
+
+    private void generateRandomQuestion() {
         mQuestionNumber++;
         setQuestionUi();
         currentQuestion = TestQuestionManager.getRandomQuestion();
+    }
 
-        FragmentTransaction ft = fm.beginTransaction();
+
+    private void setUpRandomQuestionFragment() {
         mCurrentFragment = QuestionFragment.newInstance(currentQuestion, false, true);
-        ft.add(R.id.question_answer_container, mCurrentFragment);
-        ft.commit();
+        mFragmentManager = getSupportFragmentManager();
+        mFragmentManager.beginTransaction()
+                .add(R.id.question_answer_container, mCurrentFragment)
+                .commit();
     }
 
 
@@ -98,7 +106,7 @@ public class RandomTestActivity extends AppCompatActivity {
         //TODO set the fragement Transition
         // TODO down => up new question
         // TODO left => right answer
-        FragmentTransaction ft = fm.beginTransaction();
+        FragmentTransaction ft = mFragmentManager.beginTransaction();
         mCurrentFragment = QuestionFragment.newInstance(currentQuestion, false, true);
         ft.replace(R.id.question_answer_container, mCurrentFragment);
         ft.commit();
@@ -147,26 +155,17 @@ public class RandomTestActivity extends AppCompatActivity {
     private void updateScore(Boolean isCorrect) {
         if (isCorrect) {
             mCorrectAnswers++;
-            mCorrectScoreTxt.setText(String.valueOf(mCorrectAnswers));
+            mCorrectScore.setText(String.valueOf(mCorrectAnswers));
         } else {
             mInCorrectAnswers++;
-            mIncorrectScoreTxt.setText(String.valueOf(mInCorrectAnswers));
+            mIncorrectScore.setText(String.valueOf(mInCorrectAnswers));
         }
     }
 
 
     @Override
     public void onBackPressed() {
-        //super.onBackPressed();
         buildStopDialog();
-
-    }
-
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
     }
 
 

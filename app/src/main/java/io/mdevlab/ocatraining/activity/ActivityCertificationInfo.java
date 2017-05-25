@@ -3,8 +3,6 @@ package io.mdevlab.ocatraining.activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -15,7 +13,7 @@ import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.util.UtilConnection;
 
 
-public class ActivityCertificationInfo extends AppCompatActivity {
+public class ActivityCertificationInfo extends ActivityBase {
 
     final String TAG = ActivityCertificationInfo.class.getSimpleName();
 
@@ -32,7 +30,7 @@ public class ActivityCertificationInfo extends AppCompatActivity {
         setContentView(R.layout.activity_certification_info);
 
         setUpViews();
-        setUpToolbar();
+        setUpToolbar(getString(R.string.title_activity_certification_info));
         setUpCertificationInfoScreenContent();
         setupSubscriptionToCertification();
     }
@@ -44,15 +42,6 @@ public class ActivityCertificationInfo extends AppCompatActivity {
         loadingProgressBar = (ProgressBar) findViewById(R.id.loading_progress_bar);
         certificationInfo = (WebView) findViewById(R.id.certification_info);
         subscribeToCertification = (Button) findViewById(R.id.subscribe_to_certification);
-    }
-
-
-    private void setUpToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(getString(R.string.title_activity_certification_info));
-        setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null)
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 
@@ -103,12 +92,5 @@ public class ActivityCertificationInfo extends AppCompatActivity {
 
     public void retryConnecting(View view) {
         restartActivity();
-    }
-
-
-    private void restartActivity() {
-        Intent intent = getIntent();
-        finish();
-        startActivity(intent);
     }
 }

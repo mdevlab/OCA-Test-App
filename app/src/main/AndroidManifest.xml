@@ -52,7 +52,6 @@
             android:name=".activity.RandomTestActivity"
             android:label="@string/title_random_question" />
         <activity android:name=".activity.ResponseActivity" />
-        <activity android:name=".activity.ChapterTestActivity" />
         <activity
             android:name=".activity.ActivityChapter"
             android:label="@string/title_activity_chapter"

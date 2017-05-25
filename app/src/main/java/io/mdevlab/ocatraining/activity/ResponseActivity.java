@@ -2,10 +2,7 @@ package io.mdevlab.ocatraining.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.util.Log;
 
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.fragment.QuestionFragment;
@@ -13,41 +10,44 @@ import io.mdevlab.ocatraining.model.TestQuestion;
 import io.mdevlab.ocatraining.util.Constants;
 
 
-public class ResponseActivity extends AppCompatActivity {
+public class ResponseActivity extends ActivityBase {
 
-
-    private TestQuestion currentQuestion;
-    private String currentQuestionNumber;
+    final String TAG = ResponseActivity.class.getSimpleName();
+    private String mCurrentQuestionNumber;
     private QuestionFragment mCurrentFragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_response);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        setUpToolbar("");
+        setUpResponseScreen();
+    }
 
+
+    private void setUpResponseScreen() {
         Intent intent = getIntent();
-        if (intent.hasExtra(Constants.ANSWER_NUMBER) && intent.hasExtra(Constants.CURRENT_ANSWER)) {
-            currentQuestion = intent.getParcelableExtra(Constants.CURRENT_ANSWER);
-            currentQuestionNumber = intent.getStringExtra(Constants.ANSWER_NUMBER);
-
-            FragmentManager fm = getSupportFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            mCurrentFragment = QuestionFragment.newInstance(currentQuestion, true, false);
-            ft.replace(R.id.test_answer_container, mCurrentFragment);
-            ft.commit();
-
-
+        if (intent != null &&
+                intent.hasExtra(Constants.ANSWER_NUMBER) &&
+                intent.hasExtra(Constants.CURRENT_ANSWER)) {
+            setUpCurrentQuestion(intent);
+            setUpResponseFragment(intent);
         }
-
     }
 
-    private void updateToolbar() {
-        getSupportActionBar().setTitle("Question : " + currentQuestionNumber);
+
+    private void setUpCurrentQuestion(Intent intent) {
+        mCurrentQuestionNumber = intent.getStringExtra(Constants.ANSWER_NUMBER);
     }
+
+
+    private void setUpResponseFragment(Intent intent) {
+        TestQuestion currentQuestion = intent.getParcelableExtra(Constants.CURRENT_ANSWER);
+        mCurrentFragment = QuestionFragment.newInstance(currentQuestion, true, false);
+        getSupportFragmentManager().beginTransaction().replace(R.id.test_answer_container, mCurrentFragment).commit();
+    }
+
 
     @Override
     protected void onResume() {
@@ -56,9 +56,12 @@ public class ResponseActivity extends AppCompatActivity {
         updateToolbar();
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
+
+    private void updateToolbar() {
+        try {
+            getSupportActionBar().setTitle("Question : " + mCurrentQuestionNumber);
+        } catch (NullPointerException e) {
+            Log.e(TAG, "setTilte method on null action bar. Error: " + e.getMessage());
+        }
     }
 }

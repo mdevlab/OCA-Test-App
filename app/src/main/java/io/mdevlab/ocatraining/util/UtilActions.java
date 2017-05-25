@@ -17,6 +17,7 @@ public class UtilActions {
 
 
     private static final String DIALOG_DIALOG_TAG = "upgrade dialog";
+    private static final String SHARE_TYPE = "text/plain";
 
 
     public static void displayUpgradeDialog(AppCompatActivity activity) {
@@ -29,5 +30,14 @@ public class UtilActions {
         Uri upgradeUri = Uri.parse(context.getString(R.string.upgrade_url));
         Intent upgrade = new Intent(Intent.ACTION_VIEW, upgradeUri);
         context.startActivity(upgrade);
+    }
+
+
+    public static void share(Context context) {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType(SHARE_TYPE);
+        intent.putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.share_subject));
+        intent.putExtra(Intent.EXTRA_TEXT, context.getString(R.string.share_text) + context.getString(R.string.application_play_store_url));
+        context.startActivity(Intent.createChooser(intent, context.getString(R.string.share)));
     }
 }

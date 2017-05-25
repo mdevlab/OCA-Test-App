@@ -3,39 +3,34 @@ package io.mdevlab.ocatraining.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.LinearLayout;
 
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.util.Constants;
 
-public class AllChaptersActivity extends AppCompatActivity
+public class AllChaptersActivity extends ActivityBase
         implements View.OnClickListener {
-
-    private LinearLayout mFinalTest;
-    private LinearLayout mCustomTest;
-    private LinearLayout mRandomQuestions;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_chapters);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        mFinalTest = (LinearLayout) findViewById(R.id.final_test);
-        mFinalTest.setOnClickListener(this);
-        mCustomTest = (LinearLayout) findViewById(R.id.custom_test);
-        mCustomTest.setOnClickListener(this);
-        mRandomQuestions = (LinearLayout) findViewById(R.id.random_test);
-        mRandomQuestions.setOnClickListener(this);
-
-
+        setUpToolbar(getString(R.string.title_all_chapters));
+        setUpViews();
     }
+
+
+    private void setUpViews() {
+        LinearLayout mFinalTest = (LinearLayout) findViewById(R.id.final_test);
+        mFinalTest.setOnClickListener(this);
+        LinearLayout mCustomTest = (LinearLayout) findViewById(R.id.custom_test);
+        mCustomTest.setOnClickListener(this);
+        LinearLayout mRandomQuestions = (LinearLayout) findViewById(R.id.random_test);
+        mRandomQuestions.setOnClickListener(this);
+    }
+
 
     /**
      * The UI contains 3 main clickable sections:
@@ -72,11 +67,5 @@ public class AllChaptersActivity extends AppCompatActivity
         }
 
 
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
     }
 }

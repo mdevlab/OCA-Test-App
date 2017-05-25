@@ -4,7 +4,6 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -13,11 +12,11 @@ import android.widget.Toast;
 
 import io.mdevlab.ocatraining.R;
 
-public class ContactActivity extends AppCompatActivity implements View.OnClickListener, View.OnFocusChangeListener {
+public class ContactActivity extends ActivityBase implements View.OnClickListener, View.OnFocusChangeListener {
 
-    private final String EMAIL_ACCOUNT = "mdevlab2017@gmail.com";
-    private final String EMAIL_TYPE = "message/rfc822";
-    private final String EMAIL_SUBJECT = "OCA TEST app message from ";
+    private static final String EMAIL_ACCOUNT = "mdevlab2017@gmail.com";
+    private static final String EMAIL_TYPE = "message/rfc822";
+    private static final String EMAIL_SUBJECT = "OCA TEST app message from ";
 
     private EditText name;
     private EditText message;
@@ -25,26 +24,27 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
     private TextInputLayout nameLayout;
     private TextInputLayout messageLayout;
 
-    private Button send;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact);
+        setUpViews();
+    }
 
-        name = (EditText) findViewById(R.id.contact_name);
-        message = (EditText) findViewById(R.id.contact_message);
 
+    private void setUpViews() {
         nameLayout = (TextInputLayout) findViewById(R.id.contact_name_container);
         messageLayout = (TextInputLayout) findViewById(R.id.contact_message_container);
 
-        send = (Button) findViewById(R.id.send_email);
-
-        // Setting listeners
+        name = (EditText) findViewById(R.id.contact_name);
         name.setOnClickListener(this);
         name.setOnFocusChangeListener(this);
+
+        message = (EditText) findViewById(R.id.contact_message);
         message.setOnClickListener(this);
         message.setOnFocusChangeListener(this);
+
+        Button send = (Button) findViewById(R.id.send_email);
         send.setOnClickListener(this);
     }
 
@@ -68,6 +68,7 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
+
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.send_email) {
@@ -77,6 +78,7 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
                 sendEmail();
         }
     }
+
 
     /**
      * @return Whether the name and message form is valid
@@ -90,6 +92,7 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
 
         return (nameIsValid && messageIsValid);
     }
+
 
     /**
      * @param field        Edit text field being validated
@@ -111,6 +114,7 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
         return false;
     }
 
+
     /**
      * @param field Field being validated
      * @return Whether the field is valid or not
@@ -118,6 +122,7 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
     private boolean fieldIsValid(EditText field) {
         return (field != null && !TextUtils.isEmpty(field.getText().toString().trim()));
     }
+
 
     /**
      * Method that displays an error in an editText's textInputLayout.
@@ -131,6 +136,7 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
         textInputLayout.setError(fieldIsValid ? null : errorMessage);
     }
 
+
     /**
      * Method that sends an email.
      * It first checks whether the user's device has an app that can send the email,
@@ -143,6 +149,7 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
             Toast.makeText(this, getString(R.string.no_email_client_error), Toast.LENGTH_SHORT).show();
         }
     }
+
 
     /**
      * Method that prepares an intent to send an email.
