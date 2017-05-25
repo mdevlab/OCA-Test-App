@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import io.mdevlab.ocatraining.model.Answer;
+import io.mdevlab.ocatraining.model.Chapter;
 import io.mdevlab.ocatraining.model.Question;
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -19,6 +20,7 @@ import static io.realm.Realm.getDefaultInstance;
 public class QuestionManager {
 
     private static final String NEW_LINE = System.getProperty("line.separator");
+    private static final String DEFAULT_CHAPTER_COLOR = "#FFFFFF";
 
 
     /**
@@ -124,6 +126,7 @@ public class QuestionManager {
         return new ArrayList<>(favoriteQuestions);
     }
 
+
     public static void updateQuestionFavoriteById(int questionId, Boolean isFavorite) {
         Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
@@ -132,4 +135,11 @@ public class QuestionManager {
         realm.commitTransaction();
     }
 
+
+    public static String getChapterColor(Question question) {
+        Chapter chapter = ChapterManager.getChapterById(question.getChapterId());
+        if (chapter != null)
+            return chapter.getColor();
+        return DEFAULT_CHAPTER_COLOR;
+    }
 }
