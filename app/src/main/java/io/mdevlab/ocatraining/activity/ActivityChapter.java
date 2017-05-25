@@ -11,7 +11,8 @@ import org.sufficientlysecure.htmltextview.HtmlTextView;
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.model.Chapter;
 import io.mdevlab.ocatraining.modelManager.ChapterManager;
-import io.mdevlab.ocatraining.util.Constants;
+
+import static io.mdevlab.ocatraining.model.Chapter.CHAPTER_ID;
 
 
 public class ActivityChapter extends ActivityBase {
@@ -40,7 +41,7 @@ public class ActivityChapter extends ActivityBase {
 
 
     private Chapter currentChapter() {
-        int chapterId = getIntent().getIntExtra(Constants.CHAPTER_ID, -1);
+        int chapterId = getIntent().getIntExtra(CHAPTER_ID, -1);
         return ChapterManager.getChapterById(chapterId);
     }
 

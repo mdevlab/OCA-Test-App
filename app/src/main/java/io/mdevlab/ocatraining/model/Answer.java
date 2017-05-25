@@ -9,6 +9,8 @@ import io.realm.RealmObject;
 public class Answer extends RealmObject {
 
     public static final String ID_COLUMN = "id";
+    public static final String CURRENT_ANSWER = "current_answer";
+    public static final String ANSWER_NUMBER = "answer_number";
 
     // Answer id
     private int id;

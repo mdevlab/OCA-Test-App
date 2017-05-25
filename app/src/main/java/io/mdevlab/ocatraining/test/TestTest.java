@@ -5,8 +5,10 @@ import android.util.Log;
 import io.mdevlab.ocatraining.model.Test;
 import io.mdevlab.ocatraining.modelManager.ChapterManager;
 import io.mdevlab.ocatraining.modelManager.TestManager;
-import io.mdevlab.ocatraining.util.Constants;
 import io.realm.RealmResults;
+
+import static io.mdevlab.ocatraining.model.Test.CUSTOM_TEST_MODE;
+import static io.mdevlab.ocatraining.model.Test.FINAL_TEST_MODE;
 
 /**
  * Created by husaynhakeem on 4/21/17.
@@ -21,7 +23,7 @@ public class TestTest {
         test.setId(TestManager.getNextIndex());
         test.setTotalNumberOfQuestions(20);
         test.setNumberOfCompletedQuestions(20);
-        test.setType(Constants.CUSTOMIZED_TEST);
+        test.setType(CUSTOM_TEST_MODE);
         test.setDuration(7320);
         test.setQuestions(ChapterManager.getQuestionsForChapter(1));
         return test;
@@ -31,7 +33,7 @@ public class TestTest {
         Test randomTest = new Test();
         randomTest.setId(TestManager.getNextIndex());
         randomTest.setDuration(3600);
-        randomTest.setType(Constants.FINAL_TEST);
+        randomTest.setType(FINAL_TEST_MODE);
         randomTest.setNumberOfCompletedQuestions(70);
         randomTest.setTotalNumberOfQuestions(77);
         randomTest.setQuestions(TestQuestionTest.createRandomTestQuestions(index));

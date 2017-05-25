@@ -18,7 +18,8 @@ import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.activity.ActivityChapter;
 import io.mdevlab.ocatraining.activity.AllChaptersActivity;
 import io.mdevlab.ocatraining.model.Chapter;
-import io.mdevlab.ocatraining.util.Constants;
+
+import static io.mdevlab.ocatraining.model.Chapter.CHAPTER_ID;
 
 /**
  * Created by bachiri on 4/22/17.
@@ -157,7 +158,7 @@ public class ChapterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
          */
         private void openChapter() {
             Intent openChapter = new Intent(mContext, ActivityChapter.class);
-            openChapter.putExtra(Constants.CHAPTER_ID, chapterId);
+            openChapter.putExtra(CHAPTER_ID, chapterId);
             mContext.startActivity(openChapter);
         }
     }

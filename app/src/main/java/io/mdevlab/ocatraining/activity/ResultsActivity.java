@@ -14,8 +14,12 @@ import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.adapter.ResultsAdapter;
 import io.mdevlab.ocatraining.dialog.DialogNewTest;
 import io.mdevlab.ocatraining.model.Test;
-import io.mdevlab.ocatraining.util.Constants;
 import io.mdevlab.ocatraining.util.UtilActions;
+
+import static io.mdevlab.ocatraining.model.Answer.ANSWER_NUMBER;
+import static io.mdevlab.ocatraining.model.Answer.CURRENT_ANSWER;
+import static io.mdevlab.ocatraining.model.Test.FINAL_TEST_MODE;
+import static io.mdevlab.ocatraining.model.Test.TEST_MODE;
 
 public class ResultsActivity extends ActivityBase {
 
@@ -81,8 +85,8 @@ public class ResultsActivity extends ActivityBase {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent response = new Intent(ResultsActivity.this, ResponseActivity.class);
-                response.putExtra(Constants.CURRENT_ANSWER, mAdapter.getItem(position));
-                response.putExtra(Constants.ANSWER_NUMBER, String.valueOf(position + 1));
+                response.putExtra(CURRENT_ANSWER, mAdapter.getItem(position));
+                response.putExtra(ANSWER_NUMBER, String.valueOf(position + 1));
                 startActivity(response);
             }
         });
@@ -99,11 +103,11 @@ public class ResultsActivity extends ActivityBase {
     private int getCurrentTestMode() {
         if (getIntent() != null &&
                 getIntent().getExtras() != null &&
-                getIntent().getExtras().containsKey(Constants.TEST_MODE))
-            return getIntent().getExtras().getInt(Constants.TEST_MODE);
+                getIntent().getExtras().containsKey(TEST_MODE))
+            return getIntent().getExtras().getInt(TEST_MODE);
 
         // Default value
-        return Constants.FINAL_TEST_MODE;
+        return FINAL_TEST_MODE;
     }
 
 

@@ -18,7 +18,9 @@ import android.widget.ToggleButton;
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.model.TestQuestion;
 import io.mdevlab.ocatraining.modelManager.QuestionManager;
-import io.mdevlab.ocatraining.util.Constants;
+
+import static io.mdevlab.ocatraining.model.Question.MULTIPLE_ANSWER_QUESTION;
+import static io.mdevlab.ocatraining.model.Question.SINGLE_ANSWER_QUESTION;
 
 /**
  * Created by bachiri on 4/23/17.
@@ -82,13 +84,13 @@ public class QuestionFragment extends Fragment {
 
         //Type of allowed Question
         if (mQuestion != null) {
-            if (mQuestion.getType() == Constants.SINGLE_ANSWER_QUESTION) {
+            if (mQuestion.getType() == SINGLE_ANSWER_QUESTION) {
                 createSingleAnswerContainer();
-                questionType = Constants.SINGLE_ANSWER_QUESTION;
+                questionType = SINGLE_ANSWER_QUESTION;
 
-            } else if (mQuestion.getType() == Constants.MULTIPLE_ANSWER_QUESTION) {
+            } else if (mQuestion.getType() == MULTIPLE_ANSWER_QUESTION) {
                 createMultipleAnswerContainer();
-                questionType = Constants.MULTIPLE_ANSWER_QUESTION;
+                questionType = MULTIPLE_ANSWER_QUESTION;
             }
         }
 

@@ -4,10 +4,10 @@ import android.util.Log;
 
 import io.mdevlab.ocatraining.model.Question;
 import io.mdevlab.ocatraining.modelManager.QuestionManager;
-import io.mdevlab.ocatraining.util.Constants;
 import io.realm.RealmList;
 import io.realm.RealmResults;
 
+import static io.mdevlab.ocatraining.model.Question.SINGLE_ANSWER_QUESTION;
 import static io.mdevlab.ocatraining.test.AnswerTest.createRandomAnswers;
 
 /**
@@ -38,7 +38,7 @@ public class QuestionTest {
     public static Question createRandomQuestion(int index, String question) {
         Question randomQuestion = new Question();
         randomQuestion.setId(QuestionManager.getNextIndex());
-        randomQuestion.setType(Constants.SINGLE_ANSWER_QUESTION);
+        randomQuestion.setType(SINGLE_ANSWER_QUESTION);
         randomQuestion.setStatement(question);
         randomQuestion.setExplanation("Explanation " + index);
         randomQuestion.setFavorite(true);

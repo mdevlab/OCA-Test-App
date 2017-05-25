@@ -23,17 +23,23 @@ import io.mdevlab.ocatraining.adapter.TestQuestionAdapter;
 import io.mdevlab.ocatraining.model.Test;
 import io.mdevlab.ocatraining.model.TestQuestion;
 import io.mdevlab.ocatraining.modelManager.TestQuestionManager;
-import io.mdevlab.ocatraining.util.Constants;
 import io.realm.RealmList;
+
+import static io.mdevlab.ocatraining.model.Test.CUSTOM_TEST_MODE;
+import static io.mdevlab.ocatraining.model.Test.FINAL_TEST_MODE;
+import static io.mdevlab.ocatraining.model.Test.TEST_LIMIT_QUESTIONS;
+import static io.mdevlab.ocatraining.model.Test.TEST_MODE;
 
 
 public class TestActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener {
     static String TAG = TestActivity.class.getName();
     private final int MINUTE_TO_SECOND = 60;
+    public static final int EMPTY_LIST = 0;
+    public static final int ZERO = 0;
     public static String CURRENT_TEST = "test_object";
-    private int NUM_ITEMS = Constants.EMPTY_LIST;
-    private final int FIRST_ITEM = Constants.EMPTY_LIST;
-    private int CURRENT_INDEX = Constants.EMPTY_LIST;
+    private int NUM_ITEMS = EMPTY_LIST;
+    private final int FIRST_ITEM = EMPTY_LIST;
+    private int CURRENT_INDEX = EMPTY_LIST;
     private ViewPager mTestQuestionViewPager;
     private Button mButtonLast;
     private Button mButtonResult;
@@ -62,7 +68,7 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Intent sentIntent = getIntent();
-        testMode = sentIntent.getIntExtra(Constants.TEST_MODE, 1);
+        testMode = sentIntent.getIntExtra(TEST_MODE, 1);
 
         mTestQuestionViewPager = (ViewPager) findViewById(R.id.pager_test_questions);
 //        First Last
@@ -124,7 +130,7 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
 
         NUM_ITEMS = mListQuestions.size();
 
-        if (NUM_ITEMS > Constants.EMPTY_LIST) {
+        if (NUM_ITEMS > EMPTY_LIST) {
             mProgressBarTest.setMax(NUM_ITEMS);
             initPager();
             initFirstLastButtons();
@@ -156,15 +162,15 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
 
         //TODO get Questions from DB
         switch (testMode) {
-            case Constants.FINAL_TEST_MODE:
+            case FINAL_TEST_MODE:
 
-                mListQuestions = TestQuestionManager.getTestQuestions(Constants.TEST_LIMIT_QUESTIONS);
-                mTest = new Test(mListQuestions.size(), Constants.FINAL_TEST_MODE, mListQuestions);
+                mListQuestions = TestQuestionManager.getTestQuestions(TEST_LIMIT_QUESTIONS);
+                mTest = new Test(mListQuestions.size(), FINAL_TEST_MODE, mListQuestions);
                 break;
-            case Constants.CUSTOM_TEST_MODE:
+            case CUSTOM_TEST_MODE:
 
                 mListQuestions = TestQuestionManager.getTestQuestions(5);
-                mTest = new Test(mListQuestions.size(), Constants.CUSTOM_TEST_MODE, mListQuestions);
+                mTest = new Test(mListQuestions.size(), CUSTOM_TEST_MODE, mListQuestions);
                 break;
         }
 
@@ -180,7 +186,7 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
                 if (isResult) {
                     Intent intent = new Intent(TestActivity.this, ResultsActivity.class);
                     intent.putExtra(CURRENT_TEST, mTest);
-                    intent.putExtra(Constants.TEST_MODE, testMode);
+                    intent.putExtra(TEST_MODE, testMode);
                     startActivity(intent);
                 } else {
                     //TODO save Data in DB
@@ -244,12 +250,12 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
     private void updateTimerUi() {
         StringBuilder Timer = new StringBuilder();
         if (minute < 10) {
-            Timer.append(Constants.ZERO);
+            Timer.append(ZERO);
         }
         Timer.append(minute);
         Timer.append(" : ");
         if (second < 10) {
-            Timer.append(Constants.ZERO);
+            Timer.append(ZERO);
         }
         Timer.append(second);
         mTextTimer.setText(Timer.toString());

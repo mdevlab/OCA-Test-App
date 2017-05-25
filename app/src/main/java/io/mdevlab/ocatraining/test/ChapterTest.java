@@ -15,9 +15,11 @@ import io.mdevlab.ocatraining.model.TestQuestion;
 import io.mdevlab.ocatraining.modelManager.AnswerManager;
 import io.mdevlab.ocatraining.modelManager.ChapterManager;
 import io.mdevlab.ocatraining.modelManager.QuestionManager;
-import io.mdevlab.ocatraining.util.Constants;
 import io.realm.RealmList;
 import io.realm.RealmResults;
+
+import static io.mdevlab.ocatraining.model.Question.MULTIPLE_ANSWER_QUESTION;
+import static io.mdevlab.ocatraining.model.Question.SINGLE_ANSWER_QUESTION;
 
 /**
  * Created by husaynhakeem on 4/21/17.
@@ -56,7 +58,7 @@ public class ChapterTest {
     public static Question createRandomQuestion(int index) {
         Question randomQuestion = new Question();
         randomQuestion.setId(QuestionManager.getNextIndex());
-        randomQuestion.setType(Constants.SINGLE_ANSWER_QUESTION);
+        randomQuestion.setType(SINGLE_ANSWER_QUESTION);
         randomQuestion.setExplanation("Explanation " + index);
         randomQuestion.setFavorite(true);
 
@@ -67,7 +69,7 @@ public class ChapterTest {
     public static TestQuestion createRandomMultipleTestQuestion(int index, Context context) {
         TestQuestion randomQuestion = new TestQuestion();
         randomQuestion.setId(QuestionManager.getNextIndex());
-        randomQuestion.setType(Constants.MULTIPLE_ANSWER_QUESTION);
+        randomQuestion.setType(MULTIPLE_ANSWER_QUESTION);
         randomQuestion.setExplanation("Explanation " + index);
         randomQuestion.setFavorite(true);
         randomQuestion.setFlagged(false);
@@ -80,7 +82,7 @@ public class ChapterTest {
     public static TestQuestion createRandomSingleTestQuestion(int index, Context context) {
         TestQuestion randomQuestion = new TestQuestion();
         randomQuestion.setId(QuestionManager.getNextIndex());
-        randomQuestion.setType(Constants.SINGLE_ANSWER_QUESTION);
+        randomQuestion.setType(SINGLE_ANSWER_QUESTION);
         randomQuestion.setExplanation("Explanation " + index);
         randomQuestion.setFavorite(true);
         randomQuestion.setFlagged(false);

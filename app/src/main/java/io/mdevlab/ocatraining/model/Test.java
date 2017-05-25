@@ -16,6 +16,11 @@ import io.realm.RealmObject;
 public class Test extends RealmObject implements Parcelable {
 
     public static final String ID_COLUMN = "id";
+    public static final String TEST_MODE = "test mode";
+    public static final int FINAL_TEST_MODE = 1;
+    public static final int CUSTOM_TEST_MODE = 2;
+    public static final int RANDOM_TEST_MODE = 3;
+    public static final int TEST_LIMIT_QUESTIONS = 70;
 
     // Test id
     private int id;

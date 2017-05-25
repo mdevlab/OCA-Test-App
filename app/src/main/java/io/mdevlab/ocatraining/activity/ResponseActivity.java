@@ -7,7 +7,9 @@ import android.util.Log;
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.fragment.QuestionFragment;
 import io.mdevlab.ocatraining.model.TestQuestion;
-import io.mdevlab.ocatraining.util.Constants;
+
+import static io.mdevlab.ocatraining.model.Answer.ANSWER_NUMBER;
+import static io.mdevlab.ocatraining.model.Answer.CURRENT_ANSWER;
 
 
 public class ResponseActivity extends ActivityBase {
@@ -29,8 +31,8 @@ public class ResponseActivity extends ActivityBase {
     private void setUpResponseScreen() {
         Intent intent = getIntent();
         if (intent != null &&
-                intent.hasExtra(Constants.ANSWER_NUMBER) &&
-                intent.hasExtra(Constants.CURRENT_ANSWER)) {
+                intent.hasExtra(ANSWER_NUMBER) &&
+                intent.hasExtra(CURRENT_ANSWER)) {
             setUpCurrentQuestion(intent);
             setUpResponseFragment(intent);
         }
@@ -38,12 +40,12 @@ public class ResponseActivity extends ActivityBase {
 
 
     private void setUpCurrentQuestion(Intent intent) {
-        mCurrentQuestionNumber = intent.getStringExtra(Constants.ANSWER_NUMBER);
+        mCurrentQuestionNumber = intent.getStringExtra(ANSWER_NUMBER);
     }
 
 
     private void setUpResponseFragment(Intent intent) {
-        TestQuestion currentQuestion = intent.getParcelableExtra(Constants.CURRENT_ANSWER);
+        TestQuestion currentQuestion = intent.getParcelableExtra(CURRENT_ANSWER);
         mCurrentFragment = QuestionFragment.newInstance(currentQuestion, true, false);
         getSupportFragmentManager().beginTransaction().replace(R.id.test_answer_container, mCurrentFragment).commit();
     }

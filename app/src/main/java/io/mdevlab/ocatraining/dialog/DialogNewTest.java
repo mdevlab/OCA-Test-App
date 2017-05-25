@@ -11,8 +11,9 @@ import android.view.LayoutInflater;
 
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.activity.TestActivity;
-import io.mdevlab.ocatraining.util.Constants;
 import io.mdevlab.ocatraining.util.UtilActions;
+
+import static io.mdevlab.ocatraining.model.Test.TEST_MODE;
 
 /**
  * Created by husaynhakeem on 5/23/17.
@@ -65,7 +66,7 @@ public class DialogNewTest extends DialogFragment {
 
     private void retakeTest() {
         Intent test = new Intent(getActivity(), TestActivity.class);
-        test.putExtra(Constants.TEST_MODE, mTestMode);
+        test.putExtra(TEST_MODE, mTestMode);
         startActivity(test);
     }
 }

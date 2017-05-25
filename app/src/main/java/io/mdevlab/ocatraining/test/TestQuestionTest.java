@@ -7,10 +7,11 @@ import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.model.TestQuestion;
 import io.mdevlab.ocatraining.modelManager.QuestionManager;
 import io.mdevlab.ocatraining.modelManager.TestQuestionManager;
-import io.mdevlab.ocatraining.util.Constants;
 import io.realm.RealmList;
-import io.realm.RealmResults;
 
+import static io.mdevlab.ocatraining.model.Question.MULTIPLE_ANSWER_QUESTION;
+import static io.mdevlab.ocatraining.model.Question.SINGLE_ANSWER_QUESTION;
+import static io.mdevlab.ocatraining.model.Test.TEST_LIMIT_QUESTIONS;
 import static io.mdevlab.ocatraining.test.TestAnswerTest.createRandomSingleAnswerTestAnswers;
 import static io.mdevlab.ocatraining.test.TestAnswerTest.createRandomTestAnswers;
 
@@ -27,7 +28,7 @@ public class TestQuestionTest {
     }
 
     public static void readTestQuestions() {
-        RealmList<TestQuestion> testQuestions = TestQuestionManager.getTestQuestions(Constants.TEST_LIMIT_QUESTIONS);
+        RealmList<TestQuestion> testQuestions = TestQuestionManager.getTestQuestions(TEST_LIMIT_QUESTIONS);
 
         for (TestQuestion testQuestion : testQuestions)
             Log.e(TAG, testQuestion.toString());
@@ -36,7 +37,7 @@ public class TestQuestionTest {
     public static TestQuestion createRandomTestQuestion(int index,Context context) {
         TestQuestion randomQuestion = new TestQuestion();
         randomQuestion.setId(QuestionManager.getNextIndex());
-        randomQuestion.setType(Constants.MULTIPLE_ANSWER_QUESTION);
+        randomQuestion.setType(MULTIPLE_ANSWER_QUESTION);
         randomQuestion.setExplanation("Explanation " + index);
         randomQuestion.setFavorite(true);
         randomQuestion.setFlagged(false);
@@ -49,7 +50,7 @@ public class TestQuestionTest {
     public static TestQuestion createRandomSingleAnswerTestQuestion(int index,Context context) {
         TestQuestion randomQuestion = new TestQuestion();
         randomQuestion.setId(QuestionManager.getNextIndex());
-        randomQuestion.setType(Constants.SINGLE_ANSWER_QUESTION);
+        randomQuestion.setType(SINGLE_ANSWER_QUESTION);
         randomQuestion.setExplanation("Explanation " + index);
         randomQuestion.setFavorite(true);
         randomQuestion.setFlagged(false);
@@ -62,7 +63,7 @@ public class TestQuestionTest {
     private static TestQuestion createRandomTestQuestion(int index) {
         TestQuestion randomQuestion = new TestQuestion();
         randomQuestion.setId(TestQuestionManager.getNextIndex());
-        randomQuestion.setType(Constants.SINGLE_ANSWER_QUESTION);
+        randomQuestion.setType(SINGLE_ANSWER_QUESTION);
         randomQuestion.setExplanation("Explanation " + index);
         randomQuestion.setFavorite(true);
         randomQuestion.setFlagged(false);

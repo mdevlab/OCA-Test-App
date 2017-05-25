@@ -7,7 +7,11 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import io.mdevlab.ocatraining.R;
-import io.mdevlab.ocatraining.util.Constants;
+
+import static io.mdevlab.ocatraining.model.Test.CUSTOM_TEST_MODE;
+import static io.mdevlab.ocatraining.model.Test.FINAL_TEST_MODE;
+import static io.mdevlab.ocatraining.model.Test.RANDOM_TEST_MODE;
+import static io.mdevlab.ocatraining.model.Test.TEST_MODE;
 
 public class AllChaptersActivity extends ActivityBase
         implements View.OnClickListener {
@@ -44,25 +48,25 @@ public class AllChaptersActivity extends ActivityBase
      */
     @Override
     public void onClick(View view) {
-        int testMode = Constants.FINAL_TEST_MODE;
+        int testMode = FINAL_TEST_MODE;
         Class<? extends Activity> testActivityClass = null;
         switch (view.getId()) {
             case R.id.final_test:
-                testMode = Constants.FINAL_TEST_MODE;
+                testMode = FINAL_TEST_MODE;
                 testActivityClass = TestActivity.class;
                 break;
             case R.id.custom_test:
-                testMode = Constants.CUSTOM_TEST_MODE;
+                testMode = CUSTOM_TEST_MODE;
                 testActivityClass = TestActivity.class;
                 break;
             case R.id.random_test:
-                testMode = Constants.RANDOM_TEST_MODE;
+                testMode = RANDOM_TEST_MODE;
                 testActivityClass = RandomTestActivity.class;
                 break;
         }
         if (testActivityClass != null) {
             Intent beginTest = new Intent(AllChaptersActivity.this, testActivityClass);
-            beginTest.putExtra(Constants.TEST_MODE, testMode);
+            beginTest.putExtra(TEST_MODE, testMode);
             startActivity(beginTest);
         }
 

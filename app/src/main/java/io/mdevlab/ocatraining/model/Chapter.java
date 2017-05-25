@@ -10,6 +10,7 @@ import io.realm.RealmObject;
 public class Chapter extends RealmObject {
 
     public static final String ID_COLUMN = "id";
+    public static final String CHAPTER_ID = "chapter id";
 
     private int id;
     private String color;
