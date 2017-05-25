@@ -20,14 +20,17 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="all_chapters_text">
-        <item name="android:textSize">28sp</item>
+    <style name="all_chapters_title">
+        <item name="android:textSize">24sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="all_chapters_sub_text">
-        <item name="android:textSize">18sp</item>
-        <item name="android:gravity">center</item>
+    <style name="all_chapters_subtitle">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="all_chapters_body">
+        <item name="android:textSize">12sp</item>
     </style>
 
     <style name="TextInputLayout">

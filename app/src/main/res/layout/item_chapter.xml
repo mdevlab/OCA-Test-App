@@ -3,56 +3,65 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="@dimen/chapter_height">
 
     <android.support.v7.widget.CardView
         android:id="@+id/Chapter_card_view"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
-        android:layout_margin="@dimen/card_margin"
-        android:elevation="3dp"
-        app:cardBackgroundColor="#e0db88"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/chapter_card_margin"
+        android:elevation="@dimen/chapter_card_elevation"
+        app:cardBackgroundColor="@color/material_gray"
         card_view:cardCornerRadius="@dimen/card_album_radius">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <!--Chapter id-->
-            <TextView
-                android:id="@+id/chapter_number"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:text="1"
-                android:textColor="@android:color/white"
-                android:textSize="56sp"
-                android:textStyle="bold" />
-
-            <!--Chapter name-->
             <TextView
                 android:id="@+id/chapter_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/chapter_number"
-                android:layout_centerInParent="true"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
                 android:text="Core Java"
                 android:textColor="@android:color/white"
-                android:textSize="24sp"
+                android:textSize="@dimen/chapter_title_size"
                 android:textStyle="bold" />
 
-            <!--Right arrow-->
-            <ImageView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_arrow_go" />
-        </RelativeLayout>
+                android:background="@android:color/white"
+                android:orientation="horizontal">
 
+                <android.support.v4.widget.Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_read_chapter" />
+
+                <ImageView
+                    android:id="@+id/chapter_start_test"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_take_test" />
+
+                <android.support.v4.widget.Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+        </LinearLayout>
     </android.support.v7.widget.CardView>
 </LinearLayout>

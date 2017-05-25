@@ -3,6 +3,7 @@ package io.mdevlab.ocatraining.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -33,6 +34,7 @@ public abstract class ActivityBase extends AppCompatActivity {
     protected void setUpToolbar(String toolbarTitle) {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mToolbar.setTitle(toolbarTitle);
+        mToolbar.setTitleTextColor(ContextCompat.getColor(ActivityBase.this, android.R.color.white));
         setSupportActionBar(mToolbar);
         if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
