@@ -3,33 +3,37 @@ package io.mdevlab.ocatraining.activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.ImageView;
 
 import io.mdevlab.ocatraining.R;
 
-public class AboutActivity extends AppCompatActivity implements View.OnClickListener {
+public class AboutActivity extends ActivityBase implements View.OnClickListener {
 
-    private final String PLAY_STORE_URL = "";
+    private final String PLAY_STORE_URL = "http://google.com";
     private final String GITHUB_URL = "https://github.com/mdevlab";
 
-    TextView playStore;
-    TextView github;
-    TextView email;
+    ImageView playStore;
+    ImageView github;
+    ImageView email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
+        setUpToolbar(getString(R.string.title_activity_about));
+        setUpViews();
+    }
 
-        playStore = (TextView) findViewById(R.id.playstore_account);
-        github = (TextView) findViewById(R.id.github_account);
-        email = (TextView) findViewById(R.id.email_account);
 
-        // Setting listeners
+    private void setUpViews() {
+        playStore = (ImageView) findViewById(R.id.playstore_account);
         playStore.setOnClickListener(this);
+
+        github = (ImageView) findViewById(R.id.github_account);
         github.setOnClickListener(this);
+
+        email = (ImageView) findViewById(R.id.email_account);
         email.setOnClickListener(this);
     }
 

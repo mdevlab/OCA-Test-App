@@ -28,6 +28,7 @@ public class ContactActivity extends ActivityBase implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact);
+        setUpToolbar(getString(R.string.title_activity_contact));
         setUpViews();
     }
 

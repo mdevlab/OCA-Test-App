@@ -128,7 +128,10 @@ instance variable in the object created on line 5.</string>
     <string name="about_app_end">\u00a9 2017 mDevLab . All rights reserved</string>
     <string name="send_email">Send email</string>
     <string name="no_email_client_error">There is no email clients installed.</string>
-    <string name="about_body">Did you like this app? Check out others things we\'ve made.\nHave a question? Get in touch with us:</string>
+    <string name="about_body">This app was created in order to help you prepare efficiently and methodically for the OCA (Oracle Certified Associate) Java SE certification exam.\n\nIf you\'ve liked what you\'ve seen so far, don\'t hesitate to go check out other cool Android apps we\'ve made.\n\nIf you have any questions, get in touch with us by emailing us:</string>
+    <string name="about_play_store">Play store</string>
+    <string name="about_email">Email us</string>
+    <string name="about_github">Our Github</string>
 
     <!--Contact-->
     <string name="send_button">Send</string>

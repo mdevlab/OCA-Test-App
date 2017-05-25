@@ -2,6 +2,7 @@
 <resources>
     <!--Theme colors -->
     <color name="colorPrimary">#c62828</color>
+    <color name="colorPrimaryTransparent">#75c62828</color>
     <color name="colorPrimaryDark">#b71c1c</color>
     <color name="colorAccent">#c62828</color>
     <color name="backgroundColor">#132852</color>
