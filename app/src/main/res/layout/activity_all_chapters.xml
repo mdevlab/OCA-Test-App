@@ -24,58 +24,50 @@
             android:layout_height="match_parent"
             android:layout_margin="@dimen/chapter_card_margin"
             app:cardBackgroundColor="@android:color/white"
-            card_view:cardCornerRadius="@dimen/card_album_radius"
+            card_view:cardCornerRadius="@dimen/chapter_card_album_radius"
             card_view:cardElevation="@dimen/chapter_card_elevation">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center_vertical"
+                android:baselineAligned="false"
                 android:orientation="horizontal">
 
+                <!--Test text-->
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="16dp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/final_test_title"
-                        style="@style/all_chapters_title"
-                        android:layout_width="match_parent"
+                        style="@style/all_chapters_test_title"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="start"
                         android:text="@string/final_test_title" />
 
                     <TextView
-                        android:id="@+id/final_test_subtitle"
-                        style="@style/all_chapters_subtitle"
+                        style="@style/all_chapters_test_subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/final_test_subtitle" />
+
+                    <TextView
+                        style="@style/all_chapters_test_body"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/final_test_body" />
 
                 </LinearLayout>
 
-                <TextView
-                    style="@style/all_chapters_body"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/final_test_subtitle" />
-
-                <ImageView
-                    android:id="@+id/final_test_start_test"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:src="@drawable/ic_arrow_go"
-                    android:layout_gravity="bottom"/>
+                <!--start test-->
+                <include layout="@layout/layout_start_test" />
 
             </LinearLayout>
-
         </android.support.v7.widget.CardView>
-
-
     </LinearLayout>
+
 
     <!--Custom test-->
     <LinearLayout
@@ -84,24 +76,58 @@
         android:layout_height="0dp"
         android:layout_margin="@dimen/chapter_card_margin_nano"
         android:layout_weight="1"
-        android:background="@color/color_custom_test"
         android:gravity="center"
-        android:orientation="vertical"
-        android:padding="8dp">
+        android:orientation="vertical">
 
-        <TextView
-            style="@style/all_chapters_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/customized_test"
-            android:textAlignment="center" />
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/chapter_card_margin"
+            app:cardBackgroundColor="@android:color/white"
+            card_view:cardCornerRadius="@dimen/chapter_card_album_radius"
+            card_view:cardElevation="@dimen/chapter_card_elevation">
 
-        <TextView
-            style="@style/all_chapters_body"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/customized_test_sub" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <!--Test text-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="16dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/all_chapters_test_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/custom_test_title" />
+
+                    <TextView
+                        style="@style/all_chapters_test_subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/custom_test_subtitle" />
+
+                    <TextView
+                        style="@style/all_chapters_test_body"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/custom_test_body" />
+
+                </LinearLayout>
+
+                <!--start test-->
+                <include layout="@layout/layout_start_test" />
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
     </LinearLayout>
+
 
     <!--Random test-->
     <LinearLayout
@@ -110,21 +136,56 @@
         android:layout_height="0dp"
         android:layout_margin="@dimen/chapter_card_margin_nano"
         android:layout_weight="1"
-        android:background="@color/color_random_test"
         android:gravity="center"
-        android:orientation="vertical"
-        android:padding="8dp">
+        android:orientation="vertical">
 
-        <TextView
-            style="@style/all_chapters_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/random_test" />
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/chapter_card_margin"
+            app:cardBackgroundColor="@android:color/white"
+            card_view:cardCornerRadius="@dimen/chapter_card_album_radius"
+            card_view:cardElevation="@dimen/chapter_card_elevation">
 
-        <TextView
-            style="@style/all_chapters_body"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/random_test_sub" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <!--Test text-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="16dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/all_chapters_test_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/random_test_title" />
+
+                    <TextView
+                        style="@style/all_chapters_test_subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/random_test_subtitle" />
+
+                    <TextView
+                        style="@style/all_chapters_test_body"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/random_test_body" />
+
+                </LinearLayout>
+
+                <!--start test-->
+                <include layout="@layout/layout_start_test" />
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
     </LinearLayout>
+
 </LinearLayout>

@@ -72,7 +72,7 @@
     <!--Chapter item-->
     <dimen name="chapter_card_margin">8dp</dimen>
     <dimen name="chapter_card_margin_nano">2dp</dimen>
-    <dimen name="chapter_card_album_radius">5dp</dimen>
+    <dimen name="chapter_card_album_radius">6dp</dimen>
     <dimen name="chapter_card_elevation">4dp</dimen>
     <dimen name="chapter_height">250dp</dimen>
     <dimen name="all_chapters_height">200dp</dimen>

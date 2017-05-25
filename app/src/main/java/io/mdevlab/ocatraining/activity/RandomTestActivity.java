@@ -37,7 +37,7 @@ public class RandomTestActivity extends ActivityBase {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random_test);
-        setUpToolbar(getString(R.string.random_test));
+        setUpToolbar(getString(R.string.title_activity_random_test));
         setUpViews();
         setUpActivity();
     }
