@@ -1,15 +1,16 @@
 [
   {
     "id": 1,
+    "color": "#1976d2",
     "name": "Chapter 1",
     "summary": "Summary 1",
     "questions": [
       {
         "id": 0,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 1, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 0,
@@ -30,10 +31,10 @@
       },
       {
         "id": 1,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 1, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 3,
@@ -54,10 +55,10 @@
       },
       {
         "id": 2,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 1, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 6,
@@ -78,10 +79,10 @@
       },
       {
         "id": 3,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 1, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 9,
@@ -102,10 +103,10 @@
       },
       {
         "id": 4,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 1, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 12,
@@ -126,10 +127,10 @@
       },
       {
         "id": 5,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 1, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 15,
@@ -150,10 +151,10 @@
       },
       {
         "id": 6,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 1, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 18,
@@ -174,10 +175,10 @@
       },
       {
         "id": 7,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 1, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 21,
@@ -198,10 +199,10 @@
       },
       {
         "id": 8,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 1, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 24,
@@ -222,10 +223,10 @@
       },
       {
         "id": 9,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 1, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 27,
@@ -246,10 +247,10 @@
       },
       {
         "id": 10,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 1, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 30,
@@ -270,10 +271,10 @@
       },
       {
         "id": 11,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 1, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 33,
@@ -294,10 +295,10 @@
       },
       {
         "id": 12,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 1, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 36,
@@ -318,10 +319,10 @@
       },
       {
         "id": 13,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 1, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 39,
@@ -342,10 +343,10 @@
       },
       {
         "id": 14,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 1, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 42,
@@ -366,10 +367,10 @@
       },
       {
         "id": 15,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 1, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 45,
@@ -390,10 +391,10 @@
       },
       {
         "id": 16,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 1, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 48,
@@ -414,10 +415,10 @@
       },
       {
         "id": 17,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 1, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 51,
@@ -438,10 +439,10 @@
       },
       {
         "id": 18,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 1, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 54,
@@ -462,10 +463,10 @@
       },
       {
         "id": 19,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 1, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 57,
@@ -488,15 +489,16 @@
   },
   {
     "id": 2,
+    "color": "#00796b",
     "name": "Chapter 2",
     "summary": "Summary 2",
     "questions": [
       {
         "id": 20,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 2, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 0,
@@ -517,10 +519,10 @@
       },
       {
         "id": 21,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 2, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 3,
@@ -541,10 +543,10 @@
       },
       {
         "id": 22,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 2, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 6,
@@ -565,10 +567,10 @@
       },
       {
         "id": 23,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 2, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 9,
@@ -589,10 +591,10 @@
       },
       {
         "id": 24,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 2, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 12,
@@ -613,10 +615,10 @@
       },
       {
         "id": 25,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 2, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 15,
@@ -637,10 +639,10 @@
       },
       {
         "id": 26,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 2, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 18,
@@ -661,10 +663,10 @@
       },
       {
         "id": 27,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 2, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 21,
@@ -685,10 +687,10 @@
       },
       {
         "id":28,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 2, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 24,
@@ -709,10 +711,10 @@
       },
       {
         "id": 29,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 2, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 27,
@@ -733,10 +735,10 @@
       },
       {
         "id": 30,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 2, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 30,
@@ -757,10 +759,10 @@
       },
       {
         "id": 31,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 2, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 33,
@@ -781,10 +783,10 @@
       },
       {
         "id": 32,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 2, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 36,
@@ -805,10 +807,10 @@
       },
       {
         "id": 33,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 2, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 39,
@@ -829,10 +831,10 @@
       },
       {
         "id": 34,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 2, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 42,
@@ -853,10 +855,10 @@
       },
       {
         "id": 35,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 2, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 45,
@@ -877,10 +879,10 @@
       },
       {
         "id": 36,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 2, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 48,
@@ -901,10 +903,10 @@
       },
       {
         "id": 37,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 2, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 51,
@@ -925,10 +927,10 @@
       },
       {
         "id": 38,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 2, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 54,
@@ -949,10 +951,10 @@
       },
       {
         "id": 39,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 2, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 57,
@@ -975,15 +977,16 @@
   },
   {
     "id": 3,
+    "color": "#fbc02d",
     "name": "Chapter 3",
     "summary": "Summary 3",
     "questions": [
       {
         "id": 40,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 3, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 0,
@@ -1004,10 +1007,10 @@
       },
       {
         "id": 41,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 3, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 3,
@@ -1028,10 +1031,10 @@
       },
       {
         "id": 42,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 3, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 6,
@@ -1052,10 +1055,10 @@
       },
       {
         "id": 43,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 3, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 9,
@@ -1076,10 +1079,10 @@
       },
       {
         "id": 44,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 3, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 12,
@@ -1100,10 +1103,10 @@
       },
       {
         "id": 45,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 3, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 15,
@@ -1124,10 +1127,10 @@
       },
       {
         "id": 46,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 3, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 18,
@@ -1148,10 +1151,10 @@
       },
       {
         "id": 47,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 3, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 21,
@@ -1172,10 +1175,10 @@
       },
       {
         "id": 8,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 3, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 24,
@@ -1196,10 +1199,10 @@
       },
       {
         "id": 49,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 3, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 27,
@@ -1220,10 +1223,10 @@
       },
       {
         "id": 50,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 3, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 30,
@@ -1244,10 +1247,10 @@
       },
       {
         "id": 51,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 3, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 33,
@@ -1268,10 +1271,10 @@
       },
       {
         "id": 52,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 3, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 36,
@@ -1292,10 +1295,10 @@
       },
       {
         "id": 53,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 3, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 39,
@@ -1316,10 +1319,10 @@
       },
       {
         "id": 54,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 3, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 42,
@@ -1340,10 +1343,10 @@
       },
       {
         "id": 55,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 3, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 45,
@@ -1364,10 +1367,10 @@
       },
       {
         "id": 56,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 3, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 48,
@@ -1388,10 +1391,10 @@
       },
       {
         "id": 57,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 3, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 51,
@@ -1412,10 +1415,10 @@
       },
       {
         "id": 58,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 3, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 54,
@@ -1436,10 +1439,10 @@
       },
       {
         "id": 59,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 3, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 57,
@@ -1462,15 +1465,16 @@
   },
   {
     "id": 4,
+    "color": "#e64a19",
     "name": "Chapter 4",
     "summary": "Summary 4",
     "questions": [
       {
         "id": 60,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 4, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 0,
@@ -1491,10 +1495,10 @@
       },
       {
         "id": 61,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 4, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 3,
@@ -1515,10 +1519,10 @@
       },
       {
         "id": 62,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 4, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 6,
@@ -1539,10 +1543,10 @@
       },
       {
         "id": 63,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 4, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 9,
@@ -1563,10 +1567,10 @@
       },
       {
         "id": 64,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 4, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 12,
@@ -1587,10 +1591,10 @@
       },
       {
         "id": 65,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 4, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 15,
@@ -1611,10 +1615,10 @@
       },
       {
         "id": 66,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 4, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 18,
@@ -1635,10 +1639,10 @@
       },
       {
         "id": 67,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 4, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 21,
@@ -1659,10 +1663,10 @@
       },
       {
         "id": 68,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 4, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 24,
@@ -1683,10 +1687,10 @@
       },
       {
         "id": 69,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 4, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 27,
@@ -1707,10 +1711,10 @@
       },
       {
         "id": 70,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 4, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 30,
@@ -1731,10 +1735,10 @@
       },
       {
         "id": 71,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 4, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 33,
@@ -1755,10 +1759,10 @@
       },
       {
         "id": 72,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 4, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 36,
@@ -1779,10 +1783,10 @@
       },
       {
         "id": 73,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 4, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 39,
@@ -1803,10 +1807,10 @@
       },
       {
         "id": 74,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 4, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 42,
@@ -1827,10 +1831,10 @@
       },
       {
         "id": 75,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 4, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 45,
@@ -1851,10 +1855,10 @@
       },
       {
         "id": 76,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 4, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 48,
@@ -1875,10 +1879,10 @@
       },
       {
         "id": 77,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 4, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 51,
@@ -1899,10 +1903,10 @@
       },
       {
         "id": 78,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 4, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 54,
@@ -1923,10 +1927,10 @@
       },
       {
         "id": 79,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 4, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 57,
@@ -1949,15 +1953,16 @@
   },
   {
     "id": 5,
+    "color": "#607d8b",
     "name": "Chapter 5",
     "summary": "Summary 5",
     "questions": [
       {
         "id": 80,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 5, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 0,
@@ -1978,10 +1983,10 @@
       },
       {
         "id": 81,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 5, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 3,
@@ -2002,10 +2007,10 @@
       },
       {
         "id": 82,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 5, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 6,
@@ -2026,10 +2031,10 @@
       },
       {
         "id": 83,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 5, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 9,
@@ -2050,10 +2055,10 @@
       },
       {
         "id": 84,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 5, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 12,
@@ -2074,10 +2079,10 @@
       },
       {
         "id": 85,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 5, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 15,
@@ -2098,10 +2103,10 @@
       },
       {
         "id": 86,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 5, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 18,
@@ -2122,10 +2127,10 @@
       },
       {
         "id": 87,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 5, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 21,
@@ -2146,10 +2151,10 @@
       },
       {
         "id": 88,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 5, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 24,
@@ -2170,10 +2175,10 @@
       },
       {
         "id": 89,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 5, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 27,
@@ -2194,10 +2199,10 @@
       },
       {
         "id": 90,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 5, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 30,
@@ -2218,10 +2223,10 @@
       },
       {
         "id": 91,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 5, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 33,
@@ -2242,10 +2247,10 @@
       },
       {
         "id": 92,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 5, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 36,
@@ -2266,10 +2271,10 @@
       },
       {
         "id": 93,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 5, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 39,
@@ -2290,10 +2295,10 @@
       },
       {
         "id": 94,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 5, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 42,
@@ -2314,10 +2319,10 @@
       },
       {
         "id": 95,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 5, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 45,
@@ -2338,10 +2343,10 @@
       },
       {
         "id": 96,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 5, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 48,
@@ -2362,10 +2367,10 @@
       },
       {
         "id": 97,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 5, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 51,
@@ -2386,10 +2391,10 @@
       },
       {
         "id": 98,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 5, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 54,
@@ -2410,10 +2415,10 @@
       },
       {
         "id": 99,
-        "type": 1,
-        "statement": "statement",
+        "chapterId": 5, "type": 1,
+        "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
         "explanation": "expl",
-        "isFavorite": false,
+        "isFavorite": true,
         "answers": [
           {
             "id": 57,
@@ -2436,15 +2441,16 @@
   },
   {
   "id": 6,
+  "color": "#7b1fa2",
   "name": "Chapter 6",
   "summary": "Summary 6",
   "questions": [
     {
       "id": 100,
-      "type": 1,
-      "statement": "statement",
+      "chapterId": 6, "type": 1,
+      "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
       "explanation": "expl",
-      "isFavorite": false,
+      "isFavorite": true,
       "answers": [
         {
           "id": 0,
@@ -2465,10 +2471,10 @@
     },
     {
       "id": 101,
-      "type": 1,
-      "statement": "statement",
+      "chapterId": 6, "type": 1,
+      "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
       "explanation": "expl",
-      "isFavorite": false,
+      "isFavorite": true,
       "answers": [
         {
           "id": 3,
@@ -2489,10 +2495,10 @@
     },
     {
       "id": 102,
-      "type": 1,
-      "statement": "statement",
+      "chapterId": 6, "type": 1,
+      "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
       "explanation": "expl",
-      "isFavorite": false,
+      "isFavorite": true,
       "answers": [
         {
           "id": 6,
@@ -2513,10 +2519,10 @@
     },
     {
       "id": 103,
-      "type": 1,
-      "statement": "statement",
+      "chapterId": 6, "type": 1,
+      "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
       "explanation": "expl",
-      "isFavorite": false,
+      "isFavorite": true,
       "answers": [
         {
           "id": 9,
@@ -2537,10 +2543,10 @@
     },
     {
       "id": 104,
-      "type": 1,
-      "statement": "statement",
+      "chapterId": 6, "type": 1,
+      "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
       "explanation": "expl",
-      "isFavorite": false,
+      "isFavorite": true,
       "answers": [
         {
           "id": 12,
@@ -2561,10 +2567,10 @@
     },
     {
       "id": 105,
-      "type": 1,
-      "statement": "statement",
+      "chapterId": 6, "type": 1,
+      "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
       "explanation": "expl",
-      "isFavorite": false,
+      "isFavorite": true,
       "answers": [
         {
           "id": 15,
@@ -2585,10 +2591,10 @@
     },
     {
       "id": 106,
-      "type": 1,
-      "statement": "statement",
+      "chapterId": 6, "type": 1,
+      "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
       "explanation": "expl",
-      "isFavorite": false,
+      "isFavorite": true,
       "answers": [
         {
           "id": 18,
@@ -2609,10 +2615,10 @@
     },
     {
       "id": 107,
-      "type": 1,
-      "statement": "statement",
+      "chapterId": 6, "type": 1,
+      "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
       "explanation": "expl",
-      "isFavorite": false,
+      "isFavorite": true,
       "answers": [
         {
           "id": 21,
@@ -2633,10 +2639,10 @@
     },
     {
       "id": 108,
-      "type": 1,
-      "statement": "statement",
+      "chapterId": 6, "type": 1,
+      "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
       "explanation": "expl",
-      "isFavorite": false,
+      "isFavorite": true,
       "answers": [
         {
           "id": 24,
@@ -2657,10 +2663,10 @@
     },
     {
       "id": 109,
-      "type": 1,
-      "statement": "statement",
+      "chapterId": 6, "type": 1,
+      "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
       "explanation": "expl",
-      "isFavorite": false,
+      "isFavorite": true,
       "answers": [
         {
           "id": 27,
@@ -2681,10 +2687,10 @@
     },
     {
       "id": 110,
-      "type": 1,
-      "statement": "statement",
+      "chapterId": 6, "type": 1,
+      "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
       "explanation": "expl",
-      "isFavorite": false,
+      "isFavorite": true,
       "answers": [
         {
           "id": 30,
@@ -2705,10 +2711,10 @@
     },
     {
       "id": 111,
-      "type": 1,
-      "statement": "statement",
+      "chapterId": 6, "type": 1,
+      "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
       "explanation": "expl",
-      "isFavorite": false,
+      "isFavorite": true,
       "answers": [
         {
           "id": 33,
@@ -2729,10 +2735,10 @@
     },
     {
       "id": 112,
-      "type": 1,
-      "statement": "statement",
+      "chapterId": 6, "type": 1,
+      "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
       "explanation": "expl",
-      "isFavorite": false,
+      "isFavorite": true,
       "answers": [
         {
           "id": 36,
@@ -2753,10 +2759,10 @@
     },
     {
       "id": 113,
-      "type": 1,
-      "statement": "statement",
+      "chapterId": 6, "type": 1,
+      "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
       "explanation": "expl",
-      "isFavorite": false,
+      "isFavorite": true,
       "answers": [
         {
           "id": 39,
@@ -2777,10 +2783,10 @@
     },
     {
       "id": 114,
-      "type": 1,
-      "statement": "statement",
+      "chapterId": 6, "type": 1,
+      "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
       "explanation": "expl",
-      "isFavorite": false,
+      "isFavorite": true,
       "answers": [
         {
           "id": 42,
@@ -2801,10 +2807,10 @@
     },
     {
       "id": 115,
-      "type": 1,
-      "statement": "statement",
+      "chapterId": 6, "type": 1,
+      "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
       "explanation": "expl",
-      "isFavorite": false,
+      "isFavorite": true,
       "answers": [
         {
           "id": 45,
@@ -2825,10 +2831,10 @@
     },
     {
       "id": 116,
-      "type": 1,
-      "statement": "statement",
+      "chapterId": 6, "type": 1,
+      "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
       "explanation": "expl",
-      "isFavorite": false,
+      "isFavorite": true,
       "answers": [
         {
           "id": 48,
@@ -2849,10 +2855,10 @@
     },
     {
       "id": 117,
-      "type": 1,
-      "statement": "statement",
+      "chapterId": 6, "type": 1,
+      "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
       "explanation": "expl",
-      "isFavorite": false,
+      "isFavorite": true,
       "answers": [
         {
           "id": 51,
@@ -2873,10 +2879,10 @@
     },
     {
       "id": 118,
-      "type": 1,
-      "statement": "statement",
+      "chapterId": 6, "type": 1,
+      "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
       "explanation": "expl",
-      "isFavorite": false,
+      "isFavorite": true,
       "answers": [
         {
           "id": 54,
@@ -2897,10 +2903,10 @@
     },
     {
       "id": 119,
-      "type": 1,
-      "statement": "statement",
+      "chapterId": 6, "type": 1,
+      "statement": "What is the output of the following program? \n \n 1: public class FeedingSchedule { \n 2: public static void main(String[] args) { \n 3: boolean keepGoing = true; \n 4: int count = 0; \n 5: int x = 3; \n 6: while(count++ &lt; 3) { \n 7: int y = (1 + 2 * count) % 3; \n 8: switch(y) { \n 9: default: \n 10: case 0: x -= 1; break; \n 11: case 1: x += 5; \n 12: } \n 13: } \n 14: System.out.println(x); \n 15: } }",
       "explanation": "expl",
-      "isFavorite": false,
+      "isFavorite": true,
       "answers": [
         {
           "id": 57,

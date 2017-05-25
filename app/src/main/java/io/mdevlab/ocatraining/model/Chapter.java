@@ -11,16 +11,10 @@ public class Chapter extends RealmObject {
 
     public static final String ID_COLUMN = "id";
 
-    // Chapter id
     private int id;
-
-    // Chapter name
+    private String color;
     private String name;
-
-    // Chapter summary
     private String summary;
-
-    // List of chapter questions
     private RealmList<Question> questions;
 
     public int getId() {
@@ -29,6 +23,14 @@ public class Chapter extends RealmObject {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public String getName() {

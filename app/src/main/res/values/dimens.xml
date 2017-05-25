@@ -15,12 +15,6 @@
     <dimen name="spacing_huge">72dp</dimen>
 
 
-    <!--card property-->
-    <dimen name="card_margin">5dp</dimen>
-    <dimen name="card_margin_nano">2dp</dimen>
-
-    <dimen name="card_album_radius">5dp</dimen>
-
     <!--next previous dimens-->
     <dimen name="height_button">52dp</dimen>
 
@@ -71,4 +65,14 @@
     <dimen name="upgrade_icon_dimen">80dp</dimen>
     <dimen name="text_size">18sp</dimen>
     <dimen name="upgrade_text_icon_margin">16dp</dimen>
+
+
+    <!--Chapter item-->
+    <dimen name="chapter_card_margin">8dp</dimen>
+    <dimen name="chapter_card_margin_nano">2dp</dimen>
+    <dimen name="chapter_card_album_radius">5dp</dimen>
+    <dimen name="chapter_card_elevation">4dp</dimen>
+    <dimen name="chapter_height">250dp</dimen>
+    <dimen name="all_chapters_height">200dp</dimen>
+    <dimen name="chapter_title_size">24sp</dimen>
 </resources>

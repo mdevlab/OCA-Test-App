@@ -8,7 +8,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -102,9 +104,8 @@ public class ChapterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 final ChapterViewHolder chapterViewHolder = (ChapterViewHolder) holder;
 
                 chapterViewHolder.chapterId = chapter.getId();
-                chapterViewHolder.mChapterNumber.setText(String.valueOf(position));
                 chapterViewHolder.mChapterName.setText(chapter.getName());
-                chapterViewHolder.chapterView.setCardBackgroundColor(ContextCompat.getColor(mContext, colors[position % colors.length]));
+                chapterViewHolder.mChapterView.setCardBackgroundColor(ContextCompat.getColor(mContext, colors[position % colors.length]));
                 break;
 
         }
@@ -119,26 +120,30 @@ public class ChapterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
 
-    /**
-     * Holder for each chapter
-     */
-    class ChapterViewHolder extends RecyclerView.ViewHolder {
+    private class ChapterViewHolder extends RecyclerView.ViewHolder {
 
         int chapterId;
 
-        TextView mChapterNumber;
         TextView mChapterName;
-        CardView chapterView;
+        CardView mChapterView;
+        ImageView mStartTest;
 
 
         ChapterViewHolder(View itemView) {
             super(itemView);
 
-            mChapterNumber = (TextView) itemView.findViewById(R.id.chapter_number);
             mChapterName = (TextView) itemView.findViewById(R.id.chapter_name);
-            chapterView = (CardView) itemView.findViewById(R.id.Chapter_card_view);
 
-            chapterView.setOnClickListener(new View.OnClickListener() {
+            mStartTest = (ImageView) itemView.findViewById(R.id.chapter_start_test);
+            mStartTest.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(mContext, "Boo !", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            mChapterView = (CardView) itemView.findViewById(R.id.Chapter_card_view);
+            mChapterView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     openChapter();
@@ -158,29 +163,20 @@ public class ChapterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
 
-    /**
-     * Header view Holder  this holder is for displaying all chapter header view
-     */
-    class HeaderViewHolder extends RecyclerView.ViewHolder {
-        CardView headerView;
+    private class HeaderViewHolder extends RecyclerView.ViewHolder {
+        CardView mHeaderView;
 
-        public HeaderViewHolder(View itemView) {
+        HeaderViewHolder(View itemView) {
             super(itemView);
 
-            headerView = (CardView) itemView.findViewById(R.id.all_chapters_container);
-            headerView.setOnClickListener(new View.OnClickListener() {
+            mHeaderView = (CardView) itemView.findViewById(R.id.all_chapters_container);
+            mHeaderView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(mContext, AllChaptersActivity.class);
                     mContext.startActivity(intent);
-
-//TODO set Animation
-//                            ,
-//                            ActivityOptions.makeSceneTransitionAnimation(MainActivity.this
-//                            ).toBundle());
                 }
             });
-
         }
     }
 }

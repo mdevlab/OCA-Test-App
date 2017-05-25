@@ -8,6 +8,7 @@ import com.evernote.android.job.JobManager;
 import io.fabric.sdk.android.Fabric;
 import io.mdevlab.ocatraining.notification.NotificationsJobCreator;
 import io.mdevlab.ocatraining.notification.NotificationsManager;
+import io.mdevlab.ocatraining.test.Test;
 import io.mdevlab.ocatraining.util.UtilSharedPreferences;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -27,6 +28,7 @@ public class OCA extends Application {
         setUpRealm();
         setUpNotifications();
         setUpCrashlytics();
+        populateDatabase();
     }
 
 
@@ -56,5 +58,10 @@ public class OCA extends Application {
 
     private void setUpCrashlytics() {
         Fabric.with(this, new Crashlytics());
+    }
+
+
+    private void populateDatabase() {
+        Test.populateDataBase(getApplicationContext());
     }
 }

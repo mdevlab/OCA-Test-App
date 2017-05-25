@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--Theme colors -->
-    <color name="colorPrimary">#3982c6</color>
-    <color name="colorPrimaryDark">#1873c9</color>
-    <color name="colorAccent">#8bea0e</color>
+    <color name="colorPrimary">#c62828</color>
+    <color name="colorPrimaryDark">#b71c1c</color>
+    <color name="colorAccent">#c62828</color>
     <color name="backgroundColor">#132852</color>
     <color name="blackColor">#000000</color>
 

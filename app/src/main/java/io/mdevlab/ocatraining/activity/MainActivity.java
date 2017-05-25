@@ -19,7 +19,6 @@ import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.adapter.ChapterAdapter;
 import io.mdevlab.ocatraining.model.Chapter;
 import io.mdevlab.ocatraining.modelManager.ChapterManager;
-import io.mdevlab.ocatraining.test.Test;
 import io.mdevlab.ocatraining.util.UtilActions;
 
 
@@ -33,9 +32,6 @@ public class MainActivity extends ActivityBase implements NavigationView.OnNavig
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // Dummy data
-        Test.populateDataBase(this);
 
         setUpToolbar(getString(R.string.title_activity_main));
         initChapterTestList();

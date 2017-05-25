@@ -33,6 +33,9 @@ public class Question extends RealmObject {
     // List of given answers for this question
     private RealmList<Answer> answers;
 
+    // Chapter id
+    private int chapterId;
+
     public int getId() {
         return id;
     }
@@ -79,6 +82,14 @@ public class Question extends RealmObject {
 
     public void setStatement(String statement) {
         this.statement = statement;
+    }
+
+    public int getChapterId() {
+        return chapterId;
+    }
+
+    public void setChapterId(int chapterId) {
+        this.chapterId = chapterId;
     }
 
     @Override

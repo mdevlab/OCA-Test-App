@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -12,25 +14,67 @@
         android:id="@+id/final_test"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="@dimen/card_margin_nano"
+        android:layout_margin="@dimen/chapter_card_margin_nano"
         android:layout_weight="1"
-        android:background="@color/color_final_test"
         android:gravity="center"
-        android:orientation="vertical"
-        android:padding="8dp">
+        android:orientation="vertical">
 
-        <TextView
-            style="@style/all_chapters_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/final_test"
-            android:textAlignment="center" />
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/chapter_card_margin"
+            app:cardBackgroundColor="@android:color/white"
+            card_view:cardCornerRadius="@dimen/card_album_radius"
+            card_view:cardElevation="@dimen/chapter_card_elevation">
 
-        <TextView
-            style="@style/all_chapters_sub_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/final_test_sub" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/final_test_title"
+                        style="@style/all_chapters_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:text="@string/final_test_title" />
+
+                    <TextView
+                        android:id="@+id/final_test_subtitle"
+                        style="@style/all_chapters_subtitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/final_test_body" />
+
+                </LinearLayout>
+
+                <TextView
+                    style="@style/all_chapters_body"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/final_test_subtitle" />
+
+                <ImageView
+                    android:id="@+id/final_test_start_test"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/ic_arrow_go"
+                    android:layout_gravity="bottom"/>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+
     </LinearLayout>
 
     <!--Custom test-->
@@ -38,7 +82,7 @@
         android:id="@+id/custom_test"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="@dimen/card_margin_nano"
+        android:layout_margin="@dimen/chapter_card_margin_nano"
         android:layout_weight="1"
         android:background="@color/color_custom_test"
         android:gravity="center"
@@ -46,14 +90,14 @@
         android:padding="8dp">
 
         <TextView
-            style="@style/all_chapters_text"
+            style="@style/all_chapters_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/customized_test"
             android:textAlignment="center" />
 
         <TextView
-            style="@style/all_chapters_sub_text"
+            style="@style/all_chapters_body"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/customized_test_sub" />
@@ -64,7 +108,7 @@
         android:id="@+id/random_test"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="@dimen/card_margin_nano"
+        android:layout_margin="@dimen/chapter_card_margin_nano"
         android:layout_weight="1"
         android:background="@color/color_random_test"
         android:gravity="center"
@@ -72,13 +116,13 @@
         android:padding="8dp">
 
         <TextView
-            style="@style/all_chapters_text"
+            style="@style/all_chapters_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/random_test" />
 
         <TextView
-            style="@style/all_chapters_sub_text"
+            style="@style/all_chapters_body"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/random_test_sub" />

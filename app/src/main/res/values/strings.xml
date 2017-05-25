@@ -28,8 +28,9 @@
 
 
     <!--All chapters screen-->
-    <string name="final_test">Final test \n (Twice A week)</string>
-    <string name="final_test_sub">Full length certification-like exam, 77 questions</string>
+    <string name="final_test_title">Final test</string>
+    <string name="final_test_subtitle">(Twice A week)</string>
+    <string name="final_test_body">Full length certification-like exam, 77 questions</string>
     <string name="random_test">Random test</string>
     <string name="random_test_sub">1 question/answer set exam</string>
     <string name="customized_test">Customized test \n (Each day one)</string>
