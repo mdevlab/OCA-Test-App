@@ -131,6 +131,7 @@ public class ResultsActivity extends ActivityBase {
             public void onClick(DialogInterface dialog, int id) {
                 Intent mainScreen = new Intent(ResultsActivity.this, MainActivity.class);
                 startActivity(mainScreen);
+                finish();
             }
         });
 
