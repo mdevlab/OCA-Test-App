@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?><!--Start test-->
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/final_test_start_test"
+
+<android.support.design.widget.FloatingActionButton xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/chapter_start_test"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
-    android:layout_margin="8dp"
-    android:background="@drawable/circle"
-    android:gravity="center"
-    android:text="@string/start_test"
-    android:textColor="@android:color/white"
-    android:textSize="24sp" />
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentEnd="true"
+    android:layout_alignParentRight="true"
+    android:layout_margin="@dimen/fab_margin"
+    app:srcCompat="@drawable/ic_start_test"
+    tools:ignore="VectorDrawableCompat" />

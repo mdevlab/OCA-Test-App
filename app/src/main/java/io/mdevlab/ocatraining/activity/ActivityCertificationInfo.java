@@ -20,7 +20,6 @@ public class ActivityCertificationInfo extends ActivityBase {
     final String BEGIN_BOLD = "<strong>";
     final String END_BOLD = "</strong>";
 
-    View noInternetLayout;
     Button subscribeToCertification;
 
     HtmlTextView benefitOne;
@@ -42,7 +41,6 @@ public class ActivityCertificationInfo extends ActivityBase {
 
 
     private void setUpViews() {
-        noInternetLayout = findViewById(R.id.layout_no_internet);
         subscribeToCertification = (Button) findViewById(R.id.subscribe_to_certification);
         benefitOne = (HtmlTextView) findViewById(R.id.benefit_one);
         benefitTwo = (HtmlTextView) findViewById(R.id.benefit_two);
@@ -65,11 +63,6 @@ public class ActivityCertificationInfo extends ActivityBase {
         Uri subscriptionUri = Uri.parse(getString(R.string.certification_subscription_url));
         Intent subscriptionIntent = new Intent(Intent.ACTION_VIEW, subscriptionUri);
         startActivity(subscriptionIntent);
-    }
-
-
-    public void retryConnecting(View view) {
-        restartActivity();
     }
 
 
