@@ -4,24 +4,29 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.Button;
-import android.widget.ProgressBar;
+
+import org.sufficientlysecure.htmltextview.HtmlTextView;
 
 import io.mdevlab.ocatraining.R;
-import io.mdevlab.ocatraining.util.UtilConnection;
 
 
 public class ActivityCertificationInfo extends ActivityBase {
 
     final String TAG = ActivityCertificationInfo.class.getSimpleName();
+    final String SPACE = " ";
+    final String BEGIN_LIST_ITEM = "<ul><li>";
+    final String END_LIST_ITEM = "</li></ul>";
+    final String BEGIN_BOLD = "<strong>";
+    final String END_BOLD = "</strong>";
 
     View noInternetLayout;
-    View internetAvailableLayout;
-    WebView certificationInfo;
-    ProgressBar loadingProgressBar;
     Button subscribeToCertification;
+
+    HtmlTextView benefitOne;
+    HtmlTextView benefitTwo;
+    HtmlTextView benefitThree;
+    HtmlTextView benefitFour;
 
 
     @Override
@@ -29,47 +34,20 @@ public class ActivityCertificationInfo extends ActivityBase {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_certification_info);
 
-        setUpViews();
         setUpToolbar(getString(R.string.title_activity_certification_info));
-        setUpCertificationInfoScreenContent();
+        setUpViews();
         setupSubscriptionToCertification();
+        formatBenefitsText();
     }
 
 
     private void setUpViews() {
         noInternetLayout = findViewById(R.id.layout_no_internet);
-        internetAvailableLayout = findViewById(R.id.layout_internet_available);
-        loadingProgressBar = (ProgressBar) findViewById(R.id.loading_progress_bar);
-        certificationInfo = (WebView) findViewById(R.id.certification_info);
         subscribeToCertification = (Button) findViewById(R.id.subscribe_to_certification);
-    }
-
-
-    private void setUpCertificationInfoScreenContent() {
-        if (UtilConnection.with(this).internetIsAvailable()) {
-            setUpCertificationInfoView();
-        } else {
-            displayNoInternetScreen();
-        }
-    }
-
-
-    private void setUpCertificationInfoView() {
-        certificationInfo.loadUrl(getString(R.string.certification_info_url));
-        certificationInfo.setWebViewClient(new WebViewClient() {
-
-            @Override
-            public void onPageFinished(WebView view, String url) {
-                super.onPageFinished(view, url);
-                loadingProgressBar.setVisibility(View.GONE);
-            }
-        });
-    }
-
-
-    private void displayNoInternetScreen() {
-        noInternetLayout.setVisibility(View.VISIBLE);
-        internetAvailableLayout.setVisibility(View.GONE);
+        benefitOne = (HtmlTextView) findViewById(R.id.benefit_one);
+        benefitTwo = (HtmlTextView) findViewById(R.id.benefit_two);
+        benefitThree = (HtmlTextView) findViewById(R.id.benefit_three);
+        benefitFour = (HtmlTextView) findViewById(R.id.benefit_four);
     }
 
 
@@ -92,5 +70,13 @@ public class ActivityCertificationInfo extends ActivityBase {
 
     public void retryConnecting(View view) {
         restartActivity();
+    }
+
+
+    private void formatBenefitsText() {
+        benefitOne.setHtml(BEGIN_LIST_ITEM + BEGIN_BOLD + getString(R.string.info_benefit_one_bold) + END_BOLD + SPACE + getString(R.string.info_benefit_one_normal) + END_LIST_ITEM);
+        benefitTwo.setHtml(BEGIN_LIST_ITEM + BEGIN_BOLD + getString(R.string.info_benefit_two_bold) + END_BOLD + SPACE + getString(R.string.info_benefit_two_normal) + END_LIST_ITEM);
+        benefitThree.setHtml(BEGIN_LIST_ITEM + BEGIN_BOLD + getString(R.string.info_benefit_three_bold) + END_BOLD + SPACE + getString(R.string.info_benefit_three_normal) + END_LIST_ITEM);
+        benefitFour.setHtml(BEGIN_LIST_ITEM + BEGIN_BOLD + getString(R.string.info_benefit_four_bold) + END_BOLD + SPACE + getString(R.string.info_benefit_four_normal) + END_LIST_ITEM);
     }
 }

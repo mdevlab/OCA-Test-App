@@ -178,9 +178,56 @@ instance variable in the object created on line 5.</string>
     <string name="result_exit_title">Quit the Results</string>
 
     <!--Certification info screen-->
-    <string name="subscribe_to_certification">Subscribe to test</string>
+    <string name="subscribe_to_certification">Schedule a test !</string>
     <string name="certification_info_url">http://www.google.com</string>
-    <string name="certification_subscription_url">http://www.google.com</string>
+    <string name="certification_subscription_url">http://www.pearsonvue.com/oracle/schedule/</string>
+
+    <string name="info_facts_title">Quick facts</string>
+
+    <string name="info_facts_certification_name_key">Certification name</string>
+    <string name="info_facts_certification_name_value">Oracle Certified Associate, Java SE 8 Programmer</string>
+
+    <string name="info_facts_certification_code_key">Exam code</string>
+    <string name="info_facts_certification_code_value">1Z0-808</string>
+
+    <string name="info_facts_certification_duration_key">Duration of exam</string>
+    <string name="info_facts_certification_duration_value">150 minutes</string>
+
+    <string name="info_facts_certification_questions_number_key">Number of questions</string>
+    <string name="info_facts_certification_questions_number_value">80 (Multiple Choice)</string>
+
+    <string name="info_facts_certification_passing_score_key">Passing score</string>
+    <string name="info_facts_certification_passing_score_value">65 % (52 out of 77)</string>
+
+    <string name="info_facts_certification_prerequisite_key">Pre-requisite</string>
+    <string name="info_facts_certification_prerequisite_value">None</string>
+
+    <string name="info_benefits_title">Benefits of this certification</string>
+
+    <string name="info_benefit_one_bold">Cover all fundamental aspects</string>
+    <string name="info_benefit_one_normal">of Java programming (focus on breadth of knowledge) from Oracle\’s perspective.</string>
+
+    <string name="info_benefit_two_bold">Demonstrate your skills</string>
+    <string name="info_benefit_two_normal">to your employer, peers and customers that you are proficient in Java Technologies and use industry-standards best practices.</string>
+
+    <string name="info_benefit_three_bold">Enhance your salary, job</string>
+    <string name="info_benefit_three_normal">opportunities and credibility by adding new credentials in your resume.</string>
+
+    <string name="info_benefit_four_bold">Get officially accredited</string>
+    <string name="info_benefit_four_normal">as a Java Professional.</string>
+
+    <string name="info_curriculum_title">Certification curriculum</string>
+
+    <string name="info_curriculum_one">1. Java Basics</string>
+    <string name="info_curriculum_two">2. Working With Java Data Types</string>
+    <string name="info_curriculum_three">3. Using Operators and Decision Constructs</string>
+    <string name="info_curriculum_four">4. Creating and Using Arrays</string>
+    <string name="info_curriculum_five">5. Using Loop Constructs</string>
+    <string name="info_curriculum_six">6. Working with Methods and Encapsulation</string>
+    <string name="info_curriculum_seven">7. Working with Inheritance</string>
+    <string name="info_curriculum_eight">8. Handling Exceptions</string>
+    <string name="info_curriculum_nine">9. Working with Selected classes from the Java API</string>
+
 
     <string name="is_app_first_launch">is_app_first_launch</string>
     <string name="open_results">Go to Results</string>
