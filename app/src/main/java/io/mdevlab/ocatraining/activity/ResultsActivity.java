@@ -10,11 +10,18 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.adapter.ResultsAdapter;
 import io.mdevlab.ocatraining.dialog.DialogNewTest;
 import io.mdevlab.ocatraining.model.Test;
 import io.mdevlab.ocatraining.util.UtilActions;
+import lecho.lib.hellocharts.model.PieChartData;
+import lecho.lib.hellocharts.model.SliceValue;
+import lecho.lib.hellocharts.util.ChartUtils;
+import lecho.lib.hellocharts.view.PieChartView;
 
 import static io.mdevlab.ocatraining.model.Answer.ANSWER_NUMBER;
 import static io.mdevlab.ocatraining.model.Answer.CURRENT_ANSWER;
@@ -33,19 +40,12 @@ public class ResultsActivity extends ActivityBase {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
         setUpToolbar(getString(R.string.title_result));
-        setUpViews();
         setUpTest();
+        setUpViews();
 
         // For testing
 //        io.mdevlab.ocatraining.test.Test.populateDataBase(ResultsActivity.this);
-//        test = io.mdevlab.ocatraining.test.TestTest.createTest();
-    }
-
-
-    private void setUpTest() {
-        Intent intent = getIntent();
-        if (intent.hasExtra(TestActivity.CURRENT_TEST))
-            mTest = (Test) intent.getParcelableExtra(TestActivity.CURRENT_TEST);
+//        mTest = TestTest.createTest();
     }
 
 
@@ -53,6 +53,7 @@ public class ResultsActivity extends ActivityBase {
         if (mTest != null) {
             setUpTestScore();
             setUpTestDuration();
+            setUpPieChart();
             setUpQuestionsAdapter();
             setUpQuestionsList();
         }
@@ -61,13 +62,37 @@ public class ResultsActivity extends ActivityBase {
 
     private void setUpTestScore() {
         TextView mScore = (TextView) findViewById(R.id.score);
-        mScore.setText(getString(R.string.test_score) + mTest.getScore());
+        mScore.setText(getString(R.string.test_score, mTest.getScore()));
     }
 
 
     private void setUpTestDuration() {
         TextView mDuration = (TextView) findViewById(R.id.duration);
-        mDuration.setText(getString(R.string.test_duration) + mTest.getDurationToDisplay());
+        mDuration.setText(getString(R.string.test_duration, mTest.getDurationToDisplay()));
+    }
+
+
+    private void setUpPieChart() {
+        PieChartView chart = (PieChartView) findViewById(R.id.results_pie_chart);
+        PieChartData data = fillInChartData();
+        chart.setPieChartData(data);
+    }
+
+
+    private PieChartData fillInChartData() {
+        PieChartData data = new PieChartData();
+
+        List<SliceValue> results = new ArrayList<>();
+
+        SliceValue correctAnswers = new SliceValue(mTest.getNumberOfCompletedQuestions(), ChartUtils.pickColor());
+        results.add(correctAnswers);
+
+        SliceValue falseAnswers = new SliceValue(mTest.getTotalNumberOfQuestions() - mTest.getNumberOfCompletedQuestions(), ChartUtils.pickColor());
+        results.add(falseAnswers);
+
+        data.setValues(results);
+
+        return data;
     }
 
 
@@ -90,6 +115,13 @@ public class ResultsActivity extends ActivityBase {
                 startActivity(response);
             }
         });
+    }
+
+
+    private void setUpTest() {
+        Intent intent = getIntent();
+        if (intent.hasExtra(TestActivity.CURRENT_TEST))
+            mTest = intent.getParcelableExtra(TestActivity.CURRENT_TEST);
     }
 
 

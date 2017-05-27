@@ -168,8 +168,9 @@ instance variable in the object created on line 5.</string>
     <string name="incorrect">Incorrect</string>
 
     <!--Results screen-->
-    <string name="test_score">Your score:\t</string>
-    <string name="test_duration">Duration:\t</string>
+    <string name="test_summary_title">Summary</string>
+    <string name="test_score">Your score: %1$s</string>
+    <string name="test_duration">Duration: %1$s</string>
     <string name="take_another_test">Another test</string>
     <string name="back_to_main_screen">Home</string>
     <string name="upgrade">Upgrade</string>

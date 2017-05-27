@@ -46,7 +46,7 @@ public class ResultsAdapter extends ArrayAdapter<TestQuestion> {
         questionNumber.setText(String.valueOf(position + 1));
 
         ImageView bookmark = (ImageView) convertView.findViewById(R.id.bookmark);
-        bookmark.setVisibility((question.isFlagged()) ? View.VISIBLE : View.GONE);
+        bookmark.setVisibility((question.isFlagged()) ? View.VISIBLE : View.INVISIBLE);
 
         return convertView;
     }

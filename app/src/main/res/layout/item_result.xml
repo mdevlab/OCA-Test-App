@@ -19,6 +19,6 @@
         android:layout_height="@dimen/bookmark_icon_dimensions"
         android:contentDescription="@string/bookmarked_question"
         android:gravity="center"
-        android:src="@drawable/ic_bookmark_empty" />
+        android:src="@drawable/ic_bookmark_full" />
 
 </LinearLayout>

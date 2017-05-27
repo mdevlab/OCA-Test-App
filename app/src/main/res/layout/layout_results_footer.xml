@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/results_screen_action_buttons"
+    style="?android:attr/buttonBarStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:onClick="upgrade"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/results_horizontal_margin_bottom"
+    android:paddingRight="@dimen/results_horizontal_margin_bottom">
+
+    <Button
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:onClick="backToMainScreen"
+        android:text="@string/back_to_main_screen" />
+
+    <Button
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:onClick="takeAnotherTest"
+        android:text="@string/take_another_test" />
+
+    <Button
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:onClick="upgrade"
+        android:text="@string/upgrade" />
+
+</LinearLayout>
