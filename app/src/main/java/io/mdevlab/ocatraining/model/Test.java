@@ -19,6 +19,7 @@ public class Test extends RealmObject implements Parcelable {
     public static final String TEST_MODE = "test mode";
     public static final int FINAL_TEST_MODE = 1;
     public static final int CUSTOM_TEST_MODE = 2;
+
     public static final int RANDOM_TEST_MODE = 3;
     public static final int TEST_LIMIT_QUESTIONS = 70;
 
@@ -47,7 +48,6 @@ public class Test extends RealmObject implements Parcelable {
     }
 
     public Test(int totalNumberOfQuestions, int type, RealmList<TestQuestion> questions) {
-        this.numberOfCompletedQuestions = totalNumberOfQuestions;
         this.totalNumberOfQuestions = totalNumberOfQuestions;
         this.type = type;
         this.questions = questions;

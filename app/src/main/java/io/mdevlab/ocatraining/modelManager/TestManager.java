@@ -57,4 +57,31 @@ public class TestManager {
                     }
                 });
     }
+
+    /**
+     * Get the last saved test
+     *
+     * @param type FINAL_TEST_MODE or CUSTOM_TEST_MODE
+     * @return
+     */
+    public static Test getLastTest(int type) {
+        return Realm.getDefaultInstance()
+                .where(Test.class)
+                .equalTo("type", type)
+                .findFirst();
+
+    }
+
+
+    public static void cleanOldTest(final int finalTestMode) {
+        Realm.getDefaultInstance()
+                .executeTransaction(new Realm.Transaction() {
+                    @Override
+                    public void execute(Realm realm) {
+
+                        RealmResults<Test> result = realm.where(Test.class).equalTo("type", finalTestMode).findAll();
+                        result.deleteAllFromRealm();
+                    }
+                });
+    }
 }

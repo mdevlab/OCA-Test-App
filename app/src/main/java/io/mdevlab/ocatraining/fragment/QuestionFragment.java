@@ -18,6 +18,7 @@ import android.widget.ToggleButton;
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.model.TestQuestion;
 import io.mdevlab.ocatraining.modelManager.QuestionManager;
+import io.realm.Realm;
 
 import static io.mdevlab.ocatraining.model.Question.MULTIPLE_ANSWER_QUESTION;
 import static io.mdevlab.ocatraining.model.Question.SINGLE_ANSWER_QUESTION;
@@ -81,7 +82,6 @@ public class QuestionFragment extends Fragment {
         }
 
 
-
         //Type of allowed Question
         if (mQuestion != null) {
             if (mQuestion.getType() == SINGLE_ANSWER_QUESTION) {
@@ -119,8 +119,10 @@ public class QuestionFragment extends Fragment {
         isFlagged.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    //Todo save state in realmDB
-                    mQuestion.setFlagged(isChecked);
+                Realm realm = Realm.getDefaultInstance();
+                realm.beginTransaction();
+                mQuestion.setFlagged(isChecked);
+                realm.commitTransaction();
 
 
             }
@@ -129,8 +131,11 @@ public class QuestionFragment extends Fragment {
         isFavorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                Realm realm = Realm.getDefaultInstance();
+                realm.beginTransaction();
                 mQuestion.setFavorite(isChecked);
-                QuestionManager.updateQuestionFavoriteById(mQuestion.getId(),isChecked);
+                QuestionManager.updateQuestionFavoriteById(mQuestion.getId(), isChecked);
+                realm.commitTransaction();
             }
         });
     }
@@ -192,11 +197,15 @@ public class QuestionFragment extends Fragment {
             CheckBox checkBox = new CheckBox(getActivity());
             checkBox.setId(i + ID_COMPLEMENTARY);
             checkBox.setText(" " + mQuestion.getAnswers().get(i).getAnswer());
+            checkBox.setChecked(mQuestion.getAnswers().get(i).isSelected());
             final int index = i;
             checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    Realm realm = Realm.getDefaultInstance();
+                    realm.beginTransaction();
                     mQuestion.getAnswers().get(index).setSelected(isChecked);
+                    realm.commitTransaction();
                 }
             });
             checkBox.setLayoutParams(lparams);
@@ -221,11 +230,16 @@ public class QuestionFragment extends Fragment {
             RadioButton radioButton = new RadioButton(getActivity());
             radioButton.setId(i + ID_COMPLEMENTARY);
             radioButton.setText(" " + mQuestion.getAnswers().get(i).getAnswer());
+            radioButton.setChecked(mQuestion.getAnswers().get(i).isSelected());
             final int index = i;
             radioButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    Realm realm = Realm.getDefaultInstance();
+                    realm.beginTransaction();
                     mQuestion.getAnswers().get(index).setSelected(isChecked);
+                    realm.commitTransaction();
+
                 }
             });
             radioButton.setLayoutParams(lparams);
