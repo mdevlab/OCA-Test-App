@@ -37,7 +37,8 @@
         android:id="@+id/results_pie_chart"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/piechart_dimention"
-        android:layout_marginBottom="@dimen/piechart_margin" />
+        android:layout_marginBottom="@dimen/piechart_margin"
+        android:padding="20dp"/>
 
     <TextView
         style="@style/ResultsTitleTextView"

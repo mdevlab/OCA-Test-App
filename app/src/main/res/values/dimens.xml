@@ -29,8 +29,8 @@
     <dimen name="score_duration_space">20dp</dimen>
     <dimen name="bookmark_icon_dimensions">16dp</dimen>
     <dimen name="question_item_dimension">36dp</dimen>
-    <dimen name="piechart_dimention">100dp</dimen>
-    <dimen name="piechart_margin">16dp</dimen>
+    <dimen name="piechart_dimention">150dp</dimen>
+    <dimen name="piechart_margin">8dp</dimen>
 
     <!--Favorite question item-->
     <dimen name="chapter_circle_dimension">50dp</dimen>

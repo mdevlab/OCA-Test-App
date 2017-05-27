@@ -84,13 +84,16 @@ public class ResultsActivity extends ActivityBase {
 
         List<SliceValue> results = new ArrayList<>();
 
-        SliceValue correctAnswers = new SliceValue(mTest.getNumberOfCompletedQuestions(), ChartUtils.pickColor());
+        SliceValue correctAnswers = new SliceValue(mTest.getNumberOfCorrectAnswers(), ChartUtils.pickColor());
         results.add(correctAnswers);
 
-        SliceValue falseAnswers = new SliceValue(mTest.getTotalNumberOfQuestions() - mTest.getNumberOfCompletedQuestions(), ChartUtils.pickColor());
+        SliceValue falseAnswers = new SliceValue(mTest.getNumberOfFalseAnswers(), ChartUtils.pickColor());
         results.add(falseAnswers);
 
         data.setValues(results);
+        data.setHasLabels(true);
+        data.setHasLabelsOutside(true);
+        data.setHasCenterCircle(true);
 
         return data;
     }

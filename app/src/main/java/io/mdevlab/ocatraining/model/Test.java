@@ -152,6 +152,23 @@ public class Test extends RealmObject implements Parcelable {
                 '}';
     }
 
+
+    public int getNumberOfCorrectAnswers() {
+        int numberOfCorrectAnswers = 0;
+        if (questions != null)
+            for (int i = 0; i < numberOfCompletedQuestions; i++) {
+                if (questions.get(i).hasBeenAnsweredCorrectly())
+                    numberOfCorrectAnswers++;
+            }
+        return numberOfCorrectAnswers;
+    }
+
+
+    public int getNumberOfFalseAnswers() {
+        return totalNumberOfQuestions - getNumberOfCorrectAnswers();
+    }
+
+
     /**
      * Method that loops through the completed questions from the current test object
      * It checks whether each question has been answered correctly and hence calculates
@@ -168,6 +185,7 @@ public class Test extends RealmObject implements Parcelable {
             }
         return numberOfCorrectAnswers + "/" + totalNumberOfQuestions;
     }
+
 
     /**
      * Method that calculates and formats the test duration for display
