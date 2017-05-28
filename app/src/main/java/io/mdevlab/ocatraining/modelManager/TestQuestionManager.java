@@ -22,6 +22,30 @@ public class TestQuestionManager {
 
         int currentCounter = 0;
         RealmList<TestQuestion> realmList = new RealmList<>();
+
+        for (Question question : questionRealmResults) {
+            if (currentCounter < limit) {
+                realmList.add(new TestQuestion(question));
+                currentCounter++;
+            }
+
+        }
+
+        return realmList;
+
+
+    }
+
+    /**
+     * @return List of all test questions
+     */
+    public static RealmList<TestQuestion> getChapterTestQuestions(int limit,int chapter) {
+
+        //TODO Implement intelligent getter for retrieving unique bunch of questions
+        RealmResults<Question> questionRealmResults = QuestionManager.getAllChpaterQuestions(chapter);
+
+        int currentCounter = 0;
+        RealmList<TestQuestion> realmList = new RealmList<>();
         for (Question question : questionRealmResults) {
             if (currentCounter < limit) {
                 realmList.add(new TestQuestion(question));

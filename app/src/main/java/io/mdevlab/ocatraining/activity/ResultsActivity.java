@@ -68,7 +68,7 @@ public class ResultsActivity extends ActivityBase {
 
     private void setUpTestDuration() {
         TextView mDuration = (TextView) findViewById(R.id.duration);
-        mDuration.setText(getString(R.string.test_duration, mTest.getDurationToDisplay()));
+        mDuration.setText(getString(R.string.test_duration, mTest.getDurationToDisplay(ResultsActivity.this)));
     }
 
 

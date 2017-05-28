@@ -1,10 +1,10 @@
 package io.mdevlab.ocatraining.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Toast;
 
 import org.sufficientlysecure.htmltextview.HtmlTextView;
 
@@ -13,6 +13,9 @@ import io.mdevlab.ocatraining.model.Chapter;
 import io.mdevlab.ocatraining.modelManager.ChapterManager;
 
 import static io.mdevlab.ocatraining.model.Chapter.CHAPTER_ID;
+import static io.mdevlab.ocatraining.model.Test.CHAPTER_TEST_MODE;
+import static io.mdevlab.ocatraining.model.Test.TEST_CHAPTER;
+import static io.mdevlab.ocatraining.model.Test.TEST_MODE;
 
 
 public class ActivityChapter extends ActivityBase {
@@ -57,7 +60,11 @@ public class ActivityChapter extends ActivityBase {
         chapterStartTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ActivityChapter.this, "Start test", Toast.LENGTH_SHORT).show();
+
+                Intent test = new Intent(ActivityChapter.this, TestActivity.class);
+                test.putExtra(TEST_CHAPTER, currentChapter.getId());
+                test.putExtra(TEST_MODE, CHAPTER_TEST_MODE);
+                startActivity(test);
             }
         });
     }

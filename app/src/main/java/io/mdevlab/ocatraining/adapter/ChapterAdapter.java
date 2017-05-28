@@ -17,9 +17,13 @@ import java.util.List;
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.activity.ActivityChapter;
 import io.mdevlab.ocatraining.activity.AllChaptersActivity;
+import io.mdevlab.ocatraining.activity.TestActivity;
 import io.mdevlab.ocatraining.model.Chapter;
 
 import static io.mdevlab.ocatraining.model.Chapter.CHAPTER_ID;
+import static io.mdevlab.ocatraining.model.Test.CHAPTER_TEST_MODE;
+import static io.mdevlab.ocatraining.model.Test.TEST_CHAPTER;
+import static io.mdevlab.ocatraining.model.Test.TEST_MODE;
 
 /**
  * Created by bachiri on 4/22/17.
@@ -139,7 +143,11 @@ public class ChapterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             mStartTest.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(mContext, "Boo !", Toast.LENGTH_SHORT).show();
+                    Intent test = new Intent(mContext, TestActivity.class);
+                    test.putExtra(TEST_CHAPTER, chapterId);
+                    test.putExtra(TEST_MODE, CHAPTER_TEST_MODE);
+                    mContext.startActivity(test);
+
                 }
             });
 

@@ -121,6 +121,7 @@ public class QuestionFragment extends Fragment {
                 realm.beginTransaction();
                 mQuestion.setFlagged(isChecked);
                 realm.commitTransaction();
+                realm.close();
 
 
             }
@@ -129,11 +130,12 @@ public class QuestionFragment extends Fragment {
         isFavorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                Realm realm = Realm.getDefaultInstance();
-//                realm.beginTransaction();
-//                mQuestion.setFavorite(isChecked);
-                QuestionManager.updateQuestionFavoriteById(mQuestion.getId(), isChecked);
-//                realm.commitTransaction();
+                Realm realm = Realm.getDefaultInstance();
+                realm.beginTransaction();
+                mQuestion.setFavorite(isChecked);
+                realm.commitTransaction();
+                realm.close();
+//                QuestionManager.updateQuestionFavoriteById(mQuestion.getId(), isChecked);
             }
         });
     }
@@ -204,6 +206,7 @@ public class QuestionFragment extends Fragment {
                     realm.beginTransaction();
                     mQuestion.getAnswers().get(index).setSelected(isChecked);
                     realm.commitTransaction();
+                    realm.close();
                 }
             });
             checkBox.setLayoutParams(lparams);
@@ -237,6 +240,7 @@ public class QuestionFragment extends Fragment {
                     realm.beginTransaction();
                     mQuestion.getAnswers().get(index).setSelected(isChecked);
                     realm.commitTransaction();
+                    realm.close();
 
                 }
             });

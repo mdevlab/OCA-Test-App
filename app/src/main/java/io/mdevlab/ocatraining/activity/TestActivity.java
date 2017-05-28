@@ -27,10 +27,13 @@ import io.mdevlab.ocatraining.modelManager.TestQuestionManager;
 import io.realm.Realm;
 import io.realm.RealmList;
 
+import static io.mdevlab.ocatraining.model.Test.CHAPTER_TEST_MODE;
 import static io.mdevlab.ocatraining.model.Test.CUSTOM_TEST_MODE;
 import static io.mdevlab.ocatraining.model.Test.FINAL_TEST_MODE;
+import static io.mdevlab.ocatraining.model.Test.TEST_CHAPTER;
 import static io.mdevlab.ocatraining.model.Test.TEST_LIMIT_QUESTIONS;
 import static io.mdevlab.ocatraining.model.Test.TEST_MODE;
+import static io.mdevlab.ocatraining.model.Test.TEST_NO_SPECIFIC_CHAPATER;
 
 
 public class TestActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener {
@@ -62,6 +65,7 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
     private int second;
     private Thread mTimerThread;
     private int testMode;
+    private int currentChapter;
 
 
     @Override
@@ -72,6 +76,7 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
         setSupportActionBar(toolbar);
         Intent sentIntent = getIntent();
         testMode = sentIntent.getIntExtra(TEST_MODE, 1);
+        currentChapter = sentIntent.getIntExtra(TEST_CHAPTER, 0);
 
         mTestQuestionViewPager = (ViewPager) findViewById(R.id.pager_test_questions);
 //        First Last
@@ -159,6 +164,7 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
         mTest.setNumberOfCompletedQuestions(CURRENT_INDEX + 1);
         mTest.setDuration(currentTime);
         realm.commitTransaction();
+        realm.close();
     }
 
     /**
@@ -184,7 +190,7 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
 
 
     private void prepareResumedTest() {
-        mTest = TestManager.getLastSavedTest(testMode);
+        mTest = TestManager.getLastSavedTest(testMode,currentChapter);
         mListQuestions = mTest.getQuestions();
         prepareResumedUI();
     }
@@ -204,17 +210,24 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
         switch (testMode) {
             case FINAL_TEST_MODE:
                 mListQuestions = TestQuestionManager.getTestQuestions(TEST_LIMIT_QUESTIONS);
-                mTest = new Test(mListQuestions.size(), FINAL_TEST_MODE, mListQuestions);
-                TestManager.cleanUnfinishedTest(FINAL_TEST_MODE);
+                mTest = new Test(mListQuestions.size(), FINAL_TEST_MODE, mListQuestions,TEST_NO_SPECIFIC_CHAPATER);
+                TestManager.cleanUnfinishedTest(FINAL_TEST_MODE,TEST_NO_SPECIFIC_CHAPATER);
                 break;
             case CUSTOM_TEST_MODE:
                 mListQuestions = TestQuestionManager.getTestQuestions(5);
-                mTest = new Test(mListQuestions.size(), CUSTOM_TEST_MODE, mListQuestions);
-                TestManager.cleanUnfinishedTest(CUSTOM_TEST_MODE);
+                mTest = new Test(mListQuestions.size(), CUSTOM_TEST_MODE, mListQuestions,TEST_NO_SPECIFIC_CHAPATER);
+                TestManager.cleanUnfinishedTest(CUSTOM_TEST_MODE,TEST_NO_SPECIFIC_CHAPATER);
+                break;
+            case CHAPTER_TEST_MODE:
+                mListQuestions = TestQuestionManager.getChapterTestQuestions(5,currentChapter);
+                mTest = new Test(mListQuestions.size(), CHAPTER_TEST_MODE, mListQuestions,currentChapter);
+                TestManager.cleanUnfinishedTest(CHAPTER_TEST_MODE,currentChapter);
                 break;
 
         }
         mTest = TestManager.createTest(mTest);
+        //Get the supervised Question for auto database Update
+        mListQuestions = mTest.getQuestions();
     }
 
     /**
@@ -493,7 +506,7 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
      * @return
      */
     public boolean isAnyResumedTestExist() {
-        if (TestManager.getLastSavedTest(testMode) == null)
+        if (TestManager.getLastSavedTest(testMode,currentChapter) == null)
             return false;
         return true;
     }
