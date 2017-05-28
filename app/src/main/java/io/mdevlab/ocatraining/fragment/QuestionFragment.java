@@ -17,7 +17,6 @@ import android.widget.ToggleButton;
 
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.model.TestQuestion;
-import io.mdevlab.ocatraining.modelManager.QuestionManager;
 import io.realm.Realm;
 
 import static io.mdevlab.ocatraining.model.Question.MULTIPLE_ANSWER_QUESTION;
@@ -26,9 +25,7 @@ import static io.mdevlab.ocatraining.model.Question.SINGLE_ANSWER_QUESTION;
 /**
  * Created by bachiri on 4/23/17.
  */
-//TODO Bachiri set the listener for Checkbox and Radiobox answers  inside createMultipleAnswerContainer and  createSingleAnswerContainer
 
-//TODO fill data from mquestion Radio box and .. function  setResponseData
 
 public class QuestionFragment extends Fragment {
 
@@ -134,7 +131,7 @@ public class QuestionFragment extends Fragment {
                 Realm realm = Realm.getDefaultInstance();
                 realm.beginTransaction();
                 mQuestion.setFavorite(isChecked);
-                QuestionManager.updateQuestionFavoriteById(mQuestion.getId(), isChecked);
+                //QuestionManager.updateQuestionFavoriteById(mQuestion.getId(), isChecked);
                 realm.commitTransaction();
             }
         });

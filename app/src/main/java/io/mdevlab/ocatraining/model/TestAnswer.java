@@ -37,6 +37,11 @@ public class TestAnswer extends RealmObject implements Parcelable {
 
     }
 
+    /**
+     * Constructor for Parcelable
+     * purpose : Send Realm object via intents
+     * @param in
+     */
     protected TestAnswer(Parcel in) {
         id = in.readInt();
         answer = in.readString();

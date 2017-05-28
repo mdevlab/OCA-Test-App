@@ -35,6 +35,16 @@ public class Test extends RealmObject implements Parcelable {
     // Total number of questions in the test
     private int totalNumberOfQuestions;
 
+    private Boolean isTestFinished;
+
+    public Boolean isTestFinished() {
+        return isTestFinished;
+    }
+
+    public void setTestFinished(Boolean testFinished) {
+        isTestFinished = testFinished;
+    }
+
     /**
      * Either final test or customized test
      * Both are constants and are defined in the Constants class
@@ -51,14 +61,21 @@ public class Test extends RealmObject implements Parcelable {
         this.totalNumberOfQuestions = totalNumberOfQuestions;
         this.type = type;
         this.questions = questions;
+        this.isTestFinished = false;
     }
 
+    /**
+     * Constructor for Parcelable
+     * purpose : Send Realm object via intents
+     * @param in
+     */
     protected Test(Parcel in) {
         id = in.readInt();
         duration = in.readLong();
         numberOfCompletedQuestions = in.readInt();
         totalNumberOfQuestions = in.readInt();
         type = in.readInt();
+        isTestFinished = in.readByte() != 0;
         Parcelable[] parcelableArray =
                 in.readParcelableArray(TestQuestion.class.getClassLoader());
         TestQuestion[] resultArray = null;
@@ -197,6 +214,7 @@ public class Test extends RealmObject implements Parcelable {
         dest.writeInt(numberOfCompletedQuestions);
         dest.writeInt(totalNumberOfQuestions);
         dest.writeInt(type);
+        dest.writeByte((byte) (isTestFinished ? 1 : 0));
         Parcelable[] pQuestions = new Parcelable[questions.size()];
         for (int i = 0; i < questions.size(); i++) {
             pQuestions[i] = questions.get(i);

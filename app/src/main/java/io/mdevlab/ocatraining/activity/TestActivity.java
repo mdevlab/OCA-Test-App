@@ -145,6 +145,8 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
 
         if (mTimerThread != null)
             mTimerThread.interrupt();
+        //update the current Test in case the user leaves the app to another app
+        updateCurrentTest();
 
     }
 
@@ -169,6 +171,8 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
      * -Init Test object depending on the test types:
      * + FINAL_TEST_MODE
      * + CUSTOM_TEST_MODE
+     *
+     * @param isResume if resume prepare the resumed test
      */
     public void prepareQuestions(Boolean isResume) {
 
@@ -182,12 +186,12 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     }
 
+
     private void prepareResumedTest() {
-        mTest = TestManager.getLastTest(testMode);
+        mTest = TestManager.getLastSavedTest(testMode);
         mListQuestions = mTest.getQuestions();
         prepareResumedUI();
     }
-
 
     private void feedViews() {
         NUM_ITEMS = mListQuestions.size();
@@ -196,9 +200,10 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
             initPager();
             initFirstLastButtons();
             updateUi();
+            runTestTimer();
         }
 
-        runTestTimer();
+
     }
 
     private void prepareNewTest() {
@@ -206,17 +211,21 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
             case FINAL_TEST_MODE:
                 mListQuestions = TestQuestionManager.getTestQuestions(TEST_LIMIT_QUESTIONS);
                 mTest = new Test(mListQuestions.size(), FINAL_TEST_MODE, mListQuestions);
-                TestManager.cleanOldTest(FINAL_TEST_MODE);
+                TestManager.cleanUnfinishedTest(FINAL_TEST_MODE);
                 break;
             case CUSTOM_TEST_MODE:
                 mListQuestions = TestQuestionManager.getTestQuestions(5);
                 mTest = new Test(mListQuestions.size(), CUSTOM_TEST_MODE, mListQuestions);
-                TestManager.cleanOldTest(CUSTOM_TEST_MODE);
+                TestManager.cleanUnfinishedTest(CUSTOM_TEST_MODE);
                 break;
 
         }
+        mTest = TestManager.createTest(mTest);
     }
 
+    /**
+     * This function gets data from resumed Test and feed it to the current Test activity
+     */
     private void prepareResumedUI() {
         long currentResumedTestDuration = mTest.getDuration();
         minute = (int) ((currentResumedTestDuration / (MIllISECONDS_TO_SECONDS * MINUTES_TO_SECONDS)) % MINUTES_TO_SECONDS);
@@ -231,10 +240,6 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     }
 
-    private void saveTestToDb() {
-        updateCurrentTest();
-        TestManager.createTest(mTest);
-    }
 
     private void disableTest() {
         mHiddenLayoutTodisableTest.setVisibility(View.VISIBLE);
@@ -246,6 +251,11 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
         mTogglePauseResumeTest.setChecked(false);
     }
 
+    /**
+     * Timer for the Test  11 minutes :12 secondes
+     * use the function incrementTimer to increment
+     * and updateTimerUi to update the UI
+     */
     private void runTestTimer() {
 
         mTimerThread = new Thread() {
@@ -272,6 +282,9 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     }
 
+    /**
+     * update the Timer called by timer Thread
+     */
     private void updateTimerUi() {
         StringBuilder Timer = new StringBuilder();
         if (minute < 10) {
@@ -294,8 +307,6 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
         } else {
             second++;
         }
-
-
     }
 
     private void setNextPreviousListener() {
@@ -340,6 +351,9 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     }
 
+    /**
+     * Update the progress ui
+     */
     private void updateUi() {
         StringBuilder percentStringBuilder = new StringBuilder(String.valueOf(CURRENT_INDEX + 1));
         percentStringBuilder.append("/");
@@ -349,6 +363,10 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     }
 
+    /**
+     * Check if the current page is the last
+     * purpose set the appropriate UI
+     */
     public void checkIfLastPage() {
         int currentItem = CURRENT_INDEX + 1;
         if (currentItem == NUM_ITEMS) {
@@ -356,7 +374,6 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
         } else {
             removeResultUi();
         }
-
 
     }
 
@@ -371,6 +388,15 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
     }
 
 
+    /**
+     * this dialog issued when the user want to stop the exam
+     *
+     * @param isResult
+     * @param positiveButton
+     * @param negativeButton
+     * @param message
+     * @param title
+     */
     private void buildStopDialog(final Boolean isResult, int positiveButton, int negativeButton, int message, int title) {
 
         //get the builder
@@ -382,10 +408,11 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
                     intent.putExtra(CURRENT_TEST, mTest);
                     intent.putExtra(TEST_MODE, testMode);
                     startActivity(intent);
-                    TestManager.cleanOldTest(testMode);
+                    TestManager.updateFinishedTest(mTest);
+
                 } else {
 
-                    saveTestToDb();
+                    updateCurrentTest();
                 }
                 finish();
             }
@@ -407,7 +434,14 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
         dialog.show();
     }
 
-
+    /**
+     * this dialog issued when the user want to resume the exam
+     *
+     * @param positiveButton
+     * @param negativeButton
+     * @param message
+     * @param title
+     */
     private void buildNewResumeDialog(int positiveButton, int negativeButton, int message, int title) {
 
         //get the builder
@@ -463,9 +497,13 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     }
 
-
+    /**
+     * check if we have any resumed Tests
+     *
+     * @return
+     */
     public boolean isAnyResumedTestExist() {
-        if (TestManager.getLastTest(testMode) == null)
+        if (TestManager.getLastSavedTest(testMode) == null)
             return false;
         return true;
     }
