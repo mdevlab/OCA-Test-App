@@ -1,6 +1,7 @@
 package io.mdevlab.ocatraining.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,9 +11,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import io.mdevlab.ocatraining.R;
+import io.mdevlab.ocatraining.activity.FavoriteQuestionViewActivity;
 import io.mdevlab.ocatraining.model.Question;
 import io.mdevlab.ocatraining.modelManager.QuestionManager;
 import io.mdevlab.ocatraining.util.UtilUI;
+
+import static io.mdevlab.ocatraining.activity.FavoriteQuestionViewActivity.CURRENT_QUESTION;
 
 /**
  * Created by husaynhakeem on 4/28/17.
@@ -51,6 +55,7 @@ public class FavoriteQuestionsAdapter extends RecyclerView.Adapter<FavoriteQuest
 
     class FavoriteQuestionViewHolder extends RecyclerView.ViewHolder {
 
+        View layout;
         TextView chapter;
         TextView question;
 
@@ -58,6 +63,16 @@ public class FavoriteQuestionsAdapter extends RecyclerView.Adapter<FavoriteQuest
             super(itemView);
             chapter = (TextView) itemView.findViewById(R.id.favorite_question_chapter);
             question = (TextView) itemView.findViewById(R.id.favorite_question_text);
+
+            layout = itemView.findViewById(R.id.favorite_question_item);
+            layout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent response = new Intent(context, FavoriteQuestionViewActivity.class);
+                    response.putExtra(CURRENT_QUESTION, questions.get(getAdapterPosition()).getId());
+                    context.startActivity(response);
+                }
+            });
         }
     }
 }

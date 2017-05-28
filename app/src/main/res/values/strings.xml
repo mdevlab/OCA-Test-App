@@ -9,6 +9,7 @@
     <string name="title_random_question">Random Questions</string>
     <string name="title_activity_all_chapters">All chapters</string>
     <string name="title_activity_favorite_questions">Favorite questions</string>
+    <string name="title_activity_favorite_questions_view">Question</string>
     <string name="title_activity_certification_info">OCA certification</string>
     <string name="title_activity_contact">Contact us</string>
     <string name="title_activity_settings">Settings</string>
@@ -164,8 +165,10 @@ instance variable in the object created on line 5.</string>
     <string name="quit_and_save">Quit and Save</string>
     <string name="quit">Quit</string>
     <string name="dialog_cancel">Cancel</string>
-    <string name="correct">Correct</string>
-    <string name="incorrect">Incorrect</string>
+    <string name="correct_default">Correct: 0</string>
+    <string name="correct">Correct: %1$d</string>
+    <string name="incorrect_default">Incorrect: 0</string>
+    <string name="incorrect">Incorrect: %1$d</string>
     <string name="resume_test">Resume</string>
     <string name="stop_test">Stop</string>
 
@@ -263,4 +266,7 @@ instance variable in the object created on line 5.</string>
     <string name="new_test">New Test</string>
     <string name="new_or_resume_message">Do you want to resume the last Test or start new one</string>
     <string name="new_or_resume_title">Resume or Start a new Test</string>
+
+    <!--Favorite questions-->
+    <string name="back_to_favorite_questions">Back to favorite questions</string>
 </resources>

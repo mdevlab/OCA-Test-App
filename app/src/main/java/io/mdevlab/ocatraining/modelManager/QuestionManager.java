@@ -23,6 +23,14 @@ public class QuestionManager {
     private static final String DEFAULT_CHAPTER_COLOR = "#FFFFFF";
 
 
+    public static Question getQuestionById(int id) {
+        return getDefaultInstance()
+                .where(Question.class)
+                .equalTo(Question.ID_COLUMN, id)
+                .findFirst();
+    }
+
+
     /**
      * @return List of all questions
      */

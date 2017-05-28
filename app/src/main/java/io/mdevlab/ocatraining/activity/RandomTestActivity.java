@@ -2,52 +2,30 @@ package io.mdevlab.ocatraining.activity;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.fragment.QuestionFragment;
-import io.mdevlab.ocatraining.model.TestQuestion;
 import io.mdevlab.ocatraining.modelManager.TestQuestionManager;
 
+/**
+ * Created by husaynhakeem on 5/28/17.
+ */
 
-public class RandomTestActivity extends ActivityBase {
-
-    private TestQuestion currentQuestion;
-
-    private QuestionFragment mCurrentFragment;
-    private FragmentManager mFragmentManager;
-
-    private TextView mCorrectScore;
-    private TextView mIncorrectScore;
-    private Button mNextAnswerButton;
-
-    private boolean isShowNext = false;
-
-    private int mCorrectAnswers;
-    private int mInCorrectAnswers;
-    private int mQuestionNumber;
+public class RandomTestActivity extends SingleQuestionTestActivity {
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_random_test);
         setUpToolbar(getString(R.string.title_activity_random_test));
-        setUpViews();
-        setUpActivity();
     }
 
 
-    private void setUpViews() {
-        mCorrectScore = (TextView) findViewById(R.id.correct_score);
-        mIncorrectScore = (TextView) findViewById(R.id.incorrect_score);
-
-        mNextAnswerButton = (Button) findViewById(R.id.button_next_answer);
+    @Override
+    protected void setUpViews() {
+        super.setUpViews();
         mNextAnswerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,41 +36,21 @@ public class RandomTestActivity extends ActivityBase {
                     showQuestionAnswer();
                     isShowNext = true;
                 }
-
             }
         });
     }
 
 
-    /**
-     * initial the random activity Question with a random question
-     * and initialize the fragment
-     */
-    private void setUpActivity() {
-        generateRandomQuestion();
-        setUpRandomQuestionFragment();
-    }
-
-
-    private void generateRandomQuestion() {
+    @Override
+    protected void setUpCurrentQuestion() {
         mQuestionNumber++;
         setQuestionUi();
         currentQuestion = TestQuestionManager.getRandomQuestion();
     }
 
 
-    private void setUpRandomQuestionFragment() {
-        mCurrentFragment = QuestionFragment.newInstance(currentQuestion, false, true);
-        mFragmentManager = getSupportFragmentManager();
-        mFragmentManager.beginTransaction()
-                .add(R.id.question_answer_container, mCurrentFragment)
-                .commit();
-    }
-
-
     /**
-     * This function get a new random question
-     * and display it
+     * This function get a new random question and display it
      */
     public void showNextQuestion() {
 
@@ -106,42 +64,35 @@ public class RandomTestActivity extends ActivityBase {
         //TODO set the fragement Transition
         // TODO down => up new question
         // TODO left => right answer
-        FragmentTransaction ft = mFragmentManager.beginTransaction();
         mCurrentFragment = QuestionFragment.newInstance(currentQuestion, false, true);
-        ft.replace(R.id.question_answer_container, mCurrentFragment);
-        ft.commit();
-
-
+        mFragmentManager.beginTransaction()
+                .replace(R.id.question_answer_container, mCurrentFragment)
+                .commit();
     }
 
 
     /**
      * set the question UI
      */
-    private void setQuestionUi() {
-
-        mNextAnswerButton.setText(R.string.question_answer);
-        getSupportActionBar().setTitle("Question : " + mQuestionNumber);
-
+    protected void setQuestionUi() {
+        super.setQuestionUi();
+        if (getSupportActionBar() != null)
+            getSupportActionBar().setTitle("Question : " + mQuestionNumber);
     }
 
 
-    private void setAnswerUi() {
-
+    @Override
+    protected void setAnswerUi() {
         mNextAnswerButton.setText(R.string.next_question);
-        getSupportActionBar().setTitle("Answer For Question : " + mQuestionNumber);
+        if (getSupportActionBar() != null)
+            getSupportActionBar().setTitle("Answer For Question : " + mQuestionNumber);
     }
 
 
-    /**
-     * This function is for rendering the answer of the current question
-     * show the explanation and show the effective answer
-     */
     public void showQuestionAnswer() {
-        setAnswerUi();
+        super.showQuestionAnswer();
         Boolean isCorrect = mCurrentFragment.verifyQuestionAnswer();
         updateScore(isCorrect);
-
     }
 
 
@@ -152,13 +103,13 @@ public class RandomTestActivity extends ActivityBase {
      *
      * @param isCorrect true/false
      */
-    private void updateScore(Boolean isCorrect) {
+    protected void updateScore(Boolean isCorrect) {
         if (isCorrect) {
             mCorrectAnswers++;
-            mCorrectScore.setText(String.valueOf(mCorrectAnswers));
+            mCorrectScore.setText(getString(R.string.correct, mCorrectAnswers));
         } else {
             mInCorrectAnswers++;
-            mIncorrectScore.setText(String.valueOf(mInCorrectAnswers));
+            mIncorrectScore.setText(getString(R.string.incorrect, mInCorrectAnswers));
         }
     }
 

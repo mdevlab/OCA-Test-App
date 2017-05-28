@@ -87,7 +87,6 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
         mButtonResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO add No comeback to test Activity
                 buildStopDialog(true, R.string.open_results, R.string.dialog_cancel, R.string.result_enter_message, R.string.result_enter_title);
 
             }
@@ -134,8 +133,6 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
             prepareNewTest();
             feedViews();
         }
-
-
     }
 
 
@@ -145,9 +142,9 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
 
         if (mTimerThread != null)
             mTimerThread.interrupt();
+
         //update the current Test in case the user leaves the app to another app
         updateCurrentTest();
-
     }
 
 
@@ -162,7 +159,6 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
         mTest.setNumberOfCompletedQuestions(CURRENT_INDEX + 1);
         mTest.setDuration(currentTime);
         realm.commitTransaction();
-
     }
 
     /**
@@ -202,8 +198,6 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
             updateUi();
             runTestTimer();
         }
-
-
     }
 
     private void prepareNewTest() {
@@ -236,8 +230,6 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
                 mTestQuestionViewPager.setCurrentItem(mTest.getNumberOfCompletedQuestions() - 1);
             }
         }, 500);
-
-
     }
 
 
@@ -279,7 +271,6 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
         };
 
         mTimerThread.start();
-
     }
 
     /**
