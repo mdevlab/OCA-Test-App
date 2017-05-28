@@ -67,17 +67,19 @@ public class TestManager {
     }
 
     /**
-     * Get the last non finished saved test
+     *Get the last non finished saved test
      *
-     * @param type FINAL_TEST_MODE or CUSTOM_TEST_MODE
+     * @param type FINAL_TEST_MODE or CUSTOM_TEST_MODE or CHAPTER_TEST_MODE
+     * @param testChapterId 0 no specific chapter /n = 1 ...k  for a given chapter
      * @return
      */
     @Nullable
-    public static Test getLastSavedTest(int type) {
+    public static Test getLastSavedTest(int type,int testChapterId) {
         return getDefaultInstance()
                 .where(Test.class)
                 .equalTo("type", type)
                 .equalTo("isTestFinished", false)
+                .equalTo("testChapterId",testChapterId)
                 .findFirst();
 
     }
@@ -99,13 +101,13 @@ public class TestManager {
      *
      * @param finalTestMode
      */
-    public static void cleanUnfinishedTest(final int finalTestMode) {
+    public static void cleanUnfinishedTest(final int finalTestMode,final int testChapterId) {
 
         getDefaultInstance()
                 .executeTransaction(new Realm.Transaction() {
                     @Override
                     public void execute(Realm realm) {
-                        RealmResults<Test> result = realm.where(Test.class).equalTo("type", finalTestMode).equalTo("isTestFinished", false).findAll();
+                        RealmResults<Test> result = realm.where(Test.class).equalTo("type", finalTestMode).equalTo("testChapterId", testChapterId).equalTo("isTestFinished", false).findAll();
                         result.deleteAllFromRealm();
                     }
                 });

@@ -22,6 +22,7 @@ public class TestQuestionManager {
 
         int currentCounter = 0;
         RealmList<TestQuestion> realmList = new RealmList<>();
+
         for (Question question : questionRealmResults) {
             if (currentCounter < limit) {
                 realmList.add(new TestQuestion(question));
