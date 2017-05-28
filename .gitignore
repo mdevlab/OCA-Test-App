@@ -53,3 +53,7 @@ freeline.py
 freeline/
 freeline_project_description.json
 
+libs/
+src/free/
+src/main/res/transitions/
+src/paid/
