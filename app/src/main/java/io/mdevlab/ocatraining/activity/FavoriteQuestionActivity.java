@@ -13,7 +13,7 @@ import io.mdevlab.ocatraining.modelManager.QuestionManager;
  * Created by husaynhakeem on 5/28/17.
  */
 
-public class FavoriteQuestionViewActivity extends SingleQuestionTestActivity {
+public class FavoriteQuestionActivity extends SingleQuestionTestActivity {
 
     public static final String CURRENT_QUESTION = "current question";
 
@@ -75,7 +75,7 @@ public class FavoriteQuestionViewActivity extends SingleQuestionTestActivity {
 
     @Override
     public void onBackPressed() {
-        Intent favoriteQuestions = new Intent(FavoriteQuestionViewActivity.this, FavoriteQuestionsActivity.class);
+        Intent favoriteQuestions = new Intent(FavoriteQuestionActivity.this, FavoriteQuestionsActivity.class);
         startActivity(favoriteQuestions);
         finish();
     }

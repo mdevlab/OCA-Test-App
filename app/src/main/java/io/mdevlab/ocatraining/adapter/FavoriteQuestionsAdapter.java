@@ -11,12 +11,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import io.mdevlab.ocatraining.R;
-import io.mdevlab.ocatraining.activity.FavoriteQuestionViewActivity;
+import io.mdevlab.ocatraining.activity.FavoriteQuestionActivity;
 import io.mdevlab.ocatraining.model.Question;
 import io.mdevlab.ocatraining.modelManager.QuestionManager;
 import io.mdevlab.ocatraining.util.UtilUI;
 
-import static io.mdevlab.ocatraining.activity.FavoriteQuestionViewActivity.CURRENT_QUESTION;
+import static io.mdevlab.ocatraining.activity.FavoriteQuestionActivity.CURRENT_QUESTION;
 
 /**
  * Created by husaynhakeem on 4/28/17.
@@ -68,7 +68,7 @@ public class FavoriteQuestionsAdapter extends RecyclerView.Adapter<FavoriteQuest
             layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent response = new Intent(context, FavoriteQuestionViewActivity.class);
+                    Intent response = new Intent(context, FavoriteQuestionActivity.class);
                     response.putExtra(CURRENT_QUESTION, questions.get(getAdapterPosition()).getId());
                     context.startActivity(response);
                 }

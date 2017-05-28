@@ -37,7 +37,7 @@
             android:label="@string/title_activity_favorite_questions"
             android:parentActivityName=".activity.MainActivity"
             android:launchMode="singleTask"/>
-        <activity android:name=".activity.FavoriteQuestionViewActivity" />
+        <activity android:name=".activity.FavoriteQuestionActivity" />
         <activity
             android:name=".activity.AboutActivity"
             android:label="@string/title_activity_about"
