@@ -42,6 +42,7 @@
     <dimen name="about_header_text_size">24sp</dimen>
     <dimen name="about_body_text_size">16sp</dimen>
     <dimen name="about_screen_bottom_margin">16dp</dimen>
+    <dimen name="about_sections_space">50dp</dimen>
 
     <!--Contact Screen-->
     <dimen name="form_margin">20dp</dimen>

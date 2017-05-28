@@ -10,7 +10,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         tools:context="io.mdevlab.ocatraining.activity.ContactActivity">
 
         <LinearLayout
@@ -75,5 +76,7 @@
         </LinearLayout>
 
     </ScrollView>
+
+    <include layout="@layout/layout_publisher_view_linear" />
 
 </LinearLayout>

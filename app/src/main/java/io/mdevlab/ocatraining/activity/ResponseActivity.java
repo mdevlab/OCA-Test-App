@@ -24,6 +24,7 @@ public class ResponseActivity extends ActivityBase {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_response);
         setUpToolbar("");
+        setUpDFP(null);
         setUpResponseScreen();
     }
 

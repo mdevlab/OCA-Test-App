@@ -35,6 +35,7 @@ public class SingleQuestionTestActivity extends ActivityBase {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random_test);
         setUpToolbar(getString(R.string.title_activity_random_test));
+        setUpDFP(null);
         setUpViews();
         setUpActivity();
     }

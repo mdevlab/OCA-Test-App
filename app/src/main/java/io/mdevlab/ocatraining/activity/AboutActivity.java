@@ -22,6 +22,7 @@ public class AboutActivity extends ActivityBase implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         setUpToolbar(getString(R.string.title_activity_about));
+        setUpDFP(null);
         setUpViews();
     }
 

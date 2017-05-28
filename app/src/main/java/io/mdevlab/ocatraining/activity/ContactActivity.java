@@ -29,6 +29,7 @@ public class ContactActivity extends ActivityBase implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact);
         setUpToolbar(getString(R.string.title_activity_contact));
+        setUpDFP(null);
         setUpViews();
     }
 

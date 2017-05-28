@@ -56,10 +56,12 @@
         android:id="@+id/button_next_answer"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_button"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/publisherAdView"
         android:background="@color/green_buttons_color"
         android:text="@string/question_answer"
         android:textColor="@android:color/white" />
+
+    <include layout="@layout/layout_publisher_view_relative" />
 
 
 </RelativeLayout>

@@ -38,6 +38,7 @@ public class ActivityChapter extends ActivityBase {
         currentChapter = currentChapter();
 
         setUpToolbar(currentChapter != null ? currentChapter.getName() : getString(R.string.title_activity_chapter));
+        setUpDFP(null);
         setUpChapterSummary();
         setUpStartTestFab();
     }

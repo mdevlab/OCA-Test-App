@@ -40,6 +40,7 @@ public class ResultsActivity extends ActivityBase {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
         setUpToolbar(getString(R.string.title_result));
+        setUpDFP(null);
         setUpTest();
         setUpViews();
 

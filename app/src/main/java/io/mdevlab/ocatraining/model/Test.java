@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import io.mdevlab.ocatraining.R;
+import io.mdevlab.ocatraining.modelManager.TestManager;
 import io.realm.RealmList;
 import io.realm.RealmObject;
 
@@ -47,14 +48,6 @@ public class Test extends RealmObject implements Parcelable {
 
     private Boolean isTestFinished;
 
-    public Boolean isTestFinished() {
-        return isTestFinished;
-    }
-
-    public void setTestFinished(Boolean testFinished) {
-        isTestFinished = testFinished;
-    }
-
     /**
      * Either final test or customized test
      * Both are constants and are defined in the Constants class
@@ -68,11 +61,14 @@ public class Test extends RealmObject implements Parcelable {
     }
 
     public Test(int totalNumberOfQuestions, int type, RealmList<TestQuestion> questions, int testChapterId) {
+        this.id = TestManager.getNextIndex();
+        this.testChapterId = testChapterId;
+        this.duration = 0;
+        this.numberOfCompletedQuestions = 0;
         this.totalNumberOfQuestions = totalNumberOfQuestions;
+        this.isTestFinished = false;
         this.type = type;
         this.questions = questions;
-        this.isTestFinished = false;
-        this.testChapterId = testChapterId;
     }
 
     /**
@@ -83,11 +79,12 @@ public class Test extends RealmObject implements Parcelable {
      */
     protected Test(Parcel in) {
         id = in.readInt();
+        testChapterId = in.readInt();
         duration = in.readLong();
         numberOfCompletedQuestions = in.readInt();
         totalNumberOfQuestions = in.readInt();
-        type = in.readInt();
         isTestFinished = in.readByte() != 0;
+        type = in.readInt();
         Parcelable[] parcelableArray =
                 in.readParcelableArray(TestQuestion.class.getClassLoader());
         TestQuestion[] resultArray = null;
@@ -151,6 +148,14 @@ public class Test extends RealmObject implements Parcelable {
 
     public void setType(int type) {
         this.type = type;
+    }
+
+    public Boolean isTestFinished() {
+        return isTestFinished;
+    }
+
+    public void setTestFinished(Boolean testFinished) {
+        isTestFinished = testFinished;
     }
 
     public RealmList<TestQuestion> getQuestions() {
@@ -247,19 +252,20 @@ public class Test extends RealmObject implements Parcelable {
         return 0;
     }
 
+
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
+        dest.writeInt(testChapterId);
         dest.writeLong(duration);
         dest.writeInt(numberOfCompletedQuestions);
         dest.writeInt(totalNumberOfQuestions);
-        dest.writeInt(type);
         dest.writeByte((byte) (isTestFinished ? 1 : 0));
+        dest.writeInt(type);
         Parcelable[] pQuestions = new Parcelable[questions.size()];
         for (int i = 0; i < questions.size(); i++) {
             pQuestions[i] = questions.get(i);
         }
         dest.writeParcelableArray(pQuestions, flags);
-
     }
 }

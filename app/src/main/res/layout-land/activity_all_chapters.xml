@@ -205,4 +205,6 @@
 
     </LinearLayout>
 
+    <include layout="@layout/layout_publisher_view_linear" />
+
 </LinearLayout>

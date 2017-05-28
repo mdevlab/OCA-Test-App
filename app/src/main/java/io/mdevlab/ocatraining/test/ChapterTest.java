@@ -1,7 +1,6 @@
 package io.mdevlab.ocatraining.test;
 
 import android.content.Context;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +15,6 @@ import io.mdevlab.ocatraining.modelManager.AnswerManager;
 import io.mdevlab.ocatraining.modelManager.ChapterManager;
 import io.mdevlab.ocatraining.modelManager.QuestionManager;
 import io.realm.RealmList;
-import io.realm.RealmResults;
 
 import static io.mdevlab.ocatraining.model.Question.MULTIPLE_ANSWER_QUESTION;
 import static io.mdevlab.ocatraining.model.Question.SINGLE_ANSWER_QUESTION;
@@ -34,9 +32,9 @@ public class ChapterTest {
     }
 
     public static void readChapters() {
-        RealmResults<Chapter> chapters = ChapterManager.getAllChapters();
-        for (Chapter chapter : chapters)
-            Log.e(TAG, chapter.toString());
+//        RealmResults<Chapter> chapters = ChapterManager.getAllChapters();
+//        for (Chapter chapter : chapters)
+//            Log.e(TAG, chapter.toString());
     }
 
     public static Chapter createChapter(int index) {

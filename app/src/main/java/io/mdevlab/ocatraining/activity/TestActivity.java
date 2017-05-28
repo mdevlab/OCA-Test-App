@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -36,7 +34,7 @@ import static io.mdevlab.ocatraining.model.Test.TEST_MODE;
 import static io.mdevlab.ocatraining.model.Test.TEST_NO_SPECIFIC_CHAPATER;
 
 
-public class TestActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener {
+public class TestActivity extends ActivityBase implements ViewPager.OnPageChangeListener {
     static String TAG = TestActivity.class.getName();
     private final int MINUTES_TO_SECONDS = 60;
     private final int MIllISECONDS_TO_SECONDS = 1000;
@@ -72,8 +70,7 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setUpDFP(null);
         Intent sentIntent = getIntent();
         testMode = sentIntent.getIntExtra(TEST_MODE, 1);
         currentChapter = sentIntent.getIntExtra(TEST_CHAPTER, 0);

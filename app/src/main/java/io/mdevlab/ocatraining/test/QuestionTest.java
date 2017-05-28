@@ -1,11 +1,8 @@
 package io.mdevlab.ocatraining.test;
 
-import android.util.Log;
-
 import io.mdevlab.ocatraining.model.Question;
 import io.mdevlab.ocatraining.modelManager.QuestionManager;
 import io.realm.RealmList;
-import io.realm.RealmResults;
 
 import static io.mdevlab.ocatraining.model.Question.SINGLE_ANSWER_QUESTION;
 import static io.mdevlab.ocatraining.test.AnswerTest.createRandomAnswers;
@@ -23,9 +20,9 @@ public class QuestionTest {
     }
 
     public static void readQuestions() {
-        RealmResults<Question> questions = QuestionManager.getAllQuestions();
-        for (Question question : questions)
-            Log.e(TAG, question.toString());
+//        RealmResults<Question> questions = QuestionManager.getAllQuestions();
+//        for (Question question : questions)
+//            Log.e(TAG, question.toString());
     }
 
     public static RealmList<Question> createRandomQuestions(int index) {

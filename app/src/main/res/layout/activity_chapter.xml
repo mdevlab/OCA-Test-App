@@ -27,4 +27,6 @@
 
     <include layout="@layout/layout_start_test" />
 
+    <include layout="@layout/layout_publisher_view_relative" />
+
 </RelativeLayout>

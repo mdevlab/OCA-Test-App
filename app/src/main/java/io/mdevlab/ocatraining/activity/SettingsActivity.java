@@ -19,6 +19,7 @@ public class SettingsActivity extends ActivityBase implements SharedPreferences.
         setContentView(R.layout.activity_settings);
 
         setUpToolbar(getString(R.string.title_activity_settings));
+        setUpDFP(null);
 
         preferences = PreferenceManager.getDefaultSharedPreferences(SettingsActivity.this);
     }

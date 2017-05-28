@@ -293,11 +293,13 @@
         android:id="@+id/subscribe_to_certification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/publisherAdView"
         android:background="@color/colorPrimary"
         android:text="@string/subscribe_to_certification"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="15sp" />
+
+    <include layout="@layout/layout_publisher_view_relative" />
 
 </RelativeLayout>

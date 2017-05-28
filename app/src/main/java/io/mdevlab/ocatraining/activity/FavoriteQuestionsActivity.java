@@ -25,6 +25,7 @@ public class FavoriteQuestionsActivity extends ActivityBase {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorite_questions);
         setUpToolbar(getString(R.string.title_activity_favorite_questions));
+        setUpDFP(null);
         setUpViews();
     }
 

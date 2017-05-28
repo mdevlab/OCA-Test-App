@@ -10,6 +10,11 @@ repositories {
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
+
+    def IS_DEMO_VERSION = "IS_DEMO_FLAVOR"
+    def RANDOM_TEST_QUESTIONS_LIMIT = "RANDOM_TEST_QUESTIONS_LIMIT"
+    def CUSTOM_TEST_QUESTIONS_LIMIT = "CUSTOM_TEST_QUESTIONS_LIMIT"
+
     defaultConfig {
         applicationId "io.mdevlab.ocatraining"
         minSdkVersion 16
@@ -22,6 +27,23 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+        demo {
+            applicationIdSuffix ".demo"
+            versionNameSuffix "-demo"
+            buildConfigField("boolean", IS_DEMO_VERSION, "true")
+            buildConfigField("int", RANDOM_TEST_QUESTIONS_LIMIT, "5")
+            buildConfigField("int", CUSTOM_TEST_QUESTIONS_LIMIT, "5")
+        }
+        full {
+            applicationIdSuffix ".full"
+            versionNameSuffix "-full"
+            buildConfigField("boolean", IS_DEMO_VERSION, "false")
+            buildConfigField("int", RANDOM_TEST_QUESTIONS_LIMIT, "-1")
+            buildConfigField("int", CUSTOM_TEST_QUESTIONS_LIMIT, "-1")
         }
     }
 }
@@ -47,4 +69,5 @@ dependencies {
         transitive = true;
     }
     compile 'com.github.lecho:hellocharts-android:v1.5.8'
+    compile 'com.google.android.gms:play-services-ads:10.2.6'
 }

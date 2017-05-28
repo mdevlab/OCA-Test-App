@@ -283,4 +283,7 @@ instance variable in the object created on line 5.</string>
 
     <!--Favorite questions-->
     <string name="back_to_favorite_questions">Back to favorite questions</string>
+
+    <!--DFP-->
+    <string name="banner_ad_unit_id">/6499/example/banner</string>
 </resources>

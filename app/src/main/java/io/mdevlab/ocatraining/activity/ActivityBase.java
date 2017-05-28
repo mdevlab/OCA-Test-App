@@ -6,7 +6,12 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
+import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
+import com.google.android.gms.ads.doubleclick.PublisherAdView;
+
+import io.mdevlab.ocatraining.BuildConfig;
 import io.mdevlab.ocatraining.R;
 
 /**
@@ -38,6 +43,17 @@ public abstract class ActivityBase extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+
+    protected void setUpDFP(String adUnitId) {
+        if (BuildConfig.IS_DEMO_FLAVOR) {
+            PublisherAdView mPublisherAdView = (PublisherAdView) findViewById(R.id.publisherAdView);
+//            mPublisherAdView.setAdUnitId((adUnitId == null) ? getString(R.string.banner_ad_unit_id) : adUnitId);
+            mPublisherAdView.setVisibility(View.VISIBLE);
+            PublisherAdRequest adRequest = new PublisherAdRequest.Builder().build();
+            mPublisherAdView.loadAd(adRequest);
+        }
     }
 
 

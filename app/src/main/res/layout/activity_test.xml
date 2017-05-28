@@ -80,20 +80,55 @@
         android:id="@+id/pager_test_questions"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/navigation_container"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/progress_test" />
 
 
-    <include
+    <!--Navigation-->
+    <LinearLayout
         android:id="@+id/navigation_container"
-        layout="@layout/layout_test_navigation" />
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_button"
+        android:layout_above="@+id/publisherAdView"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_first_question"
+            style="@style/TestNavigationButton"
+            android:text="@string/first_question" />
+
+        <ImageButton
+            android:id="@+id/button_previous_question"
+            style="@style/TestNavigationButton"
+            android:contentDescription="@string/next_question"
+            android:src="@drawable/ic_previous" />
+
+        <ImageButton
+            android:id="@+id/button_next_question"
+            style="@style/TestNavigationButton"
+            android:contentDescription="@string/previous_question"
+            android:src="@drawable/ic_next" />
+
+        <Button
+            android:id="@+id/button_last_question"
+            style="@style/TestNavigationButton"
+            android:text="@string/last_question" />
+
+        <Button
+            android:id="@+id/button_results"
+            style="@style/TestNavigationButton"
+            android:text="@string/test_result"
+            android:visibility="gone" />
+    </LinearLayout>
 
 
     <FrameLayout
         android:id="@+id/hidden_layout_to_disable_test"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/publisherAdView"
         android:background="#e5000000"
         android:clickable="true"
         android:visibility="gone">
@@ -108,7 +143,9 @@
             android:textColor="@android:color/white"
             android:textSize="@dimen/text_size_huge" />
 
-
     </FrameLayout>
+
+
+    <include layout="@layout/layout_publisher_view_relative" />
 
 </RelativeLayout>
