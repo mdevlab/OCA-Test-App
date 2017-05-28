@@ -182,6 +182,20 @@ instance variable in the object created on line 5.</string>
     <string name="piechart_title">Score</string>
     <string name="results_list_title">Results</string>
 
+    <plurals
+        name="minutes">
+        <item quantity="zero"> minute </item>
+        <item quantity="one"> minute </item>
+        <item quantity="other">%d  minutes</item>
+    </plurals>
+
+    <plurals
+        name="hours">
+        <item quantity="zero">hour </item>
+        <item quantity="one">hour </item>
+        <item quantity="other">%d  hours</item>
+    </plurals>
+
     <!--Certification info screen-->
     <string name="subscribe_to_certification">Schedule a test !</string>
     <string name="certification_info_url">http://www.google.com</string>

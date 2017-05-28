@@ -1,11 +1,13 @@
 package io.mdevlab.ocatraining.model;
 
+import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import io.mdevlab.ocatraining.R;
 import io.realm.RealmList;
 import io.realm.RealmObject;
 
@@ -65,7 +67,7 @@ public class Test extends RealmObject implements Parcelable {
     public Test() {
     }
 
-    public Test(int totalNumberOfQuestions, int type, RealmList<TestQuestion> questions,int testChapterId) {
+    public Test(int totalNumberOfQuestions, int type, RealmList<TestQuestion> questions, int testChapterId) {
         this.totalNumberOfQuestions = totalNumberOfQuestions;
         this.type = type;
         this.questions = questions;
@@ -220,13 +222,23 @@ public class Test extends RealmObject implements Parcelable {
      * @return The test duration as "36 minutes" or "2 hours, 23 minutes" format
      * depending on the value of hours (when it's 0, it isn't displayed)
      */
-    public String getDurationToDisplay() {
-        int hours = (int) (duration / 3600);
-        int minutes = (int) ((duration % 3600) / 60);
-
+    public String getDurationToDisplay(Context context) {
+        int hours = (int) ((duration / (1000 * 60 * 60)) % 24);
+        int minutes = (int) (int) ((duration / (1000 * 60)) % 60);
         if (hours == 0)
-            return minutes + " minutes";
-        return hours + " hours, " + minutes + " minutes";
+            return minutes + " " + context.getResources().getQuantityString(R.plurals.minutes, minutes, minutes);
+
+        StringBuilder stringBuilder = new StringBuilder();
+        //Append Hours
+        stringBuilder
+                .append(hours)
+                .append(context.getResources().getQuantityString(R.plurals.hours, hours, hours))
+                .append(", ");
+        //Append Hours
+        stringBuilder.append(minutes)
+                .append(context.getResources().getQuantityString(R.plurals.minutes, minutes, minutes));
+
+        return stringBuilder.toString();
     }
 
 
