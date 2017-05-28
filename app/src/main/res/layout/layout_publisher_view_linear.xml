@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.gms.ads.doubleclick.PublisherAdView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.gms.ads.AdView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:id="@+id/publisherAdView"
     android:layout_width="match_parent"

@@ -8,8 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
-import com.google.android.gms.ads.doubleclick.PublisherAdView;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import io.mdevlab.ocatraining.BuildConfig;
 import io.mdevlab.ocatraining.R;
@@ -48,11 +48,10 @@ public abstract class ActivityBase extends AppCompatActivity {
 
     protected void setUpDFP(String adUnitId) {
         if (BuildConfig.IS_DEMO_FLAVOR) {
-            PublisherAdView mPublisherAdView = (PublisherAdView) findViewById(R.id.publisherAdView);
-//            mPublisherAdView.setAdUnitId((adUnitId == null) ? getString(R.string.banner_ad_unit_id) : adUnitId);
-            mPublisherAdView.setVisibility(View.VISIBLE);
-            PublisherAdRequest adRequest = new PublisherAdRequest.Builder().build();
-            mPublisherAdView.loadAd(adRequest);
+            AdView adView = (AdView) findViewById(R.id.publisherAdView);
+            adView.setVisibility(View.VISIBLE);
+            AdRequest adRequest = new AdRequest.Builder().build();
+            adView.loadAd(adRequest);
         }
     }
 

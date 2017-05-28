@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.crashlytics.android.Crashlytics;
 import com.evernote.android.job.JobManager;
+import com.google.android.gms.ads.MobileAds;
 
 import io.fabric.sdk.android.Fabric;
 import io.mdevlab.ocatraining.notification.NotificationsJobCreator;
@@ -28,6 +29,7 @@ public class OCA extends Application {
         setUpRealm();
         setUpNotifications();
         setUpCrashlytics();
+        setUpMobileAds();
         populateDatabase();
     }
 
@@ -58,6 +60,11 @@ public class OCA extends Application {
 
     private void setUpCrashlytics() {
         Fabric.with(this, new Crashlytics());
+    }
+
+
+    private void setUpMobileAds() {
+        MobileAds.initialize(this, getString(R.string.admob_app_id));
     }
 
 
