@@ -226,12 +226,12 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
             case CHAPTER_TEST_MODE:
                 mListQuestions = TestQuestionManager.getChapterTestQuestions(5,currentChapter);
                 mTest = new Test(mListQuestions.size(), CHAPTER_TEST_MODE, mListQuestions,currentChapter);
-
                 TestManager.cleanUnfinishedTest(CHAPTER_TEST_MODE,currentChapter);
                 break;
 
         }
         mTest = TestManager.createTest(mTest);
+        //Get the supervised Question for auto database Update
         mListQuestions = mTest.getQuestions();
     }
 
