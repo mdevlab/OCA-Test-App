@@ -15,9 +15,13 @@ import io.realm.RealmObject;
 public class TestQuestion extends RealmObject implements Parcelable {
 
     public static final String ID_COLUMN = "id";
+    public static final String QUESTION_ID_COLUMN = "questionId";
 
     // Test question id
     private int id;
+
+    // Question id of this test question
+    private int questionId;
 
     /**
      * Either single answer question or multi answer question
@@ -51,27 +55,31 @@ public class TestQuestion extends RealmObject implements Parcelable {
 
     public TestQuestion(Question question) {
         this.id = question.getId();
+        this.questionId = question.getId();
         this.type = question.getType();
         this.explanation = question.getExplanation();
         this.isFavorite = question.isFavorite();
         this.statement = question.getStatement();
         this.answers = answersToTestAnswers(question.getAnswers());
         this.isFlagged = false;
-        this.chapterId =question.getChapterId();
+        this.chapterId = question.getChapterId();
     }
 
     /**
      * Constructor for Parcelable
      * purpose : Send Realm object via intents
+     *
      * @param in
      */
     protected TestQuestion(Parcel in) {
         id = in.readInt();
+        questionId = in.readInt();
         type = in.readInt();
         explanation = in.readString();
         statement = in.readString();
         isFavorite = in.readByte() != 0;
         isFlagged = in.readByte() != 0;
+        chapterId = in.readInt();
         Parcelable[] parcelableArray =
                 in.readParcelableArray(TestAnswer.class.getClassLoader());
         TestAnswer[] resultArray = null;
@@ -82,7 +90,6 @@ public class TestQuestion extends RealmObject implements Parcelable {
                 answers.add(answer);
             }
         }
-
     }
 
     public int getId() {
@@ -91,6 +98,14 @@ public class TestQuestion extends RealmObject implements Parcelable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getQuestionId() {
+        return questionId;
+    }
+
+    public void setQuestionId(int questionId) {
+        this.questionId = questionId;
     }
 
     public int getType() {
@@ -153,6 +168,8 @@ public class TestQuestion extends RealmObject implements Parcelable {
     public String toString() {
         return "TestQuestion{" +
                 "id=" + id +
+                ", questionId=" + questionId +
+                ", chapterId=" + chapterId +
                 ", type=" + type +
                 ", explanation='" + explanation + '\'' +
                 ", isFavorite=" + isFavorite +
@@ -219,6 +236,8 @@ public class TestQuestion extends RealmObject implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
+        dest.writeInt(questionId);
+        dest.writeInt(chapterId);
         dest.writeInt(type);
         dest.writeString(explanation);
         dest.writeString(statement);

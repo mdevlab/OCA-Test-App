@@ -18,6 +18,7 @@ import android.widget.ToggleButton;
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.model.TestQuestion;
 import io.mdevlab.ocatraining.modelManager.QuestionManager;
+import io.mdevlab.ocatraining.modelManager.TestQuestionManager;
 import io.realm.Realm;
 
 import static io.mdevlab.ocatraining.model.Question.MULTIPLE_ANSWER_QUESTION;
@@ -130,12 +131,8 @@ public class QuestionFragment extends Fragment {
         isFavorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                Realm realm = Realm.getDefaultInstance();
-                realm.beginTransaction();
-                mQuestion.setFavorite(isChecked);
-                realm.commitTransaction();
-                realm.close();
-//                QuestionManager.updateQuestionFavoriteById(mQuestion.getId(), isChecked);
+                TestQuestionManager.updateAllTestQuestionsFavorite(mQuestion.getQuestionId(), isChecked);
+                QuestionManager.updateQuestionFavorite(mQuestion.getQuestionId(), isChecked);
             }
         });
     }

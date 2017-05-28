@@ -45,7 +45,7 @@ public class QuestionManager {
     public static RealmResults<Question> getAllChpaterQuestions(int chapterId) {
         return getDefaultInstance()
                 .where(Question.class)
-                .equalTo("chapterId",chapterId)
+                .equalTo("chapterId", chapterId)
                 .findAll();
     }
 
@@ -137,12 +137,16 @@ public class QuestionManager {
     }
 
 
-    public static void updateQuestionFavorite(Question question, Boolean isFavorite) {
-        Realm realm = Realm.getDefaultInstance();
-        realm.beginTransaction();
-        question.setFavorite(isFavorite);
-        realm.commitTransaction();
-        realm.close();
+    public static void updateQuestionFavorite(int questionId, Boolean isFavorite) {
+        Question question = getQuestionById(questionId);
+
+        if (question != null) {
+            Realm realm = Realm.getDefaultInstance();
+            realm.beginTransaction();
+            question.setFavorite(isFavorite);
+            realm.commitTransaction();
+            realm.close();
+        }
     }
 
 

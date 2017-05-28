@@ -26,16 +26,19 @@ public class FavoriteQuestionsAdapter extends RecyclerView.Adapter<FavoriteQuest
     Context context;
     RealmResults<Question> questions;
 
+
     public FavoriteQuestionsAdapter(Context context, RealmResults<Question> questions) {
         this.context = context;
         this.questions = questions;
     }
+
 
     @Override
     public FavoriteQuestionViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(context).inflate(R.layout.item_favorite_question, parent, false);
         return new FavoriteQuestionViewHolder(itemView);
     }
+
 
     @Override
     public void onBindViewHolder(FavoriteQuestionViewHolder holder, int position) {
@@ -45,12 +48,19 @@ public class FavoriteQuestionsAdapter extends RecyclerView.Adapter<FavoriteQuest
         holder.question.setText(currentQuestion.getStatement());
     }
 
+
     @Override
     public int getItemCount() {
         if (questions == null)
             return 0;
         return questions.size();
     }
+
+
+    public void setQuestions(RealmResults<Question> questions) {
+        this.questions = questions;
+    }
+
 
     class FavoriteQuestionViewHolder extends RecyclerView.ViewHolder {
 
