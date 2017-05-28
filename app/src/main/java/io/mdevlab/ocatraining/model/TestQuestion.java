@@ -56,6 +56,11 @@ public class TestQuestion extends RealmObject implements Parcelable {
         this.isFlagged = false;
     }
 
+    /**
+     * Constructor for Parcelable
+     * purpose : Send Realm object via intents
+     * @param in
+     */
     protected TestQuestion(Parcel in) {
         id = in.readInt();
         type = in.readInt();

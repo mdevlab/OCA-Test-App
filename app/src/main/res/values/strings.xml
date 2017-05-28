@@ -257,4 +257,8 @@ instance variable in the object created on line 5.</string>
     <string name="take_another_test_positive_button">Upgrade</string>
     <string name="take_another_test_neutral_button">Retake test</string>
     <string name="take_another_test_negative_button">Cancel</string>
+    <string name="resume">Resume</string>
+    <string name="new_test">New Test</string>
+    <string name="new_or_resume_message">Do you want to resume the last Test or start new one</string>
+    <string name="new_or_resume_title">Resume or Start a new Test</string>
 </resources>

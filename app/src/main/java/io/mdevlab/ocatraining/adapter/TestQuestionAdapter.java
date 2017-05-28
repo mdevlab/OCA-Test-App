@@ -14,6 +14,9 @@ import io.mdevlab.ocatraining.model.TestQuestion;
  * Created by bachiri on 5/4/17.
  */
 
+/**
+ * Test Questions adapter
+ */
 public class TestQuestionAdapter extends FragmentStatePagerAdapter {
 
     List<TestQuestion> mTestQuestionList;

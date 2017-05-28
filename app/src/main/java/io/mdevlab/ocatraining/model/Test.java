@@ -19,6 +19,7 @@ public class Test extends RealmObject implements Parcelable {
     public static final String TEST_MODE = "test mode";
     public static final int FINAL_TEST_MODE = 1;
     public static final int CUSTOM_TEST_MODE = 2;
+
     public static final int RANDOM_TEST_MODE = 3;
     public static final int TEST_LIMIT_QUESTIONS = 70;
 
@@ -34,6 +35,16 @@ public class Test extends RealmObject implements Parcelable {
     // Total number of questions in the test
     private int totalNumberOfQuestions;
 
+    private Boolean isTestFinished;
+
+    public Boolean isTestFinished() {
+        return isTestFinished;
+    }
+
+    public void setTestFinished(Boolean testFinished) {
+        isTestFinished = testFinished;
+    }
+
     /**
      * Either final test or customized test
      * Both are constants and are defined in the Constants class
@@ -47,18 +58,24 @@ public class Test extends RealmObject implements Parcelable {
     }
 
     public Test(int totalNumberOfQuestions, int type, RealmList<TestQuestion> questions) {
-        this.numberOfCompletedQuestions = totalNumberOfQuestions;
         this.totalNumberOfQuestions = totalNumberOfQuestions;
         this.type = type;
         this.questions = questions;
+        this.isTestFinished = false;
     }
 
+    /**
+     * Constructor for Parcelable
+     * purpose : Send Realm object via intents
+     * @param in
+     */
     protected Test(Parcel in) {
         id = in.readInt();
         duration = in.readLong();
         numberOfCompletedQuestions = in.readInt();
         totalNumberOfQuestions = in.readInt();
         type = in.readInt();
+        isTestFinished = in.readByte() != 0;
         Parcelable[] parcelableArray =
                 in.readParcelableArray(TestQuestion.class.getClassLoader());
         TestQuestion[] resultArray = null;
@@ -215,6 +232,7 @@ public class Test extends RealmObject implements Parcelable {
         dest.writeInt(numberOfCompletedQuestions);
         dest.writeInt(totalNumberOfQuestions);
         dest.writeInt(type);
+        dest.writeByte((byte) (isTestFinished ? 1 : 0));
         Parcelable[] pQuestions = new Parcelable[questions.size()];
         for (int i = 0; i < questions.size(); i++) {
             pQuestions[i] = questions.get(i);
