@@ -4,5 +4,6 @@
     android:id="@+id/publisherAdView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:visibility="gone"
     ads:adSize="BANNER"
     ads:adUnitId="@string/banner_ad_unit_id" />
