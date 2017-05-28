@@ -43,6 +43,9 @@ public class TestQuestion extends RealmObject implements Parcelable {
     // List of answers to the test question
     private RealmList<TestAnswer> answers;
 
+    // Chapter id
+    private int chapterId;
+
     public TestQuestion() {
     }
 
@@ -54,6 +57,7 @@ public class TestQuestion extends RealmObject implements Parcelable {
         this.statement = question.getStatement();
         this.answers = answersToTestAnswers(question.getAnswers());
         this.isFlagged = false;
+        this.chapterId =question.getChapterId();
     }
 
     /**
@@ -103,6 +107,14 @@ public class TestQuestion extends RealmObject implements Parcelable {
 
     public void setExplanation(String explanation) {
         this.explanation = explanation;
+    }
+
+    public int getChapterId() {
+        return chapterId;
+    }
+
+    public void setChapterId(int chapterId) {
+        this.chapterId = chapterId;
     }
 
     public boolean isFavorite() {

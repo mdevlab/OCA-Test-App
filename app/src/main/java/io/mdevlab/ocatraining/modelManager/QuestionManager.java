@@ -32,6 +32,15 @@ public class QuestionManager {
                 .findAll();
     }
 
+    /**
+     * @return List of all questions
+     */
+    public static RealmResults<Question> getAllChpaterQuestions(int chapterId) {
+        return getDefaultInstance()
+                .where(Question.class)
+                .equalTo("chapterId",chapterId)
+                .findAll();
+    }
 
     /**
      * @return Displayable random question
@@ -127,12 +136,12 @@ public class QuestionManager {
     }
 
 
-    public static void updateQuestionFavoriteById(int questionId, Boolean isFavorite) {
+    public static void updateQuestionFavorite(Question question, Boolean isFavorite) {
         Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
-        Question question = realm.where(Question.class).equalTo("id", questionId).findFirst();
         question.setFavorite(isFavorite);
         realm.commitTransaction();
+        realm.close();
     }
 
 
