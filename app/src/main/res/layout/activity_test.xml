@@ -9,21 +9,20 @@
     <LinearLayout
         android:id="@+id/advancement_container"
         android:layout_width="match_parent"
-        android:layout_height="52dp"
+        android:layout_height="?android:attr/actionBarSize"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary"
         android:orientation="horizontal"
         android:padding="@dimen/spacing_normal">
 
         <!--Percent of Questions-->
         <TextView
             android:id="@+id/text_questions_percent"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="0/0"
-            android:textSize="32sp"
-            android:textStyle="bold" />
+            style="@style/TestAdvancementText"
+            android:text="0/0" />
+
         <!--Space-->
         <View
             android:layout_width="0dp"
@@ -33,34 +32,36 @@
         <!--Timer for notifying the test Taker before the end of the tolerated time -->
         <TextView
             android:id="@+id/text_test_timer"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:text="00 : 00"
-            android:textSize="32sp"
-            android:textStyle="bold" />
+            style="@style/TestAdvancementText"
+            android:text="00 : 00" />
 
-        <!--Pause and resuming the test-->
+        <!--Pause/Resume-->
         <ToggleButton
             android:id="@+id/toggle_pause_resume_test"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/spacing_double"
+            android:layout_marginStart="@dimen/spacing_double"
             android:background="@drawable/ic_pause_play_toggle"
             android:padding="@dimen/spacing_normal"
             android:textOff=""
             android:textOn="" />
 
-        <!--Canceling The test-->
+        <!--Stop-->
         <ImageButton
             android:id="@+id/image_button_stop_test"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_gravity="center"
-            android:background="@drawable/ic_test_stop"
+            android:layout_marginLeft="@dimen/spacing_double"
+            android:layout_marginStart="@dimen/spacing_double"
+            android:background="@drawable/ic_stop"
+            android:contentDescription="@string/stop_test"
             android:padding="@dimen/spacing_normal" />
 
     </LinearLayout>
+
 
     <!--Horizontal Progress bar  -->
     <ProgressBar
@@ -73,85 +74,41 @@
         android:progressTint="?android:colorAccent"
         tools:ignore="UnusedAttribute" />
 
+
     <!--View containing all Tests -->
     <android.support.v4.view.ViewPager
         android:id="@+id/pager_test_questions"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/navigation_container"
-        android:layout_below="@id/progress_test" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/progress_test" />
 
 
-    <RelativeLayout
+    <include
         android:id="@+id/navigation_container"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/height_button"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
+        layout="@layout/layout_test_navigation" />
 
-        <!--display First Question -->
-        <Button
-            android:id="@+id/button_first_question"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
-            android:text="@string/first_question" />
-        <!--display previous Question -->
-        <ImageButton
-            android:id="@+id/button_previous_question"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_toRightOf="@+id/button_first_question"
-            android:src="@drawable/ic_previous" />
-
-        <!--display Last Question -->
-
-        <Button
-            android:id="@+id/button_last_question"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:text="@string/last_question"
-            android:visibility="visible" />
-        <!--display Results  of the Test -->
-
-        <Button
-            android:id="@+id/button_results"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:text="@string/test_result"
-            android:visibility="invisible" />
-
-        <!--display Results of the Test -->
-        <ImageButton
-            android:id="@+id/button_next_question"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_toLeftOf="@+id/button_last_question"
-            android:src="@drawable/ic_arrow_go" />
-
-
-    </RelativeLayout>
 
     <FrameLayout
         android:id="@+id/hidden_layout_to_disable_test"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#e5000000"
-        android:visibility="gone"
-        android:clickable="true">
+        android:clickable="true"
+        android:visibility="gone">
 
         <Button
             android:id="@+id/button_resume_test"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:background="@android:color/transparent"
-            android:text="Resume"
+            android:text="@string/resume_test"
             android:textColor="@android:color/white"
-            android:textSize="50dp" />
+            android:textSize="@dimen/text_size_huge" />
 
 
     </FrameLayout>
+
 </RelativeLayout>

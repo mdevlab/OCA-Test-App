@@ -62,6 +62,7 @@ public class NotificationBuilder {
 
         // Intent of activity user will be redirected to
         Intent resultIntent = new Intent(context, MainActivity.class);
+        resultIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
         // Pending intent to open previously defined intent
         return PendingIntent.getActivity(context,

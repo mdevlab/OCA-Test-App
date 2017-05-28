@@ -374,16 +374,15 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
         } else {
             removeResultUi();
         }
-
     }
 
     private void removeResultUi() {
         mButtonLast.setVisibility(View.VISIBLE);
-        mButtonResult.setVisibility(View.INVISIBLE);
+        mButtonResult.setVisibility(View.GONE);
     }
 
     private void prepareForResults() {
-        mButtonLast.setVisibility(View.INVISIBLE);
+        mButtonLast.setVisibility(View.GONE);
         mButtonResult.setVisibility(View.VISIBLE);
     }
 

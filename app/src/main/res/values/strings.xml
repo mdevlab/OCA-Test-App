@@ -166,6 +166,8 @@ instance variable in the object created on line 5.</string>
     <string name="dialog_cancel">Cancel</string>
     <string name="correct">Correct</string>
     <string name="incorrect">Incorrect</string>
+    <string name="resume_test">Resume</string>
+    <string name="stop_test">Stop</string>
 
     <!--Results screen-->
     <string name="test_summary_title">Summary</string>

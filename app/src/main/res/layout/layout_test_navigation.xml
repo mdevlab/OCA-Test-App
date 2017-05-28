@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/navigation_container"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/height_button"
+    android:layout_alignParentBottom="true"
+    android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/button_first_question"
+        style="@style/TestNavigationButton"
+        android:text="@string/first_question" />
+
+    <ImageButton
+        android:id="@+id/button_previous_question"
+        style="@style/TestNavigationButton"
+        android:contentDescription="@string/next_question"
+        android:src="@drawable/ic_previous" />
+
+    <ImageButton
+        android:id="@+id/button_next_question"
+        style="@style/TestNavigationButton"
+        android:contentDescription="@string/previous_question"
+        android:src="@drawable/ic_next" />
+
+    <Button
+        android:id="@+id/button_last_question"
+        style="@style/TestNavigationButton"
+        android:text="@string/last_question" />
+
+    <Button
+        android:id="@+id/button_results"
+        style="@style/TestNavigationButton"
+        android:text="@string/test_result"
+        android:visibility="gone" />
+</LinearLayout>
