@@ -28,7 +28,6 @@ public class TestManager {
         realm.beginTransaction();
         createdTest = realm.copyToRealm(test);
         realm.commitTransaction();
-        realm.close();
         return createdTest;
     }
 

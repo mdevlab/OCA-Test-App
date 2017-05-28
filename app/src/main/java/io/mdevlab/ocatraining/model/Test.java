@@ -21,12 +21,18 @@ public class Test extends RealmObject implements Parcelable {
     public static final int FINAL_TEST_MODE = 1;
     public static final int CUSTOM_TEST_MODE = 2;
     public static final int CHAPTER_TEST_MODE = 3;
-
     public static final int RANDOM_TEST_MODE = 3;
     public static final int TEST_LIMIT_QUESTIONS = 70;
+    public static final int TEST_NO_SPECIFIC_CHAPATER = 0;
+
 
     // Test id
     private int id;
+
+    // Test chapter id
+    // No specific chapter n = 0
+    //Other chapters  n = 1...k    k is chapters
+    private int testChapterId;
 
     // Test duration in seconds
     private long duration;
@@ -59,16 +65,18 @@ public class Test extends RealmObject implements Parcelable {
     public Test() {
     }
 
-    public Test(int totalNumberOfQuestions, int type, RealmList<TestQuestion> questions) {
+    public Test(int totalNumberOfQuestions, int type, RealmList<TestQuestion> questions,int testChapterId) {
         this.totalNumberOfQuestions = totalNumberOfQuestions;
         this.type = type;
         this.questions = questions;
         this.isTestFinished = false;
+        this.testChapterId = testChapterId;
     }
 
     /**
      * Constructor for Parcelable
      * purpose : Send Realm object via intents
+     *
      * @param in
      */
     protected Test(Parcel in) {

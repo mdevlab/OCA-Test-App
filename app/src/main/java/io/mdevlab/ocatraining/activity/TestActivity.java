@@ -33,6 +33,7 @@ import static io.mdevlab.ocatraining.model.Test.FINAL_TEST_MODE;
 import static io.mdevlab.ocatraining.model.Test.TEST_CHAPTER;
 import static io.mdevlab.ocatraining.model.Test.TEST_LIMIT_QUESTIONS;
 import static io.mdevlab.ocatraining.model.Test.TEST_MODE;
+import static io.mdevlab.ocatraining.model.Test.TEST_NO_SPECIFIC_CHAPATER;
 
 
 public class TestActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener {
@@ -166,7 +167,6 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
         mTest.setNumberOfCompletedQuestions(CURRENT_INDEX + 1);
         mTest.setDuration(currentTime);
         realm.commitTransaction();
-        realm.close();
 
     }
 
@@ -215,17 +215,17 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
         switch (testMode) {
             case FINAL_TEST_MODE:
                 mListQuestions = TestQuestionManager.getTestQuestions(TEST_LIMIT_QUESTIONS);
-                mTest = new Test(mListQuestions.size(), FINAL_TEST_MODE, mListQuestions);
+                mTest = new Test(mListQuestions.size(), FINAL_TEST_MODE, mListQuestions,TEST_NO_SPECIFIC_CHAPATER);
                 TestManager.cleanUnfinishedTest(FINAL_TEST_MODE);
                 break;
             case CUSTOM_TEST_MODE:
                 mListQuestions = TestQuestionManager.getTestQuestions(5);
-                mTest = new Test(mListQuestions.size(), CUSTOM_TEST_MODE, mListQuestions);
+                mTest = new Test(mListQuestions.size(), CUSTOM_TEST_MODE, mListQuestions,TEST_NO_SPECIFIC_CHAPATER);
                 TestManager.cleanUnfinishedTest(CUSTOM_TEST_MODE);
                 break;
             case CHAPTER_TEST_MODE:
                 mListQuestions = TestQuestionManager.getChapterTestQuestions(5,currentChapter);
-                mTest = new Test(mListQuestions.size(), CHAPTER_TEST_MODE, mListQuestions);
+                mTest = new Test(mListQuestions.size(), CHAPTER_TEST_MODE, mListQuestions,currentChapter);
                 TestManager.cleanUnfinishedTest(CHAPTER_TEST_MODE);
                 break;
 

@@ -148,7 +148,6 @@ public class ChapterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                     test.putExtra(TEST_MODE, CHAPTER_TEST_MODE);
                     mContext.startActivity(test);
 
-                    Toast.makeText(mContext, "Boo !", Toast.LENGTH_SHORT).show();
                 }
             });
 

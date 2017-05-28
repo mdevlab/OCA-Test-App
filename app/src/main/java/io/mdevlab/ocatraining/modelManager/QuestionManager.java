@@ -141,7 +141,6 @@ public class QuestionManager {
         realm.beginTransaction();
         question.setFavorite(isFavorite);
         realm.commitTransaction();
-        realm.close();
     }
 
 
