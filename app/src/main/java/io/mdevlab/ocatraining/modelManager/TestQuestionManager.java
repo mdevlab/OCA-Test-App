@@ -23,10 +23,7 @@ public class TestQuestionManager {
 
         //Realm result
         RealmResults<Question> questionRealmResults = QuestionManager.getAllQuestions();
-
-
         RealmList<TestQuestion> realmList = getRandomLimitRealmListFromRealmResult(limit, questionRealmResults);
-
 
         return realmList;
     }
