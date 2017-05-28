@@ -167,6 +167,7 @@ public class TestActivity extends AppCompatActivity implements ViewPager.OnPageC
         mTest.setNumberOfCompletedQuestions(CURRENT_INDEX + 1);
         mTest.setDuration(currentTime);
         realm.commitTransaction();
+        realm.close();
 
     }
 
