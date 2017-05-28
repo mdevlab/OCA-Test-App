@@ -17,6 +17,7 @@ import android.widget.ToggleButton;
 
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.model.TestQuestion;
+import io.mdevlab.ocatraining.modelManager.QuestionManager;
 import io.realm.Realm;
 
 import static io.mdevlab.ocatraining.model.Question.MULTIPLE_ANSWER_QUESTION;
@@ -44,7 +45,7 @@ public class QuestionFragment extends Fragment {
 
 
     /**
-     * @param question   The question to render within this fragement
+     * @param question   The question to render within this fragment
      * @param isResponse is the response is true prepare the fragment to render a response other ways the question.
      * @return
      */
@@ -128,11 +129,11 @@ public class QuestionFragment extends Fragment {
         isFavorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                Realm realm = Realm.getDefaultInstance();
-                realm.beginTransaction();
-                mQuestion.setFavorite(isChecked);
-                //QuestionManager.updateQuestionFavoriteById(mQuestion.getId(), isChecked);
-                realm.commitTransaction();
+//                Realm realm = Realm.getDefaultInstance();
+//                realm.beginTransaction();
+//                mQuestion.setFavorite(isChecked);
+                QuestionManager.updateQuestionFavoriteById(mQuestion.getId(), isChecked);
+//                realm.commitTransaction();
             }
         });
     }

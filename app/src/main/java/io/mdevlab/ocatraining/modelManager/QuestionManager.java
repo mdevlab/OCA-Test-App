@@ -1,6 +1,5 @@
 package io.mdevlab.ocatraining.modelManager;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 import io.mdevlab.ocatraining.model.Answer;
@@ -121,17 +120,11 @@ public class QuestionManager {
     }
 
 
-    public static ArrayList<Question> getFavoriteQuestions() {
-        RealmResults<Question> favoriteQuestions = Realm.getDefaultInstance()
+    public static RealmResults<Question> getFavoriteQuestions() {
+        return Realm.getDefaultInstance()
                 .where(Question.class)
                 .equalTo(Question.IS_FAVORITE_COLUMN, true)
                 .findAll();
-
-        if (favoriteQuestions == null) {
-            return null;
-        }
-
-        return new ArrayList<>(favoriteQuestions);
     }
 
 

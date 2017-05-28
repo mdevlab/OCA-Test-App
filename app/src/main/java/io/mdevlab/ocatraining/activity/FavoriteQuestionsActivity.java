@@ -5,12 +5,11 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import java.util.ArrayList;
-
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.adapter.FavoriteQuestionsAdapter;
 import io.mdevlab.ocatraining.model.Question;
 import io.mdevlab.ocatraining.modelManager.QuestionManager;
+import io.realm.RealmResults;
 
 public class FavoriteQuestionsActivity extends ActivityBase {
 
@@ -31,7 +30,7 @@ public class FavoriteQuestionsActivity extends ActivityBase {
     }
 
 
-    private ArrayList<Question> getFavoriteQuestions() {
+    private RealmResults<Question> getFavoriteQuestions() {
         return QuestionManager.getFavoriteQuestions();
     }
 }

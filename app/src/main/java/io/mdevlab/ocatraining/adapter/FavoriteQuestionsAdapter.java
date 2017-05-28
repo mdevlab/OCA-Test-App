@@ -8,13 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.activity.FavoriteQuestionActivity;
 import io.mdevlab.ocatraining.model.Question;
 import io.mdevlab.ocatraining.modelManager.QuestionManager;
 import io.mdevlab.ocatraining.util.UtilUI;
+import io.realm.RealmResults;
 
 import static io.mdevlab.ocatraining.activity.FavoriteQuestionActivity.CURRENT_QUESTION;
 
@@ -25,9 +24,9 @@ import static io.mdevlab.ocatraining.activity.FavoriteQuestionActivity.CURRENT_Q
 public class FavoriteQuestionsAdapter extends RecyclerView.Adapter<FavoriteQuestionsAdapter.FavoriteQuestionViewHolder> {
 
     Context context;
-    ArrayList<Question> questions;
+    RealmResults<Question> questions;
 
-    public FavoriteQuestionsAdapter(Context context, ArrayList<Question> questions) {
+    public FavoriteQuestionsAdapter(Context context, RealmResults<Question> questions) {
         this.context = context;
         this.questions = questions;
     }
