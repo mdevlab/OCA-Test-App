@@ -20,8 +20,14 @@ public class UtilActions {
     private static final String SHARE_TYPE = "text/plain";
 
 
+    public static void displayUpgradeDialog(AppCompatActivity activity, String message) {
+        DialogFragment upgradeDialog = new DialogUpgrade(message);
+        upgradeDialog.show(activity.getSupportFragmentManager(), DIALOG_DIALOG_TAG);
+    }
+
+
     public static void displayUpgradeDialog(AppCompatActivity activity) {
-        DialogFragment upgradeDialog = new DialogUpgrade();
+        DialogFragment upgradeDialog = new DialogUpgrade(null);
         upgradeDialog.show(activity.getSupportFragmentManager(), DIALOG_DIALOG_TAG);
     }
 

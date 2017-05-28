@@ -267,6 +267,7 @@ instance variable in the object created on line 5.</string>
     <string name="upgrade_dialog_negative_button">Cancel</string>
     <string name="upgrade_icon_content_description">Upgrade</string>
     <string name="upgrade_message">Tired of repeating the same questions?\n\nUpgrade and get access to an unlimited number of questions and more challenging tests!</string>
+    <string name="upgrade_random_limit_reached">You\'ve reached your limit of free questions!\n\nUpgrade and get access to an unlimited number of questions and more challenging tests!</string>
     <string name="upgrade_url">http://www.google.com</string>
 
 

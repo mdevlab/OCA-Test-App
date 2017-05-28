@@ -7,6 +7,8 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
 
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.util.UtilActions;
@@ -17,13 +19,26 @@ import io.mdevlab.ocatraining.util.UtilActions;
 
 public class DialogUpgrade extends DialogFragment {
 
+
+    String message;
+
+
+    public DialogUpgrade(String message) {
+        this.message = message;
+    }
+
+
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        builder.setView(inflater.inflate(R.layout.dialog_upgrade, null));
+        View dialogView = inflater.inflate(R.layout.dialog_upgrade, null);
+        builder.setView(dialogView);
+
+        if (message != null)
+            ((TextView) dialogView.findViewById(R.id.upgrade_dialog_message)).setText(message);
 
         builder.setPositiveButton(R.string.upgrade_dialog_positive_button, new DialogInterface.OnClickListener() {
             @Override

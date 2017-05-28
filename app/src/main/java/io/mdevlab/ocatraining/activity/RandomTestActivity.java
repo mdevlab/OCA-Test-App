@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 
+import io.mdevlab.ocatraining.BuildConfig;
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.fragment.QuestionFragment;
 import io.mdevlab.ocatraining.modelManager.TestQuestionManager;
+import io.mdevlab.ocatraining.util.UtilActions;
 
 /**
  * Created by husaynhakeem on 5/28/17.
@@ -30,8 +32,8 @@ public class RandomTestActivity extends SingleQuestionTestActivity {
             @Override
             public void onClick(View v) {
                 if (isShowNext) {
-                    showNextQuestion();
-                    isShowNext = false;
+                    if (showNextQuestion())
+                        isShowNext = false;
                 } else {
                     showQuestionAnswer();
                     isShowNext = true;
@@ -52,7 +54,12 @@ public class RandomTestActivity extends SingleQuestionTestActivity {
     /**
      * This function get a new random question and display it
      */
-    public void showNextQuestion() {
+    public boolean showNextQuestion() {
+
+        if (reachedLimitOfRandomQuestions()) {
+            UtilActions.displayUpgradeDialog(RandomTestActivity.this, getString(R.string.upgrade_random_limit_reached));
+            return false;
+        }
 
         //Increment the counter of Questions
         mQuestionNumber++;
@@ -68,6 +75,13 @@ public class RandomTestActivity extends SingleQuestionTestActivity {
         mFragmentManager.beginTransaction()
                 .replace(R.id.question_answer_container, mCurrentFragment)
                 .commit();
+
+        return true;
+    }
+
+
+    private boolean reachedLimitOfRandomQuestions() {
+        return BuildConfig.IS_DEMO_FLAVOR && mQuestionNumber >= BuildConfig.RANDOM_TEST_QUESTIONS_LIMIT;
     }
 
 
