@@ -1,5 +1,9 @@
 package io.mdevlab.ocatraining.modelManager;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import io.mdevlab.ocatraining.model.Question;
 import io.mdevlab.ocatraining.model.TestQuestion;
 import io.realm.Realm;
@@ -17,19 +21,40 @@ public class TestQuestionManager {
      */
     public static RealmList<TestQuestion> getTestQuestions(int limit) {
 
-        //TODO Implement intelligent getter for retrieving unique bunch of questions
+        //Realm result
         RealmResults<Question> questionRealmResults = QuestionManager.getAllQuestions();
+        RealmList<TestQuestion> realmList = getRandomLimitRealmListFromRealmResult(limit, questionRealmResults);
 
-        int currentCounter = 0;
+        return realmList;
+    }
+
+
+    /**
+     * Get n=limit number of Questions from the RealmResults
+     * and return a RealmList
+     * @param limit
+     * @param questionRealmResults
+     * @return
+     */
+    private static RealmList<TestQuestion> getRandomLimitRealmListFromRealmResult(int limit, RealmResults<Question> questionRealmResults) {
+        //Realm List to be returned
         RealmList<TestQuestion> realmList = new RealmList<>();
+        //List of unique random questions ids
+        List<Integer> questionIds = new ArrayList<>();
+        //Random Instance to generate Questions Ids
+        Random random = new Random();
 
-        for (Question question : questionRealmResults) {
-            if (currentCounter < limit) {
-                realmList.add(new TestQuestion(question));
-                currentCounter++;
+        int randomNumber;
+
+        while (questionIds.size() < limit) {
+            randomNumber = random.nextInt(questionRealmResults.size());
+            if (!questionIds.contains(randomNumber)) {
+                questionIds.add(randomNumber);
+                realmList.add(new TestQuestion(questionRealmResults.get(randomNumber)));
             }
-        }
 
+
+        }
         return realmList;
     }
 
@@ -39,18 +64,8 @@ public class TestQuestionManager {
      */
     public static RealmList<TestQuestion> getChapterTestQuestions(int limit, int chapter) {
 
-        //TODO Implement intelligent getter for retrieving unique bunch of questions
         RealmResults<Question> questionRealmResults = QuestionManager.getAllChpaterQuestions(chapter);
-
-        int currentCounter = 0;
-        RealmList<TestQuestion> realmList = new RealmList<>();
-        for (Question question : questionRealmResults) {
-            if (currentCounter < limit) {
-                realmList.add(new TestQuestion(question));
-                currentCounter++;
-            }
-
-        }
+        RealmList<TestQuestion> realmList = getRandomLimitRealmListFromRealmResult(limit, questionRealmResults);
 
         return realmList;
 
