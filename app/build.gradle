@@ -31,16 +31,16 @@ android {
     }
 
     productFlavors {
-        demo {
-            applicationIdSuffix ".demo"
-            versionNameSuffix "-demo"
+        free {
+            applicationIdSuffix ".free"
+            versionNameSuffix "-free"
             buildConfigField("boolean", IS_DEMO_VERSION, "true")
             buildConfigField("int", RANDOM_TEST_QUESTIONS_LIMIT, "5")
             buildConfigField("int", CUSTOM_TEST_QUESTIONS_LIMIT, "5")
         }
-        full {
-            applicationIdSuffix ".full"
-            versionNameSuffix "-full"
+        paid {
+            applicationIdSuffix ".paid"
+            versionNameSuffix "-paid"
             buildConfigField("boolean", IS_DEMO_VERSION, "false")
             buildConfigField("int", RANDOM_TEST_QUESTIONS_LIMIT, "-1")
             buildConfigField("int", CUSTOM_TEST_QUESTIONS_LIMIT, "-1")
@@ -70,4 +70,7 @@ dependencies {
     }
     compile 'com.github.lecho:hellocharts-android:v1.5.8'
     compile 'com.google.android.gms:play-services-ads:10.2.6'
+    compile 'com.google.firebase:firebase-core:10.2.6'
 }
+
+apply plugin: 'com.google.gms.google-services'
