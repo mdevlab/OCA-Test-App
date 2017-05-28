@@ -120,6 +120,7 @@ public class QuestionFragment extends Fragment {
                 realm.beginTransaction();
                 mQuestion.setFlagged(isChecked);
                 realm.commitTransaction();
+                realm.close();
 
 
             }
@@ -133,6 +134,7 @@ public class QuestionFragment extends Fragment {
                 mQuestion.setFavorite(isChecked);
                 //QuestionManager.updateQuestionFavoriteById(mQuestion.getId(), isChecked);
                 realm.commitTransaction();
+                realm.close();
             }
         });
     }
@@ -203,6 +205,7 @@ public class QuestionFragment extends Fragment {
                     realm.beginTransaction();
                     mQuestion.getAnswers().get(index).setSelected(isChecked);
                     realm.commitTransaction();
+                    realm.close();
                 }
             });
             checkBox.setLayoutParams(lparams);
@@ -236,6 +239,7 @@ public class QuestionFragment extends Fragment {
                     realm.beginTransaction();
                     mQuestion.getAnswers().get(index).setSelected(isChecked);
                     realm.commitTransaction();
+                    realm.close();
 
                 }
             });
