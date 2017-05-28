@@ -80,8 +80,7 @@ public class TestQuestion extends RealmObject implements Parcelable {
         isFavorite = in.readByte() != 0;
         isFlagged = in.readByte() != 0;
         chapterId = in.readInt();
-        Parcelable[] parcelableArray =
-                in.readParcelableArray(TestAnswer.class.getClassLoader());
+        Parcelable[] parcelableArray = in.readParcelableArray(TestAnswer.class.getClassLoader());
         TestAnswer[] resultArray = null;
         if (parcelableArray != null) {
             resultArray = Arrays.copyOf(parcelableArray, parcelableArray.length, TestAnswer[].class);
@@ -237,12 +236,12 @@ public class TestQuestion extends RealmObject implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
         dest.writeInt(questionId);
-        dest.writeInt(chapterId);
         dest.writeInt(type);
         dest.writeString(explanation);
         dest.writeString(statement);
         dest.writeByte((byte) (isFavorite ? 1 : 0));
         dest.writeByte((byte) (isFlagged ? 1 : 0));
+        dest.writeInt(chapterId);
         Parcelable[] pAnswers = new Parcelable[answers.size()];
         for (int i = 0; i < answers.size(); i++) {
             pAnswers[i] = answers.get(i);
