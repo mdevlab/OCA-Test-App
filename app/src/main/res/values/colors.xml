@@ -24,6 +24,7 @@
     <color name="color_control_normal">#bdbdbd</color>
     <color name="content_color">#434a54</color>
     <color name="green_buttons_color">#1db954</color>
+    <color name="green_buttons_color_transparent">#751db954</color>
 
     <!--test Colors -->
     <color name="color_final_test">#0DBDFF</color>

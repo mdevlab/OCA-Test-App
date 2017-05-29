@@ -2,6 +2,7 @@ package io.mdevlab.ocatraining.activity;
 
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -46,6 +47,7 @@ public class FavoriteQuestionsActivity extends ActivityBase {
         questionsRecyclerView = (RecyclerView) findViewById(R.id.favorite_questions);
         questionsRecyclerView.setAdapter(questionsAdapter);
         questionsRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        questionsRecyclerView.addItemDecoration(new DividerItemDecoration(questionsRecyclerView.getContext(), DividerItemDecoration.VERTICAL));
         questionsRecyclerView.setLayoutManager(new LinearLayoutManager(FavoriteQuestionsActivity.this));
     }
 

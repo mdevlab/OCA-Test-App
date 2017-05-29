@@ -67,7 +67,6 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:padding">@dimen/spacing_double</item>
-        <item name="android:layout_margin">@dimen/spacing_double</item>
     </style>
 
     <style name="ResultsTitleTextView">

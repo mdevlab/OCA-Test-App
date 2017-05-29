@@ -37,6 +37,7 @@ public class QuestionFragment extends Fragment {
     private LinearLayout mAnswersContainer;
     private RadioGroup mAnswersRadioGroup;
     private TextView mQuestionStatement;
+    private View mAnswerExplanationContainer;
     private TextView mAnswerExplanation;
     private TextView mAnswerTitle;
     private ToggleButton isFlagged;
@@ -68,6 +69,7 @@ public class QuestionFragment extends Fragment {
         mAnswersContainer = (LinearLayout) v.findViewById(R.id.answers_container);
         mAnswersRadioGroup = (RadioGroup) v.findViewById(R.id.answers_radio_group);
         mQuestionStatement = (TextView) v.findViewById(R.id.question_statement);
+        mAnswerExplanationContainer = v.findViewById(R.id.answer_explanation_container);
         mAnswerExplanation = (TextView) v.findViewById(R.id.answer_explanation);
         mAnswerTitle = (TextView) v.findViewById(R.id.response_title);
         isFlagged = (ToggleButton) v.findViewById(R.id.flag_question);
@@ -142,7 +144,7 @@ public class QuestionFragment extends Fragment {
      */
     private void setTheViewResponse() {
         isFlagged.setVisibility(View.INVISIBLE);
-        mAnswerExplanation.setVisibility(View.VISIBLE);
+        mAnswerExplanationContainer.setVisibility(View.VISIBLE);
         mAnswerTitle.setText(R.string.question_answer);
         disableCompoundButtons();
         setAnswerData();
