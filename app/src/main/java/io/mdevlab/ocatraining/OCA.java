@@ -7,6 +7,7 @@ import com.evernote.android.job.JobManager;
 import com.google.android.gms.ads.MobileAds;
 
 import io.fabric.sdk.android.Fabric;
+import io.mdevlab.ocatraining.analytics.AnalyticsManager;
 import io.mdevlab.ocatraining.notification.NotificationsJobCreator;
 import io.mdevlab.ocatraining.notification.NotificationsManager;
 import io.mdevlab.ocatraining.test.Test;
@@ -31,6 +32,11 @@ public class OCA extends Application {
         setUpCrashlytics();
         setUpMobileAds();
         populateDatabase();
+        setUpFireBaseAnalytics();
+    }
+
+    private void setUpFireBaseAnalytics() {
+        AnalyticsManager.initialize(getApplicationContext());
     }
 
 
