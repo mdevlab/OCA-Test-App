@@ -1,0 +1,1098 @@
+{
+    "id": 0,
+    "color": "#1976d2",
+    "name": "Java Building Blocks",
+    "summary": "Summary 1",
+    "questions": [
+      {
+        "id": 0,
+        "chapterId": 0,
+        "type": 2,
+        "statement": "Which of the following are valid Java identifiers? (Choose all that apply)",
+        "explanation": "meh",
+        "isFavorite": false,
+        "answers": [
+          {
+            "id": 0,
+            "answer": "A$B",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answer": "_helloWorld",
+            "isCorrect": true
+          },
+          {
+            "id": 2,
+            "answer": "true",
+            "isCorrect": true
+          },
+          {
+            "id": 3,
+            "answer": "java.lang",
+            "isCorrect": true
+          },
+          {
+            "id": 4,
+            "answer": "Public",
+            "isCorrect": true
+          },
+          {
+            "id": 5,
+            "answer": "1980_s",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "chapterId": 0,
+        "type": 1,
+        "statement": "What is the output of the following program?\n1: public class WaterBottle {\n2: private String brand;\n3: private boolean empty;\n4: public static void main(String[] args) {\n5:  WaterBottle wb = new WaterBottle();\n6:   System.out.print(\"Empty = \" + wb.empty);\n7:   System.out.print(\", Brand = \" + wb.brand);\n8: } }",
+        "explanation": "meh",
+        "isFavorite": false,
+        "answers": [
+          {
+            "id": 0,
+            "answer": "Line 6 generates a compiler error.",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answer": "Line 7 generates a compiler error.",
+            "isCorrect": true
+          },
+          {
+            "id": 2,
+            "answer": "There is no output.",
+            "isCorrect": true
+          },
+          {
+            "id": 3,
+            "answer": "Empty = false, Brand = null",
+            "isCorrect": true
+          },
+          {
+            "id": 4,
+            "answer": "Empty = false, Brand =",
+            "isCorrect": true
+          },
+          {
+            "id": 5,
+            "answer": "Empty = null, Brand = null",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "chapterId": 0,
+        "type": 2,
+        "statement": "Which of the following are true? (Choose all that apply)\n4: short numPets = 5;\n5: int numGrains = 5.6;\n6: String name = \"Scruffy\";\n6: numPets.length();\n8: numGrains.length();\n9: name.length();",
+        "explanation": "meh",
+        "isFavorite": false,
+        "answers": [
+          {
+            "id": 0,
+            "answer": "Line 4 generates a compiler error.",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answer": "Line 5 generates a compiler error.",
+            "isCorrect": true
+          },
+          {
+            "id": 2,
+            "answer": "Line 6 generates a compiler error.",
+            "isCorrect": true
+          },
+          {
+            "id": 3,
+            "answer": "Line 7 generates a compiler error.",
+            "isCorrect": true
+          },
+          {
+            "id": 4,
+            "answer": "Line 8 generates a compiler error.",
+            "isCorrect": true
+          },
+          {
+            "id": 5,
+            "answer": "Line 9 generates a compiler error.",
+            "isCorrect": true
+          },
+          {
+            "id": 6,
+            "answer": "The code compiles as is.",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "chapterId": 0,
+        "type": 2,
+        "statement": "Given the following class, which of the following is true? (Choose all that apply)\n1: public class Snake {\n2:  public void shed(boolean time) {\n3:    if (time) {\n4:  }\n5:    System.out.println(result);\n6:  }\n7:}",
+        "explanation": "meh",
+        "isFavorite": false,
+        "answers": [
+          {
+            "id": 0,
+            "answer": "If String result = \"done\"; is inserted on line 2, the code will compile.",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answer": "If String result = \"done\"; is inserted on line 4, the code will compile.",
+            "isCorrect": true
+          },
+          {
+            "id": 2,
+            "answer": "If String result = \"done\"; is inserted on line 6, the code will compile.",
+            "isCorrect": true
+          },
+          {
+            "id": 3,
+            "answer": "If String result = \"done\"; is inserted on line 9, the code will compile.",
+            "isCorrect": true
+          },
+          {
+            "id": 4,
+            "answer": "None of the above changes will make the code compile.",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "chapterId": 0,
+        "type": 2,
+        "statement": "Given the following classes, which of the following can independently replace INSERT IMPORTS HERE to make the code compile? (Choose all that apply)\n\npackage aquarium; \npublic class Tank { }\n\npackage aquarium.jellies; \npublic class Jelly { }\n\npackage visitor;\nINSERT IMPORTS HERE\npublic class AquariumVisitor {\npublic void admire(Jelly jelly) { } }",
+        "isFavorite": false,
+        "answers": [
+          {
+            "id": 0,
+            "answer": "import aquarium.*;",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answer": "import aquarium.*.Jelly;",
+            "isCorrect": true
+          },
+          {
+            "id": 2,
+            "answer": "import aquarium.jellies.Jelly;",
+            "isCorrect": true
+          },
+          {
+            "id": 3,
+            "answer": "import aquarium.jellies.*;",
+            "isCorrect": true
+          },
+          {
+            "id": 4,
+            "answer": "import aquarium.jellies.Jelly.*;",
+            "isCorrect": true
+          },
+          {
+            "id": 5,
+            "answer": "None of these can make the code compile.",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "chapterId": 0,
+        "type": 1,
+        "statement": "Given the following classes, what is the maximum number of imports that can be removed and have the code still compile?\npackage aquarium; public class Water { }\n\npackage aquarium;\nimport java.lang.*;\nimport java.lang.System; \nimport aquarium.Water; \nimport aquarium.*; \npublic class Tank {\npublic void print(Water water) { \n System.out.println(water); } }",
+        "explanation": "meh",
+        "isFavorite": false,
+        "answers": [
+          {
+            "id": 0,
+            "answer": "0",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answer": "1",
+            "isCorrect": true
+          },
+          {
+            "id": 2,
+            "answer": "2",
+            "isCorrect": true
+          },
+          {
+            "id": 3,
+            "answer": "3",
+            "isCorrect": true
+          },
+          {
+            "id": 4,
+            "answer": "4",
+            "isCorrect": true
+          },
+          {
+            "id": 5,
+            "answer": "5",
+            "isCorrect": true
+          },
+          {
+            "id": 6,
+            "answer": "Does not compile.",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "chapterId": 0,
+        "type": 2,
+        "statement": "Given the following classes, which of the following snippets can be inserted in place of INSERT IMPORTS HERE and have the code compile? (Choose all that apply)\npackage aquarium;\npublic class Water {\n  boolean salty = false; \n}\npackage aquarium.jellies; public class Water {\n  boolean salty = true; \n}\npackage employee; \nINSERT IMPORTS HERE\npublic class WaterFiller { \n  Water water;\n}",
+        "explanation": "meh",
+        "isFavorite": false,
+        "answers": [
+          {
+            "id": 0,
+            "answer": "import aquarium.*;",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answer": "import aquarium.Water;\nimport aquarium.jellies.*;",
+            "isCorrect": true
+          },
+          {
+            "id": 2,
+            "answer": "import aquarium.*;\nimport aquarium.jellies.Water;",
+            "isCorrect": true
+          },
+          {
+            "id": 3,
+            "answer": "import aquarium.*;\nimport aquarium.jellies.*;",
+            "isCorrect": true
+          },
+          {
+            "id": 4,
+            "answer": "import aquarium.Water;\nimport aquarium.jellies.Water;",
+            "isCorrect": true
+          },
+          {
+            "id": 5,
+            "answer": "None of these imports can make the code compile.",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "chapterId": 0,
+        "type": 2,
+        "statement": "Given the following class, which of the following calls print out Blue Jay? (Choose all that apply)\npublic class BirdDisplay {\npublic static void main(String[] name) { \n  System.out.println(name[1]);\n}}",
+        "explanation": "meh",
+        "isFavorite": false,
+        "answers": [
+          {
+            "id": 0,
+            "answer": "java BirdDisplay Sparrow Blue Jay",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answer": "java BirdDisplay Sparrow \"Blue Jay\"",
+            "isCorrect": true
+          },
+          {
+            "id": 2,
+            "answer": "java BirdDisplay Blue Jay Sparrow",
+            "isCorrect": true
+          },
+          {
+            "id": 3,
+            "answer": "java BirdDisplay \"Blue Jay\" Sparrow",
+            "isCorrect": true
+          },
+          {
+            "id": 4,
+            "answer": "java BirdDisplay.class Sparrow \"Blue Jay\"",
+            "isCorrect": true
+          },
+          {
+            "id": 5,
+            "answer": "java BirdDisplay.class \"Blue Jay\" Sparrow",
+            "isCorrect": true
+          },
+          {
+            "id": 6,
+            "answer": "Does not compile.",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "chapterId": 0,
+        "type": 2,
+        "statement": "Which of the following legally fill in the blank so you can run the main() method from the command line? (Choose all that apply)\npublic static void main(   )",
+        "explanation": "meh",
+        "isFavorite": false,
+        "answers": [
+          {
+            "id": 0,
+            "answer": "String[] _names",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answer": "String[] 123",
+            "isCorrect": true
+          },
+          {
+            "id": 2,
+            "answer": "String abc[]",
+            "isCorrect": true
+          },
+          {
+            "id": 3,
+            "answer": "String _Names[]",
+            "isCorrect": true
+          },
+          {
+            "id": 4,
+            "answer": "String... $n",
+            "isCorrect": true
+          },
+          {
+            "id": 5,
+            "answer": "String names",
+            "isCorrect": true
+          },
+          {
+            "id": 6,
+            "answer": "None of the above.",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "chapterId": 0,
+        "type": 2,
+        "statement": "Which of the following are legal entry point methods that can be run from the command line? (Choose all that apply)",
+        "explanation": "meh",
+        "isFavorite": false,
+        "answers": [
+          {
+            "id": 0,
+            "answer": "private static void main(String[] args)",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answer": "public static final main(String[] args)",
+            "isCorrect": true
+          },
+          {
+            "id": 2,
+            "answer": "public void main(String[] args)",
+            "isCorrect": true
+          },
+          {
+            "id": 3,
+            "answer": "public static void test(String[] args)",
+            "isCorrect": true
+          },
+          {
+            "id": 4,
+            "answer": "public static void main(String[] args)",
+            "isCorrect": true
+          },
+          {
+            "id": 5,
+            "answer": "public static main(String[] args)",
+            "isCorrect": true
+          },
+          {
+            "id": 6,
+            "answer": "None of the above.",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "chapterId": 0,
+        "type": 2,
+        "statement": "Which of the following are true? (Choose all that apply)",
+        "explanation": "meh",
+        "isFavorite": false,
+        "answers": [
+          {
+            "id": 0,
+            "answer": "An instance variable of type double defaults to null.",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answer": "An instance variable of type int defaults to null.",
+            "isCorrect": true
+          },
+          {
+            "id": 2,
+            "answer": "An instance variable of type String defaults to null.",
+            "isCorrect": true
+          },
+          {
+            "id": 3,
+            "answer": "An instance variable of type double defaults to 0.0.",
+            "isCorrect": true
+          },
+          {
+            "id": 4,
+            "answer": "An instance variable of type int defaults to 0.0.",
+            "isCorrect": true
+          },
+          {
+            "id": 5,
+            "answer": "An instance variable of type String defaults to 0.0.",
+            "isCorrect": true
+          },
+          {
+            "id": 6,
+            "answer": "None of the above.",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "chapterId": 0,
+        "type": 2,
+        "statement": "Which of the following are true? (Choose all that apply)",
+        "explanation": "meh",
+        "isFavorite": false,
+        "answers": [
+          {
+            "id": 0,
+            "answer": "A local variable of type boolean defaults to null.",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answer": "A local variable of type float defaults to 0.",
+            "isCorrect": true
+          },
+          {
+            "id": 2,
+            "answer": "A local variable of type Object defaults to null.",
+            "isCorrect": true
+          },
+          {
+            "id": 3,
+            "answer": "A local variable of type boolean defaults to false.",
+            "isCorrect": true
+          },
+          {
+            "id": 4,
+            "answer": "A local variable of type boolean defaults to true.",
+            "isCorrect": true
+          },
+          {
+            "id": 5,
+            "answer": "A local variable of type float defaults to 0.0.",
+            "isCorrect": true
+          },
+          {
+            "id": 6,
+            "answer": "None of the above.",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "chapterId": 0,
+        "type": 2,
+        "statement": "Which of the following are true? (Choose all that apply)",
+        "explanation": "meh",
+        "isFavorite": false,
+        "answers": [
+          {
+            "id": 0,
+            "answer": "An instance variable of type boolean defaults to false.",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answer": "An instance variable of type boolean defaults to true.",
+            "isCorrect": true
+          },
+          {
+            "id": 2,
+            "answer": "An instance variable of type boolean defaults to null.",
+            "isCorrect": true
+          },
+          {
+            "id": 3,
+            "answer": "An instance variable of type int defaults to 0.",
+            "isCorrect": true
+          },
+          {
+            "id": 4,
+            "answer": "An instance variable of type int defaults to 0.0.",
+            "isCorrect": true
+          },
+          {
+            "id": 5,
+            "answer": "An instance variable of type int defaults to null.",
+            "isCorrect": true
+          },
+          {
+            "id": 6,
+            "answer": "None of the above..",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "chapterId": 0,
+        "type": 2,
+        "statement": "Given the following class in the file /my/directory/named/A/Bird.java: \nINSERT CODE HERE \npublic class Bird { }\nWhich of the following replaces INSERT CODE HERE if we compile from /my/directory? (Choose all that apply)",
+        "explanation": "meh",
+        "isFavorite": false,
+        "answers": [
+          {
+            "id": 0,
+            "answer": "package my.directory.named.a;",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answer": "package my.directory.named.A;",
+            "isCorrect": true
+          },
+          {
+            "id": 2,
+            "answer": "package named.a;",
+            "isCorrect": true
+          },
+          {
+            "id": 3,
+            "answer": "package named.A;",
+            "isCorrect": true
+          },
+          {
+            "id": 4,
+            "answer": "package a;",
+            "isCorrect": true
+          },
+          {
+            "id": 5,
+            "answer": "package A;",
+            "isCorrect": true
+          },
+          {
+            "id": 6,
+            "answer": "Does not compile.",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 14,
+        "chapterId": 0,
+        "type": 2,
+        "statement": "Which of the following lines of code compile? (Choose all that apply)",
+        "explanation": "meh",
+        "isFavorite": false,
+        "answers": [
+          {
+            "id": 0,
+            "answer": "int i1 = 1_234;",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answer": "double d1 = 1_234_.0;",
+            "isCorrect": true
+          },
+          {
+            "id": 2,
+            "answer": "double d2 = 1_234._0;",
+            "isCorrect": true
+          },
+          {
+            "id": 3,
+            "answer": "double d3 = 1_234.0_;",
+            "isCorrect": true
+          },
+          {
+            "id": 4,
+            "answer": "double d4 = 1_234.0;",
+            "isCorrect": true
+          },
+          {
+            "id": 5,
+            "answer": "None of the above.",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 15,
+        "chapterId": 0,
+        "type": 2,
+        "statement": "Given the following class, which of the following lines of code can replace INSERT CODE HERE to make the code compile? (Choose all that apply)\npublic class Price {\n  public void admission() { \n    INSERT CODE HERE\n    System.out.println(amount);\n  }}",
+        "explanation": "meh",
+        "isFavorite": false,
+        "answers": [
+          {
+            "id": 0,
+            "answer": "int amount = 9L;",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answer": "int amount = 0b101;",
+            "isCorrect": true
+          },
+          {
+            "id": 2,
+            "answer": "int amount = 0xE;",
+            "isCorrect": true
+          },
+          {
+            "id": 3,
+            "answer": "double amount = 0xE;",
+            "isCorrect": true
+          },
+          {
+            "id": 4,
+            "answer": "double amount = 1_2_.0_0;",
+            "isCorrect": true
+          },
+          {
+            "id": 5,
+            "answer": "int amount = 1_2_;",
+            "isCorrect": true
+          },
+          {
+            "id": 5,
+            "answer": "None of the above.",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 16,
+        "chapterId": 0,
+        "type": 2,
+        "statement": "Which of the following are true? (Choose all that apply)\npublic class Bunny {\n  public static void main(String[] args) { \n    Bunny bun = new Bunny();\n}}",
+        "explanation": "meh",
+        "isFavorite": false,
+        "answers": [
+          {
+            "id": 0,
+            "answer": "Bunny is a class.",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answer": "bun is a class.",
+            "isCorrect": true
+          },
+          {
+            "id": 2,
+            "answer": "main is a class.",
+            "isCorrect": true
+          },
+          {
+            "id": 3,
+            "answer": "Bunny is a reference to an object.",
+            "isCorrect": true
+          },
+          {
+            "id": 4,
+            "answer": "bun is a reference to an object.",
+            "isCorrect": true
+          },
+          {
+            "id": 5,
+            "answer": "main is a reference to an object.",
+            "isCorrect": true
+          },
+          {
+            "id": 6,
+            "answer": "None of the above.",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 17,
+        "chapterId": 0,
+        "type": 2,
+        "statement": "Which represent the order in which the following statements can be assembled into a pro- gram that will compile successfully? (Choose all that apply)\nA: class Rabbit {}\nB: import java.util.*; \nC: package animals;",
+        "explanation": "meh",
+        "isFavorite": false,
+        "answers": [
+          {
+            "id": 0,
+            "answer": "A,B,C",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answer": "B,C,A",
+            "isCorrect": true
+          },
+          {
+            "id": 2,
+            "answer": "C,B,A",
+            "isCorrect": true
+          },
+          {
+            "id": 3,
+            "answer": "B,A",
+            "isCorrect": true
+          },
+          {
+            "id": 4,
+            "answer": "C,A",
+            "isCorrect": true
+          },
+          {
+            "id": 5,
+            "answer": "A,C",
+            "isCorrect": true
+          },
+          {
+            "id": 6,
+            "answer": "A,B",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 18,
+        "chapterId": 0,
+        "type": 2,
+        "statement": "Suppose we have a class named Rabbit. Which of the following statements are true? (Choose all that apply)\n1: public class Rabbit {\n2: public static void main(String[] args) {\n3:  Rabbit one = new Rabbit();\n4:  Rabbit two = new Rabbit();\n5:  Rabbit three = one;\n6:  one = null;\n7:  Rabbit four = one;\n8:  three = null;\n9:  two = null;\n10:  two = new Rabbit();\n11: System.gc();\n} }",
+        "explanation": "meh",
+        "isFavorite": false,
+        "answers": [
+          {
+            "id": 0,
+            "answer": "The Rabbit object from line 3 is first eligible for garbage collection immediately following line 6.",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answer": "The Rabbit object from line 3 is first eligible for garbage collection immediately following line 8.",
+            "isCorrect": true
+          },
+          {
+            "id": 2,
+            "answer": "The Rabbit object from line 3 is first eligible for garbage collection immediately following line 12.",
+            "isCorrect": true
+          },
+          {
+            "id": 3,
+            "answer": "The Rabbit object from line 4 is first eligible for garbage collection immediately following line 9.",
+            "isCorrect": true
+          },
+          {
+            "id": 4,
+            "answer": "The Rabbit object from line 4 is first eligible for garbage collection immediately following line 11.",
+            "isCorrect": true
+          },
+          {
+            "id": 5,
+            "answer": "The Rabbit object from line 4 is first eligible for garbage collection immediately following line 12.",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 19,
+        "chapterId": 0,
+        "type": 2,
+        "statement": "What is true about the following code? (Choose all that apply) public class Bear {\n protected void finalize() { \n  System.out.println(\"Roar!\");\n}\n\npublic static void main(String[] args) { \n Bear bear = new Bear();\n bear = null;\n System.gc();\n}}",
+        "explanation": "meh",
+        "isFavorite": false,
+        "answers": [
+          {
+            "id": 0,
+            "answer": "finalize() is guaranteed to be called.",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answer": "finalize() might or might not be called",
+            "isCorrect": true
+          },
+          {
+            "id": 2,
+            "answer": "finalize() is guaranteed not to be called.",
+            "isCorrect": true
+          },
+          {
+            "id": 3,
+            "answer": "Garbage collection is guaranteed to run.",
+            "isCorrect": true
+          },
+          {
+            "id": 4,
+            "answer": "Garbage collection might or might not run.",
+            "isCorrect": true
+          },
+          {
+            "id": 5,
+            "answer": "Garbage collection is guaranteed not to run.",
+            "isCorrect": true
+          },
+          {
+            "id": 6,
+            "answer": "The code does not compile.",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 20,
+        "chapterId": 0,
+        "type": 1,
+        "statement": "What does the following code output?\n1: public class Salmon {\n2:  int count;\n3:  public void Salmon() {\n4:  count = 4;\n5: }\n6: public static void main(String[] args) {\n7: Salmon s = new Salmon();\n8:  System.out.println(s.count);\n9: } }",
+        "explanation": "meh",
+        "isFavorite": false,
+        "answers": [
+          {
+            "id": 0,
+            "answer": "0",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answer": "4",
+            "isCorrect": true
+          },
+          {
+            "id": 2,
+            "answer": "Compilation fails on line 3.",
+            "isCorrect": true
+          },
+          {
+            "id": 3,
+            "answer": "Compilation fails on line 4.",
+            "isCorrect": true
+          },
+          {
+            "id": 4,
+            "answer": "Compilation fails on line 7.",
+            "isCorrect": true
+          },
+          {
+            "id": 5,
+            "answer": "Compilation fails on line 8.",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 21,
+        "chapterId": 0,
+        "type": 2,
+        "statement": "Which of the following are true statements? (Choose all that apply)",
+        "explanation": "meh",
+        "isFavorite": false,
+        "answers": [
+          {
+            "id": 0,
+            "answer": "Java allows operator overloading.",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answer": "Java code compiled on Windows can run on Linux.",
+            "isCorrect": true
+          },
+          {
+            "id": 2,
+            "answer": "Java has pointers to specific locations in memory.",
+            "isCorrect": true
+          },
+          {
+            "id": 3,
+            "answer": "Java is a procedural language.",
+            "isCorrect": true
+          },
+          {
+            "id": 4,
+            "answer": "Java is an object-oriented language.",
+            "isCorrect": true
+          },
+          {
+            "id": 5,
+            "answer": "Java is a functional programming language.",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 22,
+        "chapterId": 0,
+        "type": 2,
+        "statement": "Which of the following are true? (Choose all that apply)",
+        "explanation": "meh",
+        "isFavorite": false,
+        "answers": [
+          {
+            "id": 0,
+            "answer": "javac compiles a .class file into a .java file.",
+            "isCorrect": true
+          },
+          {
+            "id": 1,
+            "answer": "javac compiles a .java file into a .bytecode file.",
+            "isCorrect": true
+          },
+          {
+            "id": 2,
+            "answer": "javac compiles a .java file into a .class file.",
+            "isCorrect": true
+          },
+          {
+            "id": 3,
+            "answer": "Java takes the name of the class as a parameter.",
+            "isCorrect": true
+          },
+          {
+            "id": 4,
+            "answer": "Java takes the name of the .bytecode file as a parameter.",
+            "isCorrect": true
+          },
+          {
+            "id": 5,
+            "answer": "Java takes the name of the .class file as a parameter.",
+            "isCorrect": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "color": "#00796b",
+    "name": "Operators and Statements",
+    "summary": "Summary 1",
+    "questions": [
+      {
+        "id": 23,
+        "chapterId": 1,
+        "statement": "Which of the following Java operators can be used with boolean variables? (Choose all that apply)",
+        "explanation": "meh",
+        "isFavorite": false,
+        "answers": [
+          {
+            "id": 0,
+            "answer": "==",
+            "isCorrect": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "color": "#fbc02d",
+    "name": "Core Java APIs",
+    "summary": "Summary 1",
+    "questions": [
+      {
+        "id": 0,
+        "chapterId": 0,
+        "statement": "meh",
+        "explanation": "meh",
+        "isFavorite": false,
+        "answers": [
+          {
+            "id": 0,
+            "answer": "answer",
+            "isCorrect": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "color": "#e64a19",
+    "name": "Methods and Encapsulation",
+    "summary": "Summary 1",
+    "questions": [
+      {
+        "id": 0,
+        "chapterId": 0,
+        "statement": "meh",
+        "explanation": "meh",
+        "isFavorite": false,
+        "answers": [
+          {
+            "id": 0,
+            "answer": "answer",
+            "isCorrect": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "color": "#607d8b",
+    "name": "Class Design",
+    "summary": "Summary 1",
+    "questions": [
+      {
+        "id": 0,
+        "chapterId": 0,
+        "statement": "meh",
+        "explanation": "meh",
+        "isFavorite": false,
+        "answers": [
+          {
+            "id": 0,
+            "answer": "answer",
+            "isCorrect": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "color": "#7b1fa2",
+    "name": "Exceptions",
+    "summary": "Summary 1",
+    "questions": [
+      {
+        "id": 0,
+        "chapterId": 5,
+        "statement": "meh",
+        "explanation": "meh",
+        "isFavorite": false,
+        "answers": [
+          {
+            "id": 0,
+            "answer": "answer",
+            "isCorrect": true
+          }
+        ]
+      }
+    ]
+  }
+]

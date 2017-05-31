@@ -187,7 +187,7 @@ public class TestActivity extends ActivityBase implements ViewPager.OnPageChange
 
 
     private void prepareResumedTest() {
-        mTest = TestManager.getLastSavedTest(testMode,currentChapter);
+        mTest = TestManager.getLastSavedTest(testMode, currentChapter);
         mListQuestions = mTest.getQuestions();
         prepareResumedUI();
     }
@@ -207,18 +207,18 @@ public class TestActivity extends ActivityBase implements ViewPager.OnPageChange
         switch (testMode) {
             case FINAL_TEST_MODE:
                 mListQuestions = TestQuestionManager.getTestQuestions(TEST_LIMIT_QUESTIONS);
-                mTest = new Test(mListQuestions.size(), FINAL_TEST_MODE, mListQuestions,TEST_NO_SPECIFIC_CHAPATER);
-                TestManager.cleanUnfinishedTest(FINAL_TEST_MODE,TEST_NO_SPECIFIC_CHAPATER);
+                mTest = new Test(mListQuestions.size(), FINAL_TEST_MODE, mListQuestions, TEST_NO_SPECIFIC_CHAPATER);
+                TestManager.cleanUnfinishedTest(FINAL_TEST_MODE, TEST_NO_SPECIFIC_CHAPATER);
                 break;
             case CUSTOM_TEST_MODE:
                 mListQuestions = TestQuestionManager.getTestQuestions(5);
-                mTest = new Test(mListQuestions.size(), CUSTOM_TEST_MODE, mListQuestions,TEST_NO_SPECIFIC_CHAPATER);
-                TestManager.cleanUnfinishedTest(CUSTOM_TEST_MODE,TEST_NO_SPECIFIC_CHAPATER);
+                mTest = new Test(mListQuestions.size(), CUSTOM_TEST_MODE, mListQuestions, TEST_NO_SPECIFIC_CHAPATER);
+                TestManager.cleanUnfinishedTest(CUSTOM_TEST_MODE, TEST_NO_SPECIFIC_CHAPATER);
                 break;
             case CHAPTER_TEST_MODE:
-                mListQuestions = TestQuestionManager.getChapterTestQuestions(5,currentChapter);
-                mTest = new Test(mListQuestions.size(), CHAPTER_TEST_MODE, mListQuestions,currentChapter);
-                TestManager.cleanUnfinishedTest(CHAPTER_TEST_MODE,currentChapter);
+                mListQuestions = TestQuestionManager.getChapterTestQuestions(5, currentChapter);
+                mTest = new Test(mListQuestions.size(), CHAPTER_TEST_MODE, mListQuestions, currentChapter);
+                TestManager.cleanUnfinishedTest(CHAPTER_TEST_MODE, currentChapter);
                 break;
 
         }
@@ -407,6 +407,8 @@ public class TestActivity extends ActivityBase implements ViewPager.OnPageChange
                     Intent intent = new Intent(TestActivity.this, ResultsActivity.class);
                     intent.putExtra(CURRENT_TEST, mTest);
                     intent.putExtra(TEST_MODE, testMode);
+                    if (testMode == CHAPTER_TEST_MODE)
+                        intent.putExtra(TEST_CHAPTER, currentChapter);
                     startActivity(intent);
                     TestManager.updateFinishedTest(mTest);
 
@@ -503,7 +505,7 @@ public class TestActivity extends ActivityBase implements ViewPager.OnPageChange
      * @return
      */
     public boolean isAnyResumedTestExist() {
-        if (TestManager.getLastSavedTest(testMode,currentChapter) == null)
+        if (TestManager.getLastSavedTest(testMode, currentChapter) == null)
             return false;
         return true;
     }

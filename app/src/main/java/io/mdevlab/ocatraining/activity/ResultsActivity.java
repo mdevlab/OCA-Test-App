@@ -25,7 +25,9 @@ import lecho.lib.hellocharts.view.PieChartView;
 
 import static io.mdevlab.ocatraining.model.Answer.ANSWER_NUMBER;
 import static io.mdevlab.ocatraining.model.Answer.CURRENT_ANSWER;
+import static io.mdevlab.ocatraining.model.Test.CHAPTER_TEST_MODE;
 import static io.mdevlab.ocatraining.model.Test.FINAL_TEST_MODE;
+import static io.mdevlab.ocatraining.model.Test.TEST_CHAPTER;
 import static io.mdevlab.ocatraining.model.Test.TEST_MODE;
 
 public class ResultsActivity extends ActivityBase {
@@ -131,7 +133,13 @@ public class ResultsActivity extends ActivityBase {
 
     public void takeAnotherTest(View view) {
         int testMode = getCurrentTestMode();
-        DialogFragment newTestDialog = DialogNewTest.newInstance(testMode);
+        DialogFragment newTestDialog;
+        if (testMode == CHAPTER_TEST_MODE) {
+            newTestDialog = DialogNewTest.newInstance(testMode, getIntent().getExtras().getInt(TEST_CHAPTER));
+        } else {
+            newTestDialog = DialogNewTest.newInstance(testMode);
+        }
+
         newTestDialog.show(getSupportFragmentManager(), DIALOG_NEW_TEST_TAG);
     }
 
