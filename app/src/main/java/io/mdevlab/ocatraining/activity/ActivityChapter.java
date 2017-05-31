@@ -1,8 +1,10 @@
 package io.mdevlab.ocatraining.activity;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
@@ -27,7 +29,7 @@ public class ActivityChapter extends ActivityBase {
     HtmlTextView chapterSummary;
     FloatingActionButton chapterStartTest;
 
-    final String dummy_html_page = "<HTML>  <BODY BGCOLOR=\"FFFFFF\"> <CENTER><IMG ALIGN=\"BOTTOM\" SRC=\"clouds.jpg\" /> </CENTER> <HR> <a href=\"http://somegreatsite.com\">Link Name</a> is a link to another nifty site <H1>This is a Header</H1> <H2>This is a Medium Header</H2> Send me mail at <a href=\"mailto:support@yourcompany.com\"> support@yourcompany.com</a>. <P> This is a new paragraph! </P> <P> <B>This is a new paragraph!</B> </P> <BR /> <B><I>This is a new sentence without a paragraph break, in bold italics.</I></B> </HR> </BODY> </HTML>";
+
 
 
     @Override
@@ -52,7 +54,7 @@ public class ActivityChapter extends ActivityBase {
 
     private void setUpChapterSummary() {
         chapterSummary = (HtmlTextView) findViewById(R.id.chapter_summary);
-        chapterSummary.setHtml(dummy_html_page);
+        chapterSummary.setHtml(currentChapter.getSummary());
     }
 
 
