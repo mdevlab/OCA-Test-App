@@ -15,11 +15,14 @@ import android.view.MenuItem;
 
 import java.util.List;
 
+import io.mdevlab.ocatraining.BuildConfig;
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.adapter.ChapterAdapter;
 import io.mdevlab.ocatraining.model.Chapter;
 import io.mdevlab.ocatraining.modelManager.ChapterManager;
 import io.mdevlab.ocatraining.util.UtilActions;
+
+import static io.mdevlab.ocatraining.R.id.nav_upgrade;
 
 
 public class MainActivity extends ActivityBase implements NavigationView.OnNavigationItemSelectedListener {
@@ -87,6 +90,11 @@ public class MainActivity extends ActivityBase implements NavigationView.OnNavig
     private void setUpNavigationDrawer() {
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        if (!BuildConfig.IS_FREE_FLAVOR) {
+            MenuItem upgradeItem = navigationView.getMenu().findItem(R.id.nav_upgrade);
+            upgradeItem.setVisible(true);
+        }
+
     }
 
 
@@ -104,7 +112,10 @@ public class MainActivity extends ActivityBase implements NavigationView.OnNavig
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
         getMenuInflater().inflate(R.menu.main, menu);
+
+
         return true;
     }
 
@@ -132,7 +143,7 @@ public class MainActivity extends ActivityBase implements NavigationView.OnNavig
         int itemId = item.getItemId();
         Intent intent;
         switch (itemId) {
-            case R.id.nav_upgrade:
+            case nav_upgrade:
                 UtilActions.displayUpgradeDialog(MainActivity.this);
                 break;
             case R.id.nav_favorite_questions:

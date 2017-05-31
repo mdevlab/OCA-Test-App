@@ -11,6 +11,7 @@
         layout="@layout/toolbar" />
 
     <ScrollView
+        android:id="@+id/chapter_summary_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/publisherAdView"
@@ -31,6 +32,7 @@
         android:id="@+id/chapter_start_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_above="@+id/publisherAdView"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"

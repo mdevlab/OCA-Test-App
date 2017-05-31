@@ -7,12 +7,14 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import io.mdevlab.ocatraining.BuildConfig;
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.adapter.ResultsAdapter;
 import io.mdevlab.ocatraining.dialog.DialogNewTest;
@@ -35,6 +37,8 @@ public class ResultsActivity extends ActivityBase {
     private static final String DIALOG_NEW_TEST_TAG = "new test dialog";
     private ResultsAdapter mAdapter;
     private Test mTest;
+    private Boolean isPaid;
+    private Button upgradeButton;
 
 
     @Override
@@ -42,15 +46,22 @@ public class ResultsActivity extends ActivityBase {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
         setUpToolbar(getString(R.string.title_result));
+        upgradeButton = (Button) findViewById(R.id.upgrade_btn);
         setUpDFP(null);
         setUpTest();
         setUpViews();
-
+        isPaid = BuildConfig.IS_FREE_FLAVOR ? false : true;
+        setUpPaidUi();
         // For testing
 //        io.mdevlab.ocatraining.test.Test.populateDataBase(ResultsActivity.this);
 //        mTest = TestTest.createTest();
     }
 
+    public void setUpPaidUi() {
+        if (isPaid) {
+            upgradeButton.setVisibility(View.GONE);
+        }
+    }
 
     private void setUpViews() {
         if (mTest != null) {
@@ -139,10 +150,21 @@ public class ResultsActivity extends ActivityBase {
         } else {
             newTestDialog = DialogNewTest.newInstance(testMode);
         }
+        if (isPaid) {
+            retakeTest();
+        } else {
+            newTestDialog.show(getSupportFragmentManager(), DIALOG_NEW_TEST_TAG);
+        }
 
-        newTestDialog.show(getSupportFragmentManager(), DIALOG_NEW_TEST_TAG);
     }
 
+    public void retakeTest() {
+        Intent test = new Intent(this, TestActivity.class);
+        test.putExtra(TEST_MODE, getCurrentTestMode());
+        if (getCurrentTestMode() == Test.CHAPTER_TEST_MODE && getIntent().getExtras().containsKey(TEST_CHAPTER))
+            test.putExtra(TEST_CHAPTER, getIntent().getExtras().getInt(TEST_CHAPTER));
+        startActivity(test);
+    }
 
     private int getCurrentTestMode() {
         if (getIntent() != null &&
@@ -156,6 +178,7 @@ public class ResultsActivity extends ActivityBase {
 
 
     public void upgrade(View view) {
+
         UtilActions.displayUpgradeDialog(ResultsActivity.this);
     }
 
