@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Events Name-->
+    <string name="event_view_settings">view_settings</string>
+    <string name="event_view_all_chapters">view_settings</string>
+
+
+    <!--Event properties -->
+    <string name="property_source">source</string>
+    <string name="property_test_mode">test_mode</string>
+
+    <!--Event properties  values -->
+
+</resources>

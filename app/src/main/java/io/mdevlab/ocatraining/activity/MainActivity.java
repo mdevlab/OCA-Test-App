@@ -38,6 +38,7 @@ public class MainActivity extends ActivityBase implements NavigationView.OnNavig
         initChapterTestList();
         setUpDrawer();
         setUpNavigationDrawer();
+        Bundle bundle = new Bundle();
     }
 
 
