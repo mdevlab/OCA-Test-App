@@ -18,10 +18,12 @@ import android.widget.ToggleButton;
 
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.adapter.TestQuestionAdapter;
+import io.mdevlab.ocatraining.analytics.AnalyticsManager;
 import io.mdevlab.ocatraining.model.Test;
 import io.mdevlab.ocatraining.model.TestQuestion;
 import io.mdevlab.ocatraining.modelManager.TestManager;
 import io.mdevlab.ocatraining.modelManager.TestQuestionManager;
+import io.mdevlab.ocatraining.util.OcaStringUtils;
 import io.realm.Realm;
 import io.realm.RealmList;
 
@@ -404,11 +406,13 @@ public class TestActivity extends ActivityBase implements ViewPager.OnPageChange
         builder.setPositiveButton(positiveButton, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 if (isResult) {
+                    updateCurrentTest();
                     Intent intent = new Intent(TestActivity.this, ResultsActivity.class);
                     intent.putExtra(CURRENT_TEST, mTest);
                     intent.putExtra(TEST_MODE, testMode);
                     if (testMode == CHAPTER_TEST_MODE)
                         intent.putExtra(TEST_CHAPTER, currentChapter);
+                    trackViewResult();
                     startActivity(intent);
                     TestManager.updateFinishedTest(mTest);
 
@@ -434,6 +438,15 @@ public class TestActivity extends ActivityBase implements ViewPager.OnPageChange
         //Build the dialog
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    private void trackViewResult() {
+
+        Bundle bundle = new Bundle();
+        bundle.putString(getString(R.string.property_name_test_mode), OcaStringUtils.getStringTestMode(testMode));
+        bundle.putString(getString(R.string.property_name_test_duration_minutes), String.valueOf(minute));
+        AnalyticsManager.getInstance().logEvent(getString(R.string.event_view_result), bundle);
+
     }
 
     /**

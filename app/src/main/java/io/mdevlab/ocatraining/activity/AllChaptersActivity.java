@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import io.mdevlab.ocatraining.R;
+import io.mdevlab.ocatraining.analytics.AnalyticsManager;
+import io.mdevlab.ocatraining.util.OcaStringUtils;
 
 import static io.mdevlab.ocatraining.model.Test.CUSTOM_TEST_MODE;
 import static io.mdevlab.ocatraining.model.Test.FINAL_TEST_MODE;
@@ -51,21 +53,29 @@ public class AllChaptersActivity extends ActivityBase
     public void onClick(View view) {
         int testMode = FINAL_TEST_MODE;
         Class<? extends Activity> testActivityClass = null;
+        Bundle bundle = new Bundle();
         switch (view.getId()) {
             case R.id.final_test:
                 testMode = FINAL_TEST_MODE;
+                bundle.putString(getString(R.string.property_name_test_mode), OcaStringUtils.getStringTestMode(FINAL_TEST_MODE));
                 testActivityClass = TestActivity.class;
                 break;
             case R.id.custom_test:
                 testMode = CUSTOM_TEST_MODE;
+                bundle.putString(getString(R.string.property_name_test_mode), OcaStringUtils.getStringTestMode(CUSTOM_TEST_MODE));
                 testActivityClass = TestActivity.class;
                 break;
             case R.id.random_test:
                 testMode = RANDOM_TEST_MODE;
+                bundle.putString(getString(R.string.property_name_test_mode), OcaStringUtils.getStringTestMode(RANDOM_TEST_MODE));
                 testActivityClass = RandomTestActivity.class;
                 break;
         }
         if (testActivityClass != null) {
+            //Track firebase Analytics Event
+            bundle.putString(getString(R.string.property_name_source), getString(R.string.attribute_all_chapters));
+            AnalyticsManager.getInstance().logEvent(getString(R.string.event_click_take_a_test), bundle);
+
             Intent beginTest = new Intent(AllChaptersActivity.this, testActivityClass);
             beginTest.putExtra(TEST_MODE, testMode);
             startActivity(beginTest);
@@ -73,4 +83,6 @@ public class AllChaptersActivity extends ActivityBase
 
 
     }
+
+
 }

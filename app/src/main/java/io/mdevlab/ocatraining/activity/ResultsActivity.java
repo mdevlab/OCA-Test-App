@@ -17,6 +17,7 @@ import java.util.List;
 import io.mdevlab.ocatraining.BuildConfig;
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.adapter.ResultsAdapter;
+import io.mdevlab.ocatraining.analytics.AnalyticsManager;
 import io.mdevlab.ocatraining.dialog.DialogNewTest;
 import io.mdevlab.ocatraining.model.Test;
 import io.mdevlab.ocatraining.util.UtilActions;
@@ -178,7 +179,9 @@ public class ResultsActivity extends ActivityBase {
 
 
     public void upgrade(View view) {
-
+        Bundle bundle = new Bundle();
+        bundle.putString(getString(R.string.property_name_source), getString(R.string.attribute_test_result));
+        AnalyticsManager.getInstance().logEvent(getResources().getString(R.string.event_view_upgrade), bundle);
         UtilActions.displayUpgradeDialog(ResultsActivity.this);
     }
 
