@@ -1,9 +1,10 @@
 package io.mdevlab.ocatraining.fragment;
 
-import android.graphics.Color;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,8 @@ import static io.mdevlab.ocatraining.model.Question.SINGLE_ANSWER_QUESTION;
 
 
 public class QuestionFragment extends Fragment {
+
+    Context mContext;
 
     private static Boolean isRandomQuestion;
     private TestQuestion mQuestion;
@@ -63,6 +66,8 @@ public class QuestionFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        mContext = getActivity();
 
         View v = inflater.inflate(R.layout.item_question, container, false);
         //Get the views objects
@@ -265,15 +270,15 @@ public class QuestionFragment extends Fragment {
 
             CompoundButton compoundButton = (CompoundButton) mAnswersContainer.findViewById(i + ID_COMPLEMENTARY);
             if (mQuestion.getAnswers().get(i).isAnswerCorrect()) {
-                if (mQuestion.getAnswers().get(i).isCorrect() == true) {
-                    compoundButton.setTextColor(Color.GREEN);
+                if (mQuestion.getAnswers().get(i).isCorrect()) {
+                    compoundButton.setTextColor(ContextCompat.getColor(mContext, R.color.green_buttons_color));
                 }
             } else if (!mQuestion.getAnswers().get(i).isAnswerCorrect()) {
-                if (mQuestion.getAnswers().get(i).isSelected() == true) {
-                    compoundButton.setTextColor(Color.RED);
+                if (mQuestion.getAnswers().get(i).isSelected()) {
+                    compoundButton.setTextColor(ContextCompat.getColor(mContext, R.color.colorPrimary));
                 }
-                if (mQuestion.getAnswers().get(i).isCorrect() == true) {
-                    compoundButton.setTextColor(Color.GREEN);
+                if (mQuestion.getAnswers().get(i).isCorrect()) {
+                    compoundButton.setTextColor(ContextCompat.getColor(mContext, R.color.green_buttons_color));
                 }
             }
         }
