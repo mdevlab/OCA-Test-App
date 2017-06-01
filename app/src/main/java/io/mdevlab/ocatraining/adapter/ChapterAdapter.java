@@ -2,6 +2,7 @@ package io.mdevlab.ocatraining.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -10,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -18,6 +18,7 @@ import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.activity.ActivityChapter;
 import io.mdevlab.ocatraining.activity.AllChaptersActivity;
 import io.mdevlab.ocatraining.activity.TestActivity;
+import io.mdevlab.ocatraining.analytics.AnalyticsManager;
 import io.mdevlab.ocatraining.model.Chapter;
 
 import static io.mdevlab.ocatraining.model.Chapter.CHAPTER_ID;
@@ -147,8 +148,11 @@ public class ChapterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                     test.putExtra(TEST_CHAPTER, chapterId);
                     test.putExtra(TEST_MODE, CHAPTER_TEST_MODE);
                     mContext.startActivity(test);
+                    trackTakeChapterTest();
 
                 }
+
+
             });
 
             mChapterView = (CardView) itemView.findViewById(R.id.Chapter_card_view);
@@ -156,8 +160,33 @@ public class ChapterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 @Override
                 public void onClick(View v) {
                     openChapter();
+                    trackOpenChapterEvent();
                 }
             });
+        }
+
+        /**
+         * Firebase Analytics tracking
+         *
+         * Track take the chapter test
+         */
+        private void trackTakeChapterTest() {
+            Bundle bundle = new Bundle();
+            bundle.putString(mContext.getString(R.string.property_name_source), mContext.getString(R.string.attribute_value_home));
+            bundle.putString(mContext.getString(R.string.property_name_chapter_id), String.valueOf(chapterId));
+            AnalyticsManager.getInstance().logEvent(mContext.getString(R.string.event_click_take_chapter_test), bundle);
+
+        }
+
+        /**
+         * Firebase Analytics tracking
+         *
+         * Track open the chapter view
+         */
+        private void trackOpenChapterEvent() {
+            Bundle bundle = new Bundle();
+            bundle.putString(mContext.getResources().getString(R.string.property_name_chapter_id), String.valueOf(chapterId));
+            AnalyticsManager.getInstance().logEvent(mContext.getResources().getString(R.string.event_view_all_chapters), null);
         }
 
         /**
@@ -184,6 +213,8 @@ public class ChapterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 public void onClick(View v) {
                     Intent intent = new Intent(mContext, AllChaptersActivity.class);
                     mContext.startActivity(intent);
+                    //Firebase Analytics tracking
+                    AnalyticsManager.getInstance().logEvent(mContext.getResources().getString(R.string.event_view_all_chapters),null);
                 }
             });
         }

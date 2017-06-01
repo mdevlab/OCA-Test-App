@@ -9,6 +9,7 @@ import android.view.View;
 import org.sufficientlysecure.htmltextview.HtmlTextView;
 
 import io.mdevlab.ocatraining.R;
+import io.mdevlab.ocatraining.analytics.AnalyticsManager;
 import io.mdevlab.ocatraining.model.Chapter;
 import io.mdevlab.ocatraining.modelManager.ChapterManager;
 
@@ -26,8 +27,6 @@ public class ActivityChapter extends ActivityBase {
     Toolbar toolbar;
     HtmlTextView chapterSummary;
     FloatingActionButton chapterStartTest;
-
-    final String dummy_html_page = "<HTML>  <BODY BGCOLOR=\"FFFFFF\"> <CENTER><IMG ALIGN=\"BOTTOM\" SRC=\"clouds.jpg\" /> </CENTER> <HR> <a href=\"http://somegreatsite.com\">Link Name</a> is a link to another nifty site <H1>This is a Header</H1> <H2>This is a Medium Header</H2> Send me mail at <a href=\"mailto:support@yourcompany.com\"> support@yourcompany.com</a>. <P> This is a new paragraph! </P> <P> <B>This is a new paragraph!</B> </P> <BR /> <B><I>This is a new sentence without a paragraph break, in bold italics.</I></B> </HR> </BODY> </HTML>";
 
 
     @Override
@@ -52,7 +51,7 @@ public class ActivityChapter extends ActivityBase {
 
     private void setUpChapterSummary() {
         chapterSummary = (HtmlTextView) findViewById(R.id.chapter_summary);
-        chapterSummary.setHtml(dummy_html_page);
+        chapterSummary.setHtml(currentChapter.getSummary());
     }
 
 
@@ -66,7 +65,21 @@ public class ActivityChapter extends ActivityBase {
                 test.putExtra(TEST_CHAPTER, currentChapter.getId());
                 test.putExtra(TEST_MODE, CHAPTER_TEST_MODE);
                 startActivity(test);
+                trackTakeChapterTest();
             }
         });
+    }
+
+    /**
+     * Firebase Analytics tracking
+     * <p>
+     * Track take the chapter test
+     */
+    private void trackTakeChapterTest() {
+        Bundle bundle = new Bundle();
+        bundle.putString(getString(R.string.property_name_source), getString(R.string.attribute_value_chapter));
+        bundle.putString(getString(R.string.property_name_chapter_id), String.valueOf(currentChapter.getId()));
+        AnalyticsManager.getInstance().logEvent(getString(R.string.event_click_take_chapter_test), bundle);
+
     }
 }

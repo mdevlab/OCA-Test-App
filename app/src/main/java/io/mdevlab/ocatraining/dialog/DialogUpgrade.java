@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import io.mdevlab.ocatraining.R;
+import io.mdevlab.ocatraining.analytics.AnalyticsManager;
 import io.mdevlab.ocatraining.util.UtilActions;
 
 /**
@@ -44,6 +45,8 @@ public class DialogUpgrade extends DialogFragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 UtilActions.upgrade(DialogUpgrade.this.getActivity());
+                //Firebase Analytics Tracking
+                upgradeEventTracking();
             }
         });
 
@@ -55,5 +58,11 @@ public class DialogUpgrade extends DialogFragment {
         });
 
         return builder.create();
+    }
+
+    private void upgradeEventTracking() {
+        Bundle bundle = new Bundle();
+        bundle.putString(getResources().getString(R.string.property_name_source), getResources().getString(R.string.attribute_value_home));
+        AnalyticsManager.getInstance().logEvent(getContext().getString(R.string.event_click_upgrade), bundle);
     }
 }

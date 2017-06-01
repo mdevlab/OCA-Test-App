@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Events Name-->
+    <!--Screen Main-->
+    <string name="event_view_settings">view_settings</string>
+    <string name="event_view_all_chapters">view_all_chapters</string>
+    <string name="event_view_chapter">view_chapter</string>
+    <string name="event_view_drawer">view_drawer</string>
+    <string name="event_click_take_chapter_test">click_take_chapter_test</string>
+    <string name="event_view_upgrade">view_upgrade</string>
+    <string name="event_view_favorite_questions">view_favorite_questions</string>
+    <string name="event_view_certification_info">view_certification_info</string>
+    <string name="event_click_share">click_share</string>
+    <string name="event_view_about">view_about</string>
+    <string name="event_click_upgrade">click_upgrade</string>
+    <string name="event_view_schedule_test">view_schedule_test</string>
+    <string name="event_click_take_a_test">click_take_a_test</string>
+    <string name="event_view_result">view_result</string>
+
+
+    <!--Event properties names -->
+    <string name="property_name_source">source</string>
+    <string name="property_name_chapter_id">chapter_id</string>
+    <string name="property_name_test_mode">test_mode</string>
+    <string name="property_name_test_duration_minutes">test_duration_minutes</string>
+    <string name="property_name_test_test_score">test_score</string>
+
+
+    <!--Event properties values -->
+    <string name="attribute_value_home">home</string>
+    <string name="attribute_value_chapter">chapter</string>
+    <string name="attribute_value_drawer">drawer</string>
+    <string name="attribute_all_chapters">all_chapters</string>
+    <string name="attribute_results">results</string>
+    <string name="attribute_test_result">test_result</string>
+
+
+</resources>

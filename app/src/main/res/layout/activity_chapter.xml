@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,8 +11,10 @@
         layout="@layout/toolbar" />
 
     <ScrollView
+        android:id="@+id/chapter_summary_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@id/publisherAdView"
         android:layout_below="@+id/toolbar"
         android:paddingBottom="@dimen/chapter_up_down_padding"
         android:paddingLeft="@dimen/chapter_side_padding"
@@ -25,7 +28,17 @@
 
     </ScrollView>
 
-    <include layout="@layout/layout_start_test" />
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/chapter_start_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/publisherAdView"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@drawable/ic_next"
+        tools:ignore="VectorDrawableCompat" />
 
     <include layout="@layout/layout_publisher_view_relative" />
 
