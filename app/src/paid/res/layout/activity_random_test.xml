@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.RandomTestActivity">
+
+    <include layout="@layout/toolbar" />
+
+    <!--correct score-->
+    <RelativeLayout
+        android:id="@+id/scores_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp">
+
+        <!--correct score-->
+        <TextView
+            android:id="@+id/correct_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:text="@string/correct_default"
+            android:textColor="@color/green_buttons_color"
+            android:textSize="@dimen/text_size_normal"
+            android:textStyle="bold" />
+
+        <!--incorrect score-->
+        <TextView
+            android:id="@+id/incorrect_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:text="@string/incorrect_default"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_normal"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+
+    <!--Container for random question-->
+    <FrameLayout
+        android:id="@+id/question_answer_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/button_next_answer"
+        android:layout_below="@+id/scores_layout" />
+
+
+    <!--Next Show Answer Button-->
+    <Button
+        android:id="@+id/button_next_answer"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_button"
+        android:layout_alignParentBottom="true"
+        android:background="@color/green_buttons_color"
+        android:text="@string/question_answer"
+        android:textColor="@android:color/white" />
+
+</RelativeLayout>
