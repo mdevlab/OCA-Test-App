@@ -15,6 +15,7 @@
         <activity
             android:name=".activity.MainActivity"
             android:label="@string/title_activity_main"
+            android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,7 +26,8 @@
         <activity
             android:name=".activity.AllChaptersActivity"
             android:label="@string/title_all_chapters"
-            android:theme="@style/AppTheme.Details" />
+            android:theme="@style/AppTheme.Details"
+            />
         <activity
             android:name=".activity.ResultsActivity"
             android:label="@string/title_result" />
