@@ -3,7 +3,7 @@
     "id": 0,
     "color": "#1976d2",
     "name": "Java Building Blocks",
-    "summary": "Summary 1",
+    "summary": "<p class=\"p1\">&nbsp;</p><CENTER><h1 class=\"p1\" ><strong>Chapter 1 Summary</strong></h1></CENTER><CENTER><h1 class=\"p1\" ><h2 ><strong>Java Building Blocks&nbsp;</strong></h2></CENTER><p class=\"p1\">In this chapter, you studied that Java classes consist of members called fields and methods. An<br />object is an instance of a Java class. There are three styles of comment: a single-line comment<br /><strong>(//)</strong>, a multiline comment <strong>(/* */)</strong>, and a Javadoc comment <strong>(/** */)</strong>.<br />Java begins program execution with a <strong>main()</strong> method. The most common signature for<br />this method run from the command line is <strong>public static void main(String[] args)</strong>.<br />Arguments are passed in after the class name, as in <strong>Java NameOfClass firstArgument</strong>.<br />Arguments are indexed starting with 0.</p><p class=\"p1\">Java code is organised into folders called packages. To reference classes in other packages,<br />you use an import statement. A wildcard ending an import statement means you want<br />to import all classes in that package. It does not include packages that are inside that one.<br />java.lang is a special package that does not need to be imported.</p><p class=\"p1\">Constructors create Java objects. A constructor is a method matching the class name and<br />omitting the return type. When an object is instantiated, fields and blocks of code are<br />initialized first. Then the constructor is run.</p><p class=\"p1\">Primitive types are the basic building blocks of Java types. They are assembled into<br />reference types. Reference types can have methods and be assigned to null. In addition to<br />&ldquo;normal&rdquo; numbers, numeric literals are allowed to begin with <strong>0 (octal), 0x (hex), 0X (hex),</strong><br /><strong>0b (binary), or 0B (binary)</strong>.</p><p class=\"p1\">Numeric literals are also allowed to contain underscores as long<br />as they are directly between two other numbers.<br />Declaring a variable involves stating the data type and giving the variable a name.<br />Variables that represent fields in a class are automatically initialized to their corresponding<br />&ldquo;zero&rdquo; or <strong>null</strong> value during object instantiation. Local variables must be specifically<br />initialized. Identifiers may contain letters, numbers, <strong>$, or _. Identifiers</strong> may not begin with<br />numbers.</p><p class=\"p1\">Scope refers to that portion of code where a variable can be accessed. There are three<br />kinds of variables in Java, depending on their scope: instance variables, class variables, and local variables. Instance variables are the nonstatic fields of your class. Class variables are<br />the static fields within a class. Local variables are declared within a method.</p><p class=\"p1\">For some class elements, order matters within the file. The package statement comes first<br />if present. Then comes the import statements if present. Then comes the class declaration.<br />Fields and methods are allowed to be in any order within the class.<br />Garbage collection is responsible for removing objects from memory when they can<br />never be used again. An object becomes eligible for garbage collection when there are no<br />more references to it or its references have all gone out of scope. The <strong>finalize() </strong>method<br />will run once for each object if/when it is first garbage collected.<br />Java code is object-oriented, meaning all code is defined in classes. Access modifiers<br />allow classes to encapsulate data. Java is platform independent, compiling to bytecode. It is<br />robust and simple by not providing pointers or operator overloading. Finally, Java is secure<br />because it runs inside a virtual machine.</p>",
     "questions": [
       {
         "id": 0,
@@ -991,14 +991,14 @@
     "id": 1,
     "color": "#00796b",
     "name": "Operators and Statements",
-    "summary": "Summary 1",
+    "summary": "<p class=\"p1\">&nbsp;</p><CENTER><h1 class=\"p1\" ><strong>Chapter 2 Summary</strong></h1></CENTER><CENTER><h1 class=\"p1\" ><h2 ><strong>Operators and Statements&nbsp;</strong></h2></CENTER><p>This chapter cover a wide variety of topics, including dozens of Java operators, along<br />with numerous control flow statements. Many of these operators and statements may have<br />been new to you.</p><p>It is important that you understand how to use all of the required Java operators covered in this chapter and know how operator precedence influences the way a particular expression is interpreted. There will likely be numerous questions on the exam that appear to test one thing, such as <strong>StringBuilder</strong> or exception handling, when in fact the answer is related to the misuse of a particular operator that causes the application to fail to compile. When you see an operator on the exam, always check that the appropriate data types are used and<br />that they match each other where applicable.</p><p>For statements, this chapter covered two types of control structures: decision-making controls structures, including <strong>if-then</strong>, <strong>if-then-else</strong>, and <strong>switch statements</strong>, as well as repetition control structures including <strong>for</strong>, <strong>for-each</strong>,<strong> while</strong>, and do-while. Remember that most of these structures require the evaluation of a particular boolean expression either for branching decisions or once per repetition. The switch statement is the only one that supports a variety of data types, including String variables as of Java 7.</p><p>With a for-each statement you don&rsquo;t need to explicitly write a boolean expression, since the compiler builds them implicitly. For clarity, we referred to an enhanced for loop as a for-each loop, but syntactically they are written as a for statement.</p><p>We concluded this chapter by discussing advanced control options and how flow can be enhanced through nested loops, break statements, and continue statements. Be wary of questions on the exam that use nested statements, especially ones with labels, and verify they are being used correctly.</p><p>This chapter is especially important because at least one component of this chapter will likely appear in every exam question with sample code. Many of the questions on the exam focus on proper syntactic use of the structures, as they will be a large source of questions<br />that end in &ldquo;Does not compile.&rdquo; You should be able to answer all of the review questions correctly or fully understand those that you answered incorrectly before moving on to later<br />chapters.</p>",
     "questions": [
       {
         "id": 23,
         "chapterId": 1,
         "type": 2,
         "statement": "Which of the following Java operators can be used with boolean variables? (Choose all that apply)",
-        "explanation": "meh",
+        "explanation": "Option A is the equality operator and can be used on numeric primitives, bool- ean values, and object references. Options B and C are both arithmetic operators and cannot be applied to a boolean value. Option D is the logical complement operator and is used exclusively with boolean values. Option E is the modulus operator, which can only be used with numeric primitives. Finally, option F is a relational operator that compares the values of two numbers.",
         "isFavorite": false,
         "answers": [
           {
@@ -1009,12 +1009,12 @@
           {
             "id": 1,
             "answer": "+",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 2,
             "answer": "--",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 3,
@@ -1024,12 +1024,12 @@
           {
             "id": 4,
             "answer": "%",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 5,
             "answer": "<=",
-            "isCorrect": true
+            "isCorrect": false
           }
         ]
       },
@@ -1038,7 +1038,7 @@
         "chapterId": 1,
         "type": 2,
         "statement": "What data type (or types) will allow the following code snippet to compile? (Choose all that apply)\nbyte x = 5;\nbyte y = 10;\n _____ z = x + y;",
-        "explanation": "meh",
+        "explanation": "The value x + y is automatically promoted to int, so int and data types that can be promoted automatically from int will work. Options A, B, D are such data types. Option C will not work because boolean is not a numeric data type. Options E and F will not work without an explicit cast to a smaller data type.",
         "isFavorite": false,
         "answers": [
           {
@@ -1054,7 +1054,7 @@
           {
             "id": 2,
             "answer": "boolean",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 3,
@@ -1064,12 +1064,12 @@
           {
             "id": 4,
             "answer": "short",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 5,
             "answer": "byte",
-            "isCorrect": true
+            "isCorrect": false
           }
         ]
       },
@@ -1078,33 +1078,33 @@
         "chapterId": 1,
         "type": 1,
         "statement": "What is the output of the following application?\n1: public class CompareValues {\n2: public static void main(String[] args) {\n3: int x = 0;\n4: while(x++ < 10) {}\n5: String message = x > 10 ? \"Greater than\" : false;\n6: System.out.println(message+\",\"+x);\n7: }\n8: }",
-        "explanation": "meh",
+        "explanation": "In this example, the ternary operator has two expressions, one of them a String and the other a boolean value. The ternary operator is permitted to have expressions that don’t have matching types, but the key here is the assignment to the String reference. The compiler knows how to assign the first expression value as a String, but the sec- ond boolean expression cannot be set as a String; therefore, this line will not compile.",
         "isFavorite": false,
         "answers": [
           {
             "id": 0,
             "answer": "Greater than,10",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 1,
             "answer": "false,10",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 2,
             "answer": "Greater than,11",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 3,
             "answer": "false,11",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 4,
             "answer": "The code will not compile because of line 4.",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 5,
@@ -1116,15 +1116,15 @@
       {
         "id": 26,
         "chapterId": 1,
-        "type": 1,
+        "type": 2,
         "statement": "What change would allow the following code snippet to compile? (Choose all that apply)\n3: long x = 10;\n4: int y = 2 * x;",
-        "explanation": "No change; it compiles as is.",
+        "explanation": "The code will not compile as is, so option A is not correct. The value 2 * x is automatically promoted to long and cannot be automatically stored in y, which is in an int value. Options B, C, and D solve this problem by reducing the long value to int. Option E does not solve the problem and actually makes it worse by attempting to place the value in a smaller data type. Option F solves the problem by increasing the data type of the assignment so that long is allowed.",
         "isFavorite": false,
         "answers": [
           {
             "id": 0,
             "answer": "No change; it compiles as is.",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 1,
@@ -1144,7 +1144,7 @@
           {
             "id": 4,
             "answer": "Change the data type of y on line 4 to short.",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 5,
@@ -1164,12 +1164,12 @@
           {
             "id": 0,
             "answer": "10, 14,",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 1,
             "answer": "10, 14",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 2,
@@ -1179,17 +1179,17 @@
           {
             "id": 3,
             "answer": "The code will not compile because of line 7.",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 4,
             "answer": "The code will not compile because of line 8.",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 5,
             "answer": "The code contains an infinite loop and does not terminate.",
-            "isCorrect": true
+            "isCorrect": false
           }
         ]
       },
@@ -1198,33 +1198,33 @@
         "chapterId": 1,
         "type": 1,
         "statement": "What is the output of the following code snippet?\n3: int x = 4;\n4: long y = x * 4 - x++;\n5: if(y<10) System.out.println(\"Too Low\");\n6: else System.out.println(\"Just right\");\n7: else System.out.println(\"Too High\");",
-        "explanation": "meh",
+        "explanation": "The code does not compile because two else statements cannot be chained together without additional if-then statements, so the correct answer is option F. Option E is incorrect as Line 6 by itself does not cause a problem, only when it is paired with Line 7. One way to fix this code so it compiles would be to add an if-then statement on line 6. The other solution would be to remove line 7.",
         "isFavorite": false,
         "answers": [
           {
             "id": 0,
             "answer": "Too Low",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 1,
             "answer": "Just Right",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 2,
             "answer": "Too High",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 3,
             "answer": "Compiles but throws a NullPointerException.",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 4,
             "answer": "The code will not compile because of line 6.",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 5,
@@ -1238,23 +1238,23 @@
         "chapterId": 1,
         "type": 1,
         "statement": "What is the output of the following code?\n1: public class TernaryTester {\n2:  public static void main(String[] args) {\n3:   int x = 5;\n4:   System.out.println(x > 2 ? x < 4 ? 10 : 8 : 7);\n5: } }",
-        "explanation": "meh",
+        "explanation": "As you learned in the section “Ternary Operator,” although parentheses are not required, they do greatly increase code readability, such as the following equivalent statement:\nSystem.out.println((x > 2) ? ((x < 4) ? 10 : 8) : 7)\nWe apply the outside ternary operator  rst, as it is possible the inner ternary expression may never be evaluated. Since (x>2) is true, this reduces the problem to: System.out.println((x < 4) ? 10 : 8)\nSince x is greater than 2, the answer is 8, or option D in this case.",
         "isFavorite": false,
         "answers": [
           {
             "id": 0,
             "answer": "5",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 1,
             "answer": "4",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 2,
             "answer": "10",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 3,
@@ -1264,12 +1264,12 @@
           {
             "id": 4,
             "answer": "7",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 5,
             "answer": "The code will not compile because of line 4.",
-            "isCorrect": true
+            "isCorrect": false
           }
         ]
       },
@@ -1278,13 +1278,13 @@
         "chapterId": 1,
         "type": 1,
         "statement": "What is the output of the following code snippet?\n3: boolean x = true, z = true;\n4: int y = 20;\n5: x = (y != 10) ^ (z=false);\n6: System.out.println(x+\", \"+y+\", \"+z);",
-        "explanation": "meh",
+        "explanation": "This example is tricky because of the second assignment operator embedded in line 5. The expression (z=false) assigns the value false to z and returns false for the entire expression. Since y does not equal 10, the left-hand side returns true; therefore, the exclusive or (^) of the entire expression assigned to x is true. The output reflects these assignments, with no change to y, so option B is the only correct answer. The code compiles and runs without issue, so option F is not correct.",
         "isFavorite": false,
         "answers": [
           {
             "id": 0,
             "answer": "true, 10, true",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 1,
@@ -1294,22 +1294,22 @@
           {
             "id": 2,
             "answer": "false, 20, true",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 3,
             "answer": "false, 20, false",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 4,
             "answer": "false, 20, true",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 5,
             "answer": "The code will not compile because of line 5.",
-            "isCorrect": true
+            "isCorrect": false
           }
         ]
       },
@@ -1318,33 +1318,33 @@
         "chapterId": 1,
         "type": 1,
         "statement": "How many times will the following code print \"Hello World\"?\n3: for(int i=0; i<10 ; ) {\n4: i = i++;\n5: System.out.println(\"Hello World\");\n6: }",
-        "explanation": "meh",
+        "explanation": "In this example, the update statement of the for loop is missing, which is fine as the statement is optional, so option D is incorrect. The expression inside the loop incre- ments i but then assigns i the old value. Therefore, i ends the loop with the same value that it starts with: 0. The loop will repeat infinitely, outputting the same statement over and over again because i remains 0 after every iteration of the loop.",
         "isFavorite": false,
         "answers": [
           {
             "id": 0,
             "answer": "9",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 1,
             "answer": "10",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 2,
             "answer": "11",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 3,
             "answer": "The code will not compile because of line 3.",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 4,
             "answer": "The code will not compile because of line 5.",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 5,
@@ -1358,23 +1358,23 @@
         "chapterId": 1,
         "type": 1,
         "statement": "What is the output of the following code?\n3: byte a = 40, b = 50;\n4: byte sum = (byte) a + b;\n5: System.out.println(sum);",
-        "explanation": "meh",
+        "explanation": "Line 4 generates a possible loss of precision compiler error. The cast operator has the highest precedence, so it is evaluated first, casting a to a byte. Then, the addition is evaluated, causing both a and b to be promoted to int values. The value 90 is an int and cannot be assigned to the byte sum without an explicit cast, so the code does not compile. The code could be corrected with parentheses around (a + b), in which case option C would be the correct answer.",
         "isFavorite": false,
         "answers": [
           {
             "id": 0,
             "answer": "40",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 1,
             "answer": "50",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 2,
             "answer": "90",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 3,
@@ -1384,7 +1384,7 @@
           {
             "id": 4,
             "answer": "An undefined value.",
-            "isCorrect": true
+            "isCorrect": false
           }
         ]
       },
@@ -1393,7 +1393,7 @@
         "chapterId": 1,
         "type": 1,
         "statement": "What is the output of the following code?\n1: public class ArithmeticSample {\n2:  public static void main(String[] args) {\n3:   int x = 5 * 4 % 3;\n4:   System.out.println(x);\n5:} }",
-        "explanation": "meh",
+        "explanation": "The * and % have the same operator precedence, so the expression is evaluated from left-to-right. The result of 5 * 4 is 20, and 20 % 3 is 2 (20 divided by 3 is 18, the remainder is 2). The output is 2 and option A is the correct answer.",
         "isFavorite": false,
         "answers": [
           {
@@ -1404,22 +1404,22 @@
           {
             "id": 1,
             "answer": "3",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 2,
             "answer": "5",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 3,
             "answer": "6",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 4,
             "answer": "The code will not compile because of line 3.",
-            "isCorrect": true
+            "isCorrect": false
           }
         ]
       },
@@ -1428,7 +1428,37 @@
         "chapterId": 1,
         "type": 1,
         "statement": "What is the output of the following code snippet?\n3: int x = 0;\n4: String s = null;\n5: if(x == s) System.out.println(\"Success\");\n6: else System.out.println(\"Failure\");",
-        "explanation": "meh",
+        "explanation": "The variable x is an int and s is a reference to a String object. The two data types are incomparable because neither variable can be converted to the other variable’s type. The compiler error occurs on line 5 when the comparison is attempted, so the answer is option D.",
+        "isFavorite": false,
+        "answers": [
+          {
+            "id": 0,
+            "answer": "Success",
+            "isCorrect": false
+          },
+          {
+            "id": 1,
+            "answer": "Failure",
+            "isCorrect": false
+          },
+          {
+            "id": 2,
+            "answer": "The code will not compile because of line 4.",
+            "isCorrect": false
+          },
+          {
+            "id": 3,
+            "answer": "The code will not compile because of line 5.",
+            "isCorrect": true
+          }
+        ]
+      },
+      {
+        "id": 144,
+        "chapterId": 1,
+        "type": 1,
+        "statement": "What is the output of the following code snippet?\n3: int x1 = 50, x2 = 75;\n4: boolean b = x1 >= x2;\n5: if(b == true) System.out.println(\"Success\");\n6: else System.out.println(\"Failure\");",
+        "explanation": "The code compiles successfully, so options C and D are incorrect. The value of b after line 4 is false. However, the if-then statement on line 5 contains an assignment, not a comparison. The variable b is assigned true on line 3, and the assignment opera- tor returns true, so line 5 executes and displays Success, so the answer is option A.",
         "isFavorite": false,
         "answers": [
           {
@@ -1439,17 +1469,17 @@
           {
             "id": 1,
             "answer": "Failure",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 2,
             "answer": "The code will not compile because of line 4.",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 3,
             "answer": "The code will not compile because of line 5.",
-            "isCorrect": true
+            "isCorrect": false
           }
         ]
       },
@@ -1458,18 +1488,18 @@
         "chapterId": 1,
         "type": 1,
         "statement": "What is the output of the following code snippet? 3: int c = 7;\n4: int result = 4;\n5: result += ++c;\n6: System.out.println(result);",
-        "explanation": "meh",
+        "explanation": "The code compiles successfully, so option F is incorrect. On line 5, the pre-incre- ment operator is used, so c is incremented to 4 and the new value is returned to the expression. The value of result is computed by adding 4 to the original value of 8, resulting in a new value of 12, which is output on line 6. Therefore, option C is the correct answer.",
         "isFavorite": false,
         "answers": [
           {
             "id": 0,
             "answer": "8",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 1,
             "answer": "11",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 2,
@@ -1479,12 +1509,12 @@
           {
             "id": 3,
             "answer": "15",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 4,
             "answer": "16",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 5,
@@ -1498,28 +1528,28 @@
         "chapterId": 1,
         "type": 1,
         "statement": "What is the output of the following code snippet?\n3: int x = 1, y = 15;\n4: while x < 10\n5:  y––;\n6:  x++;\n7: System.out.println(x+\", \"+y);",
-        "explanation": "meh",
+        "explanation": "This is actually a much simpler problem than it appears to be. The while statement on line 4 is missing parentheses, so the code will not compile, and option E is the cor- rect answer. If the parentheses were added, though, option F would be the correct answer since the loop does not use curly braces to include x++ and the boolean expres- sion never changes. Finally, if curly braces were added around both expressions, the output would be 10, 6 and option B would be correct.",
         "isFavorite": false,
         "answers": [
           {
             "id": 0,
             "answer": "10, 5",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 1,
             "answer": "10, 6",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 2,
             "answer": "11, 5",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 3,
             "answer": "The code will not compile because of line 3.",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 4,
@@ -1529,7 +1559,7 @@
           {
             "id": 5,
             "answer": "The code contains an infinite loop and does not terminate.",
-            "isCorrect": true
+            "isCorrect": false
           }
         ]
       },
@@ -1538,23 +1568,23 @@
         "chapterId": 1,
         "type": 1,
         "statement": "What is the output of the following code snippet?\n3: do {\n4: int y = 1;\n5: System.out.print(y++ + \" \");\n6: } while(y <= 10);",
-        "explanation": "meh",
+        "explanation": "The variable y is declared within the body of the do-while statement, so it is out of scope on line 6. Line 6 generates a compiler error, so option D is the correct answer.",
         "isFavorite": false,
         "answers": [
           {
             "id": 0,
             "answer": "1 2 3 4 5 6 7 8 9",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 1,
             "answer": "1 2 3 4 5 6 7 8 9 10",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 2,
             "answer": "1 2 3 4 5 6 7 8 9 10 11",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 3,
@@ -1564,7 +1594,7 @@
           {
             "id": 4,
             "answer": "The code contains an infinite loop and does not terminate.",
-            "isCorrect": true
+            "isCorrect": false
           }
         ]
       },
@@ -1573,23 +1603,23 @@
         "chapterId": 1,
         "type": 1,
         "statement": "What is the output of the following code snippet?\n3: boolean keepGoing = true;\n4: int result = 15, i = 10;\n5: do {\n6: i--;\n7:  if(i==8) keepGoing = false;\n8:  result -= 2;\n9: } while(keepGoing);\n10: System.out.println(result);",
-        "explanation": "meh",
+        "explanation": "The code compiles without issue, so option F is incorrect. After the first execution of the loop, i is decremented to 9 and result to 13. Since i is not 8, keepGoing is false, and the loop continues. On the next iteration, i is decremented to 8 and result to 11. On the second execution, i does equal 8, so keepGoing is set to false. At the conclusion of the loop, the loop terminates since keepGoing is no longer true. The value of result is 11, and the correct answer is option D.",
         "isFavorite": false,
         "answers": [
           {
             "id": 0,
             "answer": "7",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 1,
             "answer": "9",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 2,
             "answer": "10",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 3,
@@ -1599,12 +1629,12 @@
           {
             "id": 4,
             "answer": "15",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 5,
             "answer": "The code will not compile because of line 8.",
-            "isCorrect": true
+            "isCorrect": false
           }
         ]
       },
@@ -1613,7 +1643,7 @@
         "chapterId": 1,
         "type": 1,
         "statement": "What is the output of the following code snippet?\n3: int count = 0;\n4: ROW_LOOP: for(int row = 1; row <=3; row++)\n5:  for(int col = 1; col <=2 ; col++) {\n6:   if(row * col % 2 == 0) continue ROW_LOOP;\n7:   count++;\n8:  }\n9: System.out.println(count);",
-        "explanation": "meh",
+        "explanation": "The expression on line 5 is true when row * col is an even number. On the first iteration, row = 1 and col = 1, so the expression on line 6 is false, the continue is skipped, and count is incremented to 1. On the second iteration, row = 1 and col = 2, so the expression on line 6 is true and the continue ends the outer loop with count still at 1. On the third iteration, row = 2 and col = 1, so the expression on line 6 is true and the continue ends the outer loop with count still at 1. On the fourth iteration, row = 3 and col = 1, so the expression on line 6 is false, the continue is skipped, and count is incremented to 2. Finally, on the fifth and final iteration, row = 3 and col = 2, so the expression on line 6 is true and the continue ends the outer loop with count still at 2. The result of 2 is displayed, so the answer is option B.",
         "isFavorite": false,
         "answers": [
           {
@@ -1624,27 +1654,27 @@
           {
             "id": 1,
             "answer": "2",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 2,
             "answer": "3",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 3,
             "answer": "4",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 4,
             "answer": "6",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 5,
             "answer": "The code will not compile because of line 6.",
-            "isCorrect": true
+            "isCorrect": false
           }
         ]
       },
@@ -1653,23 +1683,23 @@
         "chapterId": 1,
         "type": 1,
         "statement": "What is the result of the following code snippet?\n3: int m = 9, n = 1, x = 0;\n4: while(m > n) {\n5:  m--;\n6:  n += 2;\n7:  x += m + n;\n8: }\n9 System.out.println(x);",
-        "explanation": "meh",
+        "explanation": "Prior to the first iteration, m = 9, n = 1, and x = 0. After the iteration of the first loop, m is updated to 8, n to 3, and x to the sum of the new values for m + n, 0 + 11 = 11. After the iteration of the second loop, m is updated to 7, n to 5, and x to the sum of the new values for m + n, 11 + 12 = 23. After the iteration of the third loop, m is updated to 6, n to 7, and x to the sum of the new values for m + n, 23 + 13 = 36. On the fourth iteration of the loop, m > n evaluates to false, as 6 < 7 is not true. The loop ends and the most recent value of x, 36, is output, so the correct answer is option D.",
         "isFavorite": false,
         "answers": [
           {
             "id": 0,
             "answer": "11",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 1,
             "answer": "13",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 2,
             "answer": "23",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 3,
@@ -1679,12 +1709,12 @@
           {
             "id": 4,
             "answer": "50",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 5,
             "answer": "The code will not compile because of line 7.",
-            "isCorrect": true
+            "isCorrect": false
           }
         ]
       },
@@ -1693,13 +1723,13 @@
         "chapterId": 1,
         "type": 1,
         "statement": "What is the result of the following code snippet? 3: final char a = 'A', d = 'D';\n4: char grade = 'B';\n5: switch(grade) {\n6:  case a:\n7:  case 'B': System.out.print(\"great\");\n8:  case 'C': System.out.print(\"good\"); break;\n9:  case d:\n10:  case 'F': System.out.print(\"not good\");\n11: }",
-        "explanation": "meh",
+        "explanation": "The code compiles and runs without issue,so options C,D,and E are not correct.The value of grade is 'B' and there is a matching case statement that will cause \"great\" to be printed. There is no break statement after the case, though, so the next case state- ment will be reached, and \"good\" will be printed. There is a break after this case state- ment, though, so the switch statement will end. The correct answer is thus option B.",
         "isFavorite": false,
         "answers": [
           {
             "id": 0,
             "answer": "great",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 1,
@@ -1709,17 +1739,17 @@
           {
             "id": 2,
             "answer": "The code will not compile because of line 3.",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 3,
             "answer": "The code will not compile because of line 6.",
-            "isCorrect": true
+            "isCorrect": false
           },
           {
             "id": 4,
             "answer": "The code will not compile because of lines 6 and 9.",
-            "isCorrect": true
+            "isCorrect": false
           }
         ]
       }
@@ -1729,7 +1759,7 @@
     "id": 2,
     "color": "#fbc02d",
     "name": "Core Java APIs",
-    "summary": "Summary 1",
+    "summary": "<p class=\"p1\">&nbsp;</p><CENTER><h1 class=\"p1\" ><strong>Chapter 3 Summary</strong></h1></CENTER><CENTER><h1 class=\"p1\" ><h2 ><strong>Core Java APIs&nbsp;</strong></h2></CENTER><p>In this chapter, you learned that Strings are immutable sequences of characters. The new operator is optional. The concatenation <strong>operator (+)</strong> creates a new String with the content of the first String followed by the content of the second String. If either operand involved in the + expression is a String, concatenation is used; otherwise, addition is used. <br />String literals are stored in the string pool. The String class has many methods. You need to know <strong>charAt()</strong>, <strong>concat()</strong>, <strong>endsWith()</strong>, <strong>equals()</strong>, <strong>equalsIgnoreCase()</strong>,<strong> indexOf()</strong>, <strong>length()</strong>, <strong>replace()</strong>, <strong>startsWith()</strong>, <strong>substring()</strong>, <strong>toLowerCase()</strong>, <strong>toUpperCase()</strong>, and <strong>trim()</strong>.</p><p>StringBuilders are mutable sequences of characters. Most of the methods return a reference to the current object to allow method chaining. The StringBuilder class has many methods. You need to know <strong>append()</strong>, <strong>charAt()</strong>, <strong>delete()</strong>, <strong>deleteCharAt()</strong>,<strong> indexOf()</strong>, <strong>insert()</strong>, <strong>length()</strong>, <strong>reverse()</strong>, <strong>substring()</strong>, and <strong>toString()</strong>. StringBuffer is the same as StringBuilder except that it is thread safe.</p><p>Calling<strong> ==</strong> on String objects will check whether they point to the same object in the pool. Calling <strong>==</strong> on StringBuilder references will check whether they are pointing to the same StringBuilder object. Calling<strong> equals()</strong> on String objects will check whether the sequence of characters is the same. Calling<strong> equals()</strong> on StringBuilder objects will check whether they are pointing to the same object rather than looking at the values inside.<br />An array is a <strong>fixed-size</strong> area of memory on the heap that has space for primitives or pointers to objects. You specify the size when creating <strong>it&mdash;for example, int[] a = new int[6]</strong>;. Indexes begin with 0 and elements are referred to using a[0]. The <strong>Arrays.sort()</strong> method sorts an array. <strong>Arrays.binarySearch()</strong> searches a sorted array and returns the index of a match. If no match is found, it negates the position where the element would need to be inserted and subtracts 1. Methods that are passed <strong>varargs (&hellip;)</strong> can be used as if a normal array was passed in. In a multidimensional array, the second-level arrays and beyond can be different sizes.</p><p>An ArrayList can change size over its life. It can be stored in an ArrayList or List reference. Generics can specify the type that goes in the ArrayList. You need to know the methods <strong>add()</strong>, <strong>clear()</strong>, <strong>contains()</strong>, <strong>equals()</strong>, <strong>isEmpty()</strong>, <strong>remove()</strong>,<strong> set()</strong>, and <strong>size()</strong>. <br />Although an ArrayList is not allowed to contain primitives, Java will <strong>autobox</strong> parameters passed into the proper wrapper type. <strong>Collections.sort()</strong> sorts an <strong>ArrayList</strong>.<br />A LocalDate contains just a date, a LocalTime contains just a time, and a LocalDateTime contains both a date and time. All three have private constructors and are created using <strong>LocalDate.now()</strong> or <strong>LocalDate.of()</strong> (or the equivalents for that class). Dates and times can be manipulated using <strong>plusXXX</strong> or <strong>minusXXX</strong> methods. The Period class represents a number of days, months, or years to add or subtract from a <strong>LocalDate</strong> or <strong>LocalDateTime</strong>.<br />DateTimeFormatter is used to output dates and times in the desired format. The date and time classes are all immutable, which means the return value must be used.</p>",
     "questions": [
       {
         "id": 42,
@@ -3072,7 +3102,7 @@
     "id": 3,
     "color": "#e64a19",
     "name": "Methods and Encapsulation",
-    "summary": "Summary 1",
+    "summary": "<p class=\"p1\">&nbsp;</p><CENTER><h1 class=\"p1\" ><strong>Chapter 4 Summary</strong></h1></CENTER><CENTER><h1 class=\"p1\" ><h2 ><strong>Methods and Encapsulation&nbsp;</strong></h2></CENTER><p>As you learned in this chapter, Java methods start with an access modifier of <strong>public</strong>, <strong>private</strong>, <strong>protected</strong> or blank (default access). This is followed by an optional specifier such as static, final, or abstract. Next, comes the return type, which is void or a Java type.<br />The method name follows, using standard Java identifier rules. Zero or more parameters go in parentheses as the parameter list. Next come any optional exception types. Finally, zero or more statements go in braces to make up the method body.<br />Using the <strong>private</strong> keyword means the code is only available from within the same class.Default <strong>(package private)</strong> access means the code is only available from within the same package. Using the protected keyword means the code is available from the same package or subclasses. Using the <strong>public</strong> keyword means the code is available from anywhere. <strong>Static methods and static variables</strong> are shared by the <strong>class</strong>. When referenced from outside the class, they are called using the classname&mdash;for example, <strong>StaticClass.method()</strong>. Instance members are allowed to call static members, but static members are not allowed to call instance members. Static imports are used to import static members. Java uses pass-by-value, which means that calls to methods create a copy of the parameters. Assigning new values to those parameters in the method doesn&rsquo;t affect the caller&rsquo;s variables.<br />Calling methods on objects that are method parameters changes the state of those objects and is reflected in the caller. <br />Overloaded methods are methods with the same name but a different parameter list.<br />Java calls the most specific method it can find. Exact matches are preferred, followed by wider primitives. After that comes autoboxing and finally <strong>varargs</strong>.<br />Constructors are used to instantiate new objects. The default no-argument constructor is called when no constructor is coded. Multiple constructors are allowed and can call each other by writing <strong>this()</strong>. If<strong> this()</strong> is present, it must be the first statement in the constructor.<br />Constructors can refer to instance variables by writing this before a variable name to indicate they want the instance variable and not the method parameter with that name. The order of initialization is the superclass (which we will cover in Chapter 5); <strong>static variables and static&nbsp;</strong>initializers in the order they appear; instance variables and instance initializers in the order they appear, and finally the constructor.<br />Encapsulation refers to preventing callers from changing the instance variables directly. This is done by making instance variables private and getters/setters public. Immutability refers to preventing callers from changing the instance variables at all. This uses several techniques, including removing setters. JavaBeans use methods beginning with is and get for boolean and non-boolean property types, respectively. Methods beginning with set are used for setters. <br /><strong>Lambda</strong> expressions, or lambdas, allow passing around blocks of code. The full syntax looks like <strong>(String a, String b) -&gt; { return a.equals(b); }</strong>. The parameter types can be omitted. When only one parameter is specified without a type, the parentheses can also be omitted. The braces and return statement can be omitted for a single statement, making the short form <strong>(a -&gt; a.equals(b)</strong>. Lambdas are passed to a method expecting an interface<br />with one method. The predicate is a common interface. It has one method named test that returns a boolean and takes any type. The <strong>removeIf()</strong> method on ArrayList takes a <strong>Predicate</strong>.</p> ",
     "questions": [
       {
         "id": 75,
@@ -4270,7 +4300,7 @@
     "id": 4,
     "color": "#607d8b",
     "name": "Class Design",
-    "summary": "Summary 1",
+    "summary": "<p class=\"p1\">&nbsp;</p><CENTER><h1 class=\"p1\" ><strong>Chapter 5 Summary</strong></h1></CENTER><CENTER><h1 class=\"p1\" ><h2 ><strong>Class Design&nbsp;</strong></h2></CENTER><p>This chapter took the basic class structure presented in Chapter 4 and expanded it by introducing the notion of inheritance. Java classes follow a multilevel <strong>single-inheritance</strong> pattern in which every class has exactly one direct parent class, with all classes eventually inheriting from <strong>java.lang.Object.</strong> Java interfaces simulate a limited form of multiple <strong>inheritance</strong>, since Java classes may implement multiple interfaces.<br />Inheriting a class gives you access to all of the public and protected methods of the class, but special rules for constructors and overriding methods must be followed or the code will not compile. For example, if the parent class doesn&rsquo;t include a no-argument constructor, an explicit call to a parent constructor must be provided in the child&rsquo;s constructors.<br />Pay close attention to the exam to any class that defines a constructor with arguments and doesn&rsquo;t define a no-argument constructor.<br />This Chapter reviewed <strong>overloaded</strong>, <strong>overridden</strong>, and<strong> hidden methods</strong> and showed how they differ,<br />especially in terms of <strong>polymorphism</strong>. and also introduced the notion of <strong>hiding variables</strong>, although the chapter strongly discourages this in practice as it often leads to confusing, difficult to maintain code.<br />The chapter introduced <strong>abstract classes</strong> and <strong>interfaces</strong> and showed how you can use them to define a platform for other developers to interact with. By definition, an abstract type cannot be instantiated directly and requires a concrete subclass for the code to be used. Since default and static interface methods are new to Java 8, expect to see at least one question<br />on them on the exam.</p>",
     "questions": [
       {
         "id": 104,
@@ -5043,7 +5073,7 @@
     "id": 5,
     "color": "#7b1fa2",
     "name": "Exceptions",
-    "summary": "Summary 1",
+    "summary": "<p class=\"p1\">&nbsp;</p><CENTER><h1 class=\"p1\" ><strong>Chapter 6 Summary</strong></h1></CENTER><CENTER><h1 class=\"p1\" ><h2 ><strong>Exceptions&nbsp;</strong></h2></CENTER><p>An exception indicates something unexpected happened. A method can handle an exception<br />by catching it or declaring it for the caller to deal with. Many exceptions are thrown<br />by Java libraries. You can throw your own exception with code such as throw new <strong>Exception()</strong>.<br />Subclasses of java.lang.Error are exceptions that a programmer should not attempt to handle. Subclasses of java.lang.RuntimeException are runtime (unchecked) exceptions.<br />Subclasses of <strong>java.lang.Exception</strong>, but not <strong>java.lang.RuntimeException</strong> are checked exceptions. Java requires checked exceptions to be handled or declared.<br />If a try statement has multiple catch blocks, at most one catch block can run. Java looks for an exception that can be caught by each catch block in the order they appear, and the first match is run. Then execution continues after the try statement. If both catch and finally throw an exception, the one from finally gets thrown. <br />Common runtime exceptions include:</p><p class=\"p1\"><span class=\"s1\">■ </span><em><strong>ArithmeticException</strong></em></p><p class=\"p1\"><span class=\"s1\">■ </span><em><strong>ArrayIndexOutOfBoundsException</strong></em></p><p class=\"p1\"><span class=\"s1\">■ </span><em><strong>ClassCastException</strong></em></p><p class=\"p1\"><span class=\"s1\">■ </span><em><strong>IllegalArgumentException</strong></em></p><p class=\"p1\"><span class=\"s1\">■ </span><em><strong>NullPointerException</strong></em></p><p class=\"p1\"><span class=\"s1\">■ </span><em><strong>NumberFormatException</strong></em></p><p class=\"p1\"><strong>IllegalArgumentException</strong> and NumberFormatException are typically thrown by the programmer, whereas the others are typically thrown by the JVM.<br />Common checked exceptions include:</p><p class=\"p1\"><span class=\"s1\">■ </span><em><strong>IOException</strong></em></p><p class=\"p1\"><span class=\"s1\">■ </span><em><strong>FileNotFoundException</strong></em></p><p class=\"p2\">Common errors include:</p><p class=\"p1\"><span class=\"s1\">■ </span><em><strong>ExceptionInInitializerError</strong></em></p><p class=\"p1\"><span class=\"s1\">■ </span><em><strong>StackOverflowError</strong></em></p><p class=\"p1\"><span class=\"s1\">■ </span><em><strong>NoClassDefFoundError</strong></em></p><p class=\"p1\">When a method overrides a method in a superclass or interface, it is not allowed to add checked exceptions. It is allowed to declare fewer exceptions or declare a subclass of a declared exception. Methods declare exceptions with the keyword throws.</p>  ",
     "questions": [
       {
         "id": 124,

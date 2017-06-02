@@ -81,7 +81,7 @@ public class RandomTestActivity extends SingleQuestionTestActivity {
 
 
     private boolean reachedLimitOfRandomQuestions() {
-        return BuildConfig.IS_DEMO_FLAVOR && mQuestionNumber >= BuildConfig.RANDOM_TEST_QUESTIONS_LIMIT;
+        return BuildConfig.IS_FREE_FLAVOR && mQuestionNumber >= BuildConfig.RANDOM_TEST_QUESTIONS_LIMIT;
     }
 
 

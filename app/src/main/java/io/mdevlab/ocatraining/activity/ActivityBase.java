@@ -47,7 +47,7 @@ public abstract class ActivityBase extends AppCompatActivity {
 
 
     protected void setUpDFP(String adUnitId) {
-        if (BuildConfig.IS_DEMO_FLAVOR) {
+        if (BuildConfig.IS_FREE_FLAVOR) {
             AdView adView = (AdView) findViewById(R.id.publisherAdView);
             adView.setVisibility(View.VISIBLE);
             AdRequest adRequest = new AdRequest.Builder().build();

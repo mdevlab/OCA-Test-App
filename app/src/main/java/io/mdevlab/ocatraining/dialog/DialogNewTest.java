@@ -11,8 +11,10 @@ import android.view.LayoutInflater;
 
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.activity.TestActivity;
+import io.mdevlab.ocatraining.model.Test;
 import io.mdevlab.ocatraining.util.UtilActions;
 
+import static io.mdevlab.ocatraining.model.Test.TEST_CHAPTER;
 import static io.mdevlab.ocatraining.model.Test.TEST_MODE;
 
 /**
@@ -23,10 +25,17 @@ public class DialogNewTest extends DialogFragment {
 
 
     private static int mTestMode;
+    private static int mChapterId;
 
 
     public static DialogNewTest newInstance(int testMode) {
         mTestMode = testMode;
+        return new DialogNewTest();
+    }
+
+    public static DialogNewTest newInstance(int testMode, int chapterId) {
+        mTestMode = testMode;
+        mChapterId = chapterId;
         return new DialogNewTest();
     }
 
@@ -67,6 +76,8 @@ public class DialogNewTest extends DialogFragment {
     private void retakeTest() {
         Intent test = new Intent(getActivity(), TestActivity.class);
         test.putExtra(TEST_MODE, mTestMode);
+        if (mTestMode == Test.CHAPTER_TEST_MODE)
+            test.putExtra(TEST_CHAPTER, mChapterId);
         startActivity(test);
     }
 }

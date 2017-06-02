@@ -9,6 +9,7 @@ import android.widget.Button;
 import org.sufficientlysecure.htmltextview.HtmlTextView;
 
 import io.mdevlab.ocatraining.R;
+import io.mdevlab.ocatraining.analytics.AnalyticsManager;
 
 
 public class ActivityCertificationInfo extends ActivityBase {
@@ -38,6 +39,7 @@ public class ActivityCertificationInfo extends ActivityBase {
         setUpViews();
         setupSubscriptionToCertification();
         formatBenefitsText();
+        AnalyticsManager.getInstance().logEvent(getString(R.string.event_view_schedule_test), null);
     }
 
 

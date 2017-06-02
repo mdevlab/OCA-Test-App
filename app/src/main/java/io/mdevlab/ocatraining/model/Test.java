@@ -21,6 +21,9 @@ public class Test extends RealmObject implements Parcelable {
     public static final String ID_COLUMN = "id";
     public static final String TEST_MODE = "test mode";
     public static final String TEST_CHAPTER = "test chapter";
+    public static final String FINAL_TEST_MODE_NAME = "test_final";
+    public static final String CUSTOM_TEST_MODE_NAME = "custom_test";
+    public static final String RANDOM_TEST_MODE_NAME = "random_test";
     public static final int FINAL_TEST_MODE = 1;
     public static final int CUSTOM_TEST_MODE = 2;
     public static final int CHAPTER_TEST_MODE = 3;
@@ -231,7 +234,7 @@ public class Test extends RealmObject implements Parcelable {
         int hours = (int) ((duration / (1000 * 60 * 60)) % 24);
         int minutes = (int) (int) ((duration / (1000 * 60)) % 60);
         if (hours == 0)
-            return minutes + " " + context.getResources().getQuantityString(R.plurals.minutes, minutes, minutes);
+            return  context.getResources().getQuantityString(R.plurals.minutes, minutes, minutes);
 
         StringBuilder stringBuilder = new StringBuilder();
         //Append Hours

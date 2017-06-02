@@ -184,16 +184,16 @@ instance variable in the object created on line 5.</string>
     <string name="result_exit_title">Quit the Results</string>
     <string name="piechart_title">Score</string>
     <string name="results_list_title">Results</string>
+    <string name="correct_answers_label">Correct answers</string>
+    <string name="false_answers_label">False answers</string>
 
-    <plurals
-        name="minutes">
+    <plurals name="minutes">
         <item quantity="zero"> minute </item>
         <item quantity="one"> minute </item>
         <item quantity="other">%d  minutes</item>
     </plurals>
 
-    <plurals
-        name="hours">
+    <plurals name="hours">
         <item quantity="zero">hour </item>
         <item quantity="one">hour </item>
         <item quantity="other">%d  hours</item>

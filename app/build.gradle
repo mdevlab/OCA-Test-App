@@ -11,7 +11,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
 
-    def IS_DEMO_VERSION = "IS_DEMO_FLAVOR"
+    def IS_FREE_VERSION = "IS_FREE_FLAVOR"
     def RANDOM_TEST_QUESTIONS_LIMIT = "RANDOM_TEST_QUESTIONS_LIMIT"
     def CUSTOM_TEST_QUESTIONS_LIMIT = "CUSTOM_TEST_QUESTIONS_LIMIT"
 
@@ -34,14 +34,14 @@ android {
         free {
             applicationIdSuffix ".free"
             versionNameSuffix "-free"
-            buildConfigField("boolean", IS_DEMO_VERSION, "true")
+            buildConfigField("boolean", IS_FREE_VERSION, "true")
             buildConfigField("int", RANDOM_TEST_QUESTIONS_LIMIT, "5")
             buildConfigField("int", CUSTOM_TEST_QUESTIONS_LIMIT, "5")
         }
         paid {
             applicationIdSuffix ".paid"
             versionNameSuffix "-paid"
-            buildConfigField("boolean", IS_DEMO_VERSION, "false")
+            buildConfigField("boolean", IS_FREE_VERSION, "false")
             buildConfigField("int", RANDOM_TEST_QUESTIONS_LIMIT, "-1")
             buildConfigField("int", CUSTOM_TEST_QUESTIONS_LIMIT, "-1")
         }
