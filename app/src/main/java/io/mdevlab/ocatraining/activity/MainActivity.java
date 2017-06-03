@@ -13,7 +13,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -39,12 +38,11 @@ public class MainActivity extends ActivityBase implements NavigationView.OnNavig
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setUpToolbar(getString(R.string.title_activity_main));
+        setUpToolbar(getString(R.string.app_name));
         setUpDFP(null);
         initChapterTestList();
         setUpDrawer();
         setUpNavigationDrawer();
-        Bundle bundle = new Bundle();
     }
 
 
@@ -193,7 +191,6 @@ public class MainActivity extends ActivityBase implements NavigationView.OnNavig
                 trackEvents(getResources().getString(R.string.event_view_upgrade), bundle);
 
                 UtilActions.displayUpgradeDialog(MainActivity.this);
-                Toast.makeText(this, "upgrade", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.nav_favorite_questions:
                 //Firebase Analytics Tracking

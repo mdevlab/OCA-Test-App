@@ -1,8 +1,7 @@
 <resources>
 
     <!--Activity labels-->
-    <string name="app_name">OCA Test App</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="app_name">Java OCA Prep</string>
     <string name="title_all_chapters">Choose Your Test</string>
     <string name="title_result">Your Test Score</string>
     <string name="title_test">Test</string>

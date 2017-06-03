@@ -19,8 +19,8 @@ import io.mdevlab.ocatraining.activity.MainActivity;
 public class NotificationBuilder {
 
     final String TAG = NotificationBuilder.class.getSimpleName();
-    private final int NOTIFICATION_ID = 001;
-    private final String NOTIFICATION_TITLE = "Reviewing time !";
+    private static final int NOTIFICATION_ID = 1;
+    private static final String NOTIFICATION_TITLE = "Reviewing time !";
 
 
     /**
@@ -44,7 +44,7 @@ public class NotificationBuilder {
      */
     private Notification builtNotification(Context context, String notificationBody) {
         return new NotificationCompat.Builder(context)
-                .setSmallIcon(R.drawable.ic_about)
+                .setSmallIcon(R.mipmap.ic_launcher_round)
                 .setContentTitle(NOTIFICATION_TITLE)
                 .setContentText(notificationBody)
                 .setContentIntent(intentOpenedByNotification(context))

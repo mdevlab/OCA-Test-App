@@ -7,14 +7,13 @@
     <application
         android:name=".OCA"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".activity.MainActivity"
-            android:label="@string/title_activity_main"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,14 +30,14 @@
             android:label="@string/title_result" />
         <activity
             android:name=".activity.TestActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/title_test" />
+            android:label="@string/title_test"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.FavoriteQuestionsActivity"
             android:label="@string/title_activity_favorite_questions"
+            android:launchMode="singleTask"
             android:parentActivityName=".activity.MainActivity"
-            android:screenOrientation="portrait"
-            android:launchMode="singleTask"/>
+            android:screenOrientation="portrait" />
         <activity android:name=".activity.FavoriteQuestionActivity" />
         <activity
             android:name=".activity.AboutActivity"
@@ -54,8 +53,8 @@
             android:parentActivityName=".activity.MainActivity" />
         <activity
             android:name=".activity.RandomTestActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/title_random_question" />
+            android:label="@string/title_random_question"
+            android:screenOrientation="portrait" />
         <activity android:name=".activity.ResponseActivity" />
         <activity
             android:name=".activity.ActivityChapter"

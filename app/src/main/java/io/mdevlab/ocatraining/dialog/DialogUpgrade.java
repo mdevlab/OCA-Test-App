@@ -24,6 +24,9 @@ public class DialogUpgrade extends DialogFragment {
     String message;
 
 
+    public DialogUpgrade() {}
+
+
     public DialogUpgrade(String message) {
         this.message = message;
     }
