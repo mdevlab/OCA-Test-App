@@ -44,7 +44,7 @@ public class NotificationBuilder {
      */
     private Notification builtNotification(Context context, String notificationBody) {
         return new NotificationCompat.Builder(context)
-                .setSmallIcon(R.mipmap.ic_launcher_round)
+                .setSmallIcon(R.mipmap.ic_oca_java_prep)
                 .setContentTitle(NOTIFICATION_TITLE)
                 .setContentText(notificationBody)
                 .setContentIntent(intentOpenedByNotification(context))

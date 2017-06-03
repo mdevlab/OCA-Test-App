@@ -7,7 +7,7 @@
     <application
         android:name=".OCA"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher_round"
+        android:icon="@mipmap/ic_oca_java_prep"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">

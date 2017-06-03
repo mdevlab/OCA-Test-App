@@ -1766,7 +1766,7 @@
         "chapterId": 2,
         "type": 1,
         "statement": "What is output by the following code? (Choose all that apply)\n1: public class Fish {\n2:  public static void main(String[] args) {\n3:   int numFish = 4;\n4:   String fishType = \"tuna\";\n5:   String anotherFish = numFish + 1;\n6:   System.out.println(anotherFish + \" \" + fishType);\n7:   System.out.println(numFish + \" \" + 1);\n8:} }",
-        "explanation": "Line 5 does not compile. This question is checking to see if you are paying attention to the types. numFish is an int and 1 is an int. Therefore, we use numeric addition and get 5. The problem is that we can’t store an int in a String variable. Supposing line 5 said String anotherFish = numFish + 1 + "";. In that case, the answer would be options A and D. The variable defined on line 5 would be the string "5", and both out- put statements would use concatenation.",
+        "explanation": "Line 5 does not compile. This question is checking to see if you are paying attention to the types. numFish is an int and 1 is an int. Therefore, we use numeric addition and get 5. The problem is that we can’t store an int in a String variable. Supposing line 5 said String anotherFish = numFish + 1 + \"\";. In that case, the answer would be options A and D. The variable defined on line 5 would be the string \"5\", and both out- put statements would use concatenation.",
         "isFavorite": false,
         "answers": [
           {
@@ -1896,7 +1896,7 @@
         "chapterId": 2,
         "type": 1,
         "statement": "What is the result of the following code?\n7: StringBuilder sb = new StringBuilder();\n8: sb.append(\"aaa\").insert(1, \"bb\").insert(4, \"ccc\");\n9: System.out.println(sb);",
-        "explanation": "This example uses method chaining. After the call to append(), sb contains "aaa". That result is passed to the first insert() call, which inserts at index 1. At this point sb contains abbbaa. That result is passed to the final insert(), which inserts at index 4, resulting in abbaccca.",
+        "explanation": "This example uses method chaining. After the call to append(), sb contains \"aaa\". That result is passed to the first insert() call, which inserts at index 1. At this point sb contains abbbaa. That result is passed to the final insert(), which inserts at index 4, resulting in abbaccca.",
         "isFavorite": false,
         "answers": [
           {
@@ -2101,7 +2101,7 @@
         "chapterId": 2,
         "type": 1,
         "statement": "What is the result of the following code? \n3: String s = \"purr\";\n4: s.toUpperCase();\n5: s.trim();\n6: s.substring(1, 3);\n7: s += \" two\"; \n8: System.out.println(s.length());",
-        "explanation": "This question is trying to see if you know that String objects are immutable. Line 4 returns "PURR" but the result is ignored and not stored in s. Line 5 returns "purr" since there is no whitespace present but the result is again ignored. Line 6 returns "ur" because it starts with index 1 and ends before index 3 using zero-based indexes. The result is ignored again. Finally, on line 6 something happens. We concatenate four new characters to s and now have a String of length 8.",
+        "explanation": "This question is trying to see if you know that String objects are immutable. Line 4 returns \"PURR\" but the result is ignored and not stored in s. Line 5 returns \"purr\" since there is no whitespace present but the result is again ignored. Line 6 returns \"ur\" because it starts with index 1 and ends before index 3 using zero-based indexes. The result is ignored again. Finally, on line 6 something happens. We concatenate four new characters to s and now have a String of length 8.",
         "isFavorite": false,
         "answers": [
           {
@@ -2141,7 +2141,7 @@
         "chapterId": 2,
         "type": 2,
         "statement": "What is the result of the following code? (Choose all that apply)\n13: String a = \"\"; \n14: a += 2;\n15: a += 'c';\n16: a += false;\n17: if ( a == \"2cfalse\") System.out.println(\"==\");\n18: if ( a.equals(\"2cfalse\")) System.out.println(\"equals\");",
-        "explanation": "a += 2 expands to a = a + 2. A String concatenated with any other type gives a String. Lines 14, 15, and 16 all append to a, giving a result of "2cfalse". The if statement on line 18 returns false because the values of the two String objects are the same using object equality. The if statement on line 17 returns false because the two String objects are not the same in memory. One comes directly from the string pool and the other comes from building using String operations.",
+        "explanation": "a += 2 expands to a = a + 2. A String concatenated with any other type gives a String. Lines 14, 15, and 16 all append to a, giving a result of \"2cfalse\". The if statement on line 18 returns false because the values of the two String objects are the same using object equality. The if statement on line 17 returns false because the two String objects are not the same in memory. One comes directly from the string pool and the other comes from building using String operations.",
         "isFavorite": false,
         "answers": [
           {
@@ -2266,7 +2266,7 @@
         "chapterId": 2,
         "type": 1,
         "statement": "What is the result of the following code?\nStringBuilder b = \"rumble\";\nb.append(4).deleteCharAt(3).delete(3, b.length() - 1);\nSystem.out.println(b);",
-        "explanation": "This is a trick question. The first line does not compile because you cannot assign a String to a StringBuilder. If that line were StringBuilder b = new StringBuilder("rumble"), the code would compile and print rum4. Watch out for this sort of trick on the exam. You could easily spend a minute working out the character positions for no reason at all.",
+        "explanation": "This is a trick question. The first line does not compile because you cannot assign a String to a StringBuilder. If that line were StringBuilder b = new StringBuilder(\"rumble\"), the code would compile and print rum4. Watch out for this sort of trick on the exam. You could easily spend a minute working out the character positions for no reason at all.",
         "isFavorite": false,
         "answers": [
           {
@@ -2306,7 +2306,7 @@
         "chapterId": 2,
         "type": 2,
         "statement": "Which of the following can replace line 4 to print \"avaJ\"? (Choose all that apply)\n3: StringBuilder puzzle = new StringBuilder(\"Java\");\n4: // INSERT CODE HERE\n5: System.out.println(puzzle);",
-        "explanation": "The reverse() method is the easiest way of reversing the characters in a String- Builder; therefore, option A is correct. Option B is a nice distraction—it does in fact return "avaJ". However, substring() returns a String, which is not stored anywhere. Option C uses method chaining. First it creates the value "JavavaJ$". Then it removes the first three characters, resulting in "avaJ$". Finally, it removes the last character, resulting in "avaJ". Option D throws an exception because you cannot delete the char- acter after the last index. Remember that deleteCharAt() uses indexes that are zero based and length() counts starting with 1.",
+        "explanation": "The reverse() method is the easiest way of reversing the characters in a String- Builder; therefore, option A is correct. Option B is a nice distraction—it does in fact return \"avaJ\". However, substring() returns a String, which is not stored anywhere. Option C uses method chaining. First it creates the value \"JavavaJ$\". Then it removes the first three characters, resulting in \"avaJ$\". Finally, it removes the last character, resulting in \"avaJ\". Option D throws an exception because you cannot delete the char- acter after the last index. Remember that deleteCharAt() uses indexes that are zero based and length() counts starting with 1.",
         "isFavorite": false,
         "answers": [
           {
