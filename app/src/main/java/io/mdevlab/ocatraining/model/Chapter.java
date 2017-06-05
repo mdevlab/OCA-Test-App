@@ -15,7 +15,6 @@ public class Chapter extends RealmObject {
     private int id;
     private String color;
     private String name;
-    private String summary;
     private RealmList<Question> questions;
 
     public int getId() {
@@ -42,14 +41,6 @@ public class Chapter extends RealmObject {
         this.name = name;
     }
 
-    public String getSummary() {
-        return summary;
-    }
-
-    public void setSummary(String summary) {
-        this.summary = summary;
-    }
-
     public RealmList<Question> getQuestions() {
         return questions;
     }
@@ -63,7 +54,6 @@ public class Chapter extends RealmObject {
         return "Chapter{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", summary='" + summary + '\'' +
                 ", questions=" + questions.size() +
                 '}';
     }

@@ -1,7 +1,11 @@
 package io.mdevlab.ocatraining.util;
 
+import android.content.Context;
 import android.util.Log;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Calendar;
 import java.util.Set;
 
@@ -82,5 +86,28 @@ public class Helper {
         calendar.set(Calendar.MINUTE, FIRST_NOTIFICATION_MINUTE);
         calendar.set(Calendar.SECOND, FIRST_NOTIFICATION_SECOND);
         return calendar.getTimeInMillis() - System.currentTimeMillis();
+    }
+
+
+    public static String fromAssetsFileToString(Context context, String filename) {
+
+        try {
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(context.getAssets().open(filename)));
+            StringBuilder builder = new StringBuilder();
+            String line = reader.readLine();
+
+            while (line != null) {
+                builder.append(line);
+                line = reader.readLine();
+            }
+
+            reader.close();
+            return builder.toString();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

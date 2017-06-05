@@ -3,7 +3,6 @@ package io.mdevlab.ocatraining.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import org.sufficientlysecure.htmltextview.HtmlTextView;
@@ -24,7 +23,6 @@ public class ActivityChapter extends ActivityBase {
     final String TAG = ActivityChapter.class.getSimpleName();
 
     Chapter currentChapter;
-    Toolbar toolbar;
     HtmlTextView chapterSummary;
     FloatingActionButton chapterStartTest;
 
@@ -51,7 +49,9 @@ public class ActivityChapter extends ActivityBase {
 
     private void setUpChapterSummary() {
         chapterSummary = (HtmlTextView) findViewById(R.id.chapter_summary);
-        chapterSummary.setHtml(currentChapter.getSummary());
+
+        String summary = ChapterManager.getSummaryByChapterId(ActivityChapter.this, currentChapter.getId());
+        chapterSummary.setHtml(summary == null ? "" : summary);
     }
 
 

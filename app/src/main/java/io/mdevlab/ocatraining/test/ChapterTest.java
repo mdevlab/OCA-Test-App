@@ -41,7 +41,6 @@ public class ChapterTest {
         Chapter randomChapter = new Chapter();
         randomChapter.setId(ChapterManager.getNextIndex());
         randomChapter.setName("Chapter " + index);
-        randomChapter.setSummary("Summary " + index);
         randomChapter.setQuestions(QuestionTest.createRandomQuestions(index));
         return randomChapter;
     }

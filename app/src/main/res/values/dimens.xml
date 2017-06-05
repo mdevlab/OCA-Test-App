@@ -58,8 +58,7 @@
     <dimen name="text_size_huge">48sp</dimen>
 
     <!--Chapter-->
-    <dimen name="chapter_side_padding">16dp</dimen>
-    <dimen name="chapter_up_down_padding">8dp</dimen>
+    <dimen name="chapter_padding">16dp</dimen>
 
     <!--No internet layout-->
     <dimen name="no_internet_text_size">24sp</dimen>

@@ -1,8 +1,11 @@
 package io.mdevlab.ocatraining.modelManager;
 
+import android.content.Context;
+
 import io.mdevlab.ocatraining.model.Chapter;
 import io.mdevlab.ocatraining.model.Question;
 import io.mdevlab.ocatraining.model.TestQuestion;
+import io.mdevlab.ocatraining.util.Helper;
 import io.realm.Realm;
 import io.realm.RealmList;
 import io.realm.RealmResults;
@@ -12,6 +15,11 @@ import io.realm.RealmResults;
  */
 
 public class ChapterManager {
+
+
+    private static final String CHAPTER_SUMMARY_FILE_PREFIX = "chapter";
+    private static final String CHAPTER_SUMMARY_FILE_EXTENSION = ".html";
+
 
     /**
      * @param chapter: Chapter object we want to create
@@ -87,5 +95,10 @@ public class ChapterManager {
         }
 
         return null;
+    }
+
+
+    public static String getSummaryByChapterId(Context context, int chapterId) {
+        return Helper.fromAssetsFileToString(context, CHAPTER_SUMMARY_FILE_PREFIX + chapterId + CHAPTER_SUMMARY_FILE_EXTENSION);
     }
 }

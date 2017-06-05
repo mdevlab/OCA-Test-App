@@ -1,0 +1,50 @@
+<p class="p1">&nbsp;</p>
+<CENTER>
+    <h1 class="p1"><strong>Chapter 4 Summary</strong></h1>
+</CENTER>
+<CENTER>
+    <h1 class="p1">
+        <h2><strong>Methods and Encapsulation&nbsp;</strong></h2>
+</CENTER>
+<p>As you learned in this chapter, Java methods start with an access modifier of
+    <strong>public</strong>, <strong>private</strong>, <strong>protected</strong> or blank (default
+    access). This is followed by an optional specifier such as static, final, or abstract. Next,
+    comes the return type, which is void or a Java type.<br/>The method name follows, using standard
+    Java identifier rules. Zero or more parameters go in parentheses as the parameter list. Next
+    come any optional exception types. Finally, zero or more statements go in braces to make up the
+    method body.<br/>Using the <strong>private</strong> keyword means the code is only available
+    from within the same class.Default <strong>(package private)</strong> access means the code is
+    only available from within the same package. Using the protected keyword means the code is
+    available from the same package or subclasses. Using the <strong>public</strong> keyword means
+    the code is available from anywhere. <strong>Static methods and static variables</strong> are
+    shared by the <strong>class</strong>. When referenced from outside the class, they are called
+    using the classname&mdash;for example, <strong>StaticClass.method()</strong>. Instance members
+    are allowed to call static members, but static members are not allowed to call instance members.
+    Static imports are used to import static members. Java uses pass-by-value, which means that
+    calls to methods create a copy of the parameters. Assigning new values to those parameters in
+    the method doesn&rsquo;t affect the caller&rsquo;s variables.<br/>Calling methods on objects
+    that are method parameters changes the state of those objects and is reflected in the caller.
+    <br/>Overloaded methods are methods with the same name but a different parameter list.<br/>Java
+    calls the most specific method it can find. Exact matches are preferred, followed by wider
+    primitives. After that comes autoboxing and finally <strong>varargs</strong>.<br/>Constructors
+    are used to instantiate new objects. The default no-argument constructor is called when no
+    constructor is coded. Multiple constructors are allowed and can call each other by writing
+    <strong>this()</strong>. If<strong> this()</strong> is present, it must be the first statement
+    in the constructor.<br/>Constructors can refer to instance variables by writing this before a
+    variable name to indicate they want the instance variable and not the method parameter with that
+    name. The order of initialization is the superclass (which we will cover in Chapter 5); <strong>static
+        variables and static&nbsp;</strong>initializers in the order they appear; instance variables
+    and instance initializers in the order they appear, and finally the constructor.<br/>Encapsulation
+    refers to preventing callers from changing the instance variables directly. This is done by
+    making instance variables private and getters/setters public. Immutability refers to preventing
+    callers from changing the instance variables at all. This uses several techniques, including
+    removing setters. JavaBeans use methods beginning with is and get for boolean and non-boolean
+    property types, respectively. Methods beginning with set are used for setters. <br/><strong>Lambda</strong>
+    expressions, or lambdas, allow passing around blocks of code. The full syntax looks like
+    <strong>(String a, String b) -&gt; { return a.equals(b); }</strong>. The parameter types can be
+    omitted. When only one parameter is specified without a type, the parentheses can also be
+    omitted. The braces and return statement can be omitted for a single statement, making the short
+    form <strong>(a -&gt; a.equals(b)</strong>. Lambdas are passed to a method expecting an
+    interface<br/>with one method. The predicate is a common interface. It has one method named test
+    that returns a boolean and takes any type. The <strong>removeIf()</strong> method on ArrayList
+    takes a <strong>Predicate</strong>.</p>

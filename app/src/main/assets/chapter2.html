@@ -1,0 +1,51 @@
+<p class="p1">&nbsp;</p>
+<CENTER>
+    <h1 class="p1"><strong>Chapter 3 Summary</strong></h1>
+</CENTER>
+<CENTER>
+    <h1 class="p1">
+        <h2><strong>Core Java APIs&nbsp;</strong></h2>
+</CENTER>
+<p>In this chapter, you learned that Strings are immutable sequences of characters. The new operator
+    is optional. The concatenation <strong>operator (+)</strong> creates a new String with the
+    content of the first String followed by the content of the second String. If either operand
+    involved in the + expression is a String, concatenation is used; otherwise, addition is used.
+    <br/>String literals are stored in the string pool. The String class has many methods. You need
+    to know <strong>charAt()</strong>, <strong>concat()</strong>, <strong>endsWith()</strong>,
+    <strong>equals()</strong>, <strong>equalsIgnoreCase()</strong>,<strong> indexOf()</strong>,
+    <strong>length()</strong>, <strong>replace()</strong>, <strong>startsWith()</strong>, <strong>substring()</strong>,
+    <strong>toLowerCase()</strong>, <strong>toUpperCase()</strong>, and <strong>trim()</strong>.</p>
+<p>StringBuilders are mutable sequences of characters. Most of the methods return a reference to the
+    current object to allow method chaining. The StringBuilder class has many methods. You need to
+    know <strong>append()</strong>, <strong>charAt()</strong>, <strong>delete()</strong>, <strong>deleteCharAt()</strong>,<strong>
+        indexOf()</strong>, <strong>insert()</strong>, <strong>length()</strong>,
+    <strong>reverse()</strong>, <strong>substring()</strong>, and <strong>toString()</strong>.
+    StringBuffer is the same as StringBuilder except that it is thread safe.</p>
+<p>Calling<strong> ==</strong> on String objects will check whether they point to the same object in
+    the pool. Calling <strong>==</strong> on StringBuilder references will check whether they are
+    pointing to the same StringBuilder object. Calling<strong> equals()</strong> on String objects
+    will check whether the sequence of characters is the same. Calling<strong> equals()</strong> on
+    StringBuilder objects will check whether they are pointing to the same object rather than
+    looking at the values inside.<br/>An array is a <strong>fixed-size</strong> area of memory on
+    the heap that has space for primitives or pointers to objects. You specify the size when
+    creating <strong>it&mdash;for example, int[] a = new int[6]</strong>;. Indexes begin with 0 and
+    elements are referred to using a[0]. The <strong>Arrays.sort()</strong> method sorts an array.
+    <strong>Arrays.binarySearch()</strong> searches a sorted array and returns the index of a match.
+    If no match is found, it negates the position where the element would need to be inserted and
+    subtracts 1. Methods that are passed <strong>varargs (&hellip;)</strong> can be used as if a
+    normal array was passed in. In a multidimensional array, the second-level arrays and beyond can
+    be different sizes.</p>
+<p>An ArrayList can change size over its life. It can be stored in an ArrayList or List reference.
+    Generics can specify the type that goes in the ArrayList. You need to know the methods <strong>add()</strong>,
+    <strong>clear()</strong>, <strong>contains()</strong>, <strong>equals()</strong>, <strong>isEmpty()</strong>,
+    <strong>remove()</strong>,<strong> set()</strong>, and <strong>size()</strong>. <br/>Although an
+    ArrayList is not allowed to contain primitives, Java will <strong>autobox</strong> parameters
+    passed into the proper wrapper type. <strong>Collections.sort()</strong> sorts an <strong>ArrayList</strong>.<br/>A
+    LocalDate contains just a date, a LocalTime contains just a time, and a LocalDateTime contains
+    both a date and time. All three have private constructors and are created using <strong>LocalDate.now()</strong>
+    or <strong>LocalDate.of()</strong> (or the equivalents for that class). Dates and times can be
+    manipulated using <strong>plusXXX</strong> or <strong>minusXXX</strong> methods. The Period
+    class represents a number of days, months, or years to add or subtract from a
+    <strong>LocalDate</strong> or <strong>LocalDateTime</strong>.<br/>DateTimeFormatter is used to
+    output dates and times in the desired format. The date and time classes are all immutable, which
+    means the return value must be used.</p>
