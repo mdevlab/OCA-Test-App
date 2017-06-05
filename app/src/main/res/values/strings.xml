@@ -283,6 +283,11 @@ instance variable in the object created on line 5.</string>
 
     <!--Favorite questions-->
     <string name="back_to_favorite_questions">Back to favorite questions</string>
+    <string name="no_favorites_text_intro">You don\'t currently have any favorite questions.\n\nIn order to save a question, simply check the <u>Star</u> icon seen in the photo below.</string>
+    <string name="no_favorites_text_middle">Now, the star icon should look like below, this means the question has <u>successfully</u> been <u>saved</u>!</string>
+    <string name="no_favorites_text_end">Once you\'ll have saved questions, they will all be displayed on this screen.</string>
+    <string name="no_favorites_before">No favorite questions - Unchecked star</string>
+    <string name="no_favorites_after">No favorite questions - Checked star</string>
 
     <!--DFP-->
     <string name="admob_app_id">ca-app-pub-8144264451183231~5521881502</string>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/no_favorites"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/NoFavoritesText"
+        android:layout_marginBottom="@dimen/spacing_double"
+        android:text="@string/no_favorites_text_intro" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:contentDescription="@string/no_favorites_before"
+        android:src="@drawable/no_favorites_before" />
+
+    <TextView
+        style="@style/NoFavoritesText"
+        android:layout_marginBottom="@dimen/spacing_double"
+        android:layout_marginTop="@dimen/spacing_double"
+        android:text="@string/no_favorites_text_middle" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:contentDescription="@string/no_favorites_after"
+        android:src="@drawable/no_favorites_after" />
+
+    <TextView
+        style="@style/NoFavoritesText"
+        android:layout_marginTop="@dimen/spacing_double"
+        android:text="@string/no_favorites_text_end" />
+
+</LinearLayout>
