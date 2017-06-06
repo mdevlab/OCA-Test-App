@@ -95,8 +95,10 @@ public class MainActivity extends ActivityBase implements NavigationView.OnNavig
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         if (BuildConfig.IS_FREE_FLAVOR) {
-            MenuItem upgradeItem = navigationView.getMenu().findItem(R.id.nav_upgrade);
-            upgradeItem.setVisible(true);
+            navigationView.getMenu().findItem(R.id.nav_upgrade).setVisible(true);
+        } else {
+            navigationView.getMenu().findItem(R.id.nav_test_dashboard).setVisible(true);
+
         }
 
     }
@@ -217,6 +219,13 @@ public class MainActivity extends ActivityBase implements NavigationView.OnNavig
                 trackEvents(getResources().getString(R.string.event_view_favorite_questions), null);
 
                 intent = new Intent(MainActivity.this, FavoriteQuestionsActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_test_dashboard:
+                //Firebase Analytics Tracking
+                trackEvents(getResources().getString(R.string.event_view_favorite_questions), null);
+
+                intent = new Intent(MainActivity.this, DashboardActivity.class);
                 startActivity(intent);
                 break;
             case R.id.nav_certification_info:

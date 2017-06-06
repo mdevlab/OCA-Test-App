@@ -38,6 +38,11 @@
     <color name="incorrect_color_label">#8b2f2f</color>
     <color name="incorrect_color_score">#f22141</color>
 
+
+    <!--dashboard -->
+    <color name="dashboard_final_test_color">#913020</color>
+    <color name="light_gray">#cccccc</color>
+    145 48 32
     <!--Icons gray color-->
     <color name="material_gray">#757575</color>
 

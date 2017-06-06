@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import io.mdevlab.ocatraining.BuildConfig;
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.adapter.TestQuestionAdapter;
 import io.mdevlab.ocatraining.analytics.AnalyticsManager;
@@ -31,7 +32,6 @@ import static io.mdevlab.ocatraining.model.Test.CHAPTER_TEST_MODE;
 import static io.mdevlab.ocatraining.model.Test.CUSTOM_TEST_MODE;
 import static io.mdevlab.ocatraining.model.Test.FINAL_TEST_MODE;
 import static io.mdevlab.ocatraining.model.Test.TEST_CHAPTER;
-import static io.mdevlab.ocatraining.model.Test.TEST_LIMIT_QUESTIONS;
 import static io.mdevlab.ocatraining.model.Test.TEST_MODE;
 import static io.mdevlab.ocatraining.model.Test.TEST_NO_SPECIFIC_CHAPATER;
 
@@ -151,6 +151,11 @@ public class TestActivity extends ActivityBase implements ViewPager.OnPageChange
         updateCurrentTest();
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        runTestTimer();
+    }
 
     /**
      * This function is for updating the current test before saving it into the db or
@@ -208,7 +213,7 @@ public class TestActivity extends ActivityBase implements ViewPager.OnPageChange
     private void prepareNewTest() {
         switch (testMode) {
             case FINAL_TEST_MODE:
-                mListQuestions = TestQuestionManager.getTestQuestions(TEST_LIMIT_QUESTIONS);
+                mListQuestions = TestQuestionManager.getTestQuestions(BuildConfig.FINAL_TEST_QUESTIONS_LIMIT);
                 mTest = new Test(mListQuestions.size(), FINAL_TEST_MODE, mListQuestions, TEST_NO_SPECIFIC_CHAPATER);
                 TestManager.cleanUnfinishedTest(FINAL_TEST_MODE, TEST_NO_SPECIFIC_CHAPATER);
                 break;

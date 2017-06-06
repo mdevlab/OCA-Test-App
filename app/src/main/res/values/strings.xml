@@ -14,6 +14,8 @@
     <string name="title_activity_settings">Settings</string>
     <string name="title_activity_about">About this app</string>
     <string name="title_activity_chapter">Chapter</string>
+    <string name="title_activity_dashboard">Choose your Dashboard</string>
+    <string name="title_activity_final_test_chart">Final Test Dashboard</string>
     <string name="title_activity_random_test">Random test</string>
 
     <!--Main Screen-->
@@ -74,6 +76,7 @@ instance variable in the object created on line 5.</string>
     <string name="drawer_certification_info">OCA certification</string>
     <string name="drawer_settings">Settings</string>
     <string name="drawer_favorite_questions">Favorite questions</string>
+    <string name="drawer_test_dashboard">Tests Dashboard</string>
     <string name="drawer_other">Other</string>
     <string name="drawer_share">Share</string>
     <string name="drawer_about">About the app</string>
@@ -90,46 +93,12 @@ instance variable in the object created on line 5.</string>
     <string name="notifications_frequency_title">Notifications frequency</string>
     <string name="notifications_frequency_summary">Set how often you want to receive notifications</string>
     <string name="notifications_frequency_default_value">Set how often you want to receive notifications</string>
-    <string-array name="notifications_frequency_entries">
-        <item>Once a day</item>
-        <item>Once every 2 days</item>
-        <item>Once every 3 days</item>
-        <item>Once every 4 days</item>
-        <item>Once every 5 days</item>
-        <item>Once every 6 days</item>
-        <item>Once a week</item>
-    </string-array>
-    <string-array name="notifications_frequency_entry_values">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-    </string-array>
+
 
     <string name="notifications_chapters_key">notifications_chapters_key</string>
     <string name="notifications_chapters_title">Notifications chapters</string>
     <string name="notifications_chapters_summary">Set chapters for which you\'ll receive notifications</string>
-    <string-array name="notifications_chapters_entries">
-        <item>All chapters</item>
-        <item>Chapter 1</item>
-        <item>Chapter 2</item>
-        <item>Chapter 3</item>
-        <item>Chapter 4</item>
-        <item>Chapter 5</item>
-        <item>Chapter 6</item>
-    </string-array>
-    <string-array name="notifications_chapters_entry_values">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-    </string-array>
+
     <string name="notification_build_error">Method sendNotification in NotificationBuilder class: Error while building a notification</string>
 
     <!--About screen-->
@@ -287,5 +256,14 @@ instance variable in the object created on line 5.</string>
     <!--DFP-->
     <string name="admob_app_id">ca-app-pub-8144264451183231~5521881502</string>
     <string name="banner_ad_unit_id">ca-app-pub-8144264451183231/6998614700</string>
+    <string name="dashboard_average_score">Your Average Score</string>
+    <string name="dashboard_score_percent">Your Average Score percent</string>
+    <string name="dashboard_average_duration">Your Average duration</string>
     <!--<string name="banner_ad_unit_id">/6499/example/banner</string>-->
+
+
+    <!--Tests Analytics And Dashboard -->
+    <string name="notify_take_more_tests">To assess more your knowledge, feel free to take more Tests</string>
+
+
 </resources>

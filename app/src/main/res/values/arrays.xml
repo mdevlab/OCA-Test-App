@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!--Settings-->
+
+    <!--Notification frequency-->
+    <string-array name="notifications_frequency_entries">
+        <item>Once a day</item>
+        <item>Once every 2 days</item>
+        <item>Once every 3 days</item>
+        <item>Once every 4 days</item>
+        <item>Once every 5 days</item>
+        <item>Once every 6 days</item>
+        <item>Once a week</item>
+    </string-array>
+    <string-array name="notifications_frequency_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+
+    <!--Notification chapter-->
+    <string-array name="notifications_chapters_entries">
+        <item>All chapters</item>
+        <item>Chapter 1</item>
+        <item>Chapter 2</item>
+        <item>Chapter 3</item>
+        <item>Chapter 4</item>
+        <item>Chapter 5</item>
+        <item>Chapter 6</item>
+    </string-array>
+    <string-array name="notifications_chapters_entry_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
+
+    <!--Dashboard and Analytics -->
+    <string-array name="tests_numbers_array">
+        <item>Previous 5 Tests</item>
+        <item>Previous 10 Tests</item>
+        <item>Previous 15 Tests</item>
+        <item>Previous 20 Tests</item>
+        <item>All Tests</item>
+    </string-array>
+
+</resources>

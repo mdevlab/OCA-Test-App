@@ -92,6 +92,7 @@ public class TestManager {
                     @Override
                     public void execute(Realm realm) {
                         test.setTestFinished(true);
+                        test.setFinishTime(System.currentTimeMillis());
 
                     }
                 });

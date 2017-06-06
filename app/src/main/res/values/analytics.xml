@@ -10,6 +10,7 @@
     <string name="event_click_take_chapter_test">click_take_chapter_test</string>
     <string name="event_view_upgrade">view_upgrade</string>
     <string name="event_view_favorite_questions">view_favorite_questions</string>
+    <string name="event_view_test_dashboard">view_test_dashboard</string>
     <string name="event_view_certification_info">view_certification_info</string>
     <string name="event_click_share">click_share</string>
     <string name="event_view_about">view_about</string>
