@@ -25,7 +25,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:entries="@array/tests_numbers_array"
-                android:padding="@dimen/spacing_normal" />
+                android:padding="@dimen/spacing_normal"
+                android:visibility="gone"/>
 
             <lecho.lib.hellocharts.view.ColumnChartView
                 android:id="@+id/tests_chart"
@@ -107,9 +108,9 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:padding="@dimen/spacing_micro"
-                    android:text="0 h : 00 min"
+                    android:text="0 hours : 00 minutes"
                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/text_size_big_title" />
+                    android:textSize="@dimen/text_size_normal" />
 
                 <TextView
                     android:layout_width="match_parent"

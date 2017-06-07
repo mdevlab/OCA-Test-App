@@ -20,37 +20,51 @@ import lecho.lib.hellocharts.model.SubcolumnValue;
 import lecho.lib.hellocharts.util.ChartUtils;
 import lecho.lib.hellocharts.view.ColumnChartView;
 
+import static io.mdevlab.ocatraining.model.Test.TEST_CHAPTER;
 import static io.mdevlab.ocatraining.model.Test.TEST_MODE;
+import static io.mdevlab.ocatraining.util.LocalTimeUtil.getDate;
 
 
 public class TestChartActivity extends ActivityBase {
 
-    private String mCurrentTestmode;
+    private int mCurrentTestMode;
+    private int mCurrentTestChapter;
     private List<Test> mCurrentTestList;
     private ColumnChartView mTestChartView;
     private ColumnChartData data;
-    private TextView mAverageScoreTextview;
-    private TextView mAverageScorePercentTextview;
-    private TextView mAverageTimeTextview;
+    private TextView mAverageScoreTextView;
+    private TextView mAverageScorePercentTextView;
+    private TextView mAverageTimeTextView;
+    public static final String CHAPTER_DASHBOARD = "chapter_dashboard";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_chart);
         setUpToolbar(getString(R.string.title_activity_final_test_chart));
-        mAverageScoreTextview = (TextView) findViewById(R.id.average_score_text_view);
-        mAverageScorePercentTextview = (TextView) findViewById(R.id.average_score_percent_text_view);
-        mAverageTimeTextview = (TextView) findViewById(R.id.average_time_text_view);
+        mAverageScoreTextView = (TextView) findViewById(R.id.average_score_text_view);
+        mAverageScorePercentTextView = (TextView) findViewById(R.id.average_score_percent_text_view);
+        mAverageTimeTextView = (TextView) findViewById(R.id.average_time_text_view);
         mTestChartView = (ColumnChartView) findViewById(R.id.tests_chart);
+
+
         setUpChartSettings();
+        getIntentData();
+        getTestListAndSetupTheView();
 
 
+    }
+
+    private void getIntentData() {
         if (getIntent().getExtras().containsKey(TEST_MODE))
-            mCurrentTestmode = getIntent().getStringExtra(TEST_MODE);
+            mCurrentTestMode = getIntent().getIntExtra(TEST_MODE, 1);
 
-        getTestListAndSetupTheView(5);
-
-
+        if (mCurrentTestMode == Test.CHAPTER_TEST_MODE) {
+            if (getIntent().getExtras().containsKey(TEST_CHAPTER)) {
+                mCurrentTestChapter = getIntent().getIntExtra(TEST_CHAPTER, 0);
+                mToolbar.setTitle(getIntent().getStringExtra(CHAPTER_DASHBOARD));
+            }
+        }
     }
 
     private void setUpChartSettings() {
@@ -61,18 +75,19 @@ public class TestChartActivity extends ActivityBase {
 
     private void updateAveragesData() {
         int currentAverageScore = getAverageScore();
-        int currentPercentAverageScore = ((currentAverageScore) * 100) / BuildConfig.FINAL_TEST_QUESTIONS_LIMIT;
+        int questionLimit = (mCurrentTestMode == Test.FINAL_TEST_MODE) ? BuildConfig.FINAL_TEST_QUESTIONS_LIMIT : BuildConfig.CUSTOM_TEST_QUESTIONS_LIMIT;
+        int currentPercentAverageScore = ((currentAverageScore) * 100) / questionLimit;
         long currentAverageDuration = getAverageDuration();
-        mAverageScoreTextview.setText(currentAverageScore + "");
-        mAverageScorePercentTextview.setText(currentPercentAverageScore + "");
-        mAverageTimeTextview.setText(String.valueOf(currentAverageDuration));
+        mAverageScoreTextView.setText(currentAverageScore + " / " + questionLimit);
+        mAverageScorePercentTextView.setText(currentPercentAverageScore + "%");
+        if (currentAverageDuration > 0)
+            mAverageTimeTextView.setText(Test.getDurationHoursMinuteToDisplay(TestChartActivity.this, currentAverageDuration));
 
     }
 
     private void updateChartData() {
         int numColumns = mCurrentTestList.size();
 
-        // Column can have many subcolumns, here by default I use 1 subcolumn in each of 8 columns.
         List<Column> columns = new ArrayList<>();
         List<SubcolumnValue> values;
         for (int i = 0; i < numColumns; ++i) {
@@ -104,11 +119,28 @@ public class TestChartActivity extends ActivityBase {
         data.setAxisYLeft(axisY);
     }
 
-
-    public void getTestListAndSetupTheView(int limit) {
-        mCurrentTestList = TestManager.getAllTests();
+    public void getTestListAndSetupTheView() {
+        feedTestList();
         updateChartData();
         updateAveragesData();
+
+    }
+
+    public void feedTestList() {
+        switch (mCurrentTestMode) {
+            case Test.FINAL_TEST_MODE:
+            case Test.CUSTOM_TEST_MODE:
+                mCurrentTestList = TestManager.getAllFinishedFinalTests(mCurrentTestMode);
+                break;
+            case Test.CHAPTER_TEST_MODE:
+                mCurrentTestList = TestManager.getAllFinishedCustomTestsByChapter(mCurrentTestChapter);
+                break;
+        }
+
+        if (mCurrentTestList.size() <= 1) {
+            Toast.makeText(this, "To get Beautiful Dashboards take more tests ", Toast.LENGTH_LONG).show();
+        }
+
 
     }
 
@@ -139,11 +171,14 @@ public class TestChartActivity extends ActivityBase {
         return averageDuration;
     }
 
+
     private class ValueTouchListener implements ColumnChartOnValueSelectListener {
 
         @Override
         public void onValueSelected(int columnIndex, int subcolumnIndex, SubcolumnValue value) {
-            Toast.makeText(TestChartActivity.this, "Selected: " + value, Toast.LENGTH_SHORT).show();
+
+
+            Toast.makeText(TestChartActivity.this, "Test finished the : " + getDate(mCurrentTestList.get(columnIndex).getFinishTime(), "dd/MM/yyyy hh:mm:ss"), Toast.LENGTH_SHORT).show();
         }
 
         @Override

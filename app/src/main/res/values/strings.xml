@@ -156,8 +156,8 @@ instance variable in the object created on line 5.</string>
     <string name="false_answers_label">False answers</string>
 
     <plurals name="minutes">
-        <item quantity="zero"> minute </item>
-        <item quantity="one"> minute </item>
+        <item quantity="zero">%d minute </item>
+        <item quantity="one">%d minute </item>
         <item quantity="other">%d  minutes</item>
     </plurals>
 
@@ -264,6 +264,9 @@ instance variable in the object created on line 5.</string>
 
     <!--Tests Analytics And Dashboard -->
     <string name="notify_take_more_tests">To assess more your knowledge, feel free to take more Tests</string>
+    <string name="final_test_analytics">Final Test Results Dashboard</string>
+    <string name="custom_test_analytics">Short Tests Results Dashboard</string>
+    <string name="core_java">Core Java</string>
 
 
 </resources>

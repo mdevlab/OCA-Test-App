@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import io.mdevlab.ocatraining.model.Test;
 import io.realm.Realm;
 import io.realm.RealmResults;
+import io.realm.Sort;
 
 import static io.realm.Realm.getDefaultInstance;
 
@@ -42,6 +43,31 @@ public class TestManager {
     }
 
     /**
+     * @return List of all tests
+     */
+    public static RealmResults<Test> getAllFinishedFinalTests(int typeMode) {
+        return getDefaultInstance()
+                .where(Test.class)
+                .equalTo("type", typeMode)
+                .equalTo("isTestFinished", true)
+                .findAllSorted("finishTime", Sort.ASCENDING);
+
+    }
+
+    /**
+     * @return List of all tests
+     */
+    public static RealmResults<Test> getAllFinishedCustomTestsByChapter(int testChapterId) {
+        return getDefaultInstance()
+                .where(Test.class)
+                .equalTo("type", Test.CHAPTER_TEST_MODE)
+                .equalTo("isTestFinished", true)
+                .equalTo("testChapterId", testChapterId)
+                .findAllSorted("finishTime", Sort.ASCENDING);
+
+    }
+
+    /**
      * @return Highest index in the test table + 1
      */
     public static int getNextIndex() {
@@ -68,19 +94,19 @@ public class TestManager {
     }
 
     /**
-     *Get the last non finished saved test
+     * Get the last non finished saved test
      *
-     * @param type FINAL_TEST_MODE or CUSTOM_TEST_MODE or CHAPTER_TEST_MODE
+     * @param type          FINAL_TEST_MODE or CUSTOM_TEST_MODE or CHAPTER_TEST_MODE
      * @param testChapterId 0 no specific chapter /n = 1 ...k  for a given chapter
      * @return
      */
     @Nullable
-    public static Test getLastSavedTest(int type,int testChapterId) {
+    public static Test getLastSavedTest(int type, int testChapterId) {
         return getDefaultInstance()
                 .where(Test.class)
                 .equalTo("type", type)
                 .equalTo("isTestFinished", false)
-                .equalTo("testChapterId",testChapterId)
+                .equalTo("testChapterId", testChapterId)
                 .findFirst();
 
     }
@@ -103,7 +129,7 @@ public class TestManager {
      *
      * @param finalTestMode
      */
-    public static void cleanUnfinishedTest(final int finalTestMode,final int testChapterId) {
+    public static void cleanUnfinishedTest(final int finalTestMode, final int testChapterId) {
 
         getDefaultInstance()
                 .executeTransaction(new Realm.Transaction() {

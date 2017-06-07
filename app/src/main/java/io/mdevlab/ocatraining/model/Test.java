@@ -237,10 +237,17 @@ public class Test extends RealmObject implements Parcelable {
      * depending on the value of hours (when it's 0, it isn't displayed)
      */
     public String getDurationToDisplay(Context context) {
+
+        return getDurationHoursMinuteToDisplay(context, duration);
+
+
+    }
+
+    public static String getDurationHoursMinuteToDisplay(Context context, long duration) {
         int hours = (int) ((duration / (1000 * 60 * 60)) % 24);
         int minutes = (int) (int) ((duration / (1000 * 60)) % 60);
         if (hours == 0)
-            return  context.getResources().getQuantityString(R.plurals.minutes, minutes, minutes);
+            return context.getResources().getQuantityString(R.plurals.minutes, minutes, minutes);
 
         StringBuilder stringBuilder = new StringBuilder();
         //Append Hours
