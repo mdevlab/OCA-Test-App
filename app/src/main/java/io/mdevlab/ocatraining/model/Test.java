@@ -28,7 +28,7 @@ public class Test extends RealmObject implements Parcelable {
     public static final int CUSTOM_TEST_MODE = 2;
     public static final int CHAPTER_TEST_MODE = 3;
     public static final int RANDOM_TEST_MODE = 3;
-    public static final int TEST_LIMIT_QUESTIONS = 70;
+    public static final int FINAL_TEST_LIMIT_QUESTIONS = 70;
     public static final int TEST_NO_SPECIFIC_CHAPATER = 0;
 
 
@@ -51,11 +51,14 @@ public class Test extends RealmObject implements Parcelable {
 
     private Boolean isTestFinished;
 
+
     /**
      * Either final test or customized test
      * Both are constants and are defined in the Constants class
      */
     private int type;
+
+    private long finishTime;
 
     // List of questions in the test
     private RealmList<TestQuestion> questions;
@@ -182,13 +185,16 @@ public class Test extends RealmObject implements Parcelable {
     public String toString() {
         return "Test{" +
                 "id=" + id +
+                ", testChapterId=" + testChapterId +
                 ", duration=" + duration +
-                ", progress=" + numberOfCompletedQuestions + "/" + totalNumberOfQuestions +
+                ", numberOfCompletedQuestions=" + numberOfCompletedQuestions +
+                ", totalNumberOfQuestions=" + totalNumberOfQuestions +
+                ", isTestFinished=" + isTestFinished +
                 ", type=" + type +
-                ", questions=" + questions.size() +
+                ", finishTime=" + finishTime +
+                ", questions=" + questions +
                 '}';
     }
-
 
     public int getNumberOfCorrectAnswers() {
         int numberOfCorrectAnswers = 0;
@@ -231,10 +237,17 @@ public class Test extends RealmObject implements Parcelable {
      * depending on the value of hours (when it's 0, it isn't displayed)
      */
     public String getDurationToDisplay(Context context) {
+
+        return getDurationHoursMinuteToDisplay(context, duration);
+
+
+    }
+
+    public static String getDurationHoursMinuteToDisplay(Context context, long duration) {
         int hours = (int) ((duration / (1000 * 60 * 60)) % 24);
         int minutes = (int) (int) ((duration / (1000 * 60)) % 60);
         if (hours == 0)
-            return  context.getResources().getQuantityString(R.plurals.minutes, minutes, minutes);
+            return context.getResources().getQuantityString(R.plurals.minutes, minutes, minutes);
 
         StringBuilder stringBuilder = new StringBuilder();
         //Append Hours
@@ -270,5 +283,13 @@ public class Test extends RealmObject implements Parcelable {
             pQuestions[i] = questions.get(i);
         }
         dest.writeParcelableArray(pQuestions, flags);
+    }
+
+    public long getFinishTime() {
+        return finishTime;
+    }
+
+    public void setFinishTime(long finishTime) {
+        this.finishTime = finishTime;
     }
 }

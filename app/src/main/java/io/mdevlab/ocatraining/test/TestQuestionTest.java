@@ -3,6 +3,7 @@ package io.mdevlab.ocatraining.test;
 import android.content.Context;
 import android.util.Log;
 
+import io.mdevlab.ocatraining.BuildConfig;
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.model.TestQuestion;
 import io.mdevlab.ocatraining.modelManager.QuestionManager;
@@ -11,7 +12,6 @@ import io.realm.RealmList;
 
 import static io.mdevlab.ocatraining.model.Question.MULTIPLE_ANSWER_QUESTION;
 import static io.mdevlab.ocatraining.model.Question.SINGLE_ANSWER_QUESTION;
-import static io.mdevlab.ocatraining.model.Test.TEST_LIMIT_QUESTIONS;
 import static io.mdevlab.ocatraining.test.TestAnswerTest.createRandomSingleAnswerTestAnswers;
 import static io.mdevlab.ocatraining.test.TestAnswerTest.createRandomTestAnswers;
 
@@ -28,13 +28,13 @@ public class TestQuestionTest {
     }
 
     public static void readTestQuestions() {
-        RealmList<TestQuestion> testQuestions = TestQuestionManager.getTestQuestions(TEST_LIMIT_QUESTIONS);
+        RealmList<TestQuestion> testQuestions = TestQuestionManager.getTestQuestions(BuildConfig.FINAL_TEST_QUESTIONS_LIMIT);
 
         for (TestQuestion testQuestion : testQuestions)
             Log.e(TAG, testQuestion.toString());
     }
 
-    public static TestQuestion createRandomTestQuestion(int index,Context context) {
+    public static TestQuestion createRandomTestQuestion(int index, Context context) {
         TestQuestion randomQuestion = new TestQuestion();
         randomQuestion.setId(QuestionManager.getNextIndex());
         randomQuestion.setType(MULTIPLE_ANSWER_QUESTION);
@@ -47,7 +47,7 @@ public class TestQuestionTest {
         return randomQuestion;
     }
 
-    public static TestQuestion createRandomSingleAnswerTestQuestion(int index,Context context) {
+    public static TestQuestion createRandomSingleAnswerTestQuestion(int index, Context context) {
         TestQuestion randomQuestion = new TestQuestion();
         randomQuestion.setId(QuestionManager.getNextIndex());
         randomQuestion.setType(SINGLE_ANSWER_QUESTION);

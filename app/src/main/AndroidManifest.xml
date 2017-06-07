@@ -69,6 +69,11 @@
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="bd217b68092180e3a8e1e91d85216c91a406ad22" />
+
+        <activity
+            android:name=".activity.DashboardActivity"
+            android:label="@string/title_activity_chapter" />
+        <activity android:name=".activity.TestChartActivity"></activity>
     </application>
 
 </manifest>

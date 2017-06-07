@@ -12,6 +12,11 @@
             android:icon="@drawable/ic_save_no"
             android:title="@string/drawer_favorite_questions" />
         <item
+            android:id="@+id/nav_test_dashboard"
+            android:icon="@drawable/ic_test_dashboard"
+            android:title="@string/drawer_test_dashboard"
+            android:visible="false"/>
+        <item
             android:id="@+id/nav_certification_info"
             android:icon="@drawable/ic_certification_info"
             android:title="@string/drawer_certification_info" />
