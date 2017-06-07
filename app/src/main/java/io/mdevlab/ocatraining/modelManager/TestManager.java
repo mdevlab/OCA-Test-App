@@ -1,6 +1,8 @@
 package io.mdevlab.ocatraining.modelManager;
 
+import android.content.Context;
 import android.support.annotation.Nullable;
+import android.widget.Toast;
 
 import io.mdevlab.ocatraining.model.Test;
 import io.realm.Realm;
@@ -43,7 +45,7 @@ public class TestManager {
     }
 
     /**
-     * @return List of all tests
+     * @return List of all finished tests by  typeMode
      */
     public static RealmResults<Test> getAllFinishedFinalTests(int typeMode) {
         return getDefaultInstance()
@@ -55,7 +57,7 @@ public class TestManager {
     }
 
     /**
-     * @return List of all tests
+     * @return List of all finished tests by chapter
      */
     public static RealmResults<Test> getAllFinishedCustomTestsByChapter(int testChapterId) {
         return getDefaultInstance()
@@ -137,6 +139,22 @@ public class TestManager {
                     public void execute(Realm realm) {
                         RealmResults<Test> result = realm.where(Test.class).equalTo("type", finalTestMode).equalTo("testChapterId", testChapterId).equalTo("isTestFinished", false).findAll();
                         result.deleteAllFromRealm();
+                    }
+                });
+    }
+
+    /**
+     * This function clean all finished Test
+     */
+    public static void cleanAllFinishedTest(final Context context) {
+
+        getDefaultInstance()
+                .executeTransaction(new Realm.Transaction() {
+                    @Override
+                    public void execute(Realm realm) {
+                        RealmResults<Test> result = realm.where(Test.class).equalTo("isTestFinished", true).findAll();
+                        result.deleteAllFromRealm();
+                        Toast.makeText(context, "Congratulation!! your page is Blank, let's start new Set of Tests", Toast.LENGTH_LONG).show();
                     }
                 });
     }

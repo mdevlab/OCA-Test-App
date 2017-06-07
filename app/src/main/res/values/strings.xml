@@ -265,8 +265,13 @@ instance variable in the object created on line 5.</string>
     <!--Tests Analytics And Dashboard -->
     <string name="notify_take_more_tests">To assess more your knowledge, feel free to take more Tests</string>
     <string name="final_test_analytics">Final Test Results Dashboard</string>
-    <string name="custom_test_analytics">Short Tests Results Dashboard</string>
+    <string name="custom_test_analytics">Short Tests Dashboard \n(5 Questions) </string>
     <string name="core_java">Core Java</string>
+    <string name="clear_history_settings">Clear Tests</string>
+    <string name="clear_test_positive">Clear</string>
+    <string name="cancel_clear_test_negative">Cancel</string>
+    <string name="clear_test_message_dialog">Are you sure you want to clear you tests History and start a new beginning </string>
+    <string name="clear_test_title_dialog">Clear the History</string>
 
 
 </resources>
