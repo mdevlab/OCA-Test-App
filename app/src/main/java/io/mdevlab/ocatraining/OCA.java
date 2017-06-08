@@ -8,9 +8,10 @@ import com.google.android.gms.ads.MobileAds;
 
 import io.fabric.sdk.android.Fabric;
 import io.mdevlab.ocatraining.analytics.AnalyticsManager;
+import io.mdevlab.ocatraining.model.Chapter;
 import io.mdevlab.ocatraining.notification.NotificationsJobCreator;
 import io.mdevlab.ocatraining.notification.NotificationsManager;
-import io.mdevlab.ocatraining.test.Test;
+import io.mdevlab.ocatraining.util.Mapper;
 import io.mdevlab.ocatraining.util.UtilSharedPreferences;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -75,6 +76,6 @@ public class OCA extends Application {
 
 
     private void populateDatabase() {
-        Test.populateDataBase(getApplicationContext());
+        Mapper.instance().fromJsonToRealm(getApplicationContext(), "chapters.json", Chapter.class);
     }
 }

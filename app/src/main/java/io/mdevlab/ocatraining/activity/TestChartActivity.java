@@ -27,33 +27,44 @@ import static io.mdevlab.ocatraining.util.LocalTimeUtil.getDate;
 
 public class TestChartActivity extends ActivityBase {
 
+    public static final String CHAPTER_DASHBOARD = "chapter_dashboard";
+
     private int mCurrentTestMode;
     private int mCurrentTestChapter;
+
     private List<Test> mCurrentTestList;
+
     private ColumnChartView mTestChartView;
     private ColumnChartData data;
+
     private TextView mAverageScoreTextView;
     private TextView mAverageScorePercentTextView;
     private TextView mAverageTimeTextView;
-    public static final String CHAPTER_DASHBOARD = "chapter_dashboard";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_chart);
         setUpToolbar(getString(R.string.title_activity_final_test_chart));
+
         mAverageScoreTextView = (TextView) findViewById(R.id.average_score_text_view);
         mAverageScorePercentTextView = (TextView) findViewById(R.id.average_score_percent_text_view);
         mAverageTimeTextView = (TextView) findViewById(R.id.average_time_text_view);
         mTestChartView = (ColumnChartView) findViewById(R.id.tests_chart);
 
-
         setUpChartSettings();
         getIntentData();
         getTestListAndSetupTheView();
-
-
     }
+
+
+    private void setUpChartSettings() {
+        mTestChartView.setValueSelectionEnabled(false);
+        mTestChartView.setZoomType(ZoomType.HORIZONTAL);
+        mTestChartView.setOnValueTouchListener(new ValueTouchListener());
+    }
+
 
     private void getIntentData() {
         if (getIntent().getExtras().containsKey(TEST_MODE))
@@ -67,23 +78,20 @@ public class TestChartActivity extends ActivityBase {
         }
     }
 
-    private void setUpChartSettings() {
-        mTestChartView.setValueSelectionEnabled(false);
-        mTestChartView.setZoomType(ZoomType.HORIZONTAL);
-        mTestChartView.setOnValueTouchListener(new ValueTouchListener());
-    }
 
     private void updateAveragesData() {
         int currentAverageScore = getAverageScore();
         int questionLimit = (mCurrentTestMode == Test.FINAL_TEST_MODE) ? BuildConfig.FINAL_TEST_QUESTIONS_LIMIT : BuildConfig.CUSTOM_TEST_QUESTIONS_LIMIT;
         int currentPercentAverageScore = ((currentAverageScore) * 100) / questionLimit;
         long currentAverageDuration = getAverageDuration();
+
         mAverageScoreTextView.setText(currentAverageScore + " / " + questionLimit);
-        mAverageScorePercentTextView.setText(currentPercentAverageScore + "%");
+        mAverageScorePercentTextView.setText(getString(R.string.average_score_percentage, currentPercentAverageScore));
+
         if (currentAverageDuration > 0)
             mAverageTimeTextView.setText(Test.getDurationHoursMinuteToDisplay(TestChartActivity.this, currentAverageDuration));
-
     }
+
 
     private void updateChartData() {
         int numColumns = mCurrentTestList.size();
@@ -107,24 +115,25 @@ public class TestChartActivity extends ActivityBase {
 
         mTestChartView.setColumnChartData(data);
         mTestChartView.startDataAnimation();
-
     }
+
 
     private void setUpAxis() {
         Axis axisX = new Axis();
         Axis axisY = new Axis().setHasLines(true);
-        axisX.setName("Tests");
-        axisY.setName("Score");
+        axisX.setName(getString(R.string.axis_tests));
+        axisY.setName(getString(R.string.axis_score));
         data.setAxisXBottom(axisX);
         data.setAxisYLeft(axisY);
     }
+
 
     public void getTestListAndSetupTheView() {
         feedTestList();
         updateChartData();
         updateAveragesData();
-
     }
+
 
     public void feedTestList() {
         switch (mCurrentTestMode) {
@@ -138,11 +147,10 @@ public class TestChartActivity extends ActivityBase {
         }
 
         if (mCurrentTestList.size() <= 1) {
-            Toast.makeText(this, "To get Beautiful Dashboards take more tests ", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, getString(R.string.feed_test_list_toast_message), Toast.LENGTH_LONG).show();
         }
-
-
     }
+
 
     public int getAverageScore() {
 
@@ -156,6 +164,7 @@ public class TestChartActivity extends ActivityBase {
         }
         return averageScore;
     }
+
 
     public long getAverageDuration() {
 
@@ -176,17 +185,14 @@ public class TestChartActivity extends ActivityBase {
 
         @Override
         public void onValueSelected(int columnIndex, int subcolumnIndex, SubcolumnValue value) {
-
-
-            Toast.makeText(TestChartActivity.this, "Test finished the : " + getDate(mCurrentTestList.get(columnIndex).getFinishTime(), "dd/MM/yyyy hh:mm:ss"), Toast.LENGTH_SHORT).show();
+            Toast.makeText(TestChartActivity.this,
+                    getString(R.string.test_finished_time) + getDate(mCurrentTestList.get(columnIndex).getFinishTime(), getString(R.string.test_finished_time_format)),
+                    Toast.LENGTH_SHORT)
+                    .show();
         }
 
         @Override
         public void onValueDeselected() {
-
-
         }
-
     }
-
 }

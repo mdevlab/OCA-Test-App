@@ -39,8 +39,7 @@
                 android:id="@+id/answer_explanation"
                 style="@style/QuestionResponseTextView"
                 android:textColor="@android:color/white"
-                android:textStyle="bold"
-                tools:text="@string/dummy_explanation" />
+                android:textStyle="bold" />
 
         </android.support.v7.widget.CardView>
 
@@ -56,8 +55,7 @@
 
             <TextView
                 android:id="@+id/question_statement"
-                style="@style/QuestionResponseTextView"
-                tools:text="@string/dummy_question" />
+                style="@style/QuestionResponseTextView" />
 
         </android.support.v7.widget.CardView>
 

@@ -18,23 +18,27 @@
     <!--next previous dimens-->
     <dimen name="height_button">52dp</dimen>
 
+
     <!--Icons Height Width-->
     <dimen name="icons_width_height">36dp</dimen>
+
 
     <!--Text Sizes -->
     <dimen name="text_size_big_title">32sp</dimen>
 
+
     <!--Results screen-->
     <dimen name="results_horizontal_margin_bottom">6dp</dimen>
-    <dimen name="score_duration_space">20dp</dimen>
     <dimen name="bookmark_icon_dimensions">16dp</dimen>
     <dimen name="question_item_dimension">36dp</dimen>
     <dimen name="piechart_dimention">150dp</dimen>
     <dimen name="piechart_margin">8dp</dimen>
 
+
     <!--Favorite question item-->
     <dimen name="chapter_circle_dimension">50dp</dimen>
     <dimen name="chapter_circle_margin_right">16dp</dimen>
+
 
     <!--About screen-->
     <dimen name="about_screen_side_margin">16dp</dimen>
@@ -44,10 +48,12 @@
     <dimen name="about_screen_bottom_margin">16dp</dimen>
     <dimen name="about_sections_space">50dp</dimen>
 
+
     <!--Contact Screen-->
     <dimen name="form_margin">20dp</dimen>
     <dimen name="button_height">32dp</dimen>
     <dimen name="upper_margin">30dp</dimen>
+
 
     <!--Text Size -->
     <dimen name="text_size_nano">8sp</dimen>
@@ -57,12 +63,10 @@
     <dimen name="text_size_double">32sp</dimen>
     <dimen name="text_size_huge">48sp</dimen>
 
+
     <!--Chapter-->
     <dimen name="chapter_padding">16dp</dimen>
 
-    <!--No internet layout-->
-    <dimen name="no_internet_text_size">24sp</dimen>
-    <dimen name="no_internet_margin_text_icon">24dp</dimen>
 
     <!--Upgrade dialog-->
     <dimen name="upgrade_dialog_padding">16dp</dimen>

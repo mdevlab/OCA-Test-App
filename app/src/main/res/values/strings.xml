@@ -6,7 +6,6 @@
     <string name="title_result">Your Test Score</string>
     <string name="title_test">Test</string>
     <string name="title_random_question">Random Questions</string>
-    <string name="title_activity_all_chapters">All chapters</string>
     <string name="title_activity_favorite_questions">Favorite questions</string>
     <string name="title_activity_favorite_questions_view">Question</string>
     <string name="title_activity_certification_info">OCA certification</string>
@@ -18,6 +17,7 @@
     <string name="title_activity_final_test_chart">Final Test Dashboard</string>
     <string name="title_activity_random_test">Random test</string>
 
+
     <!--Main Screen-->
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -27,7 +27,6 @@
     <string name="application_play_store_url">https://play.google.com/store/apps/details?id=io.mdevlab.ocatraining</string>
 
     <string name="action_settings">Settings</string>
-    <string name="chapter_transition_name">chapterTransition</string>
 
 
     <!--All chapters screen-->
@@ -43,33 +42,6 @@
     <string name="custom_test_subtitle">Each day one</string>
     <string name="custom_test_body">5 Questions/answers sets exams</string>
 
-    <string name="start_test_description">Start test</string>
-    <string name="start_test">></string>
-
-    <!--Test question screen-->
-    <string name="dummy_explanation">A. Line 4 instantiates an Order. Java runs the declarations and instance initializers first
-in the order they appear. This sets value to tacf. Line 5 creates another Order and
-initializes value to tacb. The object on line 5 is stored in the same variable line 4 used.
-This makes the object created on line 4 unreachable. When value is printed, it is the
-instance variable in the object created on line 5.</string>
-
-    <string name="dummy_question">What is the output of the following program? \n \n
-1: public class FeedingSchedule { \n
-2: public static void main(String[] args) { \n
-3: boolean keepGoing = true; \n
-4: int count = 0; \n
-5: int x = 3; \n
-6: while(count++ &lt; 3) { \n
-7: int y = (1 + 2 * count) % 3; \n
-8: switch(y) { \n
-9: default: \n
-10: case 0: x -= 1; break; \n
-11: case 1: x += 5; \n
-12: } \n
-13: } \n
-14: System.out.println(x); \n
-15: } }</string>
-
 
     <!--Drawer menu-->
     <string name="drawer_upgrade">Upgrade</string>
@@ -80,6 +52,7 @@ instance variable in the object created on line 5.</string>
     <string name="drawer_other">Other</string>
     <string name="drawer_share">Share</string>
     <string name="drawer_about">About the app</string>
+
 
     <!--Settings-->
     <string name="notifications_category_key">notifications_category_key</string>
@@ -101,6 +74,7 @@ instance variable in the object created on line 5.</string>
 
     <string name="notification_build_error">Method sendNotification in NotificationBuilder class: Error while building a notification</string>
 
+
     <!--About screen-->
     <string name="about_app_end">\u00a9 2017 mDevLab . All rights reserved</string>
     <string name="send_email">Send email</string>
@@ -109,6 +83,7 @@ instance variable in the object created on line 5.</string>
     <string name="about_play_store">Play store</string>
     <string name="about_email">Email us</string>
     <string name="about_github">Our Github</string>
+
 
     <!--Contact-->
     <string name="send_button">Send</string>
@@ -140,6 +115,7 @@ instance variable in the object created on line 5.</string>
     <string name="resume_test">Resume</string>
     <string name="stop_test">Stop</string>
 
+
     <!--Results screen-->
     <string name="test_summary_title">Summary</string>
     <string name="test_score">Your score: %1$s</string>
@@ -150,7 +126,6 @@ instance variable in the object created on line 5.</string>
     <string name="bookmarked_question">Bookmarked question</string>
     <string name="result_exit_message">Are you sure you want to leave your results</string>
     <string name="result_exit_title">Quit the Results</string>
-    <string name="piechart_title">Score</string>
     <string name="results_list_title">Results</string>
     <string name="correct_answers_label">Correct answers</string>
     <string name="false_answers_label">False answers</string>
@@ -167,9 +142,9 @@ instance variable in the object created on line 5.</string>
         <item quantity="other">%d  hours</item>
     </plurals>
 
+
     <!--Certification info screen-->
     <string name="subscribe_to_certification">Schedule a test !</string>
-    <string name="certification_info_url">http://www.google.com</string>
     <string name="certification_subscription_url">http://www.pearsonvue.com/oracle/schedule/</string>
 
     <string name="info_facts_title">Quick facts</string>
@@ -225,11 +200,6 @@ instance variable in the object created on line 5.</string>
     <string name="result_enter_title">See Results</string>
 
 
-    <!--Layout no internet-->
-    <string name="no_internet_message">No internet connection available !\nPlease connect and retry</string>
-    <string name="retry">Retry</string>
-
-
     <!--Upgrade-->
     <string name="upgrade_dialog_positive_button">Upgrade</string>
     <string name="upgrade_dialog_negative_button">Cancel</string>
@@ -250,6 +220,7 @@ instance variable in the object created on line 5.</string>
     <string name="new_or_resume_message">Do you want to resume the last Test or start new one</string>
     <string name="new_or_resume_title">Resume or Start a new Test</string>
 
+
     <!--Favorite questions-->
     <string name="back_to_favorite_questions">Back to favorite questions</string>
     <string name="no_favorites_text_intro">You don\'t currently have any favorite questions.\n\nIn order to save a question, simply check the <u>Star</u> icon seen in the photo below.</string>
@@ -258,17 +229,16 @@ instance variable in the object created on line 5.</string>
     <string name="no_favorites_before">No favorite questions - Unchecked star</string>
     <string name="no_favorites_after">No favorite questions - Checked star</string>
 
+
     <!--DFP-->
     <string name="admob_app_id">ca-app-pub-8144264451183231~5521881502</string>
     <string name="banner_ad_unit_id">ca-app-pub-8144264451183231/6998614700</string>
     <string name="dashboard_average_score">Your Average Score</string>
     <string name="dashboard_score_percent">Your Average Score percent</string>
     <string name="dashboard_average_duration">Your Average duration</string>
-    <!--<string name="banner_ad_unit_id">/6499/example/banner</string>-->
 
 
     <!--Tests Analytics And Dashboard -->
-    <string name="notify_take_more_tests">To assess more your knowledge, feel free to take more Tests</string>
     <string name="final_test_analytics">Final Test Results Dashboard</string>
     <string name="custom_test_analytics">Short Tests Dashboard \n(5 Questions) </string>
     <string name="core_java">Core Java</string>
@@ -278,5 +248,13 @@ instance variable in the object created on line 5.</string>
     <string name="clear_test_message_dialog">Are you sure you want to clear you tests History and start a new beginning </string>
     <string name="clear_test_title_dialog">Clear the History</string>
 
+
+    <!--Test Chart Screen-->
+    <string name="axis_tests">Tests</string>
+    <string name="axis_score">Score</string>
+    <string name="feed_test_list_toast_message">To get beautiful Dashboards, take more tests</string>
+    <string name="test_finished_time">Test finished the: </string>
+    <string name="test_finished_time_format">dd/MM/yyyy hh:mm:ss</string>
+    <string name="average_score_percentage">%1$d&#37;</string>
 
 </resources>
