@@ -65,11 +65,8 @@ public class DashboardActivity extends ActivityBase {
 
                 }
                 startActivity(intent);
-
             }
         });
-
-
     }
 
     private void addChaptersTags() {
@@ -126,7 +123,6 @@ public class DashboardActivity extends ActivityBase {
     /**
      * this dialog issued when the user want to stop the exam
      *
-     * @param isResult
      * @param positiveButton
      * @param negativeButton
      * @param message

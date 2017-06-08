@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -16,7 +15,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <Spinner
@@ -26,12 +25,12 @@
                 android:layout_height="wrap_content"
                 android:entries="@array/tests_numbers_array"
                 android:padding="@dimen/spacing_normal"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
             <lecho.lib.hellocharts.view.ColumnChartView
                 android:id="@+id/tests_chart"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="@dimen/test_chart_height"
                 android:background="@android:color/white"
                 android:padding="@dimen/spacing_normal" />
 
@@ -39,6 +38,7 @@
                 android:id="@+id/average_score_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:baselineAligned="false"
                 android:orientation="horizontal">
 
                 <LinearLayout

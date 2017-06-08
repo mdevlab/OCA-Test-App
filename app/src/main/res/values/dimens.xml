@@ -83,4 +83,13 @@
     <dimen name="chapter_height">250dp</dimen>
     <dimen name="all_chapters_height">200dp</dimen>
     <dimen name="chapter_title_size">24sp</dimen>
+
+
+    <!--Dashboard screen-->
+    <dimen name="final_test_icon">80dp</dimen>
+
+
+    <!--Test Charts screen-->
+    <dimen name="test_chart_height">300dp</dimen>
+
 </resources>
