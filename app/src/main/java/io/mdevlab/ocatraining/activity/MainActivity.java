@@ -223,7 +223,7 @@ public class MainActivity extends ActivityBase implements NavigationView.OnNavig
                 break;
             case R.id.nav_test_dashboard:
                 //Firebase Analytics Tracking
-                trackEvents(getResources().getString(R.string.event_view_favorite_questions), null);
+                AnalyticsManager.getInstance().logEvent(getString(R.string.event_view_dashboard), null);
 
                 intent = new Intent(MainActivity.this, DashboardActivity.class);
                 startActivity(intent);

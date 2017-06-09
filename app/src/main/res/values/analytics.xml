@@ -18,6 +18,8 @@
     <string name="event_view_schedule_test">view_schedule_test</string>
     <string name="event_click_take_a_test">click_take_a_test</string>
     <string name="event_view_result">view_result</string>
+    <string name="event_view_dashboard">view_dashboard</string>
+    <string name="event_view_chart">view_chart</string>
 
 
     <!--Event properties names -->
