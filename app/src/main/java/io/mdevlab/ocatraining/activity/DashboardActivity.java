@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.view.Menu;
@@ -90,7 +91,7 @@ public class DashboardActivity extends ActivityBase {
     private void addCoreChapterTag() {
         Tag tag = new Tag(getString(R.string.core_java));
         tag.tagTextColor = Color.WHITE;
-        tag.layoutColor = getColor(R.color.item_color_all_chapter);
+        tag.layoutColor = ContextCompat.getColor(this, R.color.item_color_all_chapter);
         tag.tagTextSize = 17f;
         chapterTagView.addTag(tag);
     }

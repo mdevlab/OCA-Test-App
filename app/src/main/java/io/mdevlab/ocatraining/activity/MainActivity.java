@@ -42,7 +42,7 @@ public class MainActivity extends ActivityBase implements NavigationView.OnNavig
         setContentView(R.layout.activity_main);
 
         setUpToolbar(getString(R.string.app_name));
-        setUpDFP(null);
+        setUpDFP();
         initChapterTestList();
         setUpDrawer();
         setUpNavigationDrawer();

@@ -35,7 +35,7 @@ public class ActivityCertificationInfo extends ActivityBase {
         setContentView(R.layout.activity_certification_info);
 
         setUpToolbar(getString(R.string.title_activity_certification_info));
-        setUpDFP(null);
+        setUpDFP();
         setUpViews();
         setupSubscriptionToCertification();
         formatBenefitsText();

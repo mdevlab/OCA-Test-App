@@ -257,6 +257,6 @@
     <string name="feed_test_list_toast_message">To get beautiful Dashboards, take more tests</string>
     <string name="test_finished_time">Test finished the: </string>
     <string name="test_finished_time_format">dd/MM/yyyy hh:mm:ss</string>
-    <string name="average_score_percentage">%1$d&#37;</string>
+    <string name="average_score_percentage">&#37;</string>
 
 </resources>

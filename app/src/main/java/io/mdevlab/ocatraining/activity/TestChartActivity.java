@@ -86,7 +86,7 @@ public class TestChartActivity extends ActivityBase {
         long currentAverageDuration = getAverageDuration();
 
         mAverageScoreTextView.setText(currentAverageScore + " / " + questionLimit);
-        mAverageScorePercentTextView.setText(getString(R.string.average_score_percentage, currentPercentAverageScore));
+        mAverageScorePercentTextView.setText(currentPercentAverageScore + getString(R.string.average_score_percentage));
 
         if (currentAverageDuration > 0)
             mAverageTimeTextView.setText(Test.getDurationHoursMinuteToDisplay(TestChartActivity.this, currentAverageDuration));

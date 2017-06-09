@@ -72,7 +72,7 @@ public class TestActivity extends ActivityBase implements ViewPager.OnPageChange
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
-        setUpDFP(null);
+        setUpDFP();
         Intent sentIntent = getIntent();
         testMode = sentIntent.getIntExtra(TEST_MODE, 1);
         currentChapter = sentIntent.getIntExtra(TEST_CHAPTER, 0);

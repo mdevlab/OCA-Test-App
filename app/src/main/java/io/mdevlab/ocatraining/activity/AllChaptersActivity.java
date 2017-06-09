@@ -24,7 +24,7 @@ public class AllChaptersActivity extends ActivityBase
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_chapters);
         setUpToolbar(getString(R.string.title_all_chapters));
-        setUpDFP(null);
+        setUpDFP();
         setUpViews();
     }
 

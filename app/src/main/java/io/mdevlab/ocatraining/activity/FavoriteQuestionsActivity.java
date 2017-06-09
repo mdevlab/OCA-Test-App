@@ -5,7 +5,6 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 
 import io.mdevlab.ocatraining.R;
@@ -28,7 +27,7 @@ public class FavoriteQuestionsActivity extends ActivityBase {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorite_questions);
         setUpToolbar(getString(R.string.title_activity_favorite_questions));
-        setUpDFP(null);
+        setUpDFP();
         initializeViews();
     }
 
@@ -36,6 +35,13 @@ public class FavoriteQuestionsActivity extends ActivityBase {
     private void initializeViews() {
         noFavorites = findViewById(R.id.no_favorites);
         questionsRecyclerView = (RecyclerView) findViewById(R.id.favorite_questions);
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setUpViews();
     }
 
 
@@ -79,20 +85,5 @@ public class FavoriteQuestionsActivity extends ActivityBase {
         if (questionsRecyclerView != null) {
             questionsRecyclerView.setVisibility(favoritesIsEmpty ? View.GONE : View.VISIBLE);
         }
-    }
-
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        setUpViews();
-    }
-
-
-    private void updateFavoriteQuestions() {
-        favoriteQuestions = QuestionManager.getFavoriteQuestions();
-        Log.e("Saved questions", "Size is: " + favoriteQuestions.size());
-        questionsAdapter.setQuestions(favoriteQuestions);
-        questionsAdapter.notifyDataSetChanged();
     }
 }

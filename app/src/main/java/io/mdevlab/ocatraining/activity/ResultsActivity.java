@@ -48,7 +48,7 @@ public class ResultsActivity extends ActivityBase {
         setContentView(R.layout.activity_results);
         setUpToolbar(getString(R.string.title_result));
         upgradeButton = (Button) findViewById(R.id.upgrade_btn);
-        setUpDFP(null);
+        setUpDFP();
         setUpTest();
         setUpViews();
         isPaid = BuildConfig.IS_FREE_FLAVOR ? false : true;
