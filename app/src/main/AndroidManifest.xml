@@ -74,6 +74,20 @@
             android:name=".activity.DashboardActivity"
             android:label="@string/title_activity_chapter" />
         <activity android:name=".activity.TestChartActivity"></activity>
+
+        <service
+            android:name=".pushNotification.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".pushNotification.FirebaseIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

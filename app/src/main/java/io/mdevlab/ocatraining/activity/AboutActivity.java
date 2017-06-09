@@ -10,9 +10,6 @@ import io.mdevlab.ocatraining.R;
 
 public class AboutActivity extends ActivityBase implements View.OnClickListener {
 
-    private final String PLAY_STORE_URL = "http://google.com";
-    private final String GITHUB_URL = "https://github.com/mdevlab";
-
     ImageView playStore;
     ImageView github;
     ImageView email;
@@ -43,10 +40,10 @@ public class AboutActivity extends ActivityBase implements View.OnClickListener 
         int viewId = v.getId();
         switch (viewId) {
             case R.id.playstore_account:
-                openUrl(PLAY_STORE_URL);
+                openUrl(getString(R.string.play_store_url));
                 break;
             case R.id.github_account:
-                openUrl(GITHUB_URL);
+                openUrl(getString(R.string.github_url));
                 break;
             case R.id.email_account:
                 startActivity(new Intent(AboutActivity.this, ContactActivity.class));
