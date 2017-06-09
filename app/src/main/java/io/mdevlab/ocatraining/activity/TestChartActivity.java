@@ -9,6 +9,7 @@ import java.util.List;
 
 import io.mdevlab.ocatraining.BuildConfig;
 import io.mdevlab.ocatraining.R;
+import io.mdevlab.ocatraining.analytics.AnalyticsManager;
 import io.mdevlab.ocatraining.model.Test;
 import io.mdevlab.ocatraining.modelManager.TestManager;
 import lecho.lib.hellocharts.gesture.ZoomType;
@@ -47,6 +48,7 @@ public class TestChartActivity extends ActivityBase {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_chart);
         setUpToolbar(getString(R.string.title_activity_final_test_chart));
+        AnalyticsManager.getInstance().logEvent(getString(R.string.event_view_chart), null);
 
         mAverageScoreTextView = (TextView) findViewById(R.id.average_score_text_view);
         mAverageScorePercentTextView = (TextView) findViewById(R.id.average_score_percent_text_view);
