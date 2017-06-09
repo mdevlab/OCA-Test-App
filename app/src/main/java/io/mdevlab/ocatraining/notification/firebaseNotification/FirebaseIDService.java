@@ -1,4 +1,4 @@
-package io.mdevlab.ocatraining.pushNotification;
+package io.mdevlab.ocatraining.notification.firebaseNotification;
 
 import android.util.Log;
 

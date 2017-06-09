@@ -13,6 +13,9 @@ import io.mdevlab.ocatraining.modelManager.QuestionManager;
 public class NotificationsJob extends Job {
 
 
+    private static final String NOTIFICATION_TITLE = "Reviewing time !";
+
+
     @NonNull
     @Override
     protected Result onRunJob(Params params) {
@@ -34,7 +37,7 @@ public class NotificationsJob extends Job {
 
 
     private void showNotification() {
-        new NotificationBuilder().sendNotification(getContext(), notificationQuestion());
+        new NotificationBuilder().sendNotification(getContext(), NOTIFICATION_TITLE, notificationQuestion());
     }
 
 

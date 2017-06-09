@@ -20,17 +20,17 @@ public class NotificationBuilder {
 
     final String TAG = NotificationBuilder.class.getSimpleName();
     private static final int NOTIFICATION_ID = 1;
-    private static final String NOTIFICATION_TITLE = "Reviewing time !";
 
 
     /**
      * @param context
+     * @param notificationTitle
      * @param notificationBody
      */
-    public void sendNotification(@Nullable Context context, String notificationBody) {
+    public void sendNotification(@Nullable Context context, String notificationTitle, String notificationBody) {
         try {
             NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-            manager.notify(NOTIFICATION_ID, builtNotification(context, notificationBody));
+            manager.notify(NOTIFICATION_ID, builtNotification(context, notificationTitle, notificationBody));
         } catch (NullPointerException e) {
             Log.e(TAG, (e.getMessage() != null) ? e.getMessage() : context.getString(R.string.notification_build_error));
         }
@@ -39,16 +39,17 @@ public class NotificationBuilder {
 
     /**
      * @param context
+     * @param notificationTitle
      * @param notificationBody
      * @return Build notification object
      */
-    private Notification builtNotification(Context context, String notificationBody) {
+    private Notification builtNotification(Context context, String notificationTitle, String notificationBody) {
         return new NotificationCompat.Builder(context)
                 .setSmallIcon(R.mipmap.ic_oca_java_prep)
-                .setContentTitle(NOTIFICATION_TITLE)
-                .setContentText(notificationBody)
+                .setContentTitle(notificationTitle)
                 .setContentIntent(intentOpenedByNotification(context))
                 .setAutoCancel(true)
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(notificationBody))
                 .build();
     }
 
