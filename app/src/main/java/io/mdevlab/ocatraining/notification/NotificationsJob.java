@@ -4,7 +4,10 @@ import android.support.annotation.NonNull;
 
 import com.evernote.android.job.Job;
 
+import io.mdevlab.ocatraining.model.Question;
 import io.mdevlab.ocatraining.modelManager.QuestionManager;
+
+import static io.mdevlab.ocatraining.modelManager.QuestionManager.buildQuestionForDisplay;
 
 /**
  * Created by husaynhakeem on 5/5/17.
@@ -36,12 +39,19 @@ public class NotificationsJob extends Job {
     }
 
 
-    private void showNotification() {
-        new NotificationBuilder().sendNotification(getContext(), NOTIFICATION_TITLE, notificationQuestion());
+    public void showNotification() {
+
+        Question question = notificationQuestion();
+
+        if (question != null)
+            new NotificationBuilder().sendNotification(getContext(),
+                    question.getId(),
+                    NOTIFICATION_TITLE,
+                    buildQuestionForDisplay(question));
     }
 
 
-    private String notificationQuestion() {
+    private Question notificationQuestion() {
         return QuestionManager.getRandomQuestionForDisplay();
     }
 

@@ -11,6 +11,7 @@ public class Question extends RealmObject {
 
     public static final String ID_COLUMN = "id";
     public static final String IS_FAVORITE_COLUMN = "isFavorite";
+    public static final int NO_QUESTION_ID = -1;
     public static final int SINGLE_ANSWER_QUESTION = 1;
     public static final int MULTIPLE_ANSWER_QUESTION = 2;
 

@@ -1,6 +1,7 @@
 package io.mdevlab.ocatraining.activity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
@@ -8,8 +9,13 @@ import android.view.View;
 import io.mdevlab.ocatraining.BuildConfig;
 import io.mdevlab.ocatraining.R;
 import io.mdevlab.ocatraining.fragment.QuestionFragment;
+import io.mdevlab.ocatraining.model.Question;
+import io.mdevlab.ocatraining.model.TestQuestion;
+import io.mdevlab.ocatraining.modelManager.QuestionManager;
 import io.mdevlab.ocatraining.modelManager.TestQuestionManager;
 import io.mdevlab.ocatraining.util.UtilActions;
+
+import static io.mdevlab.ocatraining.activity.FavoriteQuestionActivity.CURRENT_QUESTION;
 
 /**
  * Created by husaynhakeem on 5/28/17.
@@ -47,7 +53,22 @@ public class RandomTestActivity extends SingleQuestionTestActivity {
     protected void setUpCurrentQuestion() {
         mQuestionNumber++;
         setQuestionUi();
-        currentQuestion = TestQuestionManager.getRandomQuestion();
+        currentQuestion = getQuestionToDisplay();
+    }
+
+
+    private TestQuestion getQuestionToDisplay() {
+        Intent intent = getIntent();
+
+        if (intent.getExtras() != null && intent.getExtras().containsKey(CURRENT_QUESTION)) {
+            int questionId = intent.getExtras().getInt(CURRENT_QUESTION);
+            Question question = QuestionManager.getQuestionById(questionId);
+            if (question != null) {
+                return new TestQuestion(question);
+            }
+        }
+
+        return TestQuestionManager.getRandomQuestion();
     }
 
 

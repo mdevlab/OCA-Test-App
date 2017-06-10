@@ -52,13 +52,9 @@ public class QuestionManager {
     /**
      * @return Displayable random question
      */
-    public static String getRandomQuestionForDisplay() {
+    public static Question getRandomQuestionForDisplay() {
         Question question = getRandomQuestion();
-
-        if (question == null)
-            return "";
-
-        return buildQuestionForDisplay(question);
+        return question;
     }
 
 
@@ -66,7 +62,7 @@ public class QuestionManager {
      * @param question Question we want to display (used in notifications)
      * @return The question and it's answers in a displayable format
      */
-    private static String buildQuestionForDisplay(Question question) {
+    public static String buildQuestionForDisplay(Question question) {
         StringBuilder builder = new StringBuilder("");
 
         builder.append(question.getStatement());
