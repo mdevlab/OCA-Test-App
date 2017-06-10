@@ -146,8 +146,8 @@ public class TestChartActivity extends ActivityBase {
                 break;
         }
 
-        if (mCurrentTestList.size() <= 1) {
-            Toast.makeText(this, getString(R.string.feed_test_list_toast_message), Toast.LENGTH_LONG).show();
+        if (mCurrentTestList.size() == 0) {
+            Toast.makeText(this, getString(R.string.feed_test_list_toast_message), Toast.LENGTH_SHORT).show();
         }
     }
 
