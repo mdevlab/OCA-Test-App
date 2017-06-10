@@ -115,4 +115,14 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <style name="DashboardText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/spacing_double</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/text_size_big</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

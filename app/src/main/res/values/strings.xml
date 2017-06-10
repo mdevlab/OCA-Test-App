@@ -241,8 +241,8 @@
 
 
     <!--Tests Analytics And Dashboard -->
-    <string name="final_test_analytics">Final Test Results Dashboard</string>
-    <string name="custom_test_analytics">Short Tests Dashboard \n(5 Questions) </string>
+    <string name="final_test_analytics">Final Tests Results Dashboard</string>
+    <string name="custom_test_analytics">Customized Tests Results Dashboard</string>
     <string name="core_java">Core Java</string>
     <string name="clear_history_settings">Clear Tests</string>
     <string name="clear_test_positive">Clear</string>
