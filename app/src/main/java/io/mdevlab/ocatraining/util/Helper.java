@@ -1,13 +1,11 @@
 package io.mdevlab.ocatraining.util;
 
 import android.content.Context;
-import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Calendar;
-import java.util.Set;
 
 /**
  * Created by husaynhakeem on 5/5/17.
@@ -24,36 +22,6 @@ public class Helper {
     private static final int SECOND = 1000;
 
     static final String TAG = Helper.class.getSimpleName();
-
-
-    /**
-     * @param strings Set of string objects
-     * @return The parameter 'strings' as a set of integers
-     */
-    public static int[] stringsToIntegers(Set<String> strings) {
-        if (strings == null)
-            return null;
-        try {
-            int[] integers = new int[strings.size()];
-            int index = 0;
-            for (String s : strings) {
-                integers[index++] = Integer.parseInt(s);
-            }
-            return integers;
-        } catch (NumberFormatException e) {
-            Log.e(TAG, e.getMessage());
-            return null;
-        }
-    }
-
-
-    /**
-     * @param days Number of days to be converted to milliseconds
-     * @return Number of days converted to milliseconds
-     */
-    public static long daysToMs(int days) {
-        return (long) (days * DAY * HOUR * MINUTE * SECOND);
-    }
 
 
     /**
