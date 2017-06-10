@@ -39,7 +39,7 @@ public class NotificationsJob extends Job {
     }
 
 
-    public void showNotification() {
+    private void showNotification() {
 
         Question question = notificationQuestion();
 

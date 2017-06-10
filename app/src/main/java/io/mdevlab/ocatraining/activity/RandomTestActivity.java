@@ -57,6 +57,13 @@ public class RandomTestActivity extends SingleQuestionTestActivity {
     }
 
 
+    /**
+     * This activity can be opened coming from a notification
+     * If coming from a notification, get the question being passed and
+     * display it if not null
+     * Otherwise generate random question
+     * @return
+     */
     private TestQuestion getQuestionToDisplay() {
         Intent intent = getIntent();
 
