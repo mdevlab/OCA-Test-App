@@ -2,8 +2,8 @@ package io.mdevlab.ocatraining.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -40,16 +40,6 @@ public class ChapterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     private final int VIEW_TYPE_CHAPTER = 2;
 
     private final int HEADER_POSITION = 0;
-
-
-    private int[] colors = {
-            R.color.item_color_1,
-            R.color.item_color_2,
-            R.color.item_color_3,
-            R.color.item_color_4,
-            R.color.item_color_5,
-            R.color.item_color_6
-    };
 
 
     public ChapterAdapter(Context mContext, List<Chapter> chapterList) {
@@ -111,7 +101,7 @@ public class ChapterAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
                 chapterViewHolder.chapterId = chapter.getId();
                 chapterViewHolder.mChapterName.setText(chapter.getName());
-                chapterViewHolder.mChapterView.setCardBackgroundColor(ContextCompat.getColor(mContext, colors[position % colors.length]));
+                chapterViewHolder.mChapterView.setCardBackgroundColor(Color.parseColor(chapter.getColor()));
                 break;
 
         }
