@@ -21,14 +21,10 @@ import io.mdevlab.ocatraining.util.UtilActions;
 public class DialogUpgrade extends DialogFragment {
 
 
-    String message;
+    public static final String MESSAGE_KEY = "message-key";
 
 
-    public DialogUpgrade() {}
-
-
-    public DialogUpgrade(String message) {
-        this.message = message;
+    public DialogUpgrade() {
     }
 
 
@@ -41,8 +37,11 @@ public class DialogUpgrade extends DialogFragment {
         View dialogView = inflater.inflate(R.layout.dialog_upgrade, null);
         builder.setView(dialogView);
 
-        if (message != null)
-            ((TextView) dialogView.findViewById(R.id.upgrade_dialog_message)).setText(message);
+        String message = "";
+        if (getArguments() != null && getArguments().containsKey(MESSAGE_KEY))
+            message = getArguments().getString(MESSAGE_KEY);
+
+        ((TextView) dialogView.findViewById(R.id.upgrade_dialog_message)).setText(message);
 
         builder.setPositiveButton(R.string.upgrade_dialog_positive_button, new DialogInterface.OnClickListener() {
             @Override

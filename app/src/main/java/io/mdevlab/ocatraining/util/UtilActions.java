@@ -3,6 +3,7 @@ package io.mdevlab.ocatraining.util;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 
@@ -21,13 +22,20 @@ public class UtilActions {
 
 
     public static void displayUpgradeDialog(AppCompatActivity activity, String message) {
-        DialogFragment upgradeDialog = new DialogUpgrade(message);
+        Bundle extras = new Bundle();
+        extras.putString(DialogUpgrade.MESSAGE_KEY, message);
+
+        DialogFragment upgradeDialog = new DialogUpgrade();
+        upgradeDialog.setArguments(extras);
         upgradeDialog.show(activity.getSupportFragmentManager(), DIALOG_DIALOG_TAG);
     }
 
 
     public static void displayUpgradeDialog(AppCompatActivity activity) {
-        DialogFragment upgradeDialog = new DialogUpgrade(null);
+        Bundle extras = new Bundle();
+        extras.putString(DialogUpgrade.MESSAGE_KEY, "");
+
+        DialogFragment upgradeDialog = new DialogUpgrade();
         upgradeDialog.show(activity.getSupportFragmentManager(), DIALOG_DIALOG_TAG);
     }
 
